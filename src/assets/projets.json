@@ -1,0 +1,17 @@
+[
+    {
+        "titre": "Hallo Infinite",
+        "techno": ["js", "html5", "css3"],
+        "annee": "2022"
+    },
+    {
+        "titre": "Projet React",
+        "techno": ["React", "Redux", "Node.js"],
+        "annee": "2021"
+    },
+    {
+        "titre": "Projet Angular",
+        "techno": ["Angular", "TypeScript", "RxJS"],
+        "annee": "2020"
+    }
+]

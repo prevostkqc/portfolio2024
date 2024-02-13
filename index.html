@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Prevost Kévin - Développeur Front-end</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+   
+    <!-- <script type="text/javascript" src="Assets/Scripts/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
+
+    <script src="/node_modules/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  </head>
+
+  <body class="kp_body">
+    <header class="kp_header">
+    </header>
+    <main class="kp_main">
+        <template>
+            <div>
+              <router-view></router-view>
+            </div>
+          </template>
+
+          <div id="app">
+            <article class="kp_un-projet">
+              <h1>{{ projetActuel.titre }}</h1>
+              <ul class="kp_projet-technos">
+                <li v-for="technologie in projetActuel.techno" :key="technologie" :class="['kp_projet-technos', `kp_projet-technos--${technologie}`]">
+                  {{ technologie }}
+                </li>
+              </ul>
+              <p class="kp_projet-annee">{{ projetActuel.annee }}</p>
+            </article>
+            
+            
+            <!-- Boutons pour changer de projet -->
+            <button class="" v-for="(projet, index) in projets" :key="projet.titre" v-on:click="changerProjet(index)">
+              Afficher {{ projet.titre }}
+            </button>
+          </div>
+     
+
+        <script type="text/javascript" src="/index.js"></script>
+        <script type="text/javascript" src="/router.js"></script>
+</script>
+</body>
+
+
