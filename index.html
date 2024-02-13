@@ -24,26 +24,6 @@
               <router-view></router-view>
             </div>
           </template>
-
-          <div id="app">
-            <article class="kp_un-projet">
-              <h1>{{ projetActuel.titre }}</h1>
-              <ul class="kp_projet-technos">
-                <li v-for="technologie in projetActuel.techno" :key="technologie" :class="['kp_projet-technos', `kp_projet-technos--${technologie}`]">
-                  {{ technologie }}
-                </li>
-              </ul>
-              <p class="kp_projet-annee">{{ projetActuel.annee }}</p>
-            </article>
-            
-            
-            <!-- Boutons pour changer de projet -->
-            <button class="" v-for="(projet, index) in projets" :key="projet.titre" v-on:click="changerProjet(index)">
-              Afficher {{ projet.titre }}
-            </button>
-          </div>
-     
-
         <script type="text/javascript" src="/index.js"></script>
         <script type="text/javascript" src="/router.js"></script>
 </script>

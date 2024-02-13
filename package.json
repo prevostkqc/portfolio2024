@@ -13,11 +13,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "axios": "^1.6.7",
+    "vue": "^3.4.19",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/runtime-dom": "^3.4.19",
     "sass": "^1.70.0",
     "sass-loader": "^14.1.0"
   }

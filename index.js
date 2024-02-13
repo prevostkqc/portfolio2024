@@ -1,17 +1,14 @@
-var app = new Vue({ 
+var app = new Vue({
     el: '#app',
     data: {
-        projets: [],
-        projetActuel: null // Initialiser à null pour une meilleure clarté
-    },
-    created() {
-        this.chargerProjets(); // Charger les projets dès que l'instance est créée
+      projets: [],
+      projetActuel: null,
     },
     methods: {
         async chargerProjets() {
             try {
                 
-                const response = await fetch('src/assets/projets.json');
+                const response = await fetch('./assets/projets.json');
                 const data = await response.json();
                 this.projets = data;
                 this.projetActuel = this.projets[0]; // Initialiser avec le premier projet
@@ -22,5 +19,8 @@ var app = new Vue({
         changerProjet(index) {
             this.projetActuel = this.projets[index];
         }
-    }
-});
+    },
+    created() {
+      this.chargerProjets();
+    },
+  });
