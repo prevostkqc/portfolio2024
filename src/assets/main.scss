@@ -53,19 +53,44 @@ p, div, span{
 }
 .kp_projet-btn{
     padding: 10px 20px;
+    border: none;
+    border-right: solid 1px $main-color_secondary;
+    border-radius: 5px 5px 0 0;
 }
-.kp_iframe--projet{
+.kp_window--projet{
     width: 100%;
-    height: 70vh;
+    height: 100%;
     background-color: white;
 }
-.kp_iframe--container{
+.kp_window--container{
     width: 80%;
     height: 70vh;
-    background: #2e75d8;
+    background: $main-color_secondary;
     padding: 40px 2px 2px 2px;
     border-radius: 8px 8px 2px 2px;
-    border: solid 2px #69a8ff;
+    border: solid 2px $main-color_secondary;
+    border-top: 3px solid $main-color_secondary;
     position: absolute;
     cursor: pointer;
-}
+    box-shadow: inset 0 0 13px $main-color_light;
+    max-width: calc(100% - 8px);
+    max-height: calc(100vh - 46px);
+  }
+  .kp_window--border{
+    border: solid 1px $main-color_border;
+    outline : solid 2px $main-color_dark;
+    border-top:none;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: $main-color_grey;
+  }
+  .kp_iframe--projet{
+    width: 100%;
+    height: 100%;
+  }
+  .kp_internet--onglets{
+    background: #0e46bb;
+    padding-top: 20px;
+    border-top: solid 1px #1570f0;
+  }

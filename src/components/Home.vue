@@ -18,11 +18,18 @@
                 </article>
             
                 <!-- Boutons pour changer de projet -->
-                <button v-for="(projet, index) in projets" :key="projet.titre"  :class="'kp_projet-btn  kp_projet-btn--' + projet.id" @click="changerProjet(index)">
-                    {{ projet.titre }}
-                </button>
-                <div class="kp_iframe--container" id="kp_iframe--container">
-                    <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
+                <div class="kp_window--container" id="kp_iframe--container">
+                    <div class="kp_window--title-zone">
+                        <div></div>
+                    </div>
+                    <div class="kp_window--border">
+                       <div class="kp_internet--onglets">
+                           <button v-for="(projet, index) in projets" :key="projet.titre"  :class="'kp_projet-btn  kp_projet-btn--' + projet.id" @click="changerProjet(index)">
+                               {{ projet.titre }}
+                           </button>
+                       </div> 
+                        <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
+                    </div>
                 </div>
             </div>
         </div>

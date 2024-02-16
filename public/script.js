@@ -1,24 +1,34 @@
-const myDiv = document.getElementById('kp_iframe--container');
+const elementDragable = document.getElementById('kp_iframe--container');
 let isDragging = false;
 let offsetX, offsetY;
 let isExpanded = false;
 let initialState = { width: '', height: '', left: '', top: '' };
 
-if (!isExpanded) {
-  initialState.width = myDiv.offsetWidth + 'px';
-  initialState.height = myDiv.offsetHeight + 'px';
-  initialState.left = myDiv.style.left;
-  initialState.top = myDiv.style.top;
-}
+// Initialiser l'état initial dès le chargement ou la création de elementDragable
+initialState.width = elementDragable.offsetWidth + 'px';
+initialState.height = elementDragable.offsetHeight + 'px';
+initialState.left = elementDragable.style.left;
+initialState.top = elementDragable.style.top;
 
-myDiv.addEventListener('mousedown', function(e) {
+elementDragable.addEventListener('mousedown', function(e) {
   isDragging = true;
-  offsetX = e.clientX - myDiv.getBoundingClientRect().left;
-  offsetY = e.clientY - myDiv.getBoundingClientRect().top;
-  
+  const rect = elementDragable.getBoundingClientRect();
+  offsetX = e.clientX - rect.left;
+  offsetY = e.clientY - rect.top;
+
+  // Si la fenêtre est agrandie, réinitialiser la taille et centrer la fenêtre sous la souris
   if (isExpanded) {
+    elementDragable.style.width = initialState.width;
+    elementDragable.style.height = initialState.height;
+    // Calculer le nouveau `left` pour que le clic de souris soit au centre de la fenêtre
+    const mousePositionX = e.clientX; // Position X de la souris au moment du clic
+    const newLeft = mousePositionX - parseInt(initialState.width) / 2; // Centrer horizontalement
+    elementDragable.style.left = `${newLeft}px`;
+    elementDragable.style.top = initialState.top;
+    isExpanded = false;
   } else {
-    myDiv.style.position = 'absolute';
+    // Ajuster la position absolue pour le mouvement
+    elementDragable.style.position = 'absolute';
   }
 });
 
@@ -26,27 +36,19 @@ document.addEventListener('mousemove', function(e) {
   if (isDragging) {
     let newLeft = e.clientX - offsetX;
     let newTop = e.clientY - offsetY;
-
-    if (!isExpanded || isExpanded) {
-      myDiv.style.left = newLeft + 'px';
-      myDiv.style.top = newTop + 'px';
-    }
+    elementDragable.style.left = newLeft + 'px';
+    elementDragable.style.top = newTop + 'px';
   }
 });
 
 document.addEventListener('mouseup', function() {
-  if (isExpanded) {
-    myDiv.style.width = initialState.width;
-    myDiv.style.height = initialState.height;
-    myDiv.style.left = initialState.left;
-    myDiv.style.top = '0';
-    isExpanded = false;
-  } else if (myDiv.getBoundingClientRect().top <= 0) {
-    myDiv.style.width = '100vw';
-    myDiv.style.height = '100vh';
-    myDiv.style.left = '0';
-    myDiv.style.top = '0';
+  isDragging = false;
+  // Aucun ajustement de taille nécessaire ici, géré par mousedown
+  if (!isExpanded && elementDragable.getBoundingClientRect().top <= 0) {
+    elementDragable.style.width = '100vw';
+    elementDragable.style.height = '100vh';
+    elementDragable.style.left = '0';
+    elementDragable.style.top = '0';
     isExpanded = true;
   }
-  isDragging = false;
 });
