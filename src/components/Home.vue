@@ -2,37 +2,48 @@
     <header class="kp_header">
     </header>
     <main class="kp_main">
-        <div>
-            <div>
-                <article class="kp_un-projet" v-if="projetActuel">
-                    <h1 class="kp_h1">{{ projetActuel.titre }}</h1>
-                    
-                    <p class="kp_p">{{ projetActuel.description }}</p>
-                    <ul class="kp_projet-technos">
-                    <li v-for="technologie in projetActuel.techno" :key="technologie"
-                        :class="['kp_projet-technos', `kp_projet-technos--${technologie.toLowerCase()}`]">
-                        {{ technologie }}
-                    </li>
-                    </ul>
-                    <p class="kp_projet-annee">{{ projetActuel.annee }}</p>
-                </article>
-            
-                <!-- Boutons pour changer de projet -->
-                <div class="kp_window--container" id="kp_iframe--container">
-                    <div class="kp_window--title-zone">
+        <div class="kp_desktop">
+            <div class="kp_animation_full-screen"></div>
+            <!-- Boutons pour changer de projet -->
+            <div class="kp_window--container" id="kp_iframe--container">
+                <div class="kp_window--title-zone">
+                    <div class="kp_window--title-zon--title">
+                        <p class="kp_p">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</p>
+                    </div>
+                    <div>
+                        <div class="kp_full_screen--folder">O</div>
                         <div></div>
                     </div>
-                    <div class="kp_window--border">
-                       <div class="kp_internet--onglets">
-                           <button v-for="(projet, index) in projets" :key="projet.titre"  :class="'kp_projet-btn  kp_projet-btn--' + projet.id" @click="changerProjet(index)">
-                               {{ projet.titre }}
-                           </button>
-                       </div> 
-                        <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
-                    </div>
                 </div>
+                <div class="kp_window--border">
+                    <div class="kp_internet--onglets">
+                        <button v-for="(projet, index) in projets" :key="projet.titre"  :class="'kp_projet-btn  kp_projet-btn--' + projet.id" @click="changerProjet(index)">
+                            {{ projet.titre }}
+                        </button>
+                        <div class="kp_internet--favorites">
+
+                        </div>
+                    </div> 
+                    <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
+                    
+                    <article class="kp_un-projet" v-if="projetActuel">
+                        <h1 class="kp_h1">{{ projetActuel.titre }}</h1>
+                        
+                        <p class="kp_p">{{ projetActuel.description }}</p>
+                        <ul class="kp_projet-technos">
+                            <li v-for="technologie in projetActuel.techno" :key="technologie"
+                                :class="['kp_projet-technos', `kp_projet-technos--${technologie.toLowerCase()}`]">
+                                {{ technologie }}
+                            </li>
+                        </ul>
+                        <p class="kp_projet-annee">{{ projetActuel.annee }}</p>
+                    </article>
+                </div>
+
             </div>
         </div>
+
+        <div class="kp_full_screen">passer en plein écran</div>
     </main>
   </template>
   

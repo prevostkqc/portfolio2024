@@ -50,13 +50,28 @@ p, div, span{
     width: 100%;
     height: 100vh;
     background: $main-bg-color;
+    overflow: hidden;
+    background-image: url('/public/images/windows-xp.jpg');
+    background-size: cover;
 }
 .kp_projet-btn{
     padding: 10px 20px;
     border: none;
     border-right: solid 1px $main-color_secondary;
     border-radius: 5px 5px 0 0;
+    background: $main-color_primary;
+    cursor: pointer;
 }
+.kp_projet-btn:hover{
+      background: $main-color_grey;
+}
+.kp_projet-btn{
+    border-bottom: solid 2px;
+}
+.kp_projet-btn:active{
+    border-bottom: none;
+}
+
 .kp_window--projet{
     width: 100%;
     height: 100%;
@@ -74,7 +89,7 @@ p, div, span{
     cursor: pointer;
     box-shadow: inset 0 0 13px $main-color_light;
     max-width: calc(100% - 8px);
-    max-height: calc(100vh - 46px);
+    max-height: calc(100vh - 200px);
   }
   .kp_window--border{
     border: solid 1px $main-color_border;
@@ -90,7 +105,49 @@ p, div, span{
     height: 100%;
   }
   .kp_internet--onglets{
-    background: #0e46bb;
+    background: $main-color_dark ;
     padding-top: 20px;
-    border-top: solid 1px #1570f0;
+    border-top: solid 1px main-color_blue-border;
+  }
+  .kp_full_screen{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px 20px;
+    background: $main-color_black-tranparent;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .kp_full_screen:hover{
+    background: $main-color_black-tranparent-hover;
+  }
+  .kp_window--title-zone{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 21px;
+    width: calc(100% - 14px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+  }
+  .kp_internet--favorites{
+    height: 20px;
+    background: $main-color_primary;
+  }
+  .kp_animation_full-screen{
+    width: 0%;
+    height: 0%;
+    transition: 0.2s linear;
+    position: absolute;
+    pointer-events: none;
+    left:50%;
+  }
+  .kp_window_isfullscreen{
+    background: $main-color_blue-tranparent-hover;
+    border: solid 2px $main-color_blue-border;
+    width: 100%;
+    height: 100%;
+    left:0;
   }
