@@ -235,7 +235,7 @@
       },
       mounted() {
           const script = document.createElement('script');
-          script.src = '/script.js'; // Utilise le chemin relatif depuis la racine
+          script.src = '/script.js';
           script.onload = () => {
             if (window.animerTexteTerminal) {
             window.animerTexteTerminal();

@@ -225,13 +225,6 @@ document.querySelector(".kp_information-projet").addEventListener("click", ouvri
 
 /* ----------------------------------------------------------------------------------- */
 
-function ouvrirText(){
-  addClass(elementImageText, 'kp_image-text--show');
-}
-document.querySelector(".kp_folder--img-txt").addEventListener("click", ouvrirText);
-
-
-
 function fermerText(){
   document.querySelector(".kp_barre-une-app--text").classList.remove('kp_barre-une-app--show');
   document.querySelector("#kp_text").classList.remove('kp_text--show');
@@ -375,3 +368,27 @@ boutonsProjet.forEach(bouton => {
     event.currentTarget.classList.add('kp_projet-btn--hover');
   });
 });
+
+/* Baterie ou branché */
+if ('getBattery' in navigator) {
+  navigator.getBattery().then(function(battery) {
+    console.log("L'appareil est-il sur batterie ? " + (battery.charging ? "Non" : "Oui"));
+    console.log("Pourcentage de la batterie : " + (battery.level * 100) + "%");
+
+    // Événement pour détecter les changements de l'état de charge
+    battery.addEventListener('chargingchange', function() {
+      console.log("L'appareil est-il sur batterie ? " + (battery.charging ? "Non" : "Oui"));
+    });
+
+    // Événement pour détecter les changements du pourcentage de la batterie
+    battery.addEventListener('levelchange', function() {
+      console.log("Pourcentage de la batterie : " + (battery.level * 100) + "%");
+    });
+  });
+} else {
+  console.log("L'API Battery Status n'est pas supportée sur cet appareil.");
+}
+
+/* Langue navigateur */
+const userLang = navigator.language || navigator.userLanguage; 
+console.log('La langue du navigateur est : ' + userLang);
