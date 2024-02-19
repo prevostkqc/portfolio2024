@@ -2,63 +2,175 @@
     <header class="kp_header">
     </header>
     <main class="kp_main">
-        <div class="kp_desktop">
+        <section class="kp_desktop">
 
-            <!-- Window Internet -->
-            <div class="kp_animation_full-screen"></div>
-            <div class="kp_window--container" id="kp_iframe--container">
-                <div class="kp_window--title-zone">
-                    <div class="kp_window--title-zon--title">
-                        <p class="kp_p">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</p>
-                    </div>
-                    <div class="kp_full--zone">
-                        <div class="kp_icon_zone  kp_icon_zone--reduct"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
-                        <div class="kp_icon_zone  kp_icon_zone--resize"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
-                        <div class="kp_icon_zone  kp_icon_zone--close" ><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
-                    </div>
-                </div>
-                <div class="kp_window--border">
-                    <div class="kp_internet--onglets">
-                        <button v-for="(projet, index) in projets" :key="projet.titre"  :class="'kp_projet-btn  kp_projet-btn--' + projet.id" @click="changerProjet(index)">
-                            {{ projet.titre }}
-                        </button>
-                        <div class="kp_internet--favorites">
-                        </div>
-                        
-                    </div> 
-                    <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
-                    
-                    <article class="kp_un-projet" v-if="projetActuel">
-                        
-                        <div class="kp_icon_zone  kp_un-projet--close" ><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
-                        <h1 class="kp_h1">{{ projetActuel.titre }}</h1>
-                        <p class="kp_projet-annee">{{ projetActuel.annee }}</p>
-                        
-                        <p class="kp_p  kp_projet_description">{{ projetActuel.description }}</p>
-                        <ul class="kp_projet-technos">
-                            <li v-for="technologie in projetActuel.techno" :key="technologie"
-                                :class="['kp_projet-technos', `kp_projet-technos--${technologie.toLowerCase()}`]">
-                                {{ technologie }}
-                            </li>
-                        </ul>
-                    </article>
-                </div>
-                
-                <div class="resize-handle"></div>
-            </div>
-            <!-- Window Internet -->
-
-            <div class="kp_folder--un-ico  kp_folder--projets">
+            <article class="kp_folder--un-ico  kp_folder--projets">
                 <div class="kp_folder--un-ico-container-img">
-                    <img class="kp_folder--img" src="/images/folder.png" alt="close">
+                    <img class="kp_folder--img" src="/images/folder.png" alt="Mes projets">
                 </div>
                 <p class="kp_folder--un-ico-container-text">
-                    Mes projets Cybertek
+                    Mes réalisations
+                </p>
+            </article>
+            <article class="kp_folder--un-ico  kp_folder--img-txt  kp_folder--text">
+                <div class="kp_folder--un-ico-container-img">
+                    <img class="kp_folder--img" src="/images/text.png" alt="Ma tete">
+                </div>
+                <p class="kp_folder--un-ico-container-text">
+                    autoportrait.txt
+                </p>
+            </article>   
+            <article class="kp_folder--un-ico  kp_folder--terminal">
+                <div class="kp_folder--un-ico-container-img">
+                    <div class="kp_terminal--icn">KP:\</div>
+                </div>
+                <p class="kp_folder--un-ico-container-text">
+                    Qui suis-je ?
+                </p>
+            </article>
+
+        </section>
+
+         <!-- Window Internet -->
+        <div class="kp_animation_full-screen"></div>
+
+        <section class="kp_window--container  kp_z-index" id="kp_iframe--container">
+            <div class="kp_window--title-zone">
+                <div class="kp_window--title-zon--title">
+                    <p class="kp_p">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</p>
+                </div>
+                <div class="kp_element--incons-zone">
+                <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-browser"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
+                <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-browser"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
+                <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-browser"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+            </div>
+            </div>
+            <div class="kp_window--border">
+                <div class="kp_internet--onglets">
+                    <button v-for="(projet, index) in projets" :key="projet.titre"  :class="'kp_projet-btn  kp_projet-btn--' + projet.id" @click="changerProjet(index)">
+                        {{ projet.titre }}
+                    </button>
+                    <div class="kp_internet--favorites">
+                    </div>
+                </div> 
+                <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
+                
+                <article class="kp_un-projet" v-if="projetActuel">
+                    
+                    <div class="kp_icon_zone  kp_un-projet--close" ><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                    <h2 class="kp_h2">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</h2>
+                    <span class="kp_projet-annee  kp_h4">{{ projetActuel.annee }}</span>
+                    
+                    <p class="kp_p  kp_projet_description">{{ projetActuel.description }}</p>
+                    <ul class="kp_projet-technos">
+                        <li v-for="technologie in projetActuel.techno" :key="technologie"
+                            :class="['kp_projet-techno', `kp_projet-techno--${technologie.toLowerCase()}`]">
+                            {{ technologie }}
+                        </li>
+                    </ul>
+                </article>
+                <div class="kp_information-projet  kp_information-projet--hide">
+                    <p class="kp_information--p">Afficher les informations concernant ce projet</p>
+                </div>
+            </div>
+            
+            <div class="resize-handle"></div>
+        </section>
+        <!-- Window Internet -->
+
+        <!-- Terminal -->
+        <section class="kp_terminal  kp_z-index  kp_terminal--show" id="kp_terminal">
+            <div class="kp_element--title">
+                <div class="kp_element--icon-title">
+                    <p class="kp_ascii--titre">
+                        <div class="kp_terminal--icn">KP:\</div><span>Kévin Prévost - Développeur front-end</span>
+                    </p>
+                </div>
+                <div class="kp_element--incons-zone">
+                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-terminal" id="kp_action--reduct--terminal"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-terminal" id="kp_action--resize--terminal"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-terminal"  id="kp_action--close--terminal"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                </div>
+            </div>
+            <div class="kp_terminal_zone-texte">
+                <p class="kp_terminal--texte">
+                   
                 </p>
             </div>
-        </div>
+        </section>
+        <!-- Terminal -->
 
-        <div class="kp_notification__zone">
+
+        <!-- Texte image -->
+        <section class="kp_image_ascii  kp_z-index  kp_text"  id="kp_text">
+            <div class="kp_element--title">
+                <div class="kp_element--icon-title">
+                    <p class="kp_ascii--titre">
+                       <div class="kp_ascii--icn"><img class="kp_icon_zone--img" src="/images/text.png" alt="reduct"></div><span>Kévin Prévost - autoportrait.txt</span>
+                    </p>
+                </div>
+                <div class="kp_element--incons-zone">
+                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-text" id="kp_action--reduct--text"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-text" id="kp_action--resize--text"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-text"  id="kp_action--close--text"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                </div>
+            </div>
+            <pre class="kp_image_ascii--content">                                                                                                     
+                                            .=#@@@@@@#=.                                             
+                                        .@@@@@@@@@@@@@@@@@.                                          
+                                    .@@@@@@@@@@@@@@@@@@@@@@@@.                                       
+                                  #@@@@@@@@%%%############@@@@@:                                     
+                                 @@@@@%###******************%@@@.                                    
+                                @@@#****++++++***+**+++*+*****###                                    
+                               @@****++++++++++++++++++++++++***##                                   
+                             .@#**+++++++++++++++++++++++==++++*+*                                   
+                             =#++++++++======+++++++===========++++                                  
+                             **++++++++++===+++++===========---=+*=.                                 
+                             **+++++++++++++++=====-========-----==-                                 
+                             +**+++++=============*####**+++=-----+=                                 
+                             =**++++============++*###*++++==--:::=+=                                
+                             ***+++++**+++====-===+*##**+==#=--:::-== =:=                            
+                             ##*++#%%%%%#*++=----=+##*@@@=**=----::-*-::+:                           
+                             -#*#%#*###%##*++=---++**=##%-=------::::---:::                          
+                             +%%**#**#@####*+==--==+***+==-------:::.-=-:-.                          
+                              *#*%#*%#@@#***++=-:---=+====------:::...-==:.                          
+                              ****#****#****++=-:::::---------::::...:-=---                          
+                              +++++++++**++**+=---::::--------::::...:::::.                          
+                              *+++++++++++++*++=---:::------::::::..:-::::                           
+                              +*++++++++++++++==--:::-=----:::::::..:-:++                            
+                               *+========+++++==---@=:--=--::::::::.----                             
+                               ++========+++##*+=:-:--------::::::::--:.                             
+                               .*+======++++*%##*****#*##+=--::::::-:--                              
+                                +++=====+#%@@@%%@%%##******++=-:::--::=                              
+                                 +*+++++#%%%%**++=+=====+*##*=-:::----=                              
+                                 =#*+++*##%#%%##*++=---::-=++=------:--                              
+                                  =#**+*#%*+*+*++==--::-:---=*+-=--+=--                              
+                                   %%***##**********=---:-++++*+**=++=:                              
+                                   +@%##%@%#+++++++=-----=+######**+==..                             
+                                    +@@@@@@##*+++==+----=+=+####%#*++:...                            
+                                     @@@@@@@%###*+=+++==+++*#****+++:.....-                          
+                                    **@@@@@@@%%##*+*#*++****###*+++:::.....##@@%.                    
+                                   @@@@@@@@@@@@@#%%%%##**##**%%*+-::.......##%%%#*####.              
+                               .@@@@@@@@@*@@@@@%@@%@#%%#%#**##+::::::.....:%#%%%###%%%%%%##+##%*.    
+                        .=@@@@@@@@@@@@@@@*+++%@@%@@%@@@%%#+-:::::::::.....#%%%%%####%%%%%%#*#%%%#*###
+                 =%@@@@@@@@@@@@@@@@@@@@@@**+++====++++===--:::::::::....:-%%@@%%%##%%%%%%#*##%%%%%###
+             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@++++====------::::::::::.....::#%%@@########%@%####%%%%%%%#
+           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*+++===----:-:::::::::::..:..:*%%@@#########%@%######%%%%%%
+        =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*==++==---::::::::::::....:::=%%@@%###%%####%@#*######%%%%%
+     *%%@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=-=====---:-:::::::::::::::-*%%@@###%%#####%@########%#%%%
+  @%%%%@@@@@%%@@@@@@@@@@@@@@@@@@@@@%%@@@@@+-----------:::::::::::::::+%@@@@###@@####%%@##########%%%%
+@@@%%%%%@%@@%%@@@@@%%@@@@@@%@@@@@@@%%@@@@@@=-------:::::::::::::::::+%@@@@%###@@####%%@**########%##%
+%@@%%%%@@%@@%%@@@@%%@@@@@@%%@@@@@@@%#%@@%@@@+----:-:::::::::::::::-*%%@@@@###%@%####%%@*############%
+%%@@%%%@@%@@%%%%%%#@@%@@@%#%%%%@@@@%##@@%%%@@%----:::::::-:::::::-@%@@@@@@##%%@%%###%@%*#######*####%
+%%%@%%%%@%@@@%%%%#@@%%@@@#%%%%%%@@@###%@@%#@@@@+-:--:::::-:::::-*%@@@@@@@%*%%%@%%%###@#**####***#**#%
+%%%%%%%%@@%@%%%##@@%%@@@##%%%##%@@@####@@@%%%%@@@*--:-::---:--+%@@@@@@@@@#*%#%%%%###%%#*####****#***%
+%%@%%%%%@@#@%%%#@@#%%%%##%%%#%%#%@@##%#%@@@%#%%%@@%#:---:---*%%%%@@@%@@@@*#%%#%%%%##%%#*####****#***%
+#%%@%%%%@@@@%##@@#%%%%%#####%###%@@#####%@@@%%%@%%%%%%=--+@@@@@@@@@#%@@@#*#%##%%%%##%%**#####**#****%
+%#%%@@%#%@@@##%@%%%%%%##%%######%@%###%#%%@@@@%%%%#%%%%%%%%@@@@@@@#%@@@%###%##%%%%%%%%**#####**#****%</pre>
+        </section>
+        <!-- Texte image -->
+
+        <section class="kp_notification__zone">
             <div class="kp_notification--titre">
                 <p class="kp_notification--titre-p">
                     <span class="kp_notification--titre-span">
@@ -69,7 +181,27 @@
                     <img class="kp_menu_start--img" src="/images/logo-2024.png" alt="">
                 </div>
             </div>
-        </div>
+            <div class="kp_notification--applications">
+                <article class="kp_barre-une-app  kp_barre-une-app--terminal  kp_barre-une-app--open  kp_barre-une-app--show" id="kp_barre-app--browser">
+                    <div class="kp_barre-une-app--icn  kp_terminal--icn">KP:\</div>
+                    <p class="kp_barre-une-app--title">Qui suis-je ?</p>
+                </article>
+                <article class="kp_barre-une-app  kp_barre-une-app--browser" id="kp_barre-app--browser">
+                    <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/folder.png" alt="Mes projets"></div>
+                    <p class="kp_barre-une-app--title">Mes réalisations</p>
+                </article>
+                <article class="kp_barre-une-app  kp_barre-une-app--text" id="kp_barre-app--text">
+                    <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/text.png" alt="Mes projets"></div>
+                    <p class="kp_barre-une-app--title">Autoportrait</p>
+                </article>
+            </div>
+            <div class="kp_notification--zone">
+                <div class="kp_date-heure">
+                    <div class="kp_date-heure--heure"></div>
+                </div>
+            </div>
+        </section>
+        <div class="kp_date-heure--date"></div>
         <div class="kp_full_screen">passer en plein écran</div>
     </main>
   </template>
@@ -102,11 +234,12 @@
           },
       },
       mounted() {
-          console.log('mounted exécuté');
           const script = document.createElement('script');
           script.src = '/script.js'; // Utilise le chemin relatif depuis la racine
           script.onload = () => {
-              console.log('Script externe chargé et exécuté');
+            if (window.animerTexteTerminal) {
+            window.animerTexteTerminal();
+        }
           };
           this.$nextTick(() => {
               document.body.appendChild(script);
