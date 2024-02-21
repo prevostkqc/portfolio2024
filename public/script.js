@@ -241,10 +241,11 @@ function ouvrirText(){
   document.querySelector("#kp_text").style.zIndex = zindex + 1;
   document.querySelector(".kp_barre-une-app--text").classList.add('kp_barre-une-app--show');
   document.querySelector("#kp_text").classList.add('kp_text--show');
+  document.querySelector("#kp_text").classList.remove('kp_element--action--reduct');
 }
 document.querySelector(".kp_folder--text").addEventListener("click", ouvrirText);
-
 document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvrirText);
+
 document.querySelector(".kp_icon--close-text").addEventListener("click", fermerText);
 
 /* ----------------------------------------------------------------------------------- */
