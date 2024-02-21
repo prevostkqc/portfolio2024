@@ -6,13 +6,11 @@ const elementImageText = document.querySelector('.kp_text');
 let isDragging = false, isFullScreen = false, isResizing = false;
 let offsetX, offsetY, startX, startY, startWidth, startHeight;
 let initialState = { width: '', height: '', left: '', top: '' };
-
 document.querySelectorAll('.kp_element--title').forEach(elementTitle => {
   elementTitle.addEventListener('mousedown', function(e) {
     elementDraggable = changedDragable(e);
   });
 });
-
 const updateInitialState = () => {
   initialState.width = elementDraggable.offsetWidth + 'px';
   initialState.height = elementDraggable.offsetHeight + 'px';
