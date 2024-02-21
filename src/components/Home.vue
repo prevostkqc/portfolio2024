@@ -31,11 +31,9 @@
 
         </section>
 
-         <!-- Window Internet -->
-        <div class="kp_animation_full-screen"></div>
 
-        <section class="kp_window--container  kp_z-index" id="kp_iframe--container">
-            <div class="kp_window--title-zone">
+        <section class="kp_window--container  kp_z-index  kp_changed__id  kp_item__window" id="kp_iframe--container">
+            <div class="kp_window--title-zone  kp_element--title">
                 <div class="kp_window--title-zon--title">
                     <p class="kp_p">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</p>
                 </div>
@@ -79,7 +77,7 @@
         <!-- Window Internet -->
 
         <!-- Terminal -->
-        <section class="kp_terminal  kp_z-index  kp_terminal--show" id="kp_terminal">
+        <section class="kp_terminal  kp_z-index  kp_terminal--show  kp_changed__id  kp_item__window" id="kp_terminal">
             <div class="kp_element--title">
                 <div class="kp_element--icon-title">
                     <p class="kp_ascii--titre">
@@ -102,7 +100,7 @@
 
 
         <!-- Texte image -->
-        <section class="kp_image_ascii  kp_z-index  kp_text"  id="kp_text">
+        <section class="kp_image_ascii  kp_z-index  kp_changed__id  kp_text  kp_item__window"  id="kp_text">
             <div class="kp_element--title">
                 <div class="kp_element--icon-title">
                     <p class="kp_ascii--titre">
@@ -170,6 +168,13 @@
         </section>
         <!-- Texte image -->
 
+
+        
+         <!-- Window Internet -->
+         <div class="kp_animation_full-screen"></div>
+
+
+         <!-- Barre de notifications -->
         <section class="kp_notification__zone">
             <div class="kp_notification--titre">
                 <p class="kp_notification--titre-p">

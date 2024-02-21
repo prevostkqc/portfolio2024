@@ -1,5 +1,5 @@
-const elementDraggable = document.querySelector('.kp_window--container');
-const elementChangeDraggable = document.querySelector('.kp_window--title-zone');
+let elementDraggable = document.querySelector('.kp_item__window');
+const elementChangeDraggable = document.querySelector('.kp_element--title');
 const elementFullScreen = document.querySelector('.kp_animation_full-screen');
 const resizeHandle = document.querySelector('.resize-handle');
 const elementImageText = document.querySelector('.kp_text');
@@ -7,6 +7,11 @@ let isDragging = false, isFullScreen = false, isResizing = false;
 let offsetX, offsetY, startX, startY, startWidth, startHeight;
 let initialState = { width: '', height: '', left: '', top: '' };
 
+document.querySelectorAll('.kp_element--title').forEach(elementTitle => {
+  elementTitle.addEventListener('mousedown', function(e) {
+    elementDraggable = changedDragable(e);
+  });
+});
 
 const updateInitialState = () => {
   initialState.width = elementDraggable.offsetWidth + 'px';
@@ -23,6 +28,9 @@ const removeClass = (element, className) => {
   element.classList.remove(className);
 };
 const handleMouseDownDrag = (e) => {
+  console.log(elementDraggable);
+  elementDraggable = changedDragable(e);
+  console.log(elementDraggable);
   addClass(elementChangeDraggable, 'kp_iframe--container_movement');
   document.body.style.cursor = 'grabbing';
   if (!isFullScreen && !isResizing) {
@@ -33,6 +41,7 @@ const handleMouseDownDrag = (e) => {
   }
 };
 const handleMouseMoveDrag = (e) => {
+  elementDraggable = changedDragable(e);
   if (isDragging) {
     const maxTop = 0;
     const newLeft = e.clientX - offsetX;
@@ -75,7 +84,7 @@ const handleMouseMoveResize = (e) => {
     elementDraggable.style.height = `${newHeight - 50}px`;
   }
 };
-const handleMouseUpResize = () => {
+const handleMouseUpResize = (e) => {
   isResizing = false;
   removeClass(resizeHandle, 'kp_while_resizing');
 };
@@ -91,7 +100,7 @@ updateInitialState();
 
 let clicCount = 0;
 let clicTimer;
-function onDoubleClick() { 
+function onDoubleClick(e) {
     const classeRecherchee = 'kp_iframe--container_full';
     if (elementDraggable.classList.contains(classeRecherchee)) {
       removeClass(elementDraggable, 'kp_iframe--container_full');
@@ -102,7 +111,8 @@ function onDoubleClick() {
 }
 function onSingleClick() {
 }
-function handleClic() {
+function handleClic(e) {
+  elementDraggable = changedDragable(e);
     clicCount++;
     if (clicCount === 1) {
         clicTimer = setTimeout(function() {
@@ -115,7 +125,15 @@ function handleClic() {
         onDoubleClick();
     }
 }
-document.querySelector(".kp_window--title-zone").addEventListener("click", handleClic);
+document.querySelector(".kp_element--title").addEventListener("click", handleClic);
+
+function changedDragable(e) {
+  var parentElement = e.target.closest('.kp_changed__id');
+  if (parentElement) {
+    elementDraggable = parentElement;
+  }
+  return elementDraggable;
+}
 
 function clickResizeWindow(){
   const classeRecherchee = 'kp_iframe--container_full';
@@ -185,21 +203,21 @@ document.querySelectorAll('.kp_icon_zone').forEach((element) => {
 /* ----------------------------------------------------------------------------------- */
 
 function fermerProjet(){
-  removeClass(elementDraggable, 'kp_iframe--show');
-  document.querySelector(".kp_barre-une-app--browser").classList.remove('kp_barre-une-app--show');
+  removeClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
+  removeClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
 }
 document.querySelector(".kp_icon--close-browser").addEventListener("click", fermerProjet);
 
 function reduireProjet(){
-  removeClass(elementDraggable, 'kp_iframe--show');
+  removeClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
 }
 document.querySelector(".kp_icon--reduct-browser").addEventListener("click", reduireProjet);
 
 function ouvrirProjet(){
   let zindex = getHighestZIndex();
-  elementDraggable.style.zIndex = zindex + 1;
-  addClass(elementDraggable, 'kp_iframe--show');
-  document.querySelector(".kp_barre-une-app--browser").classList.add('kp_barre-une-app--show');
+  document.querySelector("#kp_iframe--container").style.zIndex = zindex + 1;  ;
+  addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
+  addClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
 }
 document.querySelector(".kp_folder--projets").addEventListener("click", ouvrirProjet);
 document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirProjet);
@@ -226,13 +244,13 @@ document.querySelector(".kp_information-projet").addEventListener("click", ouvri
 /* ----------------------------------------------------------------------------------- */
 
 function fermerText(){
-  document.querySelector(".kp_barre-une-app--text").classList.remove('kp_barre-une-app--show');
-  document.querySelector("#kp_text").classList.remove('kp_text--show');
+  removeClass(document.querySelector(".kp_barre-une-app--text"), 'kp_barre-une-app--show');
+  removeClass(document.querySelector("#kp_text"), 'kp_text--show');
 }
 document.querySelector(".kp_icon--close-text").addEventListener("click", fermerText);
 
 function reduireText(){
-  document.querySelector("#kp_text").classList.remove('kp_text--show');
+  removeClass(document.querySelector("#kp_text"), 'kp_text--show');
 }
 document.querySelector(".kp_icon--reduct-text").addEventListener("click", reduireText);
 
@@ -240,8 +258,8 @@ function ouvrirText(){
   let zindex = getHighestZIndex();
   document.querySelector("#kp_text").style.zIndex = zindex + 1;
   document.querySelector(".kp_barre-une-app--text").classList.add('kp_barre-une-app--show');
-  document.querySelector("#kp_text").classList.add('kp_text--show');
-  document.querySelector("#kp_text").classList.remove('kp_element--action--reduct');
+  addClass(document.querySelector("#kp_text"), 'kp_text--show');
+  removeClass(document.querySelector("#kp_text"), 'kp_element--action--reduct');
 }
 document.querySelector(".kp_folder--text").addEventListener("click", ouvrirText);
 document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvrirText);
@@ -259,15 +277,15 @@ function fermerTerminal(){
 document.querySelector(".kp_icon--close-terminal").addEventListener("click", fermerTerminal);
 
 function reduireTerminal(){
-  document.querySelector("#kp_terminal").classList.remove('kp_terminal--show');
+  removeClass(document.querySelector("#kp_terminal"), 'kp_terminal--show');
 }
 document.querySelector(".kp_icon--reduct-terminal").addEventListener("click", reduireTerminal);
 
 function ouvrirTerminal(){
   let zindex = getHighestZIndex();
   document.querySelector("#kp_terminal").style.zIndex = zindex + 1;
-  document.querySelector(".kp_barre-une-app--terminal").classList.add('kp_barre-une-app--show');
-  document.querySelector("#kp_terminal").classList.add('kp_terminal--show');
+  addClass(document.querySelector(".kp_barre-une-app--terminal"), 'kp_barre-une-app--show');
+  addClass(document.querySelector("#kp_terminal"), 'kp_terminal--show');
   terminalCharge ? terminalCharge = true : ecrireTexte ; 
 }
 document.querySelector(".kp_folder--terminal").addEventListener("click", ouvrirTerminal);
@@ -354,7 +372,7 @@ document.querySelectorAll('.kp_z-index').forEach((element) => {
 
 
 /* ---------------------------------------------------------- */
-document.querySelector('.kp_projet-btn--1').classList.add('kp_projet-btn--hover');
+addClass(document.querySelector('.kp_projet-btn--1'), 'kp_projet-btn--hover');
 
 const boutonsProjet = document.querySelectorAll('.kp_projet-btn');
 function retirerClasseHover() {
