@@ -31,6 +31,28 @@
 
         </section>
 
+        <!-- Terminal -->
+        <section class="kp_terminal  kp_z-index  kp_terminal--show  kp_changed__id  kp_item__window" id="kp_terminal">
+            <div class="kp_element--title">
+                <div class="kp_element--icon-title">
+                    <p class="kp_ascii--titre">
+                        <div class="kp_terminal--icn">KP:\</div><span>Kévin Prévost - Développeur front-end</span>
+                    </p>
+                </div>
+                <div class="kp_element--incons-zone">
+                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-terminal" id="kp_action--reduct--terminal"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-terminal" id="kp_action--resize--terminal"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-terminal"  id="kp_action--close--terminal"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                </div>
+            </div>
+            <div class="kp_terminal_zone-texte">
+                <p class="kp_terminal--texte">
+                   
+                </p>
+            </div>
+            <div class="resize-handle"></div>
+        </section>
+        <!-- Terminal -->
 
         <section class="kp_window--container  kp_z-index  kp_changed__id  kp_item__window" id="kp_iframe--container">
             <div class="kp_window--title-zone  kp_element--title">
@@ -71,32 +93,10 @@
                     <p class="kp_information--p">Afficher les informations concernant ce projet</p>
                 </div>
             </div>
-            
             <div class="resize-handle"></div>
         </section>
         <!-- Window Internet -->
 
-        <!-- Terminal -->
-        <section class="kp_terminal  kp_z-index  kp_terminal--show  kp_changed__id  kp_item__window" id="kp_terminal">
-            <div class="kp_element--title">
-                <div class="kp_element--icon-title">
-                    <p class="kp_ascii--titre">
-                        <div class="kp_terminal--icn">KP:\</div><span>Kévin Prévost - Développeur front-end</span>
-                    </p>
-                </div>
-                <div class="kp_element--incons-zone">
-                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-terminal" id="kp_action--reduct--terminal"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
-                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-terminal" id="kp_action--resize--terminal"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
-                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-terminal"  id="kp_action--close--terminal"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
-                </div>
-            </div>
-            <div class="kp_terminal_zone-texte">
-                <p class="kp_terminal--texte">
-                   
-                </p>
-            </div>
-        </section>
-        <!-- Terminal -->
 
 
         <!-- Texte image -->
@@ -165,6 +165,7 @@
 %%@%%%%%@@#@%%%#@@#%%%%##%%%#%%#%@@##%#%@@@%#%%%@@%#:---:---*%%%%@@@%@@@@*#%%#%%%%##%%#*####****#***%
 #%%@%%%%@@@@%##@@#%%%%%#####%###%@@#####%@@@%%%@%%%%%%=--+@@@@@@@@@#%@@@#*#%##%%%%##%%**#####**#****%
 %#%%@@%#%@@@##%@%%%%%%##%%######%@%###%#%%@@@@%%%%#%%%%%%%%@@@@@@@#%@@@%###%##%%%%%%%%**#####**#****%</pre>
+            <div class="resize-handle"></div>
         </section>
         <!-- Texte image -->
 

@@ -1,108 +1,159 @@
-const elementDraggable = document.querySelector('.kp_window--container');
-const elementChangeDraggable = document.querySelector('.kp_window--title-zone');
+// Sélection et initialisation
+const elementChangeDraggables = document.querySelectorAll('.kp_element--title');
 const elementFullScreen = document.querySelector('.kp_animation_full-screen');
-const resizeHandle = document.querySelector('.resize-handle');
-const elementImageText = document.querySelector('.kp_text');
+const resizeHandles = document.querySelectorAll('.resize-handle');
 let isDragging = false, isFullScreen = false, isResizing = false;
-let offsetX, offsetY, startX, startY, startWidth, startHeight;
+let offsetX, offsetY, startX, startY, startWidth, startHeight, lastX, lastY;;
 let initialState = { width: '', height: '', left: '', top: '' };
 
-
-const updateInitialState = () => {
-  initialState.width = elementDraggable.offsetWidth + 'px';
-  initialState.height = elementDraggable.offsetHeight + 'px';
-  initialState.left = elementDraggable.style.left;
-  initialState.top = elementDraggable.style.top;
-  elementDraggable.offsetY = elementDraggable.offsetY < 0 ? 0 : elementDraggable.offsetY;
-  elementDraggable.style.top = `${elementDraggable.offsetY}px`;
+elementChangeDraggables.forEach(elementChangeDraggable => {
+  elementChangeDraggable.addEventListener('mousedown', e => {
+    const draggableElement = changedDragable(e);
+    if (draggableElement) {
+      handleMouseDownDrag(e, draggableElement, elementChangeDraggable);
+    }
+  });
+});
+const updateInitialState = (draggableElement) => {
+  if (draggableElement) {
+    initialState.width = draggableElement.offsetWidth + 'px';
+    initialState.height = draggableElement.offsetHeight + 'px';
+    initialState.left = draggableElement.style.left;
+    initialState.top = draggableElement.style.top;
+  }
 };
 const addClass = (element, className) => {
-  element.classList.add(className);
+  element?.classList.add(className);
 };
 const removeClass = (element, className) => {
-  element.classList.remove(className);
+  element?.classList.remove(className);
 };
-const handleMouseDownDrag = (e) => {
-  addClass(elementChangeDraggable, 'kp_iframe--container_movement');
+const handleMouseDownDrag = (e, draggableElement, triggerElement) => {
+  isDragging = true;
+  offsetX = e.clientX - draggableElement.getBoundingClientRect().left;
+  offsetY = e.clientY - draggableElement.getBoundingClientRect().top;
+  addClass(triggerElement, 'kp_iframe--container_movement');
   document.body.style.cursor = 'grabbing';
-  if (!isFullScreen && !isResizing) {
-    isDragging = true;
-    const rect = elementDraggable.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-  }
 };
 const handleMouseMoveDrag = (e) => {
-  if (isDragging) {
-    const maxTop = 0;
-    const newLeft = e.clientX - offsetX;
-    const newTop = e.clientY - offsetY;
-    if (newTop < maxTop) {
-      elementDraggable.style.top = maxTop + 'px';
-    }
-    elementDraggable.style.left = newLeft + 'px';
-    elementDraggable.style.top = newTop + 'px';
-    if (newTop <= 0) {
-      addClass(elementDraggable, 'kp_iframe--container_full');
-      addClass(elementFullScreen, 'kp_window_isfullscreen');
-    } else {
-      removeClass(elementDraggable, 'kp_iframe--container_full');
-      removeClass(elementFullScreen, 'kp_window_isfullscreen');
-    }
-  }
-};
-const handleMouseUpDrag = () => {
-  isDragging = false;
-  removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
-  document.body.style.cursor = 'default';
-};
-const handleMouseDownResize = (e) => {
-  e.preventDefault();
-  isResizing = true;
-  startX = e.clientX;
-  startY = e.clientY;
-  startWidth = elementDraggable.offsetWidth;
-  startHeight = elementDraggable.offsetHeight;
-  addClass(resizeHandle, 'kp_while_resizing');
-};
-const handleMouseMoveResize = (e) => {
-  if (isResizing) {
-    const deltaX = e.clientX - startX;
-    const deltaY = e.clientY - startY;
-    const newWidth = startWidth + deltaX;
-    const newHeight = startHeight + deltaY;
-    elementDraggable.style.width = `${newWidth - 10}px`;
-    elementDraggable.style.height = `${newHeight - 50}px`;
-  }
-};
-const handleMouseUpResize = () => {
-  isResizing = false;
-  removeClass(resizeHandle, 'kp_while_resizing');
-};
-elementChangeDraggable.addEventListener('mousedown', handleMouseDownDrag);
-document.addEventListener('mousemove', handleMouseMoveDrag);
-document.addEventListener('mouseup', handleMouseUpDrag);
+  elementDraggable = changedDragable(e);
+  if (!isDragging) return;
 
-resizeHandle.addEventListener('mousedown', handleMouseDownResize);
-document.addEventListener('mousemove', handleMouseMoveResize);
-document.addEventListener('mouseup', handleMouseUpResize);
+  requestAnimationFrame(() => {
+    if (!isDragging) return; 
+
+    const deltaX = e.clientX - lastX;
+    const deltaY = e.clientY - lastY;
+
+    if (elementDraggable) {
+      const newLeft = parseInt(elementDraggable.style.left || 0, 10) + deltaX;
+      const newTop = parseInt(elementDraggable.style.top || 0, 10) + deltaY;
+      
+      elementDraggable.style.left = `${newLeft}px`;
+      elementDraggable.style.top = `${newTop}px`;
+    }
+  });
+
+  lastX = e.clientX;
+  lastY = e.clientY;
+};
+const handleMouseUpDrag = (e) => {
+  isDragging = false;
+  document.body.style.cursor = 'default';
+  elementChangeDraggables.forEach(elementChangeDraggable => {
+      removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
+  });
+};
+
+resizeHandles.forEach(handle => {
+  handle.addEventListener('mousedown', function(e) {
+    e.preventDefault();
+
+    let initialWidth = handle.parentElement.offsetWidth;
+    let initialHeight = handle.parentElement.offsetHeight;
+    let startX = e.clientX;
+    let startY = e.clientY;
+
+    function mouseMoveHandler(e) {
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+      handle.parentElement.style.width = `${initialWidth + deltaX}px`;
+      handle.parentElement.style.height = `${initialHeight + deltaY}px`;
+    }
+
+    function mouseUpHandler() {
+      document.removeEventListener('mousemove', mouseMoveHandler);
+      document.removeEventListener('mouseup', mouseUpHandler);
+    }
+
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+  });
+});
+
+document.addEventListener('mouseup', handleMouseUpDrag);
+let throttleTimeout = null;
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+
+  if (throttleTimeout) return;
+
+  throttleTimeout = setTimeout(() => {
+    throttleTimeout = null;
+    handleMouseMoveDrag(e);
+  }, 100);
+});
+
 
 updateInitialState();
 
+
+document.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  const draggableElement = changedDragable(e);
+  if (!draggableElement) return;
+
+  const newLeft = e.clientX - offsetX;
+  const newTop = Math.max(0, e.clientY - offsetY);
+  draggableElement.style.left = `${newLeft}px`;
+  draggableElement.style.top = `${newTop}px`;
+  // La logique pour ajouter ou retirer des classes basée sur la position
+  if (newTop <= 0) {
+    addClass(draggableElement, 'kp_item_window--full');
+    addClass(elementFullScreen, 'kp_window_isfullscreen');
+  } else {
+    removeClass(draggableElement, 'kp_item_window--full');
+    removeClass(elementFullScreen, 'kp_window_isfullscreen');
+  }
+});
+document.addEventListener('mouseup', () => {
+  if (isDragging) {
+    // Suppression de la classe de mouvement et réinitialisation de l'état de glissement
+    elementChangeDraggables.forEach(elementChangeDraggable => {
+      removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
+    });
+    document.body.style.cursor = 'default';
+    isDragging = false;
+  }
+});
+
+
 let clicCount = 0;
 let clicTimer;
-function onDoubleClick() { 
-    const classeRecherchee = 'kp_iframe--container_full';
+function onDoubleClick(e) {
+    const classeRecherchee = 'kp_item_window--full';
     if (elementDraggable.classList.contains(classeRecherchee)) {
-      removeClass(elementDraggable, 'kp_iframe--container_full');
+      removeClass(elementDraggable, 'kp_item_window--full');
     } else {
-      addClass(elementDraggable, 'kp_iframe--container_full');
+      addClass(elementDraggable, 'kp_item_window--full');
     }
     clicCount = 0;
 }
 function onSingleClick() {
 }
-function handleClic() {
+function handleClic(e) {
+  elementDraggable = changedDragable(e);
     clicCount++;
     if (clicCount === 1) {
         clicTimer = setTimeout(function() {
@@ -115,14 +166,18 @@ function handleClic() {
         onDoubleClick();
     }
 }
-document.querySelector(".kp_window--title-zone").addEventListener("click", handleClic);
+document.querySelector(".kp_element--title").addEventListener("click", handleClic);
+
+function changedDragable(e) {
+  return e.target.closest('.kp_changed__id');
+}
 
 function clickResizeWindow(){
-  const classeRecherchee = 'kp_iframe--container_full';
+  const classeRecherchee = 'kp_item_window--full';
   if (elementDraggable.classList.contains(classeRecherchee)) {
-    removeClass(elementDraggable, 'kp_iframe--container_full');
+    removeClass(elementDraggable, 'kp_item_window--full');
   } else {
-    addClass(elementDraggable, 'kp_iframe--container_full');
+    addClass(elementDraggable, 'kp_item_window--full');
   }
 }
 document.querySelector(".kp_icon--resize-browser").addEventListener("click", clickResizeWindow);
@@ -185,21 +240,21 @@ document.querySelectorAll('.kp_icon_zone').forEach((element) => {
 /* ----------------------------------------------------------------------------------- */
 
 function fermerProjet(){
-  removeClass(elementDraggable, 'kp_iframe--show');
-  document.querySelector(".kp_barre-une-app--browser").classList.remove('kp_barre-une-app--show');
+  removeClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
+  removeClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
 }
 document.querySelector(".kp_icon--close-browser").addEventListener("click", fermerProjet);
 
 function reduireProjet(){
-  removeClass(elementDraggable, 'kp_iframe--show');
+  removeClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
 }
 document.querySelector(".kp_icon--reduct-browser").addEventListener("click", reduireProjet);
 
 function ouvrirProjet(){
   let zindex = getHighestZIndex();
-  elementDraggable.style.zIndex = zindex + 1;
-  addClass(elementDraggable, 'kp_iframe--show');
-  document.querySelector(".kp_barre-une-app--browser").classList.add('kp_barre-une-app--show');
+  document.querySelector("#kp_iframe--container").style.zIndex = zindex + 1;  ;
+  addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
+  addClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
 }
 document.querySelector(".kp_folder--projets").addEventListener("click", ouvrirProjet);
 document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirProjet);
@@ -225,21 +280,14 @@ document.querySelector(".kp_information-projet").addEventListener("click", ouvri
 
 /* ----------------------------------------------------------------------------------- */
 
-function ouvrirText(){
-  addClass(elementImageText, 'kp_image-text--show');
-}
-document.querySelector(".kp_folder--img-txt").addEventListener("click", ouvrirText);
-
-
-
 function fermerText(){
-  document.querySelector(".kp_barre-une-app--text").classList.remove('kp_barre-une-app--show');
-  document.querySelector("#kp_text").classList.remove('kp_text--show');
+  removeClass(document.querySelector(".kp_barre-une-app--text"), 'kp_barre-une-app--show');
+  removeClass(document.querySelector("#kp_text"), 'kp_text--show');
 }
 document.querySelector(".kp_icon--close-text").addEventListener("click", fermerText);
 
 function reduireText(){
-  document.querySelector("#kp_text").classList.remove('kp_text--show');
+  removeClass(document.querySelector("#kp_text"), 'kp_text--show');
 }
 document.querySelector(".kp_icon--reduct-text").addEventListener("click", reduireText);
 
@@ -247,11 +295,12 @@ function ouvrirText(){
   let zindex = getHighestZIndex();
   document.querySelector("#kp_text").style.zIndex = zindex + 1;
   document.querySelector(".kp_barre-une-app--text").classList.add('kp_barre-une-app--show');
-  document.querySelector("#kp_text").classList.add('kp_text--show');
+  addClass(document.querySelector("#kp_text"), 'kp_text--show');
+  removeClass(document.querySelector("#kp_text"), 'kp_element--action--reduct');
 }
 document.querySelector(".kp_folder--text").addEventListener("click", ouvrirText);
-
 document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvrirText);
+
 document.querySelector(".kp_icon--close-text").addEventListener("click", fermerText);
 
 /* ----------------------------------------------------------------------------------- */
@@ -265,15 +314,15 @@ function fermerTerminal(){
 document.querySelector(".kp_icon--close-terminal").addEventListener("click", fermerTerminal);
 
 function reduireTerminal(){
-  document.querySelector("#kp_terminal").classList.remove('kp_terminal--show');
+  removeClass(document.querySelector("#kp_terminal"), 'kp_terminal--show');
 }
 document.querySelector(".kp_icon--reduct-terminal").addEventListener("click", reduireTerminal);
 
 function ouvrirTerminal(){
   let zindex = getHighestZIndex();
   document.querySelector("#kp_terminal").style.zIndex = zindex + 1;
-  document.querySelector(".kp_barre-une-app--terminal").classList.add('kp_barre-une-app--show');
-  document.querySelector("#kp_terminal").classList.add('kp_terminal--show');
+  addClass(document.querySelector(".kp_barre-une-app--terminal"), 'kp_barre-une-app--show');
+  addClass(document.querySelector("#kp_terminal"), 'kp_terminal--show');
   terminalCharge ? terminalCharge = true : ecrireTexte ; 
 }
 document.querySelector(".kp_folder--terminal").addEventListener("click", ouvrirTerminal);
@@ -360,7 +409,7 @@ document.querySelectorAll('.kp_z-index').forEach((element) => {
 
 
 /* ---------------------------------------------------------- */
-document.querySelector('.kp_projet-btn--1').classList.add('kp_projet-btn--hover');
+addClass(document.querySelector('.kp_projet-btn--1'), 'kp_projet-btn--hover');
 
 const boutonsProjet = document.querySelectorAll('.kp_projet-btn');
 function retirerClasseHover() {
@@ -375,3 +424,27 @@ boutonsProjet.forEach(bouton => {
     event.currentTarget.classList.add('kp_projet-btn--hover');
   });
 });
+
+/* Baterie ou branché */
+if ('getBattery' in navigator) {
+  navigator.getBattery().then(function(battery) {
+    console.log("L'appareil est-il sur batterie ? " + (battery.charging ? "Non" : "Oui"));
+    console.log("Pourcentage de la batterie : " + (battery.level * 100) + "%");
+
+    // Événement pour détecter les changements de l'état de charge
+    battery.addEventListener('chargingchange', function() {
+      console.log("L'appareil est-il sur batterie ? " + (battery.charging ? "Non" : "Oui"));
+    });
+
+    // Événement pour détecter les changements du pourcentage de la batterie
+    battery.addEventListener('levelchange', function() {
+      console.log("Pourcentage de la batterie : " + (battery.level * 100) + "%");
+    });
+  });
+} else {
+  console.log("L'API Battery Status n'est pas supportée sur cet appareil.");
+}
+
+/* Langue navigateur */
+const userLang = navigator.language || navigator.userLanguage; 
+console.log('La langue du navigateur est : ' + userLang);

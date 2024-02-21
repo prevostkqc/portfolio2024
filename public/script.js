@@ -1,109 +1,152 @@
-let elementDraggable = document.querySelector('.kp_item__window');
-const elementChangeDraggable = document.querySelector('.kp_element--title');
+// Sélection et initialisation
+const elementChangeDraggables = document.querySelectorAll('.kp_element--title');
 const elementFullScreen = document.querySelector('.kp_animation_full-screen');
-const resizeHandle = document.querySelector('.resize-handle');
-const elementImageText = document.querySelector('.kp_text');
+const resizeHandles = document.querySelectorAll('.resize-handle');
 let isDragging = false, isFullScreen = false, isResizing = false;
-let offsetX, offsetY, startX, startY, startWidth, startHeight;
+let offsetX, offsetY, startX, startY, startWidth, startHeight, lastX, lastY;;
 let initialState = { width: '', height: '', left: '', top: '' };
-document.querySelectorAll('.kp_element--title').forEach(elementTitle => {
-  elementTitle.addEventListener('mousedown', function(e) {
-    elementDraggable = changedDragable(e);
+
+elementChangeDraggables.forEach(elementChangeDraggable => {
+  elementChangeDraggable.addEventListener('mousedown', e => {
+    const draggableElement = changedDragable(e);
+    if (draggableElement) {
+      handleMouseDownDrag(e, draggableElement, elementChangeDraggable);
+    }
   });
 });
-const updateInitialState = () => {
-  initialState.width = elementDraggable.offsetWidth + 'px';
-  initialState.height = elementDraggable.offsetHeight + 'px';
-  initialState.left = elementDraggable.style.left;
-  initialState.top = elementDraggable.style.top;
-  elementDraggable.offsetY = elementDraggable.offsetY < 0 ? 0 : elementDraggable.offsetY;
-  elementDraggable.style.top = `${elementDraggable.offsetY}px`;
+const updateInitialState = (draggableElement) => {
+  if (draggableElement) {
+    initialState.width = draggableElement.offsetWidth + 'px';
+    initialState.height = draggableElement.offsetHeight + 'px';
+    initialState.left = draggableElement.style.left;
+    initialState.top = draggableElement.style.top;
+  }
 };
 const addClass = (element, className) => {
-  element.classList.add(className);
+  element?.classList.add(className);
 };
 const removeClass = (element, className) => {
-  element.classList.remove(className);
+  element?.classList.remove(className);
 };
-const handleMouseDownDrag = (e) => {
-  console.log(elementDraggable);
-  elementDraggable = changedDragable(e);
-  console.log(elementDraggable);
-  addClass(elementChangeDraggable, 'kp_iframe--container_movement');
+const handleMouseDownDrag = (e, draggableElement, triggerElement) => {
+  isDragging = true;
+  offsetX = e.clientX - draggableElement.getBoundingClientRect().left;
+  offsetY = e.clientY - draggableElement.getBoundingClientRect().top;
+  addClass(triggerElement, 'kp_iframe--container_movement');
   document.body.style.cursor = 'grabbing';
-  if (!isFullScreen && !isResizing) {
-    isDragging = true;
-    const rect = elementDraggable.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-  }
 };
 const handleMouseMoveDrag = (e) => {
   elementDraggable = changedDragable(e);
-  if (isDragging) {
-    const maxTop = 0;
-    const newLeft = e.clientX - offsetX;
-    const newTop = e.clientY - offsetY;
-    if (newTop < maxTop) {
-      elementDraggable.style.top = maxTop + 'px';
-    }
-    elementDraggable.style.left = newLeft + 'px';
-    elementDraggable.style.top = newTop + 'px';
-    if (newTop <= 0) {
-      addClass(elementDraggable, 'kp_iframe--container_full');
-      addClass(elementFullScreen, 'kp_window_isfullscreen');
-    } else {
-      removeClass(elementDraggable, 'kp_iframe--container_full');
-      removeClass(elementFullScreen, 'kp_window_isfullscreen');
-    }
-  }
-};
-const handleMouseUpDrag = () => {
-  isDragging = false;
-  removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
-  document.body.style.cursor = 'default';
-};
-const handleMouseDownResize = (e) => {
-  e.preventDefault();
-  isResizing = true;
-  startX = e.clientX;
-  startY = e.clientY;
-  startWidth = elementDraggable.offsetWidth;
-  startHeight = elementDraggable.offsetHeight;
-  addClass(resizeHandle, 'kp_while_resizing');
-};
-const handleMouseMoveResize = (e) => {
-  if (isResizing) {
-    const deltaX = e.clientX - startX;
-    const deltaY = e.clientY - startY;
-    const newWidth = startWidth + deltaX;
-    const newHeight = startHeight + deltaY;
-    elementDraggable.style.width = `${newWidth - 10}px`;
-    elementDraggable.style.height = `${newHeight - 50}px`;
-  }
-};
-const handleMouseUpResize = (e) => {
-  isResizing = false;
-  removeClass(resizeHandle, 'kp_while_resizing');
-};
-elementChangeDraggable.addEventListener('mousedown', handleMouseDownDrag);
-document.addEventListener('mousemove', handleMouseMoveDrag);
-document.addEventListener('mouseup', handleMouseUpDrag);
+  if (!isDragging) return;
 
-resizeHandle.addEventListener('mousedown', handleMouseDownResize);
-document.addEventListener('mousemove', handleMouseMoveResize);
-document.addEventListener('mouseup', handleMouseUpResize);
+  requestAnimationFrame(() => {
+    if (!isDragging) return; 
+
+    const deltaX = e.clientX - lastX;
+    const deltaY = e.clientY - lastY;
+
+    if (elementDraggable) {
+      const newLeft = parseInt(elementDraggable.style.left || 0, 10) + deltaX;
+      const newTop = parseInt(elementDraggable.style.top || 0, 10) + deltaY;
+      
+      elementDraggable.style.left = `${newLeft}px`;
+      elementDraggable.style.top = `${newTop}px`;
+    }
+  });
+
+  lastX = e.clientX;
+  lastY = e.clientY;
+};
+const handleMouseUpDrag = (e) => {
+  isDragging = false;
+  document.body.style.cursor = 'default';
+  elementChangeDraggables.forEach(elementChangeDraggable => {
+      removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
+  });
+};
+
+resizeHandles.forEach(handle => {
+  handle.addEventListener('mousedown', function(e) {
+    e.preventDefault();
+
+    let initialWidth = handle.parentElement.offsetWidth;
+    let initialHeight = handle.parentElement.offsetHeight;
+    let startX = e.clientX;
+    let startY = e.clientY;
+
+    function mouseMoveHandler(e) {
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+      handle.parentElement.style.width = `${initialWidth + deltaX}px`;
+      handle.parentElement.style.height = `${initialHeight + deltaY}px`;
+    }
+
+    function mouseUpHandler() {
+      document.removeEventListener('mousemove', mouseMoveHandler);
+      document.removeEventListener('mouseup', mouseUpHandler);
+    }
+
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+  });
+});
+
+document.addEventListener('mouseup', handleMouseUpDrag);
+let throttleTimeout = null;
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+
+  if (throttleTimeout) return;
+
+  throttleTimeout = setTimeout(() => {
+    throttleTimeout = null;
+    handleMouseMoveDrag(e);
+  }, 100);
+});
+
 
 updateInitialState();
+
+
+document.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  const draggableElement = changedDragable(e);
+  if (!draggableElement) return;
+
+  const newLeft = e.clientX - offsetX;
+  const newTop = Math.max(0, e.clientY - offsetY);
+  draggableElement.style.left = `${newLeft}px`;
+  draggableElement.style.top = `${newTop}px`;
+  // La logique pour ajouter ou retirer des classes basée sur la position
+  if (newTop <= 0) {
+    addClass(draggableElement, 'kp_item_window--full');
+    addClass(elementFullScreen, 'kp_window_isfullscreen');
+  } else {
+    removeClass(draggableElement, 'kp_item_window--full');
+    removeClass(elementFullScreen, 'kp_window_isfullscreen');
+  }
+});
+document.addEventListener('mouseup', () => {
+  if (isDragging) {
+    // Suppression de la classe de mouvement et réinitialisation de l'état de glissement
+    elementChangeDraggables.forEach(elementChangeDraggable => {
+      removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
+    });
+    document.body.style.cursor = 'default';
+    isDragging = false;
+  }
+});
+
 
 let clicCount = 0;
 let clicTimer;
 function onDoubleClick(e) {
-    const classeRecherchee = 'kp_iframe--container_full';
+    const classeRecherchee = 'kp_item_window--full';
     if (elementDraggable.classList.contains(classeRecherchee)) {
-      removeClass(elementDraggable, 'kp_iframe--container_full');
+      removeClass(elementDraggable, 'kp_item_window--full');
     } else {
-      addClass(elementDraggable, 'kp_iframe--container_full');
+      addClass(elementDraggable, 'kp_item_window--full');
     }
     clicCount = 0;
 }
@@ -126,19 +169,15 @@ function handleClic(e) {
 document.querySelector(".kp_element--title").addEventListener("click", handleClic);
 
 function changedDragable(e) {
-  var parentElement = e.target.closest('.kp_changed__id');
-  if (parentElement) {
-    elementDraggable = parentElement;
-  }
-  return elementDraggable;
+  return e.target.closest('.kp_changed__id');
 }
 
 function clickResizeWindow(){
-  const classeRecherchee = 'kp_iframe--container_full';
+  const classeRecherchee = 'kp_item_window--full';
   if (elementDraggable.classList.contains(classeRecherchee)) {
-    removeClass(elementDraggable, 'kp_iframe--container_full');
+    removeClass(elementDraggable, 'kp_item_window--full');
   } else {
-    addClass(elementDraggable, 'kp_iframe--container_full');
+    addClass(elementDraggable, 'kp_item_window--full');
   }
 }
 document.querySelector(".kp_icon--resize-browser").addEventListener("click", clickResizeWindow);
