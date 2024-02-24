@@ -2,9 +2,11 @@
 const elementChangeDraggables = document.querySelectorAll('.kp_element--title');
 const elementFullScreen = document.querySelector('.kp_animation_full-screen');
 const resizeHandles = document.querySelectorAll('.resize-handle');
+const backHoverClick = document.querySelector('.kp_anti-hover--full');
 let isDragging = false, isFullScreen = false, isResizing = false;
 let offsetX, offsetY, startX, startY, startWidth, startHeight, lastX, lastY;;
 let initialState = { width: '', height: '', left: '', top: '' };
+let lastElementDragable = document.querySelector('.kp_animation_full-screen');
 
 elementChangeDraggables.forEach(elementChangeDraggable => {
   elementChangeDraggable.addEventListener('mousedown', e => {
@@ -32,11 +34,13 @@ const handleMouseDownDrag = (e, draggableElement, triggerElement) => {
   isDragging = true;
   offsetX = e.clientX - draggableElement.getBoundingClientRect().left;
   offsetY = e.clientY - draggableElement.getBoundingClientRect().top;
-  addClass(triggerElement, 'kp_iframe--container_movement');
+  addClass(lastElementDragable, 'kp_element--movement');
   document.body.style.cursor = 'grabbing';
 };
 const handleMouseMoveDrag = (e) => {
   elementDraggable = changedDragable(e);
+  
+  console.log(lastElementDragable);
   if (!isDragging) return;
 
   requestAnimationFrame(() => {
@@ -46,11 +50,11 @@ const handleMouseMoveDrag = (e) => {
     const deltaY = e.clientY - lastY;
 
     if (elementDraggable) {
-      const newLeft = parseInt(elementDraggable.style.left || 0, 10) + deltaX;
-      const newTop = parseInt(elementDraggable.style.top || 0, 10) + deltaY;
+      const newLeft = parseInt(lastElementDragable.style.left || 0, 10) + deltaX;
+      const newTop = parseInt(lastElementDragable.style.top || 0, 10) + deltaY;
       
-      elementDraggable.style.left = `${newLeft}px`;
-      elementDraggable.style.top = `${newTop}px`;
+      lastElementDragable.style.left = `${newLeft}px`;
+      lastElementDragable.style.top = `${newTop}px`;
     }
   });
 
@@ -59,9 +63,13 @@ const handleMouseMoveDrag = (e) => {
 };
 const handleMouseUpDrag = (e) => {
   isDragging = false;
+  
+  removeClass(backHoverClick, 'kp_anti--show');
+  removeClass(document.querySelector('.kp_element--enable'), 'kp_element--disable');
+  
   document.body.style.cursor = 'default';
-  elementChangeDraggables.forEach(elementChangeDraggable => {
-      removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
+  elementChangeDraggables.forEach(lastElementDragable => {
+      removeClass(lastElementDragable, 'kp_element--movement');
   });
 };
 
@@ -105,9 +113,7 @@ document.addEventListener('mousemove', (e) => {
   }, 100);
 });
 
-
 updateInitialState();
-
 
 document.addEventListener('mousemove', e => {
   if (!isDragging) return;
@@ -131,22 +137,21 @@ document.addEventListener('mouseup', () => {
   if (isDragging) {
     // Suppression de la classe de mouvement et réinitialisation de l'état de glissement
     elementChangeDraggables.forEach(elementChangeDraggable => {
-      removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
+      removeClass(lastElementDragable, 'kp_element--movement');
     });
     document.body.style.cursor = 'default';
     isDragging = false;
   }
 });
 
-
 let clicCount = 0;
 let clicTimer;
 function onDoubleClick(e) {
     const classeRecherchee = 'kp_item_window--full';
-    if (elementDraggable.classList.contains(classeRecherchee)) {
-      removeClass(elementDraggable, 'kp_item_window--full');
+    if (lastElementDragable.classList.contains(classeRecherchee)) {
+      removeClass(lastElementDragable, 'kp_item_window--full');
     } else {
-      addClass(elementDraggable, 'kp_item_window--full');
+      addClass(lastElementDragable, 'kp_item_window--full');
     }
     clicCount = 0;
 }
@@ -169,7 +174,17 @@ function handleClic(e) {
 document.querySelector(".kp_element--title").addEventListener("click", handleClic);
 
 function changedDragable(e) {
-  return e.target.closest('.kp_changed__id');
+  let dragrableTemp = e.target.closest('.kp_changed__id'); 
+
+  if (dragrableTemp && dragrableTemp.id) {
+    if (dragrableTemp.id === "kp_terminal" || dragrableTemp.id === "kp_browser" || dragrableTemp.id === "kp_text") {
+      lastElementDragable = dragrableTemp;
+      
+      console.log(dragrableTemp);
+    }
+  }
+
+  return dragrableTemp;
 }
 
 function clickResizeWindow(){
@@ -402,6 +417,9 @@ function getHighestZIndex() {
 function handleMouseDown(event) {
   const highestZIndex = getHighestZIndex();
   event.currentTarget.style.zIndex = highestZIndex + 1;
+  backHoverClick.style.zIndex  = highestZIndex;
+  addClass(backHoverClick, 'kp_anti--show');
+  addClass(document.querySelector('.kp_element--enable'), 'kp_element--disable');
 }
 document.querySelectorAll('.kp_z-index').forEach((element) => {
   element.addEventListener('mousedown', handleMouseDown);

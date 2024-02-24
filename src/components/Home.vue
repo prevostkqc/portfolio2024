@@ -31,11 +31,12 @@
 
         </section>
 
+
         <!-- Terminal -->
         <section class="kp_terminal  kp_z-index  kp_terminal--show  kp_changed__id  kp_item__window" id="kp_terminal">
             <div class="kp_element--title">
-                <div class="kp_element--icon-title">
-                    <p class="kp_ascii--titre">
+                <div class="kp_element--icon-title   kp_element--enable">
+                    <p class="kp_ascii--titre  ">
                         <div class="kp_terminal--icn">KP:\</div><span>Kévin Prévost - Développeur front-end</span>
                     </p>
                 </div>
@@ -45,7 +46,7 @@
                     <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-terminal"  id="kp_action--close--terminal"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
                 </div>
             </div>
-            <div class="kp_terminal_zone-texte">
+            <div class="kp_terminal_zone-texte  kp_element--enable">
                 <p class="kp_terminal--texte">
                    
                 </p>
@@ -56,7 +57,7 @@
 
         <section class="kp_window--container  kp_z-index  kp_changed__id  kp_item__window" id="kp_iframe--container">
             <div class="kp_window--title-zone  kp_element--title">
-                <div class="kp_window--title-zon--title">
+                <div class="kp_window--title-zon--title   kp_element--enable">
                     <p class="kp_p">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</p>
                 </div>
                 <div class="kp_element--incons-zone">
@@ -65,7 +66,7 @@
                 <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-browser"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
             </div>
             </div>
-            <div class="kp_window--border">
+            <div class="kp_window--border   kp_element--enable">
                 <div class="kp_internet--onglets">
                     <button v-for="(projet, index) in projets" :key="projet.titre"  :class="'kp_projet-btn  kp_projet-btn--' + projet.id" @click="changerProjet(index)">
                         {{ projet.titre }}
@@ -103,7 +104,7 @@
         <section class="kp_image_ascii  kp_z-index  kp_changed__id  kp_text  kp_item__window"  id="kp_text">
             <div class="kp_element--title">
                 <div class="kp_element--icon-title">
-                    <p class="kp_ascii--titre">
+                    <p class="kp_ascii--titre   kp_element--enable">
                        <div class="kp_ascii--icn"><img class="kp_icon_zone--img" src="/images/text.png" alt="reduct"></div><span>Kévin Prévost - autoportrait.txt</span>
                     </p>
                 </div>
@@ -113,7 +114,7 @@
                     <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-text"  id="kp_action--close--text"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
                 </div>
             </div>
-            <pre class="kp_image_ascii--content">                                                                                                     
+            <pre class="kp_image_ascii--content  kp_element--enable">                                                                                                     
                                             .=#@@@@@@#=.                                             
                                         .@@@@@@@@@@@@@@@@@.                                          
                                     .@@@@@@@@@@@@@@@@@@@@@@@@.                                       
@@ -171,8 +172,9 @@
 
 
         
-         <!-- Window Internet -->
+         <!-- Window Full -->
          <div class="kp_animation_full-screen"></div>
+        <div class="kp_anti-hover--full"></div>
 
 
          <!-- Barre de notifications -->

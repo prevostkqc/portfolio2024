@@ -350,7 +350,7 @@ p, div, span{
     width: 100vw;
     height: 100vh;
   }
-  .kp_iframe--container_movement:hover{
+  .kp_element--movement:hover{
     cursor: grabbing !important;
   }
   .kp_folder--img{
@@ -463,9 +463,21 @@ p, div, span{
   }
 
 
-
-
-
+  .kp_anti-hover--full{
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+    position:absolute;
+    pointer-events: none;
+  }
+  .kp_anti--show,
+  .kp_element--enable{
+    pointer-events: initial;
+  }
+  .kp_element--disable{
+    pointer-events: none;
+  }
 
   /* terminal */
  .kp_terminal{
