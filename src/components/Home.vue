@@ -177,7 +177,7 @@
         
 
         <!-- Profil -->
-        <section class="kp_z-index  kp_changed__id  kp_profil  kp_item__window"  id="kp_profil">
+        <section class="kp_z-index  kp_changed__id  kp_profil  kp_item__window  kp_element--action--close"  id="kp_profil">
             <div class="kp_element--title">
                 <div class="kp_element--icon-title">
                     <p class="kp_element--enable">
@@ -189,6 +189,10 @@
                     <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-profil" id="kp_action--reduct--profil"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
                     <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-profil" id="kp_action--resize--profil"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
                     <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-profil"  id="kp_action--close--profil"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                </div>
+            </div>
+            <div class="kp_element-file-zone">
+                <div class="kp_element-file-zone--container">
                 </div>
             </div>
             <div class="kp_element_container--part-content  kp_element--enable">
@@ -250,6 +254,22 @@
 
                         </div>
                     </article>
+                    
+
+                    <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--projet">
+                        <div class="kp_menu__barre-etat--un-ico-container-img">
+                            <img class="kp_menu__barre-etat--img" src="/images/linkedin.png" alt="Mes projets">
+                        </div>
+                        <div>
+                            <p class="kp_menu__barre-etat--un-ico-container--text">
+                                Mon histoire
+                            </p>
+                            <p class="kp_menu__barre-etat--un-ico-container--desc">
+                                Communiquer avec moi
+                            </p>
+
+                        </div>
+                    </article>
 
                 </div>
                 <div class="kp_menu__barre-etat--content-right">
@@ -260,16 +280,19 @@
 
          <!-- Barre de notifications -->
         <section class="kp_notification__zone">
-            <div class="kp_notification--titre">
-                <p class="kp_notification--titre-p">
-                    <span class="kp_notification--titre-span">
-                        Démarrer
-                    </span>
-                </p>
-                <div>
-                    <img class="kp_menu_start--img" src="/images/logo-2024.png" alt="">
+            <div class="kp_notification__demarrer">
+                <div class="kp_notification--titre">
+                    <p class="kp_notification--titre-p">
+                        <span class="kp_notification--titre-span">
+                            Démarrer
+                        </span>
+                    </p>
+                    <div>
+                        <img class="kp_menu_start--img" src="/images/logo-2024.png" alt="">
+                    </div>
                 </div>
             </div>
+            
             <div class="kp_notification--applications">
                 <article class="kp_barre-une-app  kp_barre-une-app--terminal  kp_barre-une-app--open  kp_barre-une-app--show" id="kp_barre-app--browser">
                     <div class="kp_barre-une-app--icn  kp_terminal--icn">KP:\</div>
@@ -288,7 +311,16 @@
                     <p class="kp_barre-une-app--title">Profil</p>
                 </article>
             </div>
+            
             <div class="kp_notification--zone">
+                
+                <div id="kp_lang__user">
+                </div>
+                <div id="kp_battery__user--img">
+                        <img class="kp_battery--img" src="/images/icn_battery100.png" alt="Batterie">
+                </div>
+                <div id="kp_battery__user">
+                </div>
                 <div class="kp_date-heure">
                     <div class="kp_date-heure--heure"></div>
                 </div>

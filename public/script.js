@@ -275,6 +275,7 @@ document.querySelector(".kp_folder--projets").addEventListener("click", ouvrirPr
 document.querySelector(".kp_menu__barre-etat--projet").addEventListener("click", ouvrirProjet);
 document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirProjet);
 
+
 /* ------------------------------ */
 
 function fermerDescriptionProjet(){
@@ -373,6 +374,25 @@ document.querySelector(".kp_icon--close-terminal").addEventListener("click", fer
 
 /* ----------------------------------------------------------------------------------- */
 
+function fermerMenu(){
+  removeClass(document.querySelector(".kp_menu__barre-etat"), 'kp_menu__barre-etat--show');
+}
+
+function ouvrirMenu(){
+  let zindex = getHighestZIndex();
+  document.querySelector(".kp_menu__barre-etat").style.zIndex = zindex + 1;
+  addClass(document.querySelector(".kp_menu__barre-etat"), 'kp_menu__barre-etat--show');
+}
+/* ----------------------------------------------------------------------------------- */
+
+document.addEventListener('mousedown', function(e) {
+  var menuDemarre = document.querySelector('.kp_notification__demarrer');
+  if (menuDemarre.contains(e.target)) {
+    ouvrirMenu();
+  } else {
+    fermerMenu();
+  }
+});
 
 /* ---------------------------------------------------------- */
 const optionsHeure = { hour: '2-digit', minute: '2-digit' };
@@ -472,8 +492,21 @@ boutonsProjet.forEach(bouton => {
 /* Baterie ou branché */
 if ('getBattery' in navigator) {
   navigator.getBattery().then(function(battery) {
-    console.log("L'appareil est-il sur batterie ? " + (battery.charging ? "Non" : "Oui"));
-    console.log("Pourcentage de la batterie : " + (battery.level * 100) + "%");
+    var batteryImg = "100";
+    var batteryLoading = battery.charging ? "load" : "";
+    if((battery.level * 100) <= 25){
+      batteryImg = 25;
+    }else if((battery.level * 100) <= 55){
+      batteryImg = 50;
+    }else if((battery.level * 100) <= 75){
+      batteryImg = 70;
+    }
+    
+    var image = document.querySelector('.kp_battery--img');
+    image.src = '/images/icn_battery' + batteryLoading + batteryImg + ".png";
+
+    const element = document.getElementById('kp_battery__user');
+    element.innerHTML = (battery.level * 100) + "%";
 
     // Événement pour détecter les changements de l'état de charge
     battery.addEventListener('chargingchange', function() {
@@ -490,5 +523,6 @@ if ('getBattery' in navigator) {
 }
 
 /* Langue navigateur */
-const userLang = navigator.language || navigator.userLanguage; 
-console.log('La langue du navigateur est : ' + userLang);
+const userLang = navigator.language || navigator.userLanguage;
+const element = document.getElementById('kp_lang__user');
+element.innerHTML = userLang;

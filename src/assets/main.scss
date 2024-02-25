@@ -787,6 +787,12 @@ p, div, span{
   background: white;
   width: 100%;
   max-width: 600px;
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+.kp_menu__barre-etat--show{
+  
+  transform: translateY(0%);
 }
 .kp_menu__barre-etat--titre{
   background: rgb(3, 82, 226);
@@ -804,7 +810,7 @@ p, div, span{
   gap: 20px;
   position: relative;
   border-radius: 10px 10px 0 0;
-  top: -8px;
+  top: -5px;
 }
 .kp_menu__barre-etat--titre:after{
 content: "";
@@ -819,6 +825,13 @@ content: "";
   background: rgb(255,255,255);
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(242,143,41,1) 33%, rgba(241,138,32,1) 50%, rgba(240,142,41,1) 66%, rgba(211,229,250,1) 100%);
 }
+.kp_notification__demarrer{
+  width: 172px;
+  height: 44px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 .kp_menu__barre-etat--photo{
 width: 60px;
 }
@@ -828,8 +841,16 @@ width: 60px;
   display: flex;
   width: 100%;
   justify-content: space-between;
+  min-height: 400px;
 }
-
+#kp_lang__user,
+#kp_battery__user{
+padding-right: 20px;
+}
+.kp_battery--img{
+  width: 20px;
+  filter: drop-shadow(2px 2px 1px #0000EE55);
+}
 
 /* icons */
 .kp_menu__barre-etat--img{
@@ -900,4 +921,10 @@ width: 60px;
 }
 .kp_profil--show{
   display: block;
+  position: absolute;
+  top: 50px;
+  left: 300px;
+}
+.kp_notification__demarrer{
+
 }
