@@ -175,6 +175,32 @@
 
 
         
+
+        <!-- Profil -->
+        <section class="kp_z-index  kp_changed__id  kp_profil  kp_item__window"  id="kp_profil">
+            <div class="kp_element--title">
+                <div class="kp_element--icon-title">
+                    <p class="kp_element--enable">
+                       <div class="kp_ascii--icn"><img class="kp_icon_zone--img" src="/images/text.png" alt="reduct"></div>
+                       <span>Kévin Prévost - Mon Profil</span>
+                    </p>
+                </div>
+                <div class="kp_element--incons-zone">
+                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-profil" id="kp_action--reduct--profil"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-profil" id="kp_action--resize--profil"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-profil"  id="kp_action--close--profil"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                </div>
+            </div>
+            <div class="kp_element_container--part-content  kp_element--enable">
+                iuhzfiuehfkujbh
+            </div>
+            
+            <div class="resize-handle"></div>
+        </section>
+        <!-- Profil -->
+
+
+        
          <!-- Window Full -->
          <div class="kp_animation_full-screen"></div>
         <div class="kp_anti-hover--full"></div>
@@ -183,7 +209,9 @@
         <!-- Menu open -->
         <section class="kp_menu__barre-etat">
             <div class="kp_menu__barre-etat--titre">
-                <img class="kp_menu__barre-etat--photo" src="/images/kevinprevost.jpg" alt="Kévin Prévost">
+                <div class="kp_menu__barre-etat--photo-container">
+                    <img class="kp_menu__barre-etat--photo" src="/images/kevinprevost.jpg" alt="Kévin Prévost">
+                </div>
                 <p>Kévin Prévost - Développeur front-end</p>
             </div>
             <div class="kp_menu__barre-etat--container">
@@ -252,6 +280,10 @@
                 <article class="kp_barre-une-app  kp_barre-une-app--text" id="kp_barre-app--text">
                     <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/text.png" alt="Mes projets"></div>
                     <p class="kp_barre-une-app--title">Autoportrait</p>
+                </article>
+                <article class="kp_barre-une-app  kp_barre-une-app--profil" id="kp_barre-app--profil">
+                    <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/text.png" alt="Mes projets"></div>
+                    <p class="kp_barre-une-app--title">Profil</p>
                 </article>
             </div>
             <div class="kp_notification--zone">

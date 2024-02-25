@@ -319,6 +319,31 @@ document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvr
 document.querySelector(".kp_icon--close-text").addEventListener("click", fermerText);
 
 /* ----------------------------------------------------------------------------------- */
+
+function fermerProfil(){
+  removeClass(document.querySelector(".kp_barre-une-app--profil"), 'kp_barre-une-app--show');
+  removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');
+}
+document.querySelector(".kp_icon--close-profil").addEventListener("click", fermerProfil);
+
+function reduireProfil(){
+  removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');
+}
+document.querySelector(".kp_icon--reduct-profil").addEventListener("click", reduireProfil);
+
+function ouvrirProfil(){
+  let zindex = getHighestZIndex();
+  document.querySelector("#kp_profil").style.zIndex = zindex + 1;
+  document.querySelector(".kp_barre-une-app--profil").classList.add('kp_barre-une-app--show');
+  addClass(document.querySelector("#kp_profil"), 'kp_profil--show');
+  removeClass(document.querySelector("#kp_profil"), 'kp_element--action--reduct');
+}
+document.querySelector(".kp_menu__barre-etat--photo-container").addEventListener("click", ouvrirProfil);
+document.querySelector(".kp_barre-une-app--profil").addEventListener("click", ouvrirProfil);
+
+document.querySelector(".kp_icon--close-profil").addEventListener("click", fermerProfil);
+
+/* ----------------------------------------------------------------------------------- */
 let terminalCharge = true;
 function fermerTerminal(){
   document.querySelector(".kp_barre-une-app--terminal").classList.remove('kp_barre-une-app--show');
