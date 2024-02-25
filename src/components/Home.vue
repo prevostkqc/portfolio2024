@@ -50,11 +50,14 @@
                 <p class="kp_terminal--texte">
                    
                 </p>
+                
             </div>
             <div class="resize-handle"></div>
         </section>
         <!-- Terminal -->
 
+
+        
         <section class="kp_window--container  kp_z-index  kp_changed__id  kp_item__window" id="kp_iframe--container">
             <div class="kp_window--title-zone  kp_element--title">
                 <div class="kp_window--title-zon--title   kp_element--enable">
@@ -210,51 +213,51 @@
             </div>
         </section>
         <div class="kp_date-heure--date"></div>
-        <div class="kp_full_screen">passer en plein écran</div>
     </main>
   </template>
   
   <script>
   import axios from 'axios';
+  
   export default {
-      data() {
-          return {
-              projets: [],
-              projetActuel: null
-          };
-      },
-      created() {
-          this.chargerProjets();
-      },
-      methods: {
-          chargerProjets() {
-              axios.get('/projets.json')
-              .then(response => {
-                  this.projets = response.data;
-                  this.projetActuel = this.projets[0]; // Initialiser avec le premier projet
-              })
-              .catch(error => {
-                  console.error('Erreur lors du chargement des projets:', error);
-              });
-          },
-          changerProjet(index) {
-              this.projetActuel = this.projets[index];
-          },
-      },
-      mounted() {
-          const script = document.createElement('script');
-          script.src = '/script.js';
-          script.onload = () => {
-            if (window.animerTexteTerminal) {
+    data() {
+        return {
+            projets: [],
+            projetActuel: null
+        };
+    },
+    created() {
+        this.chargerProjets();
+    },
+    methods: {
+        async chargerProjets() {
+            try {
+                const response = await axios.get('/projets.json');
+                this.projets = response.data;
+                this.projetActuel = this.projets[0]; // Initialiser avec le premier projet
+            } catch (error) {
+                console.error('Erreur lors du chargement des projets:', error);
+            }
+        },
+        changerProjet(index) {
+            this.projetActuel = this.projets[index];
+        },
+    },
+    mounted() {
+        const script = document.createElement('script');
+        script.src = '/script.js';
+        script.onload = () => {
+          if (window.animerTexteTerminal) {
             window.animerTexteTerminal();
-        }
-          };
-          this.$nextTick(() => {
-              document.body.appendChild(script);
-          });
-      }
+          }
+        };
+        this.$nextTick(() => {
+            document.body.appendChild(script);
+        });
+    }
   };
-</script>
+  </script>
+  
   
   <style>
   /* Tes styles ici */

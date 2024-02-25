@@ -30,13 +30,17 @@ const router = new VueRouter({
                 }
               ]
             }
+        },
+        {
+          path: '/browser', // Le chemin URL pour ta nouvelle vue
+          name: 'browser',
+          component: BrowserVue // Le composant à utiliser
         }
     ]
   });
   
   router.afterEach((to, from) => {
-    // Définir le titre de la page à partir de la route courante
-    document.title = to.meta.title || 'Le Nom Par Défaut De Mon Site';
+    document.title = to.meta.title || 'Kévin Prévost - Développeur Front-end';
   });
   
 export default router;

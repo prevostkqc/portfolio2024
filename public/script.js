@@ -126,10 +126,10 @@ document.addEventListener('mousemove', e => {
   draggableElement.style.top = `${newTop}px`;
   // La logique pour ajouter ou retirer des classes basée sur la position
   if (newTop <= 0) {
-    addClass(draggableElement, 'kp_item_window--full');
+    addClass(draggableElement, 'kp_element--action--resize');
     addClass(elementFullScreen, 'kp_window_isfullscreen');
   } else {
-    removeClass(draggableElement, 'kp_item_window--full');
+    removeClass(draggableElement, 'kp_element--action--resize');
     removeClass(elementFullScreen, 'kp_window_isfullscreen');
   }
 });
@@ -147,11 +147,11 @@ document.addEventListener('mouseup', () => {
 let clicCount = 0;
 let clicTimer;
 function onDoubleClick(e) {
-    const classeRecherchee = 'kp_item_window--full';
+    const classeRecherchee = 'kp_element--action--resize';
     if (lastElementDragable.classList.contains(classeRecherchee)) {
-      removeClass(lastElementDragable, 'kp_item_window--full');
+      removeClass(lastElementDragable, 'kp_element--action--resize');
     } else {
-      addClass(lastElementDragable, 'kp_item_window--full');
+      addClass(lastElementDragable, 'kp_element--action--resize');
     }
     clicCount = 0;
 }
@@ -188,11 +188,11 @@ function changedDragable(e) {
 }
 
 function clickResizeWindow(){
-  const classeRecherchee = 'kp_item_window--full';
+  const classeRecherchee = 'kp_element--action--resize';
   if (elementDraggable.classList.contains(classeRecherchee)) {
-    removeClass(elementDraggable, 'kp_item_window--full');
+    removeClass(elementDraggable, 'kp_element--action--resize');
   } else {
-    addClass(elementDraggable, 'kp_item_window--full');
+    addClass(elementDraggable, 'kp_element--action--resize');
   }
 }
 document.querySelector(".kp_icon--resize-browser").addEventListener("click", clickResizeWindow);
