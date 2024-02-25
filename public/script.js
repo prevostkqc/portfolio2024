@@ -272,6 +272,7 @@ function ouvrirProjet(){
   addClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
 }
 document.querySelector(".kp_folder--projets").addEventListener("click", ouvrirProjet);
+document.querySelector(".kp_menu__barre-etat--projet").addEventListener("click", ouvrirProjet);
 document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirProjet);
 
 /* ------------------------------ */

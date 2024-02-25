@@ -192,7 +192,9 @@
                 </div>
             </div>
             <div class="kp_element_container--part-content  kp_element--enable">
-                iuhzfiuehfkujbh
+                <div class="kp_element_container--content">
+
+                </div>
             </div>
             
             <div class="resize-handle"></div>
