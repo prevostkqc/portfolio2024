@@ -747,3 +747,92 @@ p, div, span{
     bottom: auto !important;
   }
 
+
+/* ----------------- */
+/* kp_menu__barre-etat */
+.kp_menu__barre-etat{
+  position: fixed;
+  bottom: 41px;
+  left: 0;
+  background: white;
+  width: 100%;
+  max-width: 600px;
+}
+.kp_menu__barre-etat--titre{
+  background: rgb(3, 82, 226);
+  background: linear-gradient(90deg, rgb(3, 82, 226) 0%, rgb(60, 148, 255) 100%);
+  padding: 5px;
+  border: solid 1px #4e7cd3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #0053e3;
+  box-shadow: inset 0 0 13px rgb(45, 145, 255);
+  padding: 20px 10px;
+  font-size: 20px;
+  width: calc(100% - 22px);
+  gap: 20px;
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  top: -8px;
+}
+.kp_menu__barre-etat--titre:after{
+content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: -1px;
+  background: red;
+  bottom: -5px;
+  border: solid 1px white;
+  border-top: solid 1px #002c77;
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(242,143,41,1) 33%, rgba(241,138,32,1) 50%, rgba(240,142,41,1) 66%, rgba(211,229,250,1) 100%);
+}
+.kp_menu__barre-etat--photo{
+width: 60px;
+}
+.kp_menu__barre-etat--container{
+  position: relative;
+  top: -5px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+/* icons */
+.kp_menu__barre-etat--img{
+  width: 40px;
+}
+.kp_menu__barre-etat--un-ico-container--text{
+  color: #34393a;
+  font-weight: 700;
+}
+.kp_menu__barre-etat--un-ico-container--desc{
+  color: #aba3a9;
+  font-weight: 400;
+  padding-top: 5px;
+}
+.kp_menu__barre-etat--ico{
+  display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+.kp_menu__barre-etat--ico:hover{
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3333333333));
+  outline: solid 1px rgb(45, 145, 255);
+  background-color: #4c68d830;
+}
+.kp_menu__barre-etat--ico:hover .kp_menu__barre-etat--un-ico-container--desc{
+  color: #34393a;
+}
+.kp_menu__barre-etat--content-right{
+  background: #d0dff6;
+    width: 55%;
+    border-left: solid 1px #a0c4f0;
+}

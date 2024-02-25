@@ -180,6 +180,54 @@
         <div class="kp_anti-hover--full"></div>
 
 
+        <!-- Menu open -->
+        <section class="kp_menu__barre-etat">
+            <div class="kp_menu__barre-etat--titre">
+                <img class="kp_menu__barre-etat--photo" src="/images/kevinprevost.jpg" alt="Kévin Prévost">
+                <p>Kévin Prévost - Développeur front-end</p>
+            </div>
+            <div class="kp_menu__barre-etat--container">
+                <div class="kp_menu__barre-etat--content-left">
+
+                    <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--projet">
+                        <div class="kp_menu__barre-etat--un-ico-container-img">
+                            <img class="kp_menu__barre-etat--img" src="/images/folder.png" alt="Mes projets">
+                        </div>
+                        <div>
+                            <p class="kp_menu__barre-etat--un-ico-container--text">
+                                Mes réalisations
+                            </p>
+                            <p class="kp_menu__barre-etat--un-ico-container--desc">
+                                Consulter mes projets
+                            </p>
+
+                        </div>
+                    </article>
+
+                    
+
+                    <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--projet">
+                        <div class="kp_menu__barre-etat--un-ico-container-img">
+                            <img class="kp_menu__barre-etat--img" src="/images/mail.png" alt="Mes projets">
+                        </div>
+                        <div>
+                            <p class="kp_menu__barre-etat--un-ico-container--text">
+                                Me contacter
+                            </p>
+                            <p class="kp_menu__barre-etat--un-ico-container--desc">
+                                Envoyez-moi un message
+                            </p>
+
+                        </div>
+                    </article>
+
+                </div>
+                <div class="kp_menu__barre-etat--content-right">
+
+                </div>
+            </div>
+        </section>
+
          <!-- Barre de notifications -->
         <section class="kp_notification__zone">
             <div class="kp_notification--titre">
