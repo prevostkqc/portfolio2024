@@ -2,9 +2,11 @@
 const elementChangeDraggables = document.querySelectorAll('.kp_element--title');
 const elementFullScreen = document.querySelector('.kp_animation_full-screen');
 const resizeHandles = document.querySelectorAll('.resize-handle');
+const backHoverClick = document.querySelector('.kp_anti-hover--full');
 let isDragging = false, isFullScreen = false, isResizing = false;
 let offsetX, offsetY, startX, startY, startWidth, startHeight, lastX, lastY;;
 let initialState = { width: '', height: '', left: '', top: '' };
+let lastElementDragable = document.querySelector('.kp_animation_full-screen');
 
 elementChangeDraggables.forEach(elementChangeDraggable => {
   elementChangeDraggable.addEventListener('mousedown', e => {
@@ -32,11 +34,13 @@ const handleMouseDownDrag = (e, draggableElement, triggerElement) => {
   isDragging = true;
   offsetX = e.clientX - draggableElement.getBoundingClientRect().left;
   offsetY = e.clientY - draggableElement.getBoundingClientRect().top;
-  addClass(triggerElement, 'kp_iframe--container_movement');
+  addClass(lastElementDragable, 'kp_element--movement');
   document.body.style.cursor = 'grabbing';
 };
 const handleMouseMoveDrag = (e) => {
   elementDraggable = changedDragable(e);
+  
+  console.log(lastElementDragable);
   if (!isDragging) return;
 
   requestAnimationFrame(() => {
@@ -46,11 +50,11 @@ const handleMouseMoveDrag = (e) => {
     const deltaY = e.clientY - lastY;
 
     if (elementDraggable) {
-      const newLeft = parseInt(elementDraggable.style.left || 0, 10) + deltaX;
-      const newTop = parseInt(elementDraggable.style.top || 0, 10) + deltaY;
+      const newLeft = parseInt(lastElementDragable.style.left || 0, 10) + deltaX;
+      const newTop = parseInt(lastElementDragable.style.top || 0, 10) + deltaY;
       
-      elementDraggable.style.left = `${newLeft}px`;
-      elementDraggable.style.top = `${newTop}px`;
+      lastElementDragable.style.left = `${newLeft}px`;
+      lastElementDragable.style.top = `${newTop}px`;
     }
   });
 
@@ -59,9 +63,13 @@ const handleMouseMoveDrag = (e) => {
 };
 const handleMouseUpDrag = (e) => {
   isDragging = false;
+  
+  removeClass(backHoverClick, 'kp_anti--show');
+  removeClass(document.querySelector('.kp_element--enable'), 'kp_element--disable');
+  
   document.body.style.cursor = 'default';
-  elementChangeDraggables.forEach(elementChangeDraggable => {
-      removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
+  elementChangeDraggables.forEach(lastElementDragable => {
+      removeClass(lastElementDragable, 'kp_element--movement');
   });
 };
 
@@ -105,9 +113,7 @@ document.addEventListener('mousemove', (e) => {
   }, 100);
 });
 
-
 updateInitialState();
-
 
 document.addEventListener('mousemove', e => {
   if (!isDragging) return;
@@ -120,10 +126,10 @@ document.addEventListener('mousemove', e => {
   draggableElement.style.top = `${newTop}px`;
   // La logique pour ajouter ou retirer des classes basée sur la position
   if (newTop <= 0) {
-    addClass(draggableElement, 'kp_item_window--full');
+    addClass(draggableElement, 'kp_element--action--resize');
     addClass(elementFullScreen, 'kp_window_isfullscreen');
   } else {
-    removeClass(draggableElement, 'kp_item_window--full');
+    removeClass(draggableElement, 'kp_element--action--resize');
     removeClass(elementFullScreen, 'kp_window_isfullscreen');
   }
 });
@@ -131,22 +137,21 @@ document.addEventListener('mouseup', () => {
   if (isDragging) {
     // Suppression de la classe de mouvement et réinitialisation de l'état de glissement
     elementChangeDraggables.forEach(elementChangeDraggable => {
-      removeClass(elementChangeDraggable, 'kp_iframe--container_movement');
+      removeClass(lastElementDragable, 'kp_element--movement');
     });
     document.body.style.cursor = 'default';
     isDragging = false;
   }
 });
 
-
 let clicCount = 0;
 let clicTimer;
 function onDoubleClick(e) {
-    const classeRecherchee = 'kp_item_window--full';
-    if (elementDraggable.classList.contains(classeRecherchee)) {
-      removeClass(elementDraggable, 'kp_item_window--full');
+    const classeRecherchee = 'kp_element--action--resize';
+    if (lastElementDragable.classList.contains(classeRecherchee)) {
+      removeClass(lastElementDragable, 'kp_element--action--resize');
     } else {
-      addClass(elementDraggable, 'kp_item_window--full');
+      addClass(lastElementDragable, 'kp_element--action--resize');
     }
     clicCount = 0;
 }
@@ -169,15 +174,25 @@ function handleClic(e) {
 document.querySelector(".kp_element--title").addEventListener("click", handleClic);
 
 function changedDragable(e) {
-  return e.target.closest('.kp_changed__id');
+  let dragrableTemp = e.target.closest('.kp_changed__id'); 
+
+  if (dragrableTemp && dragrableTemp.id) {
+    if (dragrableTemp.id === "kp_terminal" || dragrableTemp.id === "kp_browser" || dragrableTemp.id === "kp_text") {
+      lastElementDragable = dragrableTemp;
+      
+      console.log(dragrableTemp);
+    }
+  }
+
+  return dragrableTemp;
 }
 
 function clickResizeWindow(){
-  const classeRecherchee = 'kp_item_window--full';
+  const classeRecherchee = 'kp_element--action--resize';
   if (elementDraggable.classList.contains(classeRecherchee)) {
-    removeClass(elementDraggable, 'kp_item_window--full');
+    removeClass(elementDraggable, 'kp_element--action--resize');
   } else {
-    addClass(elementDraggable, 'kp_item_window--full');
+    addClass(elementDraggable, 'kp_element--action--resize');
   }
 }
 document.querySelector(".kp_icon--resize-browser").addEventListener("click", clickResizeWindow);
@@ -257,7 +272,9 @@ function ouvrirProjet(){
   addClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
 }
 document.querySelector(".kp_folder--projets").addEventListener("click", ouvrirProjet);
+document.querySelector(".kp_menu__barre-etat--projet").addEventListener("click", ouvrirProjet);
 document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirProjet);
+
 
 /* ------------------------------ */
 
@@ -304,6 +321,31 @@ document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvr
 document.querySelector(".kp_icon--close-text").addEventListener("click", fermerText);
 
 /* ----------------------------------------------------------------------------------- */
+
+function fermerProfil(){
+  removeClass(document.querySelector(".kp_barre-une-app--profil"), 'kp_barre-une-app--show');
+  removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');
+}
+document.querySelector(".kp_icon--close-profil").addEventListener("click", fermerProfil);
+
+function reduireProfil(){
+  removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');
+}
+document.querySelector(".kp_icon--reduct-profil").addEventListener("click", reduireProfil);
+
+function ouvrirProfil(){
+  let zindex = getHighestZIndex();
+  document.querySelector("#kp_profil").style.zIndex = zindex + 1;
+  document.querySelector(".kp_barre-une-app--profil").classList.add('kp_barre-une-app--show');
+  addClass(document.querySelector("#kp_profil"), 'kp_profil--show');
+  removeClass(document.querySelector("#kp_profil"), 'kp_element--action--reduct');
+}
+document.querySelector(".kp_menu__barre-etat--photo-container").addEventListener("click", ouvrirProfil);
+document.querySelector(".kp_barre-une-app--profil").addEventListener("click", ouvrirProfil);
+
+document.querySelector(".kp_icon--close-profil").addEventListener("click", fermerProfil);
+
+/* ----------------------------------------------------------------------------------- */
 let terminalCharge = true;
 function fermerTerminal(){
   document.querySelector(".kp_barre-une-app--terminal").classList.remove('kp_barre-une-app--show');
@@ -332,6 +374,25 @@ document.querySelector(".kp_icon--close-terminal").addEventListener("click", fer
 
 /* ----------------------------------------------------------------------------------- */
 
+function fermerMenu(){
+  removeClass(document.querySelector(".kp_menu__barre-etat"), 'kp_menu__barre-etat--show');
+}
+
+function ouvrirMenu(){
+  let zindex = getHighestZIndex();
+  document.querySelector(".kp_menu__barre-etat").style.zIndex = zindex + 1;
+  addClass(document.querySelector(".kp_menu__barre-etat"), 'kp_menu__barre-etat--show');
+}
+/* ----------------------------------------------------------------------------------- */
+
+document.addEventListener('mousedown', function(e) {
+  var menuDemarre = document.querySelector('.kp_notification__demarrer');
+  if (menuDemarre.contains(e.target)) {
+    ouvrirMenu();
+  } else {
+    fermerMenu();
+  }
+});
 
 /* ---------------------------------------------------------- */
 const optionsHeure = { hour: '2-digit', minute: '2-digit' };
@@ -402,6 +463,9 @@ function getHighestZIndex() {
 function handleMouseDown(event) {
   const highestZIndex = getHighestZIndex();
   event.currentTarget.style.zIndex = highestZIndex + 1;
+  backHoverClick.style.zIndex  = highestZIndex;
+  addClass(backHoverClick, 'kp_anti--show');
+  addClass(document.querySelector('.kp_element--enable'), 'kp_element--disable');
 }
 document.querySelectorAll('.kp_z-index').forEach((element) => {
   element.addEventListener('mousedown', handleMouseDown);
@@ -428,8 +492,21 @@ boutonsProjet.forEach(bouton => {
 /* Baterie ou branché */
 if ('getBattery' in navigator) {
   navigator.getBattery().then(function(battery) {
-    console.log("L'appareil est-il sur batterie ? " + (battery.charging ? "Non" : "Oui"));
-    console.log("Pourcentage de la batterie : " + (battery.level * 100) + "%");
+    var batteryImg = "100";
+    var batteryLoading = battery.charging ? "load" : "";
+    if((battery.level * 100) <= 25){
+      batteryImg = 25;
+    }else if((battery.level * 100) <= 55){
+      batteryImg = 50;
+    }else if((battery.level * 100) <= 75){
+      batteryImg = 70;
+    }
+    
+    var image = document.querySelector('.kp_battery--img');
+    image.src = '/images/icn_battery' + batteryLoading + batteryImg + ".png";
+
+    const element = document.getElementById('kp_battery__user');
+    element.innerHTML = (battery.level * 100) + "%";
 
     // Événement pour détecter les changements de l'état de charge
     battery.addEventListener('chargingchange', function() {
@@ -446,5 +523,6 @@ if ('getBattery' in navigator) {
 }
 
 /* Langue navigateur */
-const userLang = navigator.language || navigator.userLanguage; 
-console.log('La langue du navigateur est : ' + userLang);
+const userLang = navigator.language || navigator.userLanguage;
+const element = document.getElementById('kp_lang__user');
+element.innerHTML = userLang;

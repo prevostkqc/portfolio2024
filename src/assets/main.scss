@@ -81,10 +81,9 @@ p, div, span{
     border-bottom: none;
     outline: solid 1px #0e46bb;
     cursor: pointer;
-    
-}
-.kp_projet-btn:hover{
+    &:hover{
       background: $main-color_primary ;
+    }
 }
 .kp_projet-btn--hover{
     background: white;
@@ -151,9 +150,9 @@ p, div, span{
     background: $main-color_black-tranparent;
     cursor: pointer;
     transition: 0.3s;
-  }
-  .kp_full_screen:hover{
-    background: $main-color_black-tranparent-hover;
+    &:hover{
+      background: $main-color_black-tranparent-hover;
+    }
   }
   .kp_window--title-zone{
     position: absolute;
@@ -261,36 +260,35 @@ p, div, span{
     font-style: italic;
     letter-spacing: 1px;
   }
-  .kp_notification--titre::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: 100%;
-    height: 0px;
-    box-shadow: 0 2px 4px 3px white;
-    opacity: 0.3;
-  }
-  .kp_notification--titre::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 0px;
-    box-shadow: 0 0px 5px 4px black;
-    opacity: 0.5;
-  }
-  .kp_notification--titre:hover{
-
-  }
-  .kp_notification--titre:hover:before {
-    top: auto;
-    bottom: -2px;
-  }
-  .kp_notification--titre:hover:after {
-    top: -1px;
-    bottom: -auto;
+  .kp_notification--titre{
+    &:before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 0px;
+      box-shadow: 0 2px 4px 3px white;
+      opacity: 0.3;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 0px;
+      box-shadow: 0 0px 5px 4px black;
+      opacity: 0.5;
+    }
+    &:hover:before {
+      top: auto;
+      bottom: -2px;
+    }
+    &:hover:after {
+      top: -1px;
+      bottom: -auto;
+    }
   }
   .kp_icon_zone{
     background: #0053e3;
@@ -303,7 +301,21 @@ p, div, span{
     height: 15px;
     position: relative;
     overflow: hidden;
-  }
+    &:before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 0px;
+      box-shadow: 0 2px 4px 3px white;
+      opacity: 0.3;
+    }
+    &:hover{
+        background: #2e72e8;
+      }
+    }
+
   .kp_icon_zone--img{
     width: 15px;
     margin-right: 8px;
@@ -312,28 +324,15 @@ p, div, span{
   .kp_un-projet--close{
     background: #e67f6a;
     box-shadow: inset 0 0 13px #af3a12;
+    &:hover,
+    &:hover{
+      background: #974b33;
+    }
   }
  .kp_un-projet--close{
     position:absolute;
     right: 5px;
     top: 15px;
-  }
-  .kp_icon_zone::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: 100%;
-    height: 0px;
-    box-shadow: 0 2px 4px 3px white;
-    opacity: 0.3;
-  }
-  .kp_icon_zone:hover{
-    background: #2e72e8;
-  }
-  .kp_icon_zone--close:hover,
-  .kp_un-projet--close:hover{
-    background: #974b33;
   }
   .resize-handle {
     position: absolute;
@@ -375,12 +374,11 @@ p, div, span{
     width: fit-content;
     cursor: pointer;
     padding: 5px 5px 10px;
-  }
-  
-  .kp_folder--un-ico:hover{
-    filter: drop-shadow(1px 1px 2px #00000055);
-    outline: solid 1px $main-color_light;
-    background-color:rgba(76, 104, 216, 0.305);
+    &:hover{
+      filter: drop-shadow(1px 1px 2px #00000055);
+      outline: solid 1px $main-color_light;
+      background-color:rgba(76, 104, 216, 0.305);
+    }
   }
   .kp_iframe--show{
     display: flex;
@@ -595,9 +593,9 @@ p, div, span{
   background: white;
   color: black;
   max-width: 800px;
-}
-.kp_image_ascii:hover .kp_image_ascii--content {
-  filter: drop-shadow(3px 3px 2px black);
+  &:hover .kp_image_ascii--content {
+    filter: drop-shadow(3px 3px 2px black);
+  }
 }
 .kp_image-text--show,
 .kp_text--show{
@@ -688,15 +686,16 @@ p, div, span{
     transition: 0.1s;
     height: 22px;
     display: none;
- }
- .kp_barre-une-app:hover,
- .kp_barre-une-app--open{
+    &:hover{
+        background: #1378b9;
+        outline: solid 1px #0c428d;
+        background: #218acc;
+    }
+  }
+  .kp_barre-une-app--open{
     background: #1378b9;
     outline: solid 1px #0c428d;
- }
- .kp_barre-une-app:hover{
-    background: #218acc;
- }
+  }
  .kp_barre-une-app--title{
     font-size: 14px;
  }
@@ -761,8 +760,15 @@ p, div, span{
     }
 
 .kp_element--enable{
-  height: calc(100% - 54px);
+  height: calc(100% - 79px);
 }
+.kp_window--border{
+  height: calc(100% - 2px);
+}
+.kp_item__window {
+  max-height: fit-content;
+}
+
 
     
   .kp_item_window--full,
@@ -872,15 +878,14 @@ padding-right: 20px;
     gap: 10px;
     padding: 10px;
     cursor: pointer;
-    width: 100%;
-}
-.kp_menu__barre-etat--ico:hover{
-  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3333333333));
-  outline: solid 1px rgb(45, 145, 255);
-  background-color: #4c68d830;
-}
-.kp_menu__barre-etat--ico:hover .kp_menu__barre-etat--un-ico-container--desc{
-  color: #34393a;
+    &:hover{
+      filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3333333333));
+      outline: solid 1px rgb(45, 145, 255);
+      background-color: #4c68d830;
+    }
+    &:hover .kp_menu__barre-etat--un-ico-container--desc{
+      color: #34393a;
+    }
 }
 .kp_menu__barre-etat--content-right{
   background: #d0dff6;

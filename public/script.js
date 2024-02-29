@@ -87,6 +87,7 @@ resizeHandles.forEach(handle => {
       const deltaY = e.clientY - startY;
       handle.parentElement.style.width = `${initialWidth + deltaX}px`;
       handle.parentElement.style.height = `${initialHeight + deltaY}px`;
+      handle.parentElement.style.maxWidth = `${9999}px`;
     }
 
     function mouseUpHandler() {
@@ -501,7 +502,6 @@ if ('getBattery' in navigator) {
     }else if((battery.level * 100) <= 75){
       batteryImg = 70;
     }
-    
     var image = document.querySelector('.kp_battery--img');
     image.src = '/images/icn_battery' + batteryLoading + batteryImg + ".png";
 

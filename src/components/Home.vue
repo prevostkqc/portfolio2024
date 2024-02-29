@@ -58,7 +58,7 @@
 
 
         
-        <section class="kp_window--container  kp_z-index  kp_changed__id  kp_item__window" id="kp_iframe--container">
+        <section class="kp_window--container  kp_z-index  kp_changed__id  kp_item__window  kp_element--action--resize" id="kp_iframe--container">
             <div class="kp_window--title-zone  kp_element--title">
                 <div class="kp_window--title-zon--title   kp_element--enable">
                     <p class="kp_p">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</p>
@@ -117,7 +117,7 @@
                     <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-text"  id="kp_action--close--text"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
                 </div>
             </div>
-            <pre class="kp_image_ascii--content  kp_element--enable">                                                                                                     
+                <pre class="kp_image_ascii--content  kp_element--enable">                                                                                                     
                                             .=#@@@@@@#=.                                             
                                         .@@@@@@@@@@@@@@@@@.                                          
                                     .@@@@@@@@@@@@@@@@@@@@@@@@.                                       
@@ -169,6 +169,7 @@
 %%@%%%%%@@#@%%%#@@#%%%%##%%%#%%#%@@##%#%@@@%#%%%@@%#:---:---*%%%%@@@%@@@@*#%%#%%%%##%%#*####****#***%
 #%%@%%%%@@@@%##@@#%%%%%#####%###%@@#####%@@@%%%@%%%%%%=--+@@@@@@@@@#%@@@#*#%##%%%%##%%**#####**#****%
 %#%%@@%#%@@@##%@%%%%%%##%%######%@%###%#%%@@@@%%%%#%%%%%%%%@@@@@@@#%@@@%###%##%%%%%%%%**#####**#****%</pre>
+            
             <div class="resize-handle"></div>
         </section>
         <!-- Texte image -->
