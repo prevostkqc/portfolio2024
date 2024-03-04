@@ -1,5 +1,9 @@
 @import 'reset'; 
 @import 'root'; 
+#kp_desktop{
+  width: 100%;
+  height: 100vh;
+}
 .kp_projet-technos{
     color: $main-color_primary;
     font-size: 38px;
@@ -7,6 +11,19 @@
     gap: 5px;
     width: fit-content;
     margin-top: 15px
+}
+.kp_item__window{
+  border: solid 4px #ffffff;
+  outline: solid 1px #9b9b9b;
+  min-width: 500px;
+  min-height: 200px;
+}
+.kp_browser {
+  height: 50vh;
+    top: 191px;
+    left: 200px;
+    width: 50vw;
+    overflow: hidden;
 }
 .kp_projet-techno{
     font-size: $main-h5;
@@ -16,6 +33,12 @@
   content: "-";
   margin: 0 8px;
 }  
+.kp_browser-content--iframe{
+  overflow: hidden;
+  width: calc(100% - 3px);
+  height: calc(100% - 0px);
+  border: solid 1px #0e46bb;
+}
 
 .kp_item__window{
   position: absolute;
@@ -132,6 +155,7 @@ p, div, span{
     padding-top: 20px;
     display: flex;
     position: relative;
+    z-index: 2;
   }
   .kp_internet--onglets:after{
     content: "";
@@ -336,8 +360,8 @@ p, div, span{
   }
   .resize-handle {
     position: absolute;
-    bottom: -5px;
-    right: -5px;
+    bottom: -12px;
+    right: -12px;
     width: 30px;
     height: 30px;
     cursor: nwse-resize;
@@ -387,8 +411,8 @@ p, div, span{
   .kp_un-projet{
     border: solid 1px #0053e3;
     position: absolute;
-    bottom: 2px;
-    max-width: calc(100% - 47px);
+    bottom: 0px;
+    max-width: calc(100% - 45px);
     background: rgba(0, 0, 0, 0.94);
     padding: 50px 20px;
     overflow-y: scroll;
@@ -490,9 +514,6 @@ p, div, span{
     max-width: 1000px;
     display: none;
   }
-  .kp_terminal--show{
-    display: block !important;
-  }
   .kp_terminal_zone-titre{
     background: rgb(3, 82, 226);
     background: linear-gradient(90deg, rgb(3, 82, 226) 0%, rgb(60, 148, 255) 100%);
@@ -511,6 +532,7 @@ p, div, span{
     margin-top: 3px;
     padding: 10px 25px 30px 5px;
     overflow-y: scroll;
+    min-height:150px;
   }
   .kp_terminal--texte{
     font-family: 'Courier New', Courier, monospace;
@@ -553,7 +575,14 @@ p, div, span{
   .kp_date-heure--date{
     display:none;
   }
-  .kp_date-heure{
+  .kp_notification--zone:hover .kp_date-heure--date {
+    display: block;
+    position: fixed;
+    bottom: 47px;
+    right: 0px;
+    background: rgba(1, 85, 228, 0.3411764706);
+    padding: 15px 20px;
+    border: solid 1px #004ac9;
   }
   .kp_notification--zone{
     position: absolute;
@@ -566,6 +595,10 @@ p, div, span{
     align-items: center;
     background: #1791df;
     border-left: solid 1px #0f6299;
+  }
+  .kp_notification--zone div {
+    cursor: inherit !important;
+    pointer-events: none;
   }
   .kp_notification--zone::before {
     content: "";
@@ -597,16 +630,17 @@ p, div, span{
     filter: drop-shadow(3px 3px 2px black);
   }
 }
-.kp_image-text--show,
-.kp_text--show{
-  display: block;
+.kp_window--show{
+  display: block !important;
+  overflow: hidden;
 }
 .kp_image_ascii--content{
-  overflow: scroll;
   overflow: scroll;
   width: 100%;
   height: calc(100% - 11px);
   transition: 0.3s;
+  position: relative;
+  height: calc(100% - 36px) !important;
   // max-height: calc(100vh - 223px);
 }
 /* Fin ASCII */
@@ -712,9 +746,8 @@ p, div, span{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-
-
+    position: relative;
+    z-index: 2;
     background: #0053e3;
     cursor: grab;
     box-shadow: inset 0 0 13px rgb(45, 145, 255);
@@ -760,7 +793,7 @@ p, div, span{
     }
 
 .kp_element--enable{
-  height: calc(100% - 79px);
+  height: calc(100% - 39px);
 }
 .kp_window--border{
   height: calc(100% - 2px);
@@ -891,6 +924,8 @@ padding-right: 20px;
   background: #d0dff6;
     width: 55%;
     border-left: solid 1px #a0c4f0;
+    position: relative;
+    top: 3px;
 }
 .kp_menu__barre-etat--photo-container{
   border: solid 3px white;

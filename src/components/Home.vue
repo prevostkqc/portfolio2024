@@ -33,7 +33,7 @@
 
 
         <!-- Terminal -->
-        <section class="kp_terminal  kp_z-index  kp_terminal--show  kp_changed__id  kp_item__window" id="kp_terminal">
+        <section class="kp_terminal  kp_z-index  kp_terminal--show  kp_window--show  kp_changed__id  kp_item__window" id="kp_terminal">
             <div class="kp_element--title">
                 <div class="kp_element--icon-title   kp_element--enable">
                     <p class="kp_ascii--titre  ">
@@ -48,9 +48,7 @@
             </div>
             <div class="kp_terminal_zone-texte  kp_element--enable">
                 <p class="kp_terminal--texte">
-                   
                 </p>
-                
             </div>
             <div class="resize-handle"></div>
         </section>
@@ -82,25 +80,29 @@
                     <div class="kp_internet--favorites">
                     </div>
                 </div> 
-                <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
+
+                <div class="kp_browser-content--iframe">
+                    <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
                 
-                <article class="kp_un-projet" v-if="projetActuel">
-                    
-                    <div class="kp_icon_zone  kp_un-projet--close" ><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
-                    <h2 class="kp_h2">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</h2>
-                    <span class="kp_projet-annee  kp_h4">{{ projetActuel.annee }}</span>
-                    
-                    <p class="kp_p  kp_projet_description">{{ projetActuel.description }}</p>
-                    <ul class="kp_projet-technos">
-                        <li v-for="technologie in projetActuel.techno" :key="technologie"
-                            :class="['kp_projet-techno', `kp_projet-techno--${technologie.toLowerCase()}`]">
-                            {{ technologie }}
-                        </li>
-                    </ul>
-                </article>
-                <div class="kp_information-projet  kp_information-projet--hide">
-                    <p class="kp_information--p">Afficher les informations concernant ce projet</p>
+                    <article class="kp_un-projet" v-if="projetActuel">
+                        
+                        <div class="kp_icon_zone  kp_un-projet--close" ><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                        <h2 class="kp_h2">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</h2>
+                        <span class="kp_projet-annee  kp_h4">{{ projetActuel.annee }}</span>
+                        
+                        <p class="kp_p  kp_projet_description">{{ projetActuel.description }}</p>
+                        <ul class="kp_projet-technos">
+                            <li v-for="technologie in projetActuel.techno" :key="technologie"
+                                :class="['kp_projet-techno', `kp_projet-techno--${technologie.toLowerCase()}`]">
+                                {{ technologie }}
+                            </li>
+                        </ul>
+                    </article>
+                    <div class="kp_information-projet  kp_information-projet--hide">
+                        <p class="kp_information--p">Afficher les informations concernant ce projet</p>
+                    </div>
                 </div>
+               
             </div>
             <div class="resize-handle"></div>
         </section>
@@ -244,8 +246,6 @@
                         </div>
                     </article>
 
-                    
-
                     <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--projet">
                         <div class="kp_menu__barre-etat--un-ico-container-img">
                             <img class="kp_menu__barre-etat--img" src="/images/mail.png" alt="Mes projets">
@@ -261,17 +261,16 @@
                         </div>
                     </article>
                     
-
                     <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--projet">
                         <div class="kp_menu__barre-etat--un-ico-container-img">
                             <img class="kp_menu__barre-etat--img" src="/images/linkedin.png" alt="Mes projets">
                         </div>
                         <div>
                             <p class="kp_menu__barre-etat--un-ico-container--text">
-                                Mon histoire
+                                Mon parcours
                             </p>
                             <p class="kp_menu__barre-etat--un-ico-container--desc">
-                                Communiquer avec moi
+                                Par où je suis passé
                             </p>
 
                         </div>
@@ -330,56 +329,55 @@
                 <div class="kp_date-heure">
                     <div class="kp_date-heure--heure"></div>
                 </div>
+                <div class="kp_date-heure--date"></div>
             </div>
         </section>
-        <div class="kp_date-heure--date"></div>
     </main>
   </template>
   
   <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-        return {
-            projets: [],
-            projetActuel: null
-        };
-    },
-    created() {
-        this.chargerProjets();
-    },
-    methods: {
-        async chargerProjets() {
-            try {
-                const response = await axios.get('/projets.json');
-                this.projets = response.data;
-                this.projetActuel = this.projets[0]; // Initialiser avec le premier projet
-            } catch (error) {
-                console.error('Erreur lors du chargement des projets:', error);
+    import axios from 'axios';
+    
+    export default {
+        data() {
+            return {
+                projets: [],
+                projetActuel: null
+            };
+        },
+        created() {
+            this.chargerProjets();
+        },
+        methods: {
+            async chargerProjets() {
+                try {
+                    const response = await axios.get('/projets.json');
+                    this.projets = response.data;
+                    this.projetActuel = this.projets[0]; // Initialiser avec le premier projet
+                } catch (error) {
+                    console.error('Erreur lors du chargement des projets:', error);
+                }
+            },
+            changerProjet(index) {
+                this.projetActuel = this.projets[index];
+            },
+        },
+        mounted() {
+            const script = document.createElement('script');
+            script.src = '/script.js';
+            script.onload = () => {
+            if (window.animerTexteTerminal) {
+                window.animerTexteTerminal();
             }
-        },
-        changerProjet(index) {
-            this.projetActuel = this.projets[index];
-        },
-    },
-    mounted() {
-        const script = document.createElement('script');
-        script.src = '/script.js';
-        script.onload = () => {
-          if (window.animerTexteTerminal) {
-            window.animerTexteTerminal();
-          }
-        };
-        this.$nextTick(() => {
-            document.body.appendChild(script);
-        });
-    }
-  };
+            };
+            this.$nextTick(() => {
+                document.body.appendChild(script);
+            });
+        }
+    };
   </script>
   
   
   <style>
-  /* Tes styles ici */
   </style>
   

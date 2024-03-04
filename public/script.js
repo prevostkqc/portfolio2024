@@ -137,9 +137,9 @@ document.addEventListener('mousemove', e => {
 document.addEventListener('mouseup', () => {
   if (isDragging) {
     // Suppression de la classe de mouvement et réinitialisation de l'état de glissement
-    elementChangeDraggables.forEach(elementChangeDraggable => {
-      removeClass(lastElementDragable, 'kp_element--movement');
-    });
+    elementChangeDraggables.forEach(lastElementDragable => {
+    removeClass(lastElementDragable, 'kp_element--movement');
+});
     document.body.style.cursor = 'default';
     isDragging = false;
   }
@@ -231,12 +231,14 @@ function actionSurElement(event) {
       switch (action) {
         case 'reduct':
           elementCible.classList.toggle('kp_element--action--reduct');
+          reduireWindowId(target);
           break;
         case 'resize':
           elementCible.classList.toggle('kp_element--action--resize');
           break;
         case 'close':
           elementCible.classList.toggle('kp_element--action--close');
+          fermerWindowId(target);
           break;
         default:
           console.log('l\'action est inconnue');
@@ -252,26 +254,16 @@ document.querySelectorAll('.kp_icon_zone').forEach((element) => {
   element.addEventListener('mousedown', actionSurElement);
 });
 
-
 /* ----------------------------------------------------------------------------------- */
-
-function fermerProjet(){
-  removeClass(document.querySelector("#kp_browser"), 'kp_iframe--show');
-  removeClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
-}
-document.querySelector(".kp_icon--close-browser").addEventListener("click", fermerProjet);
-
-function reduireProjet(){
-  removeClass(document.querySelector("#kp_browser"), 'kp_iframe--show');
-  addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
-}
-document.querySelector(".kp_icon--reduct-browser").addEventListener("click", reduireProjet);
-
+/* PROJETS */
+/* ----------------------------------------------------------------------------------- */
 function ouvrirProjet(){
+  console.log("fdg");
   let zindex = getHighestZIndex();
   document.querySelector("#kp_browser").style.zIndex = zindex + 1;  ;
   addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
   addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
+  addClass(document.querySelector(".kp_un-projet"), 'kp_window--show');
   removeClass(document.querySelector("#kp_browser"), 'kp_element--action--reduct');
   removeClass(document.querySelector("#kp_browser"), 'kp_element--action--close');
 }
@@ -279,9 +271,7 @@ document.querySelector(".kp_folder--projets").addEventListener("click", ouvrirPr
 document.querySelector(".kp_menu__barre-etat--projet").addEventListener("click", ouvrirProjet);
 document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirProjet);
 
-
 /* ------------------------------ */
-
 function fermerDescriptionProjet(){
   addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
   addClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--show');
@@ -300,38 +290,19 @@ function ouvrirDescriptionProjet(){
 document.querySelector(".kp_information-projet").addEventListener("click", ouvrirDescriptionProjet);
 
 /* ----------------------------------------------------------------------------------- */
-
-function fermerText(){
-  console.log("hmm");
-  removeClass(document.querySelector("#kp_text"), 'kp_text--show');
-  removeClass(document.querySelector(".kp_barre-une-app--text"), 'kp_barre-une-app--show');
-}
-document.querySelector(".kp_icon_zone--close").addEventListener("click", fermerText);
-
-function reduireText(){
-  removeClass(document.querySelector("#kp_text"), 'kp_text--show');
-}
-document.querySelector(".kp_icon--reduct-text").addEventListener("click", reduireText);
-
+/* TEXT */
+/* ----------------------------------------------------------------------------------- */
 function ouvrirText(){
   let zindex = getHighestZIndex();
   document.querySelector("#kp_text").style.zIndex = zindex + 1;
   document.querySelector(".kp_barre-une-app--text").classList.add('kp_barre-une-app--show');
   addClass(document.querySelector("#kp_text"), 'kp_text--show');
+  addClass(document.querySelector("#kp_text"), 'kp_window--show');
   removeClass(document.querySelector("#kp_text"), 'kp_element--action--reduct');
 }
 document.querySelector(".kp_folder--text").addEventListener("click", ouvrirText);
 document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvrirText);
-
-
 /* ----------------------------------------------------------------------------------- */
-
-function fermerProfil(){
-  removeClass(document.querySelector(".kp_barre-une-app--profil"), 'kp_barre-une-app--show');
-  removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');
-}
-document.querySelector(".kp_icon--close-profil").addEventListener("click", fermerProfil);
-
 function reduireProfil(){
   removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');
 }
@@ -344,44 +315,29 @@ function ouvrirProfil(){
   addClass(document.querySelector("#kp_profil"), 'kp_profil--show');
   removeClass(document.querySelector("#kp_profil"), 'kp_element--action--reduct');
 }
-document.querySelector(".kp_menu__barre-etat--photo-container").addEventListener("click", ouvrirProfil);
+document.querySelector(".kp_menu__barre-etat--titre").addEventListener("click", ouvrirProfil);
 document.querySelector(".kp_barre-une-app--profil").addEventListener("click", ouvrirProfil);
 
-document.querySelector(".kp_icon--close-profil").addEventListener("click", fermerProfil);
-
+/* ----------------------------------------------------------------------------------- */
+/* TERMINAL */
 /* ----------------------------------------------------------------------------------- */
 let terminalCharge = true;
-function fermerTerminal(){
-  document.querySelector(".kp_barre-une-app--terminal").classList.remove('kp_barre-une-app--show');
-  document.querySelector("#kp_terminal").classList.remove('kp_terminal--show');
-  
-  terminalCharge = false;
-}
-document.querySelector(".kp_icon--close-terminal").addEventListener("click", fermerTerminal);
-
-function reduireTerminal(){
-  removeClass(document.querySelector("#kp_terminal"), 'kp_terminal--show');
-}
-document.querySelector(".kp_icon--reduct-terminal").addEventListener("click", reduireTerminal);
 
 function ouvrirTerminal(){
   let zindex = getHighestZIndex();
   document.querySelector("#kp_terminal").style.zIndex = zindex + 1;
   addClass(document.querySelector(".kp_barre-une-app--terminal"), 'kp_barre-une-app--show');
-  addClass(document.querySelector("#kp_terminal"), 'kp_terminal--show');
+  addClass(document.querySelector("#kp_terminal"), 'kp_window--show');
   terminalCharge ? terminalCharge = true : ecrireTexte ; 
 }
 document.querySelector(".kp_folder--terminal").addEventListener("click", ouvrirTerminal);
 
 document.querySelector(".kp_barre-une-app--terminal").addEventListener("click", ouvrirTerminal);
-document.querySelector(".kp_icon--close-terminal").addEventListener("click", fermerTerminal);
 
 /* ----------------------------------------------------------------------------------- */
-
 function fermerMenu(){
   removeClass(document.querySelector(".kp_menu__barre-etat"), 'kp_menu__barre-etat--show');
 }
-
 function ouvrirMenu(){
   let zindex = getHighestZIndex();
   document.querySelector(".kp_menu__barre-etat").style.zIndex = zindex + 1;
@@ -389,10 +345,37 @@ function ouvrirMenu(){
 }
 /* ----------------------------------------------------------------------------------- */
 
+
+/* ----------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+function fermerWindowId(idElement){
+  console.log(idElement);
+  var idDiv = "#kp_" + idElement;
+  var idBarre = ".kp_barre-une-app--" + idElement;
+  removeClass(document.querySelector(idDiv), 'kp_window--show');
+  removeClass(document.querySelector(idBarre), 'kp_barre-une-app--show');
+}
+function reduireWindowId(idElement){
+  console.log(idElement);
+  var idDiv = "#kp_" + idElement;
+  removeClass(document.querySelector(idDiv), 'kp_window--show');
+}
+/* ----------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+
 document.addEventListener('mousedown', function(e) {
   var menuDemarre = document.querySelector('.kp_notification__demarrer');
-  if (menuDemarre.contains(e.target)) {
-    ouvrirMenu();
+  var menuDemarreBarre = document.querySelector('.kp_menu__barre-etat');
+  if (menuDemarre.contains(e.target) || menuDemarreBarre.contains(e.target) ) {
+    var element = document.querySelector('.kp_menu__barre-etat');
+    if (element && element.classList.contains('kp_menu__barre-etat--show')) {
+      fermerMenu();
+    }else{
+      ouvrirMenu();
+    }
   } else {
     fermerMenu();
   }
@@ -418,7 +401,7 @@ setInterval(mettreAJourHeureEtDate, 1000);
 /* ---------------------------------------------------------- */
 function ecrireTexte() {
   const container = document.querySelector('.kp_terminal--texte');
-  const texteAAnimer = " ===================  <br/>  =>  Qui suis-je ?  <=  <br/>  ===================  <br/>  <br/>  Avec une solide expérience de plus de 10 ans dans le développement web, ma passion pour le multimédia et les évolutions technologiques a été le moteur de ma carrière.<br/><br/>  Spécialiste en création et optimisation de solutions web, je suis constamment à la recherche des dernières innovations pour apporter des réponses créatives et efficaces aux défis qui me sont proposés.  <br/> <br/>Mon parcours m'a permis de développer une expertise approfondie et une excellente capacité d'analyse des solutions visuelles, des langages de programmation et des outils de développement, me positionnant comme un acteur clé dans la transformation numérique des entreprises.<br/><br/>  En tant que responsable au sein du groupe Cybertek de la Cellule Créative, regroupant les services de webdesign, motion-design, graphisme, intégration et développement front-end, j'ai affiné ma maîtrise en gestion d'équipe pour piloter des projets novateurs avec succès et pour stimuler l'engagement de mon équipe vers la réalisation de nos ambitions partagées.<br/><br/>Mon approche, centrée sur la collaboration et l'innovation, favorise un environnement avec lequel la créativité et la technologie convergent vers un objectif commun.<br/><br/>Dynamique et motivé, je suis toujours prêt à explorer de nouveaux horizons et à relever de nouveaux défis.<span class='kp_terminal-ecriture'></span>";
+  const texteAAnimer = " ===================  <br/>  =>  Qui suis-je ?  <=  <br/>  ===================  <br/>  <br/>  Avec une solide expérience de plus de 10 ans dans le développement web, ma passion pour le multimédia et les évolutions technologiques a été le moteur de ma carrière.<br/><br/>  Spécialiste en création et optimisation de solutions web, je suis constamment à la recherche des dernières innovations pour apporter des réponses créatives et efficaces aux défis qui me sont proposés.  <br/> <br/>Mon parcours m'a permis de développer une expertise approfondie et une excellente capacité d'analyse des solutions visuelles, des langages de programmation et des outils de développement, me positionnant comme un acteur clé dans la transformation numérique des entreprises.<br/><br/>  En tant que responsable au sein du groupe Cybertek de la Cellule Créative, regroupant les services de webdesign, motion-design, graphisme, intégration et développement front-end, j'ai affiné ma maîtrise en gestion d'équipe pour piloter des projets novateurs avec succès et pour stimuler l'engagement de mon équipe vers la réalisation de nos ambitions partagées.<br/><br/>Mon approche, centrée sur la collaboration et l'innovation, favorise un environnement avec lequel la créativité et la technologie convergent vers un objectif commun.<br/><br/>Dynamique et motivé, je suis toujours prêt à explorer de nouveaux horizons et à relever de nouveaux défis.<br/><br/>Bienvenue dans mon univers !<span class='kp_terminal-ecriture'></span>";
   container.innerHTML = "";
   let index = 0;
   let enBalise = false;
