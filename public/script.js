@@ -258,7 +258,7 @@ document.querySelectorAll('.kp_icon_zone').forEach((element) => {
 /* PROJETS */
 /* ----------------------------------------------------------------------------------- */
 function ouvrirProjet(){
-  console.log("fdg");
+  fermerMenu();
   let zindex = getHighestZIndex();
   document.querySelector("#kp_browser").style.zIndex = zindex + 1;  ;
   addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
@@ -293,6 +293,7 @@ document.querySelector(".kp_information-projet").addEventListener("click", ouvri
 /* TEXT */
 /* ----------------------------------------------------------------------------------- */
 function ouvrirText(){
+  fermerMenu();
   let zindex = getHighestZIndex();
   document.querySelector("#kp_text").style.zIndex = zindex + 1;
   document.querySelector(".kp_barre-une-app--text").classList.add('kp_barre-une-app--show');
@@ -309,6 +310,7 @@ function reduireProfil(){
 document.querySelector(".kp_icon--reduct-profil").addEventListener("click", reduireProfil);
 
 function ouvrirProfil(){
+  fermerMenu();
   let zindex = getHighestZIndex();
   document.querySelector("#kp_profil").style.zIndex = zindex + 1;
   document.querySelector(".kp_barre-une-app--profil").classList.add('kp_barre-une-app--show');
@@ -324,6 +326,7 @@ document.querySelector(".kp_barre-une-app--profil").addEventListener("click", ou
 let terminalCharge = true;
 
 function ouvrirTerminal(){
+  fermerMenu();
   let zindex = getHighestZIndex();
   document.querySelector("#kp_terminal").style.zIndex = zindex + 1;
   addClass(document.querySelector(".kp_barre-une-app--terminal"), 'kp_barre-une-app--show');
@@ -370,12 +373,7 @@ document.addEventListener('mousedown', function(e) {
   var menuDemarre = document.querySelector('.kp_notification__demarrer');
   var menuDemarreBarre = document.querySelector('.kp_menu__barre-etat');
   if (menuDemarre.contains(e.target) || menuDemarreBarre.contains(e.target) ) {
-    var element = document.querySelector('.kp_menu__barre-etat');
-    if (element && element.classList.contains('kp_menu__barre-etat--show')) {
-      fermerMenu();
-    }else{
       ouvrirMenu();
-    }
   } else {
     fermerMenu();
   }

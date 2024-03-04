@@ -199,15 +199,24 @@
                     <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-profil"  id="kp_action--close--profil"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
                 </div>
             </div>
-            <div class="kp_element-file-zone">
-                <div class="kp_element-file-zone--container">
-                </div>
-            </div>
-            <div class="kp_element_container--part-content  kp_element--enable">
-                <div class="kp_element_container--content">
+            <div class="kp_element_container--part-content  kp_element--enable  kp_element__profil--container">
+                <div class="kp_element__main-content">
+                    <div class="kp_element_zone__profil--left">
+                        
+                        <div class="kp_menu__barre-etat--photo-container  kp_menu__barre-etat--photo-container-profil">
+                            <img class="kp_menu__barre-etat--photo  kp_menu__barre-etat--photo-profil" src="/images/kevinprevost.jpg" alt="Kévin Prévost">
+                        </div>
+                        <p class="kp_title--ssmenu-profil">xxx</p>
+                    </div>
+                    <div class="kp_element_zone__profil--right">
+                        <p class="kp_title--ssmenu-profil">xxx</p>
 
+                    </div>
                 </div>
+                
+                
             </div>
+          
             
             <div class="resize-handle"></div>
         </section>
@@ -226,7 +235,7 @@
                 <div class="kp_menu__barre-etat--photo-container">
                     <img class="kp_menu__barre-etat--photo" src="/images/kevinprevost.jpg" alt="Kévin Prévost">
                 </div>
-                <p>Kévin Prévost - Développeur front-end</p>
+                <p class="kp_titre-profil-barre">Kévin Prévost - Développeur front-end</p>
             </div>
             <div class="kp_menu__barre-etat--container">
                 <div class="kp_menu__barre-etat--content-left">
