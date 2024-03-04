@@ -58,17 +58,22 @@
 
 
         
-        <section class="kp_window--container  kp_z-index  kp_changed__id  kp_item__window  kp_element--action--resize" id="kp_iframe--container">
-            <div class="kp_window--title-zone  kp_element--title">
-                <div class="kp_window--title-zon--title   kp_element--enable">
-                    <p class="kp_p">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</p>
+
+        
+        <section class="kp_browser  kp_z-index  kp_browser--show  kp_changed__id kp_element--action--close kp_item__window" id="kp_browser">
+            <div class="kp_element--title">
+                <div class="kp_element--icon-title">
+                    <p class="kp_element--title-p  kp_element--enable">
+                       <div class="kp_element_title--icn"><img class="kp_icon_zone--img" src="/images/text.png" alt="reduct"></div><span>{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</span>
+                    </p>
                 </div>
                 <div class="kp_element--incons-zone">
-                <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-browser"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
-                <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-browser"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
-                <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-browser"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-browser" id="kp_action--reduct--browser"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-browser" id="kp_action--resize--browser"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-browser"  id="kp_action--close--browser"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                </div>
             </div>
-            </div>
+            
             <div class="kp_window--border   kp_element--enable">
                 <div class="kp_internet--onglets">
                     <button v-for="(projet, index) in projets" :key="projet.titre"  :class="'kp_projet-btn  kp_projet-btn--' + projet.id" @click="changerProjet(index)">
@@ -107,8 +112,8 @@
         <section class="kp_image_ascii  kp_z-index  kp_changed__id  kp_text  kp_item__window"  id="kp_text">
             <div class="kp_element--title">
                 <div class="kp_element--icon-title">
-                    <p class="kp_ascii--titre   kp_element--enable">
-                       <div class="kp_ascii--icn"><img class="kp_icon_zone--img" src="/images/text.png" alt="reduct"></div><span>Kévin Prévost - autoportrait.txt</span>
+                    <p class="kp_element--title-p   kp_element--enable">
+                       <div class="kp_element_title--icn"><img class="kp_icon_zone--img" src="/images/text.png" alt="reduct"></div><span>Kévin Prévost - autoportrait.txt</span>
                     </p>
                 </div>
                 <div class="kp_element--incons-zone">

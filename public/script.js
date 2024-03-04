@@ -180,8 +180,6 @@ function changedDragable(e) {
   if (dragrableTemp && dragrableTemp.id) {
     if (dragrableTemp.id === "kp_terminal" || dragrableTemp.id === "kp_browser" || dragrableTemp.id === "kp_text") {
       lastElementDragable = dragrableTemp;
-      
-      console.log(dragrableTemp);
     }
   }
 
@@ -196,7 +194,7 @@ function clickResizeWindow(){
     addClass(elementDraggable, 'kp_element--action--resize');
   }
 }
-document.querySelector(".kp_icon--resize-browser").addEventListener("click", clickResizeWindow);
+// document.querySelector(".kp_icon--resize-browser").addEventListener("click", clickResizeWindow);
 
 
 // document.querySelector('.kp_full_screen').addEventListener('click', function() {
@@ -219,7 +217,8 @@ document.querySelector(".kp_icon--resize-browser").addEventListener("click", cli
 /* Gestion des actions sur les éléments */
 function actionSurElement(event) {
   const id = event.currentTarget.id;
-  const parts = id.split('--').slice(1);
+  console.log(id);
+;  const parts = id.split('--').slice(1);
   if (parts.length === 2) {
     const action = parts[0];
     const target = parts[1];
@@ -228,6 +227,7 @@ function actionSurElement(event) {
     const elementCible = document.getElementById(elementCibleId);
 
     if (elementCible) {
+      console.log(elementCible);
       switch (action) {
         case 'reduct':
           elementCible.classList.toggle('kp_element--action--reduct');
@@ -256,21 +256,24 @@ document.querySelectorAll('.kp_icon_zone').forEach((element) => {
 /* ----------------------------------------------------------------------------------- */
 
 function fermerProjet(){
-  removeClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
+  removeClass(document.querySelector("#kp_browser"), 'kp_iframe--show');
   removeClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
 }
 document.querySelector(".kp_icon--close-browser").addEventListener("click", fermerProjet);
 
 function reduireProjet(){
-  removeClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
+  removeClass(document.querySelector("#kp_browser"), 'kp_iframe--show');
+  addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
 }
 document.querySelector(".kp_icon--reduct-browser").addEventListener("click", reduireProjet);
 
 function ouvrirProjet(){
   let zindex = getHighestZIndex();
-  document.querySelector("#kp_iframe--container").style.zIndex = zindex + 1;  ;
+  document.querySelector("#kp_browser").style.zIndex = zindex + 1;  ;
   addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
-  addClass(document.querySelector("#kp_iframe--container"), 'kp_iframe--show');
+  addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
+  removeClass(document.querySelector("#kp_browser"), 'kp_element--action--reduct');
+  removeClass(document.querySelector("#kp_browser"), 'kp_element--action--close');
 }
 document.querySelector(".kp_folder--projets").addEventListener("click", ouvrirProjet);
 document.querySelector(".kp_menu__barre-etat--projet").addEventListener("click", ouvrirProjet);
@@ -281,17 +284,17 @@ document.querySelector(".kp_barre-une-app--browser").addEventListener("click", o
 
 function fermerDescriptionProjet(){
   addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
-  removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
   addClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--show');
   removeClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
+  removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
 }
 document.querySelector(".kp_un-projet--close").addEventListener("click", fermerDescriptionProjet);
 
 function ouvrirDescriptionProjet(){
-  removeClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
   addClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
+  addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
+  removeClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
   removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--show');
-  addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
   
 }
 document.querySelector(".kp_information-projet").addEventListener("click", ouvrirDescriptionProjet);
@@ -299,10 +302,11 @@ document.querySelector(".kp_information-projet").addEventListener("click", ouvri
 /* ----------------------------------------------------------------------------------- */
 
 function fermerText(){
-  removeClass(document.querySelector(".kp_barre-une-app--text"), 'kp_barre-une-app--show');
+  console.log("hmm");
   removeClass(document.querySelector("#kp_text"), 'kp_text--show');
+  removeClass(document.querySelector(".kp_barre-une-app--text"), 'kp_barre-une-app--show');
 }
-document.querySelector(".kp_icon--close-text").addEventListener("click", fermerText);
+document.querySelector(".kp_icon_zone--close").addEventListener("click", fermerText);
 
 function reduireText(){
   removeClass(document.querySelector("#kp_text"), 'kp_text--show');
@@ -319,7 +323,6 @@ function ouvrirText(){
 document.querySelector(".kp_folder--text").addEventListener("click", ouvrirText);
 document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvrirText);
 
-document.querySelector(".kp_icon--close-text").addEventListener("click", fermerText);
 
 /* ----------------------------------------------------------------------------------- */
 
