@@ -29,6 +29,18 @@
                 </p>
             </article>
 
+            <article class="kp_card-pokemon">
+                <div class="kp_card-pokemon--container">
+                    <img class="kp_card-pokemon--img" src="/images/card_poke_2.png" alt="carte pokémon">
+                    <div class="kp_card-pokemon--holo"></div>
+                    <div class="kp_card-pokemon--glow">
+                    </div>
+                    <img class="kp_card-pokemon--img" src="/images/card_poke_1.png" alt="carte pokémon">
+                </div>
+                <!-- <div class="kp_card-pokemon--glow">
+                </div> -->
+            </article>
+
         </section>
 
 

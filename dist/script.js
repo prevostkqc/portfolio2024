@@ -510,3 +510,34 @@ if ('getBattery' in navigator) {
 const userLang = navigator.language || navigator.userLanguage;
 const element = document.getElementById('kp_lang__user');
 element.innerHTML = userLang;
+
+
+/* code rotation de la carte au hover de la souris */ 
+const card = document.querySelector('.kp_card-pokemon');
+const cardHolo = document.querySelector('.kp_card-pokemon--glow');
+card.addEventListener('mousemove', e => {
+  let elRect = card.getBoundingClientRect();
+  let x = e.clientX - elRect.left;
+  let y = e.clientY - elRect.top;
+
+  let midCardWidth = elRect.width / 2;
+  let midCardHeight = elRect.height / 2;
+
+  let angleX = (x - midCardWidth) / midCardWidth * 20;
+  let angleY = - (y - midCardHeight) / midCardHeight * 20;
+
+  let glowX = x / elRect.width * 100;
+  let glowY = y / elRect.height * 100;
+
+      card.children[0].style.transform = `rotateX(${angleY}deg) rotateY(${angleX}deg)`;
+    cardHolo.style.backgroundPosition = `${glowX * 20}px ${glowY * 10}px`;
+    // cardHolo.style.backgroundImage = `linear-gradient(circle at ${glowX}% ${glowY}%, transparent 0%, green25%, transparent 47%, transparent 53%, red 75%, transparent 100%)`;
+
+  });
+
+  card.addEventListener('mouseleave', () => {
+      card.children[0].style.transform = 'rotateX(0deg) rotateY(0deg)';
+    
+    cardHolo.style.backgroundPosition = `0px 0px`;
+    // cardHolo.style.backgroundImage = `linear-gradient(115deg, circle at 0% 0%, transparent 0%, green 25%, transparent 47%, transparent 53%, blue 75%, transparent 100%)`;
+  });
