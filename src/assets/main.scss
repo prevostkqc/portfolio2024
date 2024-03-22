@@ -1022,10 +1022,37 @@ background-color: white;
 /* ----------------- */
 /* Popkécarte */
 /* carte qui suis la souris au hover */
+
+  .kp_pokemon{
+    width: 630px;
+    height: fit-content;
+    background: white;
+    position: absolute;
+    border: solid 4px #ffffff;
+    outline: solid 1px #9b9b9b;
+    max-width: 1000px;
+    display: none;
+    left: 220px;
+    top: 10px;
+    height: 870px;
+    z-index: 2;
+  }
+  .kp_pokemon_zone-texte {
+    background: rgb(235, 235, 235);
+    height: calc(100% - 51px);
+    width: calc(100% - 30px);
+    margin-top: 3px;
+    padding: 10px 25px 30px 5px;
+    overflow-y: scroll;
+    min-height: 150px;
+    border:solid 1px rgb(170, 170, 170);
+}
+
+
 .kp_card-pokemon{
   position: absolute;
   top: 50px;
-  left: 300px;
+  left: 20px;
   width: 577px;
   height: 800px;
   perspective: 1000px;
@@ -1054,6 +1081,20 @@ background-color: white;
   background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.2) 0%, transparent);
   background-image: linear-gradient(90deg, transparent 10%, transparent 7%, rgba(255, 0, 0, 0.42) 34%, transparent 50%, transparent 53%, rgba(222, 255, 10, 0.48) 75%, transparent 100%);
   transform: rotate(45deg);
+  transition: 0.15s;
+}
+.kp_card-pokemon--glow2  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0.25;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.9), transparent);
+  mix-blend-mode: plus-lighter;
+  border-radius: 100%;
+  filter: blur(50px);
 }
 
 .kp_card-pokemon--holo{
@@ -1070,4 +1111,9 @@ background-color: white;
   position: absolute;
   top: 10px;
   left: 10px;
+  perspective: 10000px;
 }
+.kp_card-pokemon--cadre{
+  filter:drop-shadow(5px 5px 3px #000000AA)
+}
+

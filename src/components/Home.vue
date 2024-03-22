@@ -4,6 +4,14 @@
     <main class="kp_main">
         <section class="kp_desktop">
 
+            <article class="kp_folder--un-ico  kp_folder--terminal">
+                <div class="kp_folder--un-ico-container-img">
+                    <div class="kp_terminal--icn">KP:\</div>
+                </div>
+                <p class="kp_folder--un-ico-container-text">
+                    Qui suis-je ?
+                </p>
+            </article>
             <article class="kp_folder--un-ico  kp_folder--projets">
                 <div class="kp_folder--un-ico-container-img">
                     <img class="kp_folder--img" src="/images/folder.png" alt="Mes projets">
@@ -20,28 +28,49 @@
                     autoportrait.txt
                 </p>
             </article>   
-            <article class="kp_folder--un-ico  kp_folder--terminal">
+            <article class="kp_folder--un-ico  kp_folder--pokemon">
                 <div class="kp_folder--un-ico-container-img">
-                    <div class="kp_terminal--icn">KP:\</div>
+                    <img class="kp_folder--img" src="/images/pokecard_icn.png" alt="Ma tete">
                 </div>
                 <p class="kp_folder--un-ico-container-text">
-                    Qui suis-je ?
+                    Ma passion
                 </p>
             </article>
-
-            <article class="kp_card-pokemon">
-                <div class="kp_card-pokemon--container">
-                    <img class="kp_card-pokemon--img" src="/images/card_poke_2.png" alt="carte pokémon">
-                    <div class="kp_card-pokemon--holo"></div>
-                    <div class="kp_card-pokemon--glow">
-                    </div>
-                    <img class="kp_card-pokemon--img" src="/images/card_poke_1.png" alt="carte pokémon">
-                </div>
-                <!-- <div class="kp_card-pokemon--glow">
-                </div> -->
-            </article>
-
         </section>
+
+        
+
+        <!-- Card Pokémon -->
+        <section class="kp_pokemon  kp_z-index  kp_changed__id  kp_pokemon  kp_item__window"  id="kp_pokemon">
+            <div class="kp_element--title">
+                <div class="kp_element--icon-title   kp_element--enable">
+                    <p class="kp_ascii--titre  ">
+                        <div class="kp_element_title--icn"><img class="kp_icon_zone--img" src="/images/pokecard_icn.png" alt="reduct"></div><span>Kévin Prévost - Ma passion</span>
+                    </p>
+                </div>
+                <div class="kp_element--incons-zone">
+                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-pokemon" id="kp_action--reduct--pokemon"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-pokemon" id="kp_action--resize--pokemon"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-pokemon"  id="kp_action--close--pokemon"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                </div>
+            </div>
+            <div class="kp_pokemon_zone-texte  kp_element--enable">
+                <article class="kp_card-pokemon">
+                    <div class="kp_card-pokemon--container">
+                        <img class="kp_card-pokemon--img" src="/images/card_poke_2.png" alt="carte pokémon">
+                        <div class="kp_card-pokemon--holo">
+                            <div class="kp_card-pokemon--glow">
+                            </div>
+                        </div>
+                        <img class="kp_card-pokemon--img  kp_card-pokemon--cadre" src="/images/card_poke_1.png" alt="carte pokémon">
+                        <div class="kp_card-pokemon--glow2">
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="resize-handle"></div>
+        </section>
+        <!-- Terminal -->
 
 
         <!-- Terminal -->
@@ -335,6 +364,10 @@
                 <article class="kp_barre-une-app  kp_barre-une-app--profil" id="kp_barre-app--profil">
                     <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/text.png" alt="Mes projets"></div>
                     <p class="kp_barre-une-app--title">Profil</p>
+                </article>
+                <article class="kp_barre-une-app  kp_barre-une-app--pokemon" id="kp_barre-app--pokemon">
+                    <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/pokecard_icn.png" alt="Ma passion"></div>
+                    <p class="kp_barre-une-app--title">Ma passion</p>
                 </article>
             </div>
             

@@ -304,6 +304,20 @@ function ouvrirText(){
 document.querySelector(".kp_folder--text").addEventListener("click", ouvrirText);
 document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvrirText);
 /* ----------------------------------------------------------------------------------- */
+/* CARTE */
+/* ----------------------------------------------------------------------------------- */
+function ouvrirPokemon(){
+  fermerMenu();
+  let zindex = getHighestZIndex();
+  document.querySelector("#kp_pokemon").style.zIndex = zindex + 1;
+  document.querySelector(".kp_barre-une-app--pokemon").classList.add('kp_barre-une-app--show');
+  addClass(document.querySelector("#kp_pokemon"), 'kp_pokemon--show');
+  addClass(document.querySelector("#kp_pokemon"), 'kp_window--show');
+  removeClass(document.querySelector("#kp_pokemon"), 'kp_element--action--reduct');
+}
+document.querySelector(".kp_folder--pokemon").addEventListener("click", ouvrirPokemon);
+document.querySelector(".kp_barre-une-app--pokemon").addEventListener("click", ouvrirPokemon);
+/* ----------------------------------------------------------------------------------- */
 function reduireProfil(){
   removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');
 }
@@ -514,7 +528,10 @@ element.innerHTML = userLang;
 
 /* code rotation de la carte au hover de la souris */ 
 const card = document.querySelector('.kp_card-pokemon');
-const cardHolo = document.querySelector('.kp_card-pokemon--glow');
+const cardGlow = document.querySelector('.kp_card-pokemon--glow');
+const cardGlow2 = document.querySelector('.kp_card-pokemon--glow2');
+const cardHolo = document.querySelector('.kp_card-pokemon--holo');
+const carCadre = document.querySelector('.kp_card-pokemon--cadre');
 card.addEventListener('mousemove', e => {
   let elRect = card.getBoundingClientRect();
   let x = e.clientX - elRect.left;
@@ -529,15 +546,18 @@ card.addEventListener('mousemove', e => {
   let glowX = x / elRect.width * 100;
   let glowY = y / elRect.height * 100;
 
-      card.children[0].style.transform = `rotateX(${angleY}deg) rotateY(${angleX}deg)`;
-    cardHolo.style.backgroundPosition = `${glowX * 20}px ${glowY * 10}px`;
-    // cardHolo.style.backgroundImage = `linear-gradient(circle at ${glowX}% ${glowY}%, transparent 0%, green25%, transparent 47%, transparent 53%, red 75%, transparent 100%)`;
-
-  });
-
-  card.addEventListener('mouseleave', () => {
-      card.children[0].style.transform = 'rotateX(0deg) rotateY(0deg)';
+  card.children[0].style.transform = `rotateX(${angleY}deg) rotateY(${angleX}deg)`;
+  cardGlow2.style.transform = `rotateX(${angleY}deg) rotateY(${angleX}deg)`;
+    cardGlow.style.backgroundPosition = `${glowX * 10}px ${glowY * 10}px`;
+    // cardGlow.style.filter = `drop-shadow(${glowX * 0.5}px ${glowY * 0.5}px 10px #ff0000)`;
+    carCadre.style.filter = `drop-shadow(${glowX/10}px ${glowY/10}px 3px #000000AA)`;
+    cardGlow2.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(255, 255, 255, 0.9), transparent)`;
     
-    cardHolo.style.backgroundPosition = `0px 0px`;
-    // cardHolo.style.backgroundImage = `linear-gradient(115deg, circle at 0% 0%, transparent 0%, green 25%, transparent 47%, transparent 53%, blue 75%, transparent 100%)`;
-  });
+});
+
+card.addEventListener('mouseleave', () => {
+    card.children[0].style.transform = 'rotateX(0deg) rotateY(0deg)';
+    cardGlow2.style.transform = `rotateX(0deg) rotateY(0deg)`;
+  
+    cardGlow.style.backgroundPosition = `0px 0px`;
+});
