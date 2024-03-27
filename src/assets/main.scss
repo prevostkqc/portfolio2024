@@ -1063,6 +1063,7 @@ background-color: white;
   max-width: 577px;
   overflow: hidden;
   border-radius: 32px;
+  filter: drop-shadow(7px 7px 8px #00000077);
 }
 .kp_card-pokemon--img{
   object-fit: cover;
