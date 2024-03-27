@@ -1085,16 +1085,16 @@ background-color: white;
 }
 .kp_card-pokemon--glow2  {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  opacity: 0.25;
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.9), transparent);
-  mix-blend-mode: plus-lighter;
-  border-radius: 100%;
-  filter: blur(50px);
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 40%;
+    background: #fff;
+    opacity: 0.25;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.9), transparent);
+    mix-blend-mode: plus-lighter;
+    border-radius: 100%;
+    filter: blur(10px);
 }
 
 .kp_card-pokemon--holo{
@@ -1117,3 +1117,57 @@ background-color: white;
   filter:drop-shadow(5px 5px 3px #000000AA)
 }
 
+/* ----------------- */
+/* folder project */
+
+.kp_folder-projects{
+  width: 630px;
+  height: fit-content;
+  background: white;
+  position: absolute;
+  border: solid 4px #ffffff;
+  outline: solid 1px #9b9b9b;
+  max-width: 1000px;
+  display: none;
+  left: 220px;
+  top: 10px;
+  height: 870px;
+  z-index: 2;
+}
+.kp_folder-projects_zone-texte {
+  background: rgb(235, 235, 235);
+  height: calc(100% - 51px);
+  width: calc(100% - 30px);
+  margin-top: 3px;
+  padding: 10px 25px 30px 5px;
+  overflow-y: scroll;
+  min-height: 150px;
+  border:solid 1px rgb(170, 170, 170);
+}
+
+.kp_folder-projects{
+  width: 630px;
+  height: fit-content;
+  background: white;
+  position: absolute;
+  border: solid 4px #ffffff;
+  outline: solid 1px #9b9b9b;
+  max-width: 1000px;
+  display: none;
+  left: 180px;
+  top: 30px;
+  height: 420px;
+  z-index: 2;
+}
+.kp_folder-projects-zone-texte{
+    background: #ffffff;
+    border: solid 1px #b5b5b5;
+}
+.kp_folder--un-ico-container-text--black{
+  color: black;
+  filter: drop-shadow(2px 2px 2px #eeeeee);
+}
+.kp_card-folder-projects{
+  display: flex;
+  flex-wrap: wrap;
+}

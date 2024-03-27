@@ -259,17 +259,25 @@ document.querySelectorAll('.kp_icon_zone').forEach((element) => {
 /* ----------------------------------------------------------------------------------- */
 function ouvrirProjet(){
   fermerMenu();
+  document.querySelector('#kp_internet--onglets > :first-child').click();
   let zindex = getHighestZIndex();
-  document.querySelector("#kp_browser").style.zIndex = zindex + 1;  ;
+  document.querySelector("#kp_browser").style.zIndex = zindex + 1;
   addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
   addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
   addClass(document.querySelector(".kp_un-projet"), 'kp_window--show');
   removeClass(document.querySelector("#kp_browser"), 'kp_element--action--reduct');
   removeClass(document.querySelector("#kp_browser"), 'kp_element--action--close');
 }
-document.querySelector(".kp_folder--projets").addEventListener("click", ouvrirProjet);
-document.querySelector(".kp_menu__barre-etat--projet").addEventListener("click", ouvrirProjet);
-document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirProjet);
+
+document.querySelectorAll(".kp_folder--projets, .kp_menu__barre-etat--projet, .kp_barre-une-app--browser").forEach(element => {
+  console.log("ouvrirProjet");
+  const closeButton = document.querySelector(".kp_icon--close-browser");
+  if (closeButton) {
+    closeButton.click();
+  }
+  element.addEventListener("click", ouvrirProjet);
+});
+
 
 /* ------------------------------ */
 function fermerDescriptionProjet(){
@@ -317,6 +325,22 @@ function ouvrirPokemon(){
 }
 document.querySelector(".kp_folder--pokemon").addEventListener("click", ouvrirPokemon);
 document.querySelector(".kp_barre-une-app--pokemon").addEventListener("click", ouvrirPokemon);
+/* ----------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------- */
+/* FOLDER PROJECTS */
+/* ----------------------------------------------------------------------------------- */
+function ouvrirFolderProjects(){
+  fermerMenu();
+  let zindex = getHighestZIndex();
+  document.querySelector("#kp_folder-projects").style.zIndex = zindex + 1;
+  document.querySelector(".kp_barre-une-app--folder-projects").classList.add('kp_barre-une-app--show');
+  addClass(document.querySelector("#kp_folder-projects"), 'kp_pokemon--show');
+  addClass(document.querySelector("#kp_folder-projects"), 'kp_window--show');
+  removeClass(document.querySelector("#kp_folder-projects"), 'kp_element--action--reduct');
+}
+document.querySelector(".kp_folder--folder-projects").addEventListener("click", ouvrirFolderProjects);
+document.querySelector(".kp_barre-une-app--folder-projects").addEventListener("click", ouvrirFolderProjects);
+
 /* ----------------------------------------------------------------------------------- */
 function reduireProfil(){
   removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');

@@ -12,7 +12,7 @@
                     Qui suis-je ?
                 </p>
             </article>
-            <article class="kp_folder--un-ico  kp_folder--projets">
+            <article class="kp_folder--un-ico  kp_folder--folder-projects">
                 <div class="kp_folder--un-ico-container-img">
                     <img class="kp_folder--img" src="/images/folder.png" alt="Mes projets">
                 </div>
@@ -70,7 +70,66 @@
             </div>
             <div class="resize-handle"></div>
         </section>
-        <!-- Terminal -->
+        <!-- Card Pokémon -->
+        
+
+        <!-- folder projects -->
+        <section class="kp_folder-projects  kp_z-index  kp_changed__id  kp_folder-projects  kp_item__window"  id="kp_folder-projects">
+            <div class="kp_element--title">
+                <div class="kp_element--icon-title   kp_element--enable">
+                    <p class="kp_ascii--titre  ">
+                        <div class="kp_element_title--icn"><img class="kp_icon_zone--img" src="/images/folder.png" alt="reduct"></div><span>Kévin Prévost - Mes réalisations</span>
+                    </p>
+                </div>
+                <div class="kp_element--incons-zone">
+                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-folder-projects" id="kp_action--reduct--folder-projects"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-folder-projects" id="kp_action--resize--folder-projects"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
+                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-folder-projects"  id="kp_action--close--folder-projects"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                </div>
+            </div>
+            <div class="kp_folder-projects-zone-texte  kp_element--enable">
+                <article class="kp_card-folder-projects">
+                   
+
+                    <!-- Cybertek -->
+                    <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Cybertek');">
+                        <div class="kp_folder--un-ico-container-img">
+                            <img class="kp_folder--img" src="/images/folder.png" alt="Mes projets">
+                        </div>
+                        <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                            Cybertek<br/>2021<br>Aujourd'hui
+                        </p>
+                    </article>
+
+
+                    <!-- Grosbill -->
+                    <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Grosbill');" >
+                        <div class="kp_folder--un-ico-container-img">
+                            <img class="kp_folder--img" src="/images/folder.png" alt="Mes projets">
+                        </div>
+                        <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                            Grosbill<br/>2021<br>Aujourd'hui
+                        </p>
+                    </article>
+
+
+                    <!-- Mred -->
+                    <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Mred');" >
+                        <div class="kp_folder--un-ico-container-img">
+                            <img class="kp_folder--img" src="/images/folder.png" alt="Mes projets">
+                        </div>
+                        <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                            Mred<br/>2022<br>Aujourd'hui
+                        </p>
+                    </article>
+
+
+
+                </article>
+            </div>
+            <div class="resize-handle"></div>
+        </section>
+        <!-- folder projects -->
 
 
         <!-- Terminal -->
@@ -99,6 +158,7 @@
         
 
         
+        <!-- Window Internet -->
         <section class="kp_browser  kp_z-index  kp_browser--show  kp_changed__id kp_element--action--close kp_item__window" id="kp_browser">
             <div class="kp_element--title">
                 <div class="kp_element--icon-title">
@@ -114,8 +174,8 @@
             </div>
             
             <div class="kp_window--border   kp_element--enable">
-                <div class="kp_internet--onglets">
-                    <button v-for="(projet, index) in projets" :key="projet.titre"  :class="'kp_projet-btn  kp_projet-btn--' + projet.id" @click="changerProjet(index)">
+                <div class="kp_internet--onglets" id="kp_internet--onglets">
+                    <button v-for="projet in projetsFiltres" :key="projet.id" :class="'kp_projet-btn kp_projet-btn--' + projet.id" @click="changerProjet(projet)">
                         {{ projet.titre }}
                     </button>
                     <div class="kp_internet--favorites">
@@ -354,6 +414,10 @@
                     <p class="kp_barre-une-app--title">Qui suis-je ?</p>
                 </article>
                 <article class="kp_barre-une-app  kp_barre-une-app--browser" id="kp_barre-app--browser">
+                    <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/icn_internet.png" alt="Mes projets"></div>
+                    <p class="kp_barre-une-app--title">Internet</p>
+                </article>
+                <article class="kp_barre-une-app  kp_barre-une-app--folder-projects" id="kp_barre-app--folder-projects">
                     <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/folder.png" alt="Mes projets"></div>
                     <p class="kp_barre-une-app--title">Mes réalisations</p>
                 </article>
@@ -396,8 +460,18 @@
         data() {
             return {
                 projets: [],
+                compagnieProjet: "",
                 projetActuel: null
             };
+        },
+        computed: {
+            // Filtre les projets en fonction de la compagnie sélectionnée
+            projetsFiltres() {
+                if (this.compagnieProjet) {
+                    return this.projets.filter(projet => projet.compagnie === this.compagnieProjet);
+                }
+                return this.projets;
+            }
         },
         created() {
             this.chargerProjets();
@@ -412,9 +486,13 @@
                     console.error('Erreur lors du chargement des projets:', error);
                 }
             },
-            changerProjet(index) {
-                this.projetActuel = this.projets[index];
+            changerProjet(projet) {
+                this.projetActuel = projet;
             },
+            
+            setCompagnieProjet(compagnie) {
+               this.compagnieProjet = compagnie;
+            }
         },
         mounted() {
             const script = document.createElement('script');
