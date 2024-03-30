@@ -25,6 +25,11 @@
     width: 50vw;
     overflow: hidden;
 }
+.kp_icn-onglet{
+    width: 20px;
+    height: 20px;
+
+}
 .kp_projet-techno{
     font-size: $main-h5;
     text-transform: uppercase;
@@ -104,6 +109,10 @@ p, div, span{
     border-bottom: none;
     outline: solid 1px #0e46bb;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
     &:hover{
       background: $main-color_primary ;
     }

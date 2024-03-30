@@ -6,6 +6,7 @@
         "compagnie": "Cybertek",
         "id" : 1,
         "url" : "https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-1019-137034.aspx",
+        "icn" : "cybertek",
         "description" : "J'ai eu l'opportunité d'être responsable de la refonte de la page de fiche PC GAMER dans le but d'améliorer l'expérience utilisateur. Ce projet m'a permis de mettre en pratique mes compétences en développement web pour créer une interface plus conviviale et intuitive.  J'ai effectué des ajustements significatifs dans le code afin d'optimiser la navigation et de garantir une présentation claire et attractive des produits. En travaillant sur chaque détail, des images aux descriptions, j'ai veillé à ce que les visiteurs puissent accéder rapidement aux informations dont ils ont besoin.  Cette refonte a eu un impact positif sur l'expérience d'achat en ligne, en réduisant la confusion et en facilitant la recherche de produits. Je suis fier du résultat final et convaincu que cette initiative a contribué à renforcer la satisfaction des clients.  Cette expérience m'a également permis de développer mes compétences en résolution de problèmes, en collaboration avec d'autres membres de l'équipe pour atteindre nos objectifs communs."
     },
     {
@@ -15,15 +16,17 @@
         "compagnie": "Cybertek",
         "id" : 2,
         "url" : "https://www.cybertek.fr/univers-gamer/pc-assembles",
+        "icn" : "cybertek",
         "description" : "J'ai été responsable de la refonte de la liste des PC gamers sur le site e-commerce Cybertek.fr. Cette initiative visait à améliorer l'expérience utilisateur en rendant la navigation plus fluide et intuitive. Les ajustements effectués ont permis une présentation claire et attractive des produits, facilitant ainsi la recherche des clients. Cette refonte a considérablement optimisé le processus d'achat en ligne, réduisant la confusion et renforçant la satisfaction des clients. Ce projet a été une opportunité précieuse pour perfectionner mes compétences en développement web et répondre aux besoins des utilisateurs de manière efficace."
     },
     {
         "titre": "Cybertek PRO",
         "techno": ["js", "jquery", "html5", "css3", "razor"],
         "annee": "2023 - 2024",
-        "compagnie": "Cybertek",
+        "compagnie": "Cybertekpro",
         "id" : 3,
         "url" : "https://www.cybertek-pro.fr/",
+        "icn" : "cybertekpro",
         "description" : "En tant que développeur web chez Cybertek.fr, j'ai eu la responsabilité de concevoir et de développer le site Cybertek Pro, dédié aux professionnels. Ce projet avait pour objectif de fournir une plateforme conviviale et efficace pour les clients B2B, en offrant des fonctionnalités spécifiques répondant à leurs besoins professionnels. En travaillant sur Cybertek Pro, j'ai pu mettre en pratique mes compétences en développement web pour créer une expérience utilisateur optimale, adaptée au marché professionnel. Ce projet a été une occasion enrichissante de contribuer à la croissance et à la satisfaction des clients professionnels de Cybertek.fr."
     },
 
@@ -37,6 +40,7 @@
         "compagnie": "Grosbill",
         "id" : 4,
         "url" : "https://www.grosbill.com/",
+        "icn" : "grosbill",
         "description" : "En qualité de Responsable du Développement Front chez le Groupe Cybertek, j'ai dirigé les efforts de conception et de développement du site e-commerce spécialisé dans la vente de matériel informatique. Mon rôle consistait à superviser la création et l'amélioration des fonctionnalités du site, ainsi qu'à garantir une expérience utilisateur optimale. En travaillant étroitement avec une équipe talentueuse, j'ai contribué à renforcer la visibilité et la performance de Grosbill.com sur le marché. Cette expérience m'a permis de démontrer mes compétences en gestion de projet et en développement web, tout en répondant aux besoins de notre clientèle spécialisée."
     },
 
@@ -50,6 +54,7 @@
         "compagnie": "Mred",
         "id" : 5,
         "url" : "https://m-red.com/",
+        "icn" : "mred",
         "description" : "En qualité de Responsable du Développement Front chez le Groupe Cybertek, j'ai dirigé les efforts de conception et de développement du site e-commerce spécialisé dans la vente de matériel informatique. Mon rôle consistait à superviser la création et l'amélioration des fonctionnalités du site, ainsi qu'à garantir une expérience utilisateur optimale. En travaillant étroitement avec une équipe talentueuse, j'ai contribué à renforcer la visibilité et la performance de Grosbill.com sur le marché. Cette expérience m'a permis de démontrer mes compétences en gestion de projet et en développement web, tout en répondant aux besoins de notre clientèle spécialisée."
     }
 ]

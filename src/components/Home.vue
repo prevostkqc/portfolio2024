@@ -94,7 +94,7 @@
                     <!-- Cybertek -->
                     <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Cybertek');">
                         <div class="kp_folder--un-ico-container-img">
-                            <img class="kp_folder--img" src="/images/folder.png" alt="Mes projets">
+                            <img class="kp_folder--img" src="/images/raccourcis/cybertek.png" alt="Mes projets">
                         </div>
                         <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
                             Cybertek<br/>2021<br>Aujourd'hui
@@ -105,7 +105,7 @@
                     <!-- Grosbill -->
                     <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Grosbill');" >
                         <div class="kp_folder--un-ico-container-img">
-                            <img class="kp_folder--img" src="/images/folder.png" alt="Mes projets">
+                            <img class="kp_folder--img" src="/images/raccourcis/grosbill.png" alt="Mes projets">
                         </div>
                         <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
                             Grosbill<br/>2021<br>Aujourd'hui
@@ -116,7 +116,7 @@
                     <!-- Mred -->
                     <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Mred');" >
                         <div class="kp_folder--un-ico-container-img">
-                            <img class="kp_folder--img" src="/images/folder.png" alt="Mes projets">
+                            <img class="kp_folder--img" src="/images/raccourcis/mred.png" alt="Mes projets">
                         </div>
                         <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
                             Mred<br/>2022<br>Aujourd'hui
@@ -157,171 +157,63 @@
 
         
 
+
+    <!-- Window Internet -->
+    <section class="kp_browser  kp_z-index  kp_browser--show  kp_changed__id kp_element--action--close kp_item__window" id="kp_browser">
+        <div class="kp_element--title">
+            <div class="kp_element--icon-title">
+                <p class="kp_element--title-p  kp_element--enable">
+                    <div class="kp_element_title--icn"><img class="kp_icon_zone--img" :src="`/images/sites/${projetActuel.icn}.png`"  alt="Projet"></div><span>{{ projetActuel.compagnie }} - {{ projetActuel.titre }}</span>
+                </p>
+            </div>
+            <div class="kp_element--incons-zone">
+                <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-browser" id="kp_action--reduct--browser"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
+                <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-browser" id="kp_action--resize--browser"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
+                <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-browser"  id="kp_action--close--browser"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+            </div>
+        </div>
         
-        <!-- Window Internet -->
-        <section class="kp_browser  kp_z-index  kp_browser--show  kp_changed__id kp_element--action--close kp_item__window" id="kp_browser">
-            <div class="kp_element--title">
-                <div class="kp_element--icon-title">
-                    <p class="kp_element--title-p  kp_element--enable">
-                       <div class="kp_element_title--icn"><img class="kp_icon_zone--img" src="/images/text.png" alt="reduct"></div><span>{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</span>
-                    </p>
+        <div class="kp_window--border   kp_element--enable">
+            <div class="kp_internet--onglets" id="kp_internet--onglets">
+                <button  v-for="projet in projetsFiltres" :key="projet.id" :class="'kp_projet-btn kp_projet-btn--' + projet.id" @click="changerProjet(projet)">
+                    <img class="kp_icn-onglet" :src="`/images/sites/${projetActuel.icn}.png`"   alt="projet">{{ projet.titre }}
+                </button>
+                <div class="kp_internet--favorites">
                 </div>
-                <div class="kp_element--incons-zone">
-                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-browser" id="kp_action--reduct--browser"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
-                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-browser" id="kp_action--resize--browser"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
-                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-browser"  id="kp_action--close--browser"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+            </div> 
+
+            <div class="kp_browser-content--iframe">
+                <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
+            
+                <article class="kp_un-projet" v-if="projetActuel">
+                    
+                    <div class="kp_icon_zone  kp_un-projet--close" ><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+                    <h2 class="kp_h2">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</h2>
+                    <span class="kp_projet-annee  kp_h4">{{ projetActuel.annee }}</span>
+                    
+                    <p class="kp_p  kp_projet_description">{{ projetActuel.description }}</p>
+                    <ul class="kp_projet-technos">
+                        <li v-for="technologie in projetActuel.techno" :key="technologie"
+                            :class="['kp_projet-techno', `kp_projet-techno--${technologie.toLowerCase()}`]">
+                            {{ technologie }}
+                        </li>
+                    </ul>
+                </article>
+                <div class="kp_information-projet  kp_information-projet--hide">
+                    <p class="kp_information--p">Afficher les informations concernant ce projet</p>
                 </div>
             </div>
             
-            <div class="kp_window--border   kp_element--enable">
-                <div class="kp_internet--onglets" id="kp_internet--onglets">
-                    <button v-for="projet in projetsFiltres" :key="projet.id" :class="'kp_projet-btn kp_projet-btn--' + projet.id" @click="changerProjet(projet)">
-                        {{ projet.titre }}
-                    </button>
-                    <div class="kp_internet--favorites">
-                    </div>
-                </div> 
-
-                <div class="kp_browser-content--iframe">
-                    <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
-                
-                    <article class="kp_un-projet" v-if="projetActuel">
-                        
-                        <div class="kp_icon_zone  kp_un-projet--close" ><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
-                        <h2 class="kp_h2">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</h2>
-                        <span class="kp_projet-annee  kp_h4">{{ projetActuel.annee }}</span>
-                        
-                        <p class="kp_p  kp_projet_description">{{ projetActuel.description }}</p>
-                        <ul class="kp_projet-technos">
-                            <li v-for="technologie in projetActuel.techno" :key="technologie"
-                                :class="['kp_projet-techno', `kp_projet-techno--${technologie.toLowerCase()}`]">
-                                {{ technologie }}
-                            </li>
-                        </ul>
-                    </article>
-                    <div class="kp_information-projet  kp_information-projet--hide">
-                        <p class="kp_information--p">Afficher les informations concernant ce projet</p>
-                    </div>
-                </div>
-               
-            </div>
-            <div class="resize-handle"></div>
-        </section>
-        <!-- Window Internet -->
-
-
-
-        <!-- Texte image -->
-        <section class="kp_image_ascii  kp_z-index  kp_changed__id  kp_text  kp_item__window"  id="kp_text">
-            <div class="kp_element--title">
-                <div class="kp_element--icon-title">
-                    <p class="kp_element--title-p   kp_element--enable">
-                       <div class="kp_element_title--icn"><img class="kp_icon_zone--img" src="/images/text.png" alt="reduct"></div><span>Kévin Prévost - autoportrait.txt</span>
-                    </p>
-                </div>
-                <div class="kp_element--incons-zone">
-                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-text" id="kp_action--reduct--text"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
-                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-text" id="kp_action--resize--text"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
-                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-text"  id="kp_action--close--text"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
-                </div>
-            </div>
-                <pre class="kp_image_ascii--content  kp_element--enable">                                                                                                     
-                                            .=#@@@@@@#=.                                             
-                                        .@@@@@@@@@@@@@@@@@.                                          
-                                    .@@@@@@@@@@@@@@@@@@@@@@@@.                                       
-                                  #@@@@@@@@%%%############@@@@@:                                     
-                                 @@@@@%###******************%@@@.                                    
-                                @@@#****++++++***+**+++*+*****###                                    
-                               @@****++++++++++++++++++++++++***##                                   
-                             .@#**+++++++++++++++++++++++==++++*+*                                   
-                             =#++++++++======+++++++===========++++                                  
-                             **++++++++++===+++++===========---=+*=.                                 
-                             **+++++++++++++++=====-========-----==-                                 
-                             +**+++++=============*####**+++=-----+=                                 
-                             =**++++============++*###*++++==--:::=+=                                
-                             ***+++++**+++====-===+*##**+==#=--:::-== =:=                            
-                             ##*++#%%%%%#*++=----=+##*@@@=**=----::-*-::+:                           
-                             -#*#%#*###%##*++=---++**=##%-=------::::---:::                          
-                             +%%**#**#@####*+==--==+***+==-------:::.-=-:-.                          
-                              *#*%#*%#@@#***++=-:---=+====------:::...-==:.                          
-                              ****#****#****++=-:::::---------::::...:-=---                          
-                              +++++++++**++**+=---::::--------::::...:::::.                          
-                              *+++++++++++++*++=---:::------::::::..:-::::                           
-                              +*++++++++++++++==--:::-=----:::::::..:-:++                            
-                               *+========+++++==---@=:--=--::::::::.----                             
-                               ++========+++##*+=:-:--------::::::::--:.                             
-                               .*+======++++*%##*****#*##+=--::::::-:--                              
-                                +++=====+#%@@@%%@%%##******++=-:::--::=                              
-                                 +*+++++#%%%%**++=+=====+*##*=-:::----=                              
-                                 =#*+++*##%#%%##*++=---::-=++=------:--                              
-                                  =#**+*#%*+*+*++==--::-:---=*+-=--+=--                              
-                                   %%***##**********=---:-++++*+**=++=:                              
-                                   +@%##%@%#+++++++=-----=+######**+==..                             
-                                    +@@@@@@##*+++==+----=+=+####%#*++:...                            
-                                     @@@@@@@%###*+=+++==+++*#****+++:.....-                          
-                                    **@@@@@@@%%##*+*#*++****###*+++:::.....##@@%.                    
-                                   @@@@@@@@@@@@@#%%%%##**##**%%*+-::.......##%%%#*####.              
-                               .@@@@@@@@@*@@@@@%@@%@#%%#%#**##+::::::.....:%#%%%###%%%%%%##+##%*.    
-                        .=@@@@@@@@@@@@@@@*+++%@@%@@%@@@%%#+-:::::::::.....#%%%%%####%%%%%%#*#%%%#*###
-                 =%@@@@@@@@@@@@@@@@@@@@@@**+++====++++===--:::::::::....:-%%@@%%%##%%%%%%#*##%%%%%###
-             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@++++====------::::::::::.....::#%%@@########%@%####%%%%%%%#
-           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*+++===----:-:::::::::::..:..:*%%@@#########%@%######%%%%%%
-        =@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*==++==---::::::::::::....:::=%%@@%###%%####%@#*######%%%%%
-     *%%@%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=-=====---:-:::::::::::::::-*%%@@###%%#####%@########%#%%%
-  @%%%%@@@@@%%@@@@@@@@@@@@@@@@@@@@@%%@@@@@+-----------:::::::::::::::+%@@@@###@@####%%@##########%%%%
-@@@%%%%%@%@@%%@@@@@%%@@@@@@%@@@@@@@%%@@@@@@=-------:::::::::::::::::+%@@@@%###@@####%%@**########%##%
-%@@%%%%@@%@@%%@@@@%%@@@@@@%%@@@@@@@%#%@@%@@@+----:-:::::::::::::::-*%%@@@@###%@%####%%@*############%
-%%@@%%%@@%@@%%%%%%#@@%@@@%#%%%%@@@@%##@@%%%@@%----:::::::-:::::::-@%@@@@@@##%%@%%###%@%*#######*####%
-%%%@%%%%@%@@@%%%%#@@%%@@@#%%%%%%@@@###%@@%#@@@@+-:--:::::-:::::-*%@@@@@@@%*%%%@%%%###@#**####***#**#%
-%%%%%%%%@@%@%%%##@@%%@@@##%%%##%@@@####@@@%%%%@@@*--:-::---:--+%@@@@@@@@@#*%#%%%%###%%#*####****#***%
-%%@%%%%%@@#@%%%#@@#%%%%##%%%#%%#%@@##%#%@@@%#%%%@@%#:---:---*%%%%@@@%@@@@*#%%#%%%%##%%#*####****#***%
-#%%@%%%%@@@@%##@@#%%%%%#####%###%@@#####%@@@%%%@%%%%%%=--+@@@@@@@@@#%@@@#*#%##%%%%##%%**#####**#****%
-%#%%@@%#%@@@##%@%%%%%%##%%######%@%###%#%%@@@@%%%%#%%%%%%%%@@@@@@@#%@@@%###%##%%%%%%%%**#####**#****%</pre>
-            
-            <div class="resize-handle"></div>
-        </section>
-        <!-- Texte image -->
-
+        </div>
+        <div class="resize-handle"></div>
+    </section>
+    <!-- Window Internet -->
+ 
 
         
-
-        <!-- Profil -->
-        <section class="kp_z-index  kp_changed__id  kp_profil  kp_item__window  kp_element--action--close"  id="kp_profil">
-            <div class="kp_element--title">
-                <div class="kp_element--icon-title">
-                    <p class="kp_element--enable">
-                       <div class="kp_ascii--icn"><img class="kp_icon_zone--img" src="/images/text.png" alt="reduct"></div>
-                       <span>Kévin Prévost - Mon Profil</span>
-                    </p>
-                </div>
-                <div class="kp_element--incons-zone">
-                    <div class="kp_icon_zone  kp_icon_zone--reduct  kp_icon--reduct-profil" id="kp_action--reduct--profil"><img class="kp_icon_zone--img" src="/images/reduct_icn.svg" alt="reduct"></div>
-                    <div class="kp_icon_zone  kp_icon_zone--resize  kp_icon--resize-profil" id="kp_action--resize--profil"><img class="kp_icon_zone--img" src="/images/resize_icn.svg" alt="resize"></div>
-                    <div class="kp_icon_zone  kp_icon_zone--close   kp_icon--close-profil"  id="kp_action--close--profil"><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
-                </div>
-            </div>
-            <div class="kp_element_container--part-content  kp_element--enable  kp_element__profil--container">
-                <div class="kp_element__main-content">
-                    <div class="kp_element_zone__profil--left">
-                        
-                        <div class="kp_menu__barre-etat--photo-container  kp_menu__barre-etat--photo-container-profil">
-                            <img class="kp_menu__barre-etat--photo  kp_menu__barre-etat--photo-profil" src="/images/kevinprevost.jpg" alt="Kévin Prévost">
-                        </div>
-                        <p class="kp_title--ssmenu-profil">xxx</p>
-                    </div>
-                    <div class="kp_element_zone__profil--right">
-                        <p class="kp_title--ssmenu-profil">xxx</p>
-
-                    </div>
-                </div>
-                
-                
-            </div>
-          
-            
-            <div class="resize-handle"></div>
-        </section>
-        <!-- Profil -->
+        <Browser />
+        <Autoportrait />
+        <Personnaliser />
 
 
         
@@ -455,7 +347,10 @@
   
   <script>
     import axios from 'axios';
-    
+    import Browser from './Browser.vue';
+    import Autoportrait from './Autoportrait.vue';
+    import Personnaliser from './Personnaliser.vue';
+
     export default {
         data() {
             return {
@@ -463,6 +358,11 @@
                 compagnieProjet: "",
                 projetActuel: null
             };
+        },
+        components: {
+            Browser,
+            Autoportrait,
+            Personnaliser
         },
         computed: {
             // Filtre les projets en fonction de la compagnie sélectionnée
