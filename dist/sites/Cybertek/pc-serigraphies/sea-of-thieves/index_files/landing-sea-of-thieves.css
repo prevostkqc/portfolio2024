@@ -1,0 +1,805 @@
+﻿.cyb-bandeau-attention-temporaire{
+    display:none;
+}
+
+@font-face {
+    font-family: 'SOT';
+    src: url('../fonts/sot.woff') format('woff');
+}
+@font-face {
+    font-family: "ROGFONT";
+    src: url("../fonts/ROGFonts-Regular_0.otf");
+}
+@font-face {
+    font-family: "Roboto-Condensed-Regular";
+    src: url("../fonts/RobotoCondensed-Regular.ttf");
+}
+.sot_texte {
+    font-family: "SOT";
+    font-size: 2em;
+    color: var(--blanc);
+    filter: drop-shadow(2px 2px 1px black);
+}
+.sot_texte-link {
+    display: block;
+}
+.sot_h2 {
+    text-transform: uppercase;
+    font-family: "SOT";
+    font-size: 2em;
+    color: var(--blanc);
+    filter: drop-shadow(2px 2px 1px black);
+    position: relative;
+}
+.sot_h3 {
+    text-transform: uppercase;
+    font-family: "SOT";
+    font-size: 1.5em;
+    color: var(--blanc);
+    filter: drop-shadow(2px 2px 1px black);
+    width: fit-content;
+    position: relative;
+}
+.sot_h3::after {
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/trait-1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: absolute;
+    height: var(--val_10);
+    bottom: -13px;
+    left: 0;
+}
+.sot_decouvrir {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.3em;
+}
+.sot_header {
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/fond-1.jpg);
+    background-size: cover;
+    height: 90vh;
+    max-height: 900px;
+    overflow: hidden;
+    position: relative;
+}
+.sot_second-fond {
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/fond-12.jpg);
+    background-size: cover;
+    height: 90vh;
+    max-height: 900px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    animation: fond-header 4s infinite ease-in-out;
+    pointer-events: none;
+}
+.sot_header_sot {
+    width: 100%;
+    margin-top: 100px;
+    position: relative;
+    z-index: 2;
+    height: 450px;
+}
+.sot_titre_landing {
+    width: 900px;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+}
+.sot_titre_landing_img {
+    width: 900px;
+    margin: auto;
+    animation: logo 10s infinite ease-in-out;
+}
+
+.sot_titre_jeu {
+    width: 800px;
+    margin: auto;
+    max-width: 800px;
+    position: relative;
+    z-index: 10;
+}
+
+.sot_titre_jeu_img {
+    width: 800px;
+    margin: auto;
+    animation: logodeux 10s infinite ease-in-out;
+}
+
+.sot_titre_brume_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    animation: brume 30s infinite;
+    max-height: 1300px;
+    pointer-events: none;
+}
+.sot_liste-logos {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    padding: var(--val_20);
+    display: flex;
+    margin: auto;
+    bottom: 0;
+    text-align: center;
+    justify-content: space-around;
+}
+.sot_liste-logos--cybertek {
+    bottom: 120px;
+}
+
+.sot_un-logo {
+    width: 150px;
+}
+.sot_btn {
+    position: relative;
+    width: 300px;
+    background-repeat: no-repeat;
+    height: 84px;
+    margin: auto;
+    cursor: pointer;
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/bouton-1.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sot_btn--header {
+    transition: 1s;
+}
+
+
+.sot_btn--header-pourmoi {
+    position: relative;
+    width: 450px;
+    background-repeat: no-repeat;
+    height: 78px;
+    margin: auto;
+    cursor: pointer;
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/bouton-2.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    margin-top: 50px;
+}
+
+
+.sot_link_header {
+    width: 300px;
+    margin: auto;
+    display: block;
+}
+.sot_link_header-pourmoi {
+    width: 456px;
+    margin: auto;
+    display: block;
+}
+
+.seo_texte-link::after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    background: var(--blanc);
+    bottom: -5px;
+    left: 50%;
+    transition: all 0.3s;
+}
+
+.sot_btn--header:hover .seo_texte-link::after {
+    width: 100%;
+    left: 0%;
+}
+
+.sot_btn:hover {
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/bouton-1h.png);
+    filter: drop-shadow(0px 0px 20px #de6200);
+}
+.sot_btn--header-pourmoi:hover {
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/bouton-2h.png);
+    filter: drop-shadow(0px 0px 20px #de6200);
+}
+
+
+
+@keyframes brume {
+    0% {
+        left: -100vw;
+    }
+    100% {
+        left: 100vw;
+    }
+}
+@keyframes logo {
+    0% {
+        margin-top: 0px;
+        transform: rotate(-1deg);
+    }
+    50% {
+        margin-top: var(--val_40);
+        transform: rotate(1deg);
+    }
+    100% {
+        margin-top: 0px;
+        transform: rotate(-1deg);
+    }
+}
+@keyframes logodeux {
+    0% {
+        margin-top: 0px;
+        transform: rotate(-1deg);
+    }
+    50% {
+        margin-top: var(--val_10);
+        transform: rotate(2deg);
+    }
+    100% {
+        margin-top: 0px;
+        transform: rotate(-1deg);
+    }
+}
+@keyframes fond-header {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.sot_partie{
+    width: 100%;
+}
+.sot_partie_container {
+    width: 100%;
+    max-width: 1300px;
+    padding: var(--marg_40_20);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+    z-index: 1;
+}
+/* -------------------- PARTIE 1 -------------------- */
+.sot_partie_1 {
+    background: #0a1c21;
+    background: linear-gradient(180deg, rgba(10,28,33,1) 0%, rgba(0,0,0,1) 100%);
+    overflow: hidden;
+    position: relative;
+}
+.sot_partie_1::after {
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/gouvernail.svg);
+    background-size: contain;
+    width: 100%;
+    position: absolute;
+    height: 1000px;
+    width: 1000px;
+    left: calc(50% - 480px);
+    top: 44%;
+    background-repeat: no-repeat;
+    animation: gouvernail-rotate 40s infinite;
+    filter: brightness(0) saturate(100%) invert(5%) sepia(62%) saturate(562%) hue-rotate(148deg) brightness(94%) contrast(98%);
+}
+.sot_gauche {
+    width: 48%;
+}
+.sot_droite {
+    width: 48%;
+}
+.sot_texte--paragraphe {
+    font-size: 1.3em;
+    line-height: 1.8;
+    margin-top: var(--val_30);
+}
+.sot_frame {
+    animation: frame_move 5s infinite ease-in-out;
+}
+.sot_btn-jeu{
+    position:initial !important;
+}
+.sot_abordage-container:before {
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/trait-2.png);
+    background-size: contain;
+    width: 33%;
+    left: 0;
+    height: 11px;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.sot_abordage-container:after {
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/trait-3.png);
+    background-size: contain;
+    width: 33%;
+    right: 0;
+    height: 11px;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.sot_abordage {
+    width: 350px;
+    margin: auto;
+}
+.sot_texte-abordage {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+.sot_mini-titre {
+    margin-top: var(--val_10);
+}
+.sot_composants {
+    width: 500px;
+}
+.sot_composants-gauche {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.sot_composants-droite {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.sot_texte-abordage::after{
+    display:none;
+}
+.sot_un-composant {
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.sot_composant_container--partie{
+    margin-top: -200px;
+    position: relative;
+}
+.sot_composant-pc {
+    position: absolute;
+    margin-left: calc(50% - 280px);
+}
+.sot_composant-le-pc {
+    width: 560px;
+}
+.sot_composant-photo {
+    width: 250px;
+    height: 250px;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/icone-1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+.sot_composant-photo:hover {
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/icone-2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.sot_composant-move-left {
+    margin-left: 60px;
+}
+.sot_composant-move-right {
+    margin-right: 60px;
+}
+.sot_h3-composant {
+    margin-top: var(--val_20);
+    margin-bottom: var(--val_15);
+}
+.sot_frame--pc {
+    animation: frame_move-pc 8s infinite ease-in-out;
+}
+.sot_poissons {
+    position: absolute;
+    width: 100%;
+    top: 120px;
+    left: 0;
+    animation: move-requin 22s infinite;
+    opacity:0.7;
+}
+
+.sot_requin {
+    filter: brightness(0) saturate(100%) invert(8%) sepia(17%) saturate(1519%) hue-rotate(145deg) brightness(96%) contrast(99%);
+    width: 450px;
+}
+@keyframes frame_move {
+    0% {
+        margin-top: 0px;
+        transform: rotate(-2deg);
+    }
+
+    33% {
+        margin-top: var(--val_10);
+        transform: rotate(1deg);
+    }
+
+    66% {
+        margin-top: var(--val_20);
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        margin-top: 0px;
+        transform: rotate(-2deg);
+    }
+}
+@keyframes frame_move-pc {
+    0% {
+        margin-top: 0px;
+        transform: rotate(2deg);
+    }
+
+    50% {
+        margin-top: var(--val_20);
+        transform: rotate(-2deg);
+    }
+
+    100% {
+        margin-top: 0px;
+        transform: rotate(2deg);
+    }
+}
+@keyframes move-requin {
+    0% {
+        left: -100vw;
+    }
+
+    100% {
+        left: 200vw;
+    }
+}
+
+/* -------------------- PARTIE 2 -------------------- */
+.sot_partie_2 {
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/fond-2.jpg);
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    margin-top: -2px;
+}
+.sot_partie_container--part2 {
+    margin-top: 90px;
+}
+.sot_partie_container--part2:before {
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/trait-6.png);
+    background-size: contain;
+    width: 33%;
+    left: 0;
+    height: 11px;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+.sot_partie_container--part2:after {
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/trait-6.png);
+    background-size: contain;
+    width: 33%;
+    right: 0;
+    height: 11px;
+    position: absolute;
+    background-repeat: no-repeat;
+}
+.sot_texte--paragraphe--part2 {
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/frame-2-concours.png);
+    background-size: contain;
+    padding: var(--val_30);
+    font-size: 1.2em;
+    background-repeat: no-repeat;
+}
+
+.sot_gauche--part2 {
+    width: 52%;
+}
+
+
+
+
+/* -------------------- PARTIE 3 -------------------- */
+.sot_partie_3 {
+}
+.sot_asus {
+    position: relative;
+}
+.sot_asus--input {
+    display: none;
+}
+.sot_asus--libele-container {
+    max-width: 1300px;
+    position: relative;
+    margin: auto;
+    padding: var(--marg_0_20);
+    z-index: 10;
+}
+.sot_asus--libele {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display:flex;
+}
+.sot_asus--label {
+    background: #F51928;
+    padding: var(--marg_10_20);
+    color: var(--blanc);
+}
+.sot_asus--viewport {
+    background-size: cover;
+    width:100%;
+}
+
+.sot_asus--viewport-rog {
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/landing-pcgamerasusrog/images/background-asus-rog-team.jpg);
+    
+}
+.sot_asus--part-texte{
+    width: 50%;
+
+}
+.sot_texte--paragraphe-asus {
+    font-family: Roboto-Condensed-Regular;
+    font-size: 1.2em;
+    color: var(--blanc);
+    padding-top:20px;
+}
+
+
+
+
+
+/* -------------------- ANIMATIONS -------------------- */
+.waves {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    min-height: 100px;
+    max-height: 150px;
+    bottom: 0;
+    left: 0;
+}
+.light1 {
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 100%);
+    width: 50px;
+    height: 1000px;
+    filter: blur(8px);
+    transform: rotate(33deg);
+    position: absolute;
+    right: -50px;
+    top: -70px;
+    animation: light-effect1 16s infinite ease-in-out;
+}
+
+.light2 {
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 100%);
+    width: 150px;
+    height: 1000px;
+    filter: blur(8px);
+    transform: rotate(33deg);
+    position: absolute;
+    right: -50px;
+    top: -130px;
+    animation: light-effect2 8s infinite ease-in-out;
+}
+
+.light3 {
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 100%);
+    width: 200px;
+    height: 1000px;
+    filter: blur(8px);
+    transform: rotate(33deg);
+    position: absolute;
+    right: -50px;
+    top: -30px;
+    animation: light-effect3 20s infinite ease-in-out;
+}
+.sot-bubbles-lights {
+    position: relative;
+    z-index: 0;
+}
+.bubble {
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/sea-of-thieves/bulle1.png);
+    background-size: contain;
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.bubble1 {
+    top: 100vh;
+    width: 50px;
+    height: 50px;
+    left:50vw;
+}
+.bubble2 {
+    top: 102vh;
+    width: var(--val_30);
+    height: var(--val_30);
+    left: 55vw;
+}
+.bubble3 {
+    top: 136vh;
+    width: 60px;
+    height: 60px;
+    left: 65vw;
+}
+.bubble4 {
+    top: 120vh;
+    width: var(--val_20);
+    height: var(--val_20);
+    left: 72vw;
+}
+.bubble1.anim-bubble {
+    animation: anim-bubble 3s 3 ease-in-out;
+}
+.bubble2.anim-bubble {
+    animation: anim-bubble 2.5s 3 ease-in-out;
+}
+.bubble3.anim-bubble {
+    animation: anim-bubble 3.2s 3 ease-in-out;
+}
+.bubble4.anim-bubble {
+    animation: anim-bubble 3.5s 3 ease-in-out;
+}
+
+@keyframes anim-bubble {
+    0% {
+        opacity: 0;
+        transform: translateX(0px);
+    }
+    5% {
+        opacity: 1;
+    }
+    20% {
+        transform: translateX(80px);
+    }
+    40% {
+        transform: translateX(0px);
+    }
+    60% {
+        transform: translateX(80px);
+    }
+    80% {
+        transform: translateX(0px);
+    }
+    100% {
+        opacity: 0;
+        top: -10vh;
+        transform: translateX(80px);
+    }
+}
+@keyframes light-effect1 {
+    0% {
+        width: 50px;
+        opacity: 1;
+        right: -50px;
+    }
+
+    33% {
+        width: 60px;
+        opacity: 0.7;
+        right: 100px;
+    }
+
+    66% {
+        width: 70px;
+        opacity: 0.8;
+        right: -75px;
+    }
+
+    100% {
+        width: 50px;
+        opacity: 1;
+        right: -50px;
+    }
+}
+@keyframes light-effect2 {
+    0% {
+        width: 150px;
+        opacity: 0.6;
+        right: -100px;
+        width: 160px;
+    }
+
+    50% {
+        width: 210px;
+        opacity: 1;
+        right: 0px;
+        width: var(--val_20);
+    }
+
+    100% {
+        width: 150px;
+        opacity: 0.6;
+        right: -100px;
+        width: 160px;
+    }
+}
+@keyframes light-effect3 {
+    0% {
+        width: 200px;
+        opacity: 1;
+        right: -100px;
+        width: 220px;
+    }
+
+    50% {
+        width: 110px;
+        opacity: 0.4;
+        right: 0px;
+        width: 300px;
+    }
+
+    100% {
+        width: 200px;
+        opacity: 1;
+        right: -100px;
+        width: 220px;
+    }
+}
+
+
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+    .parallax > use:nth-child(1) {
+        animation-delay: -2s;
+        animation-duration: 6s;
+    }
+
+    .parallax > use:nth-child(2) {
+        animation-delay: -3s;
+        animation-duration: 5s;
+    }
+
+    .parallax > use:nth-child(3) {
+        animation-delay: -4s;
+        animation-duration: 4s;
+    }
+
+    .parallax > use:nth-child(4) {
+        animation-delay: -5s;
+        animation-duration: 12s;
+    }
+    .parallax > use:nth-child(5) {
+        animation-delay: -6s;
+        animation-duration: 9s;
+    }
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+@keyframes gouvernail-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(359deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

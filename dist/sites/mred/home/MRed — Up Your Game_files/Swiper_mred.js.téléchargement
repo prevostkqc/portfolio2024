@@ -1,0 +1,58 @@
+﻿
+/* Home ======================================== */
+
+var swiper_intro = new Swiper(".mySwiper_intro", {
+    slidesPerView: 1,
+    centeredSlides: true,
+    speed: 1200,
+    parallax: true,
+    grabCursor: true,
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    direction: "horizontal"
+});
+
+
+var swiper_gammes = new Swiper(".mySwiper_gammes", {
+    slidesPerView: 3,
+    breakpoints: {
+        1300: {
+            slidesPerView: 6
+        },
+        768: {
+            slidesPerView: 3.5
+        },
+        320: {
+            slidesPerView: 1.5
+        },
+        120: {
+            slidesPerView: 1.2
+        }
+    },
+    spaceBetween: 10,
+    centeredSlides: false,
+    speed: 900,
+    parallax: true,
+    grabCursor: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    direction: "horizontal"
+});
+
+

@@ -36,6 +36,8 @@
                     Ma passion
                 </p>
             </article>
+
+            <Clipy />
         </section>
 
         
@@ -55,6 +57,11 @@
                 </div>
             </div>
             <div class="kp_pokemon_zone-texte  kp_element--enable">
+                <p class="kp_texte-carte">
+                    Ayant grandi dans les années 90, je n'ai pas échappé à la folie Pokémon.<br>
+                    Après avoir développé deux jeux amateurs en Ruby pour honorer la passion de mon enfance, cela m'a laissé un attachement particulier.<br>
+                    J'ai conservé ma collection de cartes d'enfance, qui contient des raretés toujours autant recherchées de nos jours.
+                </p>
                 <article class="kp_card-pokemon">
                     <div class="kp_card-pokemon--container">
                         <img class="kp_card-pokemon--img" src="/images/card_poke_2.png" alt="carte pokémon">
@@ -90,39 +97,158 @@
             <div class="kp_folder-projects-zone-texte  kp_element--enable">
                 <article class="kp_card-folder-projects">
                    
-
-                    <!-- Cybertek -->
-                    <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Cybertek');">
-                        <div class="kp_folder--un-ico-container-img">
-                            <img class="kp_folder--img" src="/images/raccourcis/cybertek.png" alt="Mes projets">
+                    <div class="kp_line-projet">
+                        <div class="kp_line-year">
+                            Plusieurs pages réalisées pour des PC Gamer
                         </div>
-                        <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
-                            Cybertek<br/>2021<br>Aujourd'hui
-                        </p>
-                    </article>
+                        <!-- Cybertek PC -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('CybertekPcGamer');">
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/cybertek.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                PC Gamer<br/>2024 - 2021
+                            </p>
+                        </article>
+                    </div>
 
-
-                    <!-- Grosbill -->
-                    <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Grosbill');" >
-                        <div class="kp_folder--un-ico-container-img">
-                            <img class="kp_folder--img" src="/images/raccourcis/grosbill.png" alt="Mes projets">
+                    <div class="kp_line-projet">
+                        <div class="kp_line-year">
+                            Sites dont j'étais responsable pour le Groupe Cybertek
                         </div>
-                        <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
-                            Grosbill<br/>2021<br>Aujourd'hui
-                        </p>
-                    </article>
+                        <!-- Cybertek -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Cybertek');">
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/cybertek.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                Cybertek<br/>2024 - 2021
+                            </p>
+                        </article>
 
 
-                    <!-- Mred -->
-                    <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Mred');" >
-                        <div class="kp_folder--un-ico-container-img">
-                            <img class="kp_folder--img" src="/images/raccourcis/mred.png" alt="Mes projets">
+                        <!-- Cybertek Pro -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Cybertekpro');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/cybertekpro.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                Cybertek Pro<br/>2024 - 2022
+                            </p>
+                        </article>
+
+                        <!-- Mred -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Mred');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/mred.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                Mred<br/>2024 - 2022
+                            </p>
+                        </article>
+                        
+
+
+                        <!-- Picata -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Picata');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/picata.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                Picata<br/>2024 - 2022
+                            </p>
+                        </article>
+
+
+                        <!-- Grosbill -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Grosbill');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/grosbill.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                Grosbill<br/>2024 - 2021
+                            </p>
+                        </article>
+                    </div>
+
+                    
+
+
+
+                    <div class="kp_line-projet">
+                        <div class="kp_line-year">
+                            Projets réalisés plus tôt dans ma carrière
                         </div>
-                        <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
-                            Mred<br/>2022<br>Aujourd'hui
-                        </p>
-                    </article>
+                        
+                        
+                        <!-- Pokémon Opale -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Opale');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/opale.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                Opale<br/>2024 - 2018
+                            </p>
+                        </article>
 
+
+                        <!-- KusmiTea -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Kusmitea');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/kusmitea.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                KusmiTea<br/>2021 - 2020
+                            </p>
+                        </article>
+
+                        
+                        <!-- Shopiles -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Sophiles');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/shopiles.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                Shopiles<br/>2017 - 2016
+                            </p>
+                        </article>
+
+
+                        <!-- MagAuchan -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('MagAuchan');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/auchan.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                Mag Auchan<br/>2016 - 2013
+                            </p>
+                        </article>
+                        
+
+
+                        <!-- Wedemain -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Wedemain');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/wedemain.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                WeDemain<br/>2020 - 2016
+                            </p>
+                        </article>
+                        
+                        
+
+
+                        <!-- Les Canardises -->
+                        <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('LesCanardises');" >
+                            <div class="kp_folder--un-ico-container-img">
+                                <img class="kp_folder--img" src="/images/raccourcis/lescanardises.png" alt="Mes projets">
+                            </div>
+                            <p class="kp_folder--un-ico-container-text  kp_folder--un-ico-container-text--black">
+                                Canardises<br/>2010 - 2013
+                            </p>
+                        </article>
+                    </div>
 
 
                 </article>
@@ -305,13 +431,13 @@
                     <div class="kp_barre-une-app--icn  kp_terminal--icn">KP:\</div>
                     <p class="kp_barre-une-app--title">Qui suis-je ?</p>
                 </article>
-                <article class="kp_barre-une-app  kp_barre-une-app--browser" id="kp_barre-app--browser">
-                    <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/icn_internet.png" alt="Mes projets"></div>
-                    <p class="kp_barre-une-app--title">Internet</p>
-                </article>
                 <article class="kp_barre-une-app  kp_barre-une-app--folder-projects" id="kp_barre-app--folder-projects">
                     <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/folder.png" alt="Mes projets"></div>
                     <p class="kp_barre-une-app--title">Mes réalisations</p>
+                </article>
+                <article class="kp_barre-une-app  kp_barre-une-app--browser" id="kp_barre-app--browser">
+                    <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/icn_internet.png" alt="Mes projets"></div>
+                    <p class="kp_barre-une-app--title">Internet</p>
                 </article>
                 <article class="kp_barre-une-app  kp_barre-une-app--text" id="kp_barre-app--text">
                     <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/text.png" alt="Mes projets"></div>
@@ -350,6 +476,7 @@
     import Browser from './Browser.vue';
     import Autoportrait from './Autoportrait.vue';
     import Personnaliser from './Personnaliser.vue';
+    import Clipy from './Clipy.vue';
 
     export default {
         data() {
@@ -362,7 +489,8 @@
         components: {
             Browser,
             Autoportrait,
-            Personnaliser
+            Personnaliser,
+            Clipy
         },
         computed: {
             // Filtre les projets en fonction de la compagnie sélectionnée

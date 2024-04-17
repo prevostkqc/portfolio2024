@@ -1,0 +1,143 @@
+( function($) {
+
+	$.Discussions = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Discussions')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			selector_class_new		: 'jq_discussion_new',
+			selector_class_counter	: 'jq_discussions_counter',
+			class_new				: 'new-message',
+			class_counter			: 'current-client',
+			url_ajax				: '/plugin_discussions/plugin_discussions_discussions/get_nbr_non_lus_profil',
+			secondes_interval		: 30
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object Discussions général
+		interval,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Discussions
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Ajoute l'attribut HTML 5 data-Discussions pour faciliter l'appel des instances Discussions avec les pseudo-selector CSS
+			$container.attr('data-Discussions', true);
+
+			// =============================================================
+			//--> Dès que la page est chargée, on lance une requête ajax tout de suite
+			plugin.requete();
+
+			//RC--> Puis on lance la fonction qui va déclencher la requête toutes les n secondes
+			plugin.update();
+		};
+
+		plugin.update = function(){
+			interval = setInterval(
+				function(){
+					plugin.requete();
+				}, plugin.settings.secondes_interval * 1000
+			);
+
+			setTimeout(
+				function(){
+					clearTimeout(interval);
+				}, 600000
+			);
+		};
+
+		plugin.requete = function(){
+			$.ajax({
+				url : plugin.settings.url_ajax
+			}).done(function(data, status){
+				plugin.positionnement_pastille(data);
+			});
+		}
+
+		/**
+		* Positionne les pastille et le compteur de nouveaux messages
+		* @param INT nbr Le nombre de messages non lus
+		*/
+		plugin.positionnement_pastille = function(nbr) {
+			if (nbr != 0 && nbr != undefined && nbr != '') {
+				$container.find('.' + plugin.settings.selector_class_new).addClass(plugin.settings.class_new);
+
+				if ($container.find('.' + plugin.settings.selector_class_counter + ' span').length != 0) {
+					$container.find('.' + plugin.settings.selector_class_counter + ' span').text(nbr);
+				} else {
+					$container.find('.' + plugin.settings.selector_class_counter).append('<span class="' + plugin.settings.class_counter + '">' + nbr + '</span>');
+				}
+			} else {
+				$container.find('.' + plugin.settings.selector_class_new).removeClass(plugin.settings.class_new);
+				$container.find('.' + plugin.settings.selector_class_counter + ' span').remove();
+			}
+		}
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('Discussions - ' + _var);
+		}
+
+		var response = function(val){
+			$container.data('Discussions_response', val);
+		}
+
+		var _data = function(data){
+			return $container.data(('Discussions-'+data).toLowerCase());
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Discussions = function(options) {
+		var args		= arguments;
+		var response	= 'no_response';
+		this.each(function() {
+			var plugin = $(this).data('Discussions');
+			if (undefined === plugin) {
+				plugin = new $.Discussions(this, options);
+				$(this).data('Discussions', plugin);
+				$(this).data('Discussions_response', 'no_response');
+			}else if ( plugin[options] ) {
+				var exec = plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+				if($(this).data('Discussions_response') != 'no_response'){
+					response = $(this).data('Discussions_response');
+					$(this).data('Discussions_response', 'no_response');
+					return response;
+				}else{
+					return exec;
+				}
+			}
+		});
+		if(response != 'no_response'){
+			return response;
+		}else{
+			return this;
+		}
+	};
+
+})(jQuery);
+
+$('body').Discussions({
+	'class_counter' : 'notification-compte'
+});

@@ -1,0 +1,143 @@
+( function($) {
+
+	$.Header = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Header')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			offset : 32,
+			height : 150,
+			easing : "easeOutExpo"
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object Header général
+		var1,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Header
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Ajoute l'attribut HTML 5 data-Header pour faciliter l'appel des instances Header avec les pseudo-selector CSS 
+			$container.attr('data-Header', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+			
+			$(window).on('scroll', function() {
+				plugin.calcul($(this).scrollTop());
+			});
+
+			$(window).on('resize', function() {
+				plugin.calcul($(this).scrollTop());
+			});
+
+			setTimeout(function() {
+				$('.validation-pass').slideDown({
+					duration : 800,
+					easing : "easeOutBounce"
+				});
+			}, 100);
+
+		};
+
+		plugin.calcul = function(scroll){
+			if (scroll > plugin.settings.height) {
+				plugin.downHeader();
+			} else {
+				plugin.upHeader();
+			}
+		};
+
+		plugin.downHeader = function() {
+			$container.stop().animate(
+				{ 
+					"top" : '-' + plugin.settings.offset + 'px'
+				},
+				{
+					duration: 250,
+					easing : plugin.settings.easing
+				}
+			);
+		}
+
+		plugin.upHeader = function() {
+			$container.stop().animate(
+				{ 
+					"top" : '0px'
+				},
+				{
+					duration: 250,
+					easing : plugin.settings.easing
+				}
+			);
+		}
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('Header - ' + _var);
+		}
+
+		var response = function(val){
+			$container.data('Header_response', val);
+		}
+
+		var _data = function(data){
+			return $container.data(('Header-'+data).toLowerCase());
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Header = function(options) {
+		var args		= arguments;
+		var response	= 'no_response';
+		return this.each(function() {
+			var plugin = $(this).data('Header');
+			if (undefined === plugin) {
+				plugin = new $.Header(this, options);
+				$(this).data('Header', plugin);
+				$(this).data('Header_response', 'no_response');
+			}else if ( plugin[options] ) {
+				var exec = plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+				if($(this).data('Header_response') != 'no_response'){
+					response = $(this).data('Header_response');
+					$(this).data('Header_response', 'no_response');
+					return response;
+				}else{
+					return exec;
+				}
+			}
+		});
+		if(response != 'no_response'){
+			return response;
+		}else{
+			return this;
+		}
+	};
+
+})(jQuery);
+
+$(function() {
+	$('header').Header();
+});

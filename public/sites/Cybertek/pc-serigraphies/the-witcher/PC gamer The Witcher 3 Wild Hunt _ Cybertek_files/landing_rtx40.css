@@ -1,0 +1,620 @@
+﻿.rtx40__container {
+    width: 100%;
+    position: relative;
+    background: : var(--noir);
+}
+
+.rtx40__partie-container {
+    width: 100%;
+    max-width: 1300px;
+    padding: var(--marg_40_20);
+    margin: auto;
+    /*ajout sl pour le bouton ancre*/
+    display: flex;
+    flex-direction: column;
+}
+
+.rtx40__img-mobile {
+    display: none;
+}
+
+.cyb-bandeau-attention-temporaire {
+    display: none;
+}
+/* ------ Textes ------ */
+@font-face {
+    font-family: 'NvidiaBold';
+    src: url('../fonts/NVIDIASans_W_Bd.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Nvidia';
+    src: url('../fonts/NVIDIASans_W_Rg.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'NvidiaLight';
+    src: url('../fonts/NVIDIASans_W_Lt.woff') format('woff');
+}
+
+.rtx40__h-titre {
+    font-family: 'NvidiaBold';
+    color: #FFFFFF;
+    font-weight: var(--semibold);
+    padding-bottom: var(--val_20);
+}
+
+.rtx40__h1 {
+    font-size: 2.9em;
+    font-weight: var(--semibold);
+    padding-bottom: var(--val_30);
+}
+
+.rtx40__h2 {
+    font-size: 1.8em;
+}
+
+.rtx40__h3 {
+    font-size: 1.3em;
+    line-height: 1.3;
+}
+
+.rtx40__h2-tc {
+    font-size: 2.1em;
+}
+
+.rtx40__texte {
+    font-family: 'Nvidia';
+    font-size: 1.1em;
+    color: var(--blanc);
+    line-height: 1.5;
+}
+
+.rtx40__texte--notes {
+    color: #888888;
+    padding-bottom: var(--val_30);
+}
+
+/* ------ Btn ------ */
+.rtx40__btn {
+    background: #76b900;
+    width: fit-content;
+    padding: var(--val_20);
+    transition: 1s;
+    border-radius: 0px;
+    margin: auto;
+}
+
+    .rtx40__btn:hover {
+        background: #598709;
+        border-radius: 0;
+    }
+
+.rtx40__btn-p {
+    font-family: 'Nvidia';
+    font-weight: var(--semibold);
+    font-size: 1.2em;
+    color: #FFFFFF;
+    position: relative;
+}
+
+    .rtx40__btn-p::after {
+        content: "";
+        height: 2px;
+        width: 0%;
+        position: absolute;
+        background: var(--blanc);
+        bottom: -5px;
+        left: 50%;
+        transition: 0.3s;
+    }
+
+.rtx40__btn:hover .rtx40__btn-p::after {
+    width: 100%;
+    left: 0%;
+}
+
+.rtx40__btn--container {
+    max-width: 130px;
+    margin: auto;
+}
+
+.rtx40__btn--ancre {
+    margin: 40px 0;
+}
+
+
+/* ------ partie 1 ------ */
+.rtx40__header {
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/4060/desktop.jpg);
+    background-size: cover;
+    background-position: right;
+    width: 100%;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+}
+
+.rtx40__zone-texte {
+    width: 100%;
+    max-width: 600px;
+}
+
+.rtx40__copyright {
+    font-size: 0.4em;
+}
+
+.rtx40__logo-geforce {
+    margin-top: 50px;
+}
+
+
+
+/* ------ partie 2 ------ */
+.rtx40__partie-2 {
+    text-align: center;
+    margin: auto;
+}
+
+.rtx40__h2--p2 {
+    text-align: center;
+}
+
+.rtx40__produits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--val_30);
+}
+
+.rtx40__produit {
+    width: 25%;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* effect grisé*/
+.rtx40__produit--indispo {
+    filter: grayscale(1);
+    cursor: not-allowed;
+}
+
+    .rtx40__produit--indispo a {
+        pointer-events: none;
+    }
+
+.rtx40__produit--image {
+    margin-bottom: var(--val_20);
+    padding: var(--marg_20_0);
+    filter: drop-shadow(0px 0px 25px #76b900);
+}
+
+.rtx40__produit .rtx40__h3 {
+    min-height: 135px;
+}
+
+.rtx40__produit .rtx40__h5 {
+    margin-top: 12px;
+    font-size: var(--size_p);
+}
+/* ------ partie 3 ------ */
+.rtx40__h3--p3 {
+    padding: 10px var(--marg_0_20);
+}
+
+.rtx40__titres-p3 {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.rtx40__icon {
+    max-width: 210px;
+    text-align: center;
+}
+
+.rtx40__icons {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 900px;
+}
+
+.rtx40__visuel2-img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.rtx40__visuel2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: var(--marg_20_0);
+    flex-wrap: wrap;
+}
+
+.rtx40__visuel2--gauche {
+    width: 30%;
+}
+
+.rtx40__visuel2--droite {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rtx40__h3--visuel {
+    padding: 25px 0 0;
+    width: 100%;
+}
+
+.rtx40__texte {
+    width: 100%;
+}
+
+.rtx40__visuel2--gauche, .rtx40__visuel2--droite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rtx40__texte--p3 {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.rtx40__partie-2 {
+    padding-bottom: 80px;
+    border-bottom: solid 1px #626262;
+}
+
+.rtx40__partie-3 {
+    padding-bottom: 80px;
+    border-bottom: solid 1px #626262;
+}
+
+.rtx40__rtxonoff {
+    width: 100%;
+    display: flex;
+    background: #7cbd01;
+    gap: var(--val_5);
+    font-weight: 100;
+    justify-content: center;
+}
+
+.rtx40__rtxonoff--mobile {
+    display: none;
+}
+
+
+
+/*  RTX  */
+.rtx40__partie-rtx {
+    border: none;
+}
+
+/* DLSS */
+.rtx40__partie-dlss {
+    width: 100%;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/nvidiartx40/visuel-5.jpg);
+    min-height: 870px;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.rtx40__partie-reflex {
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/nvidiartx40/visuel-6.jpg);
+}
+
+
+
+.rtx40__partie-creatif {
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/nvidiartx40/fond.jpg);
+}
+
+.rtx40__part5-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.rtx40__part5-left {
+    width: 45%;
+}
+
+.rtx40__part5-right {
+    width: 45%;
+}
+
+.rtx40__part5-content {
+    margin-top: 50px;
+}
+
+.rtx40__h3--p5 {
+    font-size: 2.2em;
+    max-width: 520px;
+}
+
+.rtx40__part5-img {
+    width: 100%;
+    max-width: 567px;
+}
+
+.rtx40__h3--p8 {
+    margin-top: var(--val_20);
+}
+
+
+.rtx40__partie-caract {
+    background: #222222;
+}
+
+.rtx40__avantages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.rtx40__avantage {
+    background: : var(--noir);
+    width: 100%;
+    max-width: 350px;
+    margin-top: 50px;
+}
+
+.rtx40__avantage--texte {
+    padding: var(--val_20);
+}
+
+.rtx40__avantage--img {
+    width: 100%;
+}
+
+.rtx40__texte--notes-fin {
+    text-align: center;
+    max-width: 1160px;
+    margin: auto;
+    margin-top: var(--val_30);
+}
+
+.rtx40__logos-fin {
+    width: 100%;
+    max-width: 320px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+}
+
+.rtx40__logo-fin-pegi {
+    height: 74px;
+    width: 61px;
+}
+
+.rtx40__logo-fin-geforce {
+    height: 50px;
+    width: 162px;
+}
+
+@media screen and (max-width: 640px) {
+    .rtx40__header {
+        background: var(--noir);
+    }
+
+    .rtx40__img-mobile {
+        display: block;
+    }
+
+    .rtx40__zone-texte--header {
+        border-bottom: solid 1px var(--blanc);
+        max-width: 100%;
+        padding-bottom: 50px;
+    }
+
+    .rtx40__partie-container {
+    }
+
+    .rtx40__header {
+        min-height: auto;
+    }
+
+    .rtx40__visuel2--gauche, .rtx40__visuel2--droite {
+        width: 100%;
+        display: flex;
+    }
+
+    .rtx40__produit {
+        margin-top: var(--val_40);
+    }
+
+    .rtx40__visuel2-img {
+        width: 320px;
+        margin: auto;
+    }
+
+    .rtx40__h3--visuel, .rtx40__texte--visuel {
+        text-align: center;
+    }
+
+    .rtx40__icon {
+        margin-top: 50px;
+    }
+
+    .rtx40__rtxonoff {
+        display: none;
+    }
+
+    .rtx40__rtxonoff--mobile {
+        display: block;
+        width: 100%;
+        display: flex;
+    }
+
+    .rtx40__partie-rtx {
+        padding-bottom: var(--val_20);
+    }
+
+    .rtx40__partie-dlss {
+        min-height: 600px;
+        background-size: contain;
+    }
+
+    .rtx40__part5-left, .rtx40__part5-right {
+        width: 100%;
+    }
+
+    .rtx40__h3--p4-first {
+        margin-top: var(--val_20);
+    }
+
+    .rtx40__partie-creatif {
+        background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/nvidiartx40/fond-mobile.jpg);
+        background-size: cover;
+    }
+
+    .rtx40__part5-right-2 {
+        margin-top: var(--val_20);
+    }
+}
+
+.cyb_landing-rtx40__product-img {
+    width: 300px;
+    height: 230px;
+    object-fit: contain;
+}
+
+
+/* ajout style boucle template */
+/** Soldes été **/
+.black-friday {
+    background: none;
+}
+
+    .black-friday .produit-landing li {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        width: 225px !important;
+        height: 350px !important;
+    }
+
+.img-code-promo {
+    padding-top: var(--val_15);
+}
+
+.black-friday-landing .desc-courte {
+    display: block;
+}
+
+.black-friday .content-landing .produit-landing li .nvidia-prix {
+    font-family: inherit;
+}
+
+.cyb_mini-landing__subtitle {
+    font-size: 33px;
+    font-weight: var(--semibold);
+    margin: auto;
+    color: var(--blanc);
+    padding-bottom: 50px;
+}
+
+.cyb_mini-landing__product {
+    margin-bottom: auto;
+    /*margin bottom auto
+            pour rester les mêmes hauteurs des vignettes
+            en dépit de différents hauteurs des textes libellié*/
+}
+
+.cyb_mini-landing__product-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.cyb_mini-landing__promo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: var(--marg_0_20);
+    background-color: #d6190d;
+    color: var(--blanc);
+}
+
+.reduc {
+    display: flex;
+    flex-direction: column;
+}
+
+.cyb_mini-landing__product-link img {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.cyb_mini-landing__product-text {
+    padding: 0 5px;
+    font-weight: var(--semibold);
+    text-transform: uppercase;
+}
+
+.desc-courte {
+    font-size: var(--size_p) !important;
+    font-weight: var(--medium);
+}
+
+.bck-prix-barre {
+    max-width: 100px;
+}
+
+    .bck-prix-barre::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #d6190d;
+        transform: rotate(-10deg);
+    }
+
+.cyb_mini-landing__purchase-btn {
+    width: 100%;
+    padding: var(--marg_10_0);
+    background: rgb(255,208,31);
+    font-weight: var(--semibold);
+    transition: all .3s ease-in-out;
+}
+
+    .cyb_mini-landing__purchase-btn:hover {
+        background: #ffe576;
+        color: var(--blanc);
+    }
+
+
+@media screen and (max-width: 420px) {
+
+    .ouvrir-filtre {
+        width: 100% !important;
+    }
+
+    .black-friday .filtres {
+        width: 100% !important;
+    }
+}
+
+.rtx40__subtile {
+    padding-top: 50px;
+}

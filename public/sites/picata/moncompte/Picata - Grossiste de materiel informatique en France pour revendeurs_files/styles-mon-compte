@@ -1,0 +1,1617 @@
+/* Échec de l'agrandissement. Renvoi du contenu non agrandi.
+(27,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc-sombre'
+(32,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_n50'
+(33,33): run-time error CSS1039: Token not allowed after unary operator: '-pic_n50'
+(34,34): run-time error CSS1039: Token not allowed after unary operator: '-pic_n50'
+(38,39): run-time error CSS1039: Token not allowed after unary operator: '-pic_n50'
+(45,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(46,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n700'
+(50,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(51,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(55,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(59,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-28'
+(60,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(80,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(84,41): run-time error CSS1046: Expect comma, found '0'
+(84,45): run-time error CSS1046: Expect comma, found '/'
+(85,49): run-time error CSS1046: Expect comma, found '0'
+(85,53): run-time error CSS1046: Expect comma, found '/'
+(99,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_n40'
+(110,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(122,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(138,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc-sombre'
+(139,41): run-time error CSS1046: Expect comma, found '0'
+(139,45): run-time error CSS1046: Expect comma, found '/'
+(140,49): run-time error CSS1046: Expect comma, found '0'
+(140,53): run-time error CSS1046: Expect comma, found '/'
+(145,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_color-primary'
+(146,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(148,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(152,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_p75'
+(153,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(155,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(157,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_noir'
+(182,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_n40'
+(225,32): run-time error CSS1039: Token not allowed after unary operator: '-lt-color-gray-600'
+(231,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(236,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(237,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(276,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(278,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-300'
+(283,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(284,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-200'
+(288,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(301,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(311,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(315,35): run-time error CSS1039: Token not allowed after unary operator: '-pic_n30'
+(327,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(328,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-300'
+(361,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-09'
+(369,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_n30'
+(373,39): run-time error CSS1039: Token not allowed after unary operator: '-pic_n30'
+(454,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_n30'
+(455,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(456,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(466,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(467,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n200'
+(469,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-300'
+(475,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_d200'
+(477,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-300'
+(522,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-sombre'
+(523,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(540,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(544,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-tres-sombre'
+(552,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-18'
+(553,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(562,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc-sombre'
+(563,41): run-time error CSS1046: Expect comma, found '0'
+(563,45): run-time error CSS1046: Expect comma, found '/'
+(564,49): run-time error CSS1046: Expect comma, found '0'
+(564,53): run-time error CSS1046: Expect comma, found '/'
+(565,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(571,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(575,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-20'
+(581,29): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(598,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-18'
+(612,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(616,41): run-time error CSS1046: Expect comma, found '0'
+(616,45): run-time error CSS1046: Expect comma, found '/'
+(617,49): run-time error CSS1046: Expect comma, found '0'
+(617,53): run-time error CSS1046: Expect comma, found '/'
+(663,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_t50'
+(666,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_color-tertiary'
+(670,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_color-tertiary'
+(689,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(693,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-10'
+(694,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(700,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-24'
+(701,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-500'
+(702,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h1-color'
+(704,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-tres-sombre'
+(714,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(723,35): run-time error CSS1039: Token not allowed after unary operator: '-pic_n60'
+(730,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-18'
+(731,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(737,35): run-time error CSS1039: Token not allowed after unary operator: '-pic_n40'
+(744,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(745,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-300'
+(756,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-10'
+(757,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-700'
+(763,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h5-color'
+(773,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(783,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_p50'
+(787,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(788,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-500'
+(792,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-500'
+(796,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_bleu'
+(800,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(822,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h5-color'
+(823,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(824,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(872,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_p50'
+(876,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(887,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_p50'
+(897,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_n30'
+(901,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(916,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_n30'
+(925,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_n40'
+(938,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_n50'
+(972,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_p50'
+(976,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(984,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-tres-sombre'
+(985,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(986,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(987,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-700'
+(1002,25): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(1009,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_color-tertiary'
+(1031,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_n30'
+(1036,36): run-time error CSS1039: Token not allowed after unary operator: '-pic_n30'
+(1106,29): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-18'
+(1164,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1165,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1166,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1167,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1168,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1169,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1170,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1171,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1172,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1173,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1176,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-color'
+(1178,24): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-border-color'
+(1183,32): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-bg'
+(1185,45): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-accent-bg'
+(1225,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1226,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-striped-color'
+(1230,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1231,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-striped-color'
+(1235,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1236,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-active-color'
+(1240,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1241,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-hover-color'
+(1245,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1246,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1247,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1248,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1249,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1250,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1251,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1252,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1253,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1254,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-color'
+(1255,24): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-border-color'
+(1259,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1260,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1261,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1262,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1263,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1264,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1265,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1266,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1267,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1268,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-color'
+(1269,24): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-border-color'
+(1273,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1274,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1275,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1276,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1277,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1278,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1279,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1280,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1281,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1282,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-color'
+(1283,24): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-border-color'
+(1287,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1288,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1289,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1290,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1291,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1292,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1293,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1294,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1295,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1296,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-color'
+(1297,24): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-border-color'
+(1301,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1302,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1303,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1304,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1305,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1306,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1307,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1308,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1309,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1310,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-color'
+(1311,24): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-border-color'
+(1315,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1316,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1317,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1318,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1319,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1320,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1321,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1322,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1323,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1324,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-color'
+(1325,24): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-border-color'
+(1329,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1330,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1331,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1332,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1333,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1334,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1335,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1336,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1337,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1338,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-color'
+(1339,24): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-border-color'
+(1343,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1344,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1345,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1346,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1347,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1348,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1349,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1350,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1351,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(1352,17): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-color'
+(1353,24): run-time error CSS1039: Token not allowed after unary operator: '-bs-table-border-color'
+ */
+.pic_moncompte--liste {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+}
+
+.pic_btn {
+    padding: 7px 30px;
+}
+
+.pic_mon-compte--container {
+    width: calc(100% - 80px);
+    padding: 40px;
+    max-width: calc(1296px - 80px);
+    margin: auto;
+    display: flex;
+    gap: 20px;
+}
+
+.pic_mon-compte--main {
+    margin-bottom: -20px;
+    padding: 0 0 50px;
+}
+
+.pic_mon-compte--content-ul {
+    height: fit-content;
+    background: var(--pic_blanc-sombre);
+}
+
+.pic_mon-compte-li {
+    width: 100%;
+    border-top: solid 1px var(--pic_n50);
+    border-left: solid 1px var(--pic_n50);
+    border-right: solid 1px var(--pic_n50);
+}
+
+    .pic_mon-compte-li:last-child {
+        border-bottom: solid 1px var(--pic_n50);
+    }
+
+.pic_mon-compte--a {
+    padding: 30px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: var(--pic_size-14);
+    color: var(--pic_n700);
+}
+
+    .pic_mon-compte--a:hover, #rubriqueSelection a, .pic_mon-compte-li.rubriqueSelection a {
+        background: var(--pic_blanc);
+        color: var(--pic_vert);
+    }
+
+.pic_titre-num-client {
+    font-size: var(--pic_size-14);
+}
+
+.pic_mon-compte--titre-h1 {
+    font-size: var(--pic_size-28);
+    font-weight: var(--pic_weight-400);
+    margin-bottom: 4px;
+}
+
+.pic_mon-compte--numero-container {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% + 40px);
+}
+
+.pic_btn--se-connecter-mon-compte {
+    margin-top: -30px;
+    display: none;
+}
+
+/* Partie container */
+.pic_mon-compte--content-princ {
+    width: calc(100% - 40px) !important;
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--pic_blanc);
+    padding: 20px 40px;
+    gap: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -webkit-box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -moz-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.25);
+    margin-top: 20px;
+}
+
+.pic_mon-compte--content-princ-adresses {
+    background: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    padding: 0;
+}
+
+.pic_mon-compte-recherche {
+    background-color: var(--pic_n40);
+    border: none;
+    border-radius: 2px;
+    font-family: 'Poppins', sans-serif;
+    position: relative !important;
+    height: 30px;
+    padding: 5px 15px;
+    max-width: 150px;
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    font-size: var(--pic_size-12);
+}
+
+.pic_mon-compte-date {
+    max-width: 100px;
+}
+
+.pic_mon-compte--form {
+    width: 100%;
+}
+
+.pic_form-titre-label {
+    font-size: var(--pic_size-14);
+}
+
+.pic_btn_valider-recherche {
+}
+
+.pic_container-factures {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.pic_une_facture {
+    width: 100%;
+    border: solid 1px var(--pic_blanc-sombre);
+    box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -webkit-box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+}
+
+.pic_une-facture-titre {
+    width: calc(100% - 40px);
+    background: var(--pic_color-primary);
+    color: var(--pic_blanc);
+    padding: 10px 20px;
+    font-size: var(--pic_size-14);
+    text-transform: uppercase;
+    /* */
+    width: calc(100% - 40px);
+    background: var(--pic_p75);
+    color: var(--pic_blanc);
+    padding: 4px 20px;
+    font-size: var(--pic_size-14);
+    text-transform: uppercase;
+    color: var(--pic_noir);
+}
+
+.pic_une-facture-ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+/*.pic_une-facture-container-show {
+    height: 30px;
+    overflow: hidden;
+    transition: 5s;
+}
+.pic_une-facture-print .pic_une-facture-container-show {
+    height: 0px;
+}*/
+.pic_mon-compte-form--content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pic_une-facture-print--show {
+    position: absolute;
+    top: 29px;
+    background: var(--pic_n40);
+    padding: 10px;
+    width: 223px;
+}
+
+.pic_link-print:after {
+    content: "";
+    position: absolute;
+    right: -22px;
+    top: 12px;
+    width: 28px;
+    height: 15px;
+    z-index: 2;
+    background-image: url(../../content/images/icons/icn_fleche-droite.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(90deg);
+    filter: brightness(0) saturate(100%) invert(61%) sepia(14%) saturate(478%) hue-rotate(178deg) brightness(84%) contrast(85%);
+    pointer-events: none;
+}
+
+.pic_une-facture-print {
+    display: none !important;
+}
+
+    .pic_une-facture-print .pic_une-facture-li {
+        padding: 20px;
+    }
+
+.pic_print--doc {
+    background: none;
+    border: none;
+}
+
+.pic_une-facture--container-ul {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pic_facture--border {
+    padding: 10px 0px 10px;
+    border-top: solid 1px var(--lt-color-gray-600);
+    width: calc(100% - 40px);
+    margin-left: 20px;
+}
+
+.pic_une-facture--container-une-facture--commande-top {
+    font-size: var(--pic_size-14);
+    padding-bottom: 5px;
+}
+
+.pic_une-facture--container-une-facture--commande-bottom {
+    font-size: var(--pic_size-14);
+    font-weight: var(--pic_weight-600);
+}
+/*.pic_une-facture-ul--princ {
+    max-width: 500px;
+}*/
+.pic_voir-plus-options {
+    max-height: 0px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.pic_voir-plus-options--visible {
+    max-height: 100%;
+}
+
+.pic_link--primary {
+    cursor: pointer;
+}
+
+.pic_modal--body--facture {
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pic_modal-facture-ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.pic_facture-mon-compte--img-modal {
+    width: 80px;
+    margin-right: 20px;
+    height: auto;
+}
+
+.pic_facture-mon-compte--titre-produit {
+    font-size: var(--pic_size-14);
+    margin-bottom: 5px;
+    font-weight: var(--pic_weight-300);
+    width: 240px;
+}
+
+.pic_facture-mon-compte--ref-produit {
+    font-size: var(--pic_size-12);
+    font-weight: var(--pic_weight-200);
+}
+
+.pic_facture-mon-compte--titre-prixu {
+    font-size: var(--pic_size-14);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.pic_facture-mon-compte--li-prix {
+    width: 100%;
+    text-align: center;
+}
+
+.pic_facture-mon-compte--li-x {
+    width: 230px;
+    font-size: var(--pic_size-12);
+}
+
+.pic_modal-add-cart--container-inside {
+    min-width: 1000px;
+    left: calc(50% - 530px);
+}
+
+.pic_facture-mon-compte--li-total {
+    width: 110px;
+    font-size: var(--pic_size-14);
+}
+
+.pic_modal-facture-ul {
+    border-bottom: solid 1px var(--pic_n30);
+}
+
+    .pic_modal-facture-ul:last-child {
+        border-bottom: none;
+    }
+
+.pic_facture-mon-compte--li-total-prix {
+    margin-bottom: 5px;
+}
+
+.pic_facture-mon-compte--li-total-prix-base {
+    font-size: var(--pic_size-14);
+    font-weight: var(--pic_weight-300);
+}
+
+.pic_facture-mon-compte--li-total {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 230px;
+}
+
+.pic_un-panier--modal {
+    width: calc(100% - 40px);
+    margin: auto;
+}
+
+.pic_supr-panier {
+    top: 0px;
+    right: 0px;
+    position: relative;
+    font-size: 20px;
+    width: 24px;
+    height: 24px;
+}
+
+.pic_btn-container-x {
+    border: none;
+    background: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.pic_span-x {
+    font-size: var(--pic_size-09);
+}
+
+.pic_un-panier--modal {
+    border: none;
+}
+
+.pic_un-panier--modal {
+    border-top: solid 1px var(--pic_n30);
+}
+
+    .pic_un-panier--modal:last-child {
+        border-bottom: solid 1px var(--pic_n30);
+    }
+
+.pic_btn-add-cart-modal {
+    display: flex;
+    justify-content: center;
+}
+
+.pic_btn-add-cart-modal--btn {
+    padding: 7px 10px 7px 30px;
+}
+
+.pic_une-facture-li--devis {
+    width: 290px;
+}
+
+.pic_une-facture-li--cree {
+    width: 250px;
+}
+
+.pic_facture--container-links {
+    display: flex;
+    flex-wrap: wrap;
+    width: 180px;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.afficherDetails {
+    position: relative;
+    padding-right: 19px
+}
+
+    .afficherDetails::after {
+        content: "";
+        position: absolute;
+        right: -8px;
+        top: 8px;
+        width: 28px;
+        height: 15px;
+        z-index: 2;
+        background-image: url(../../content/images/icons/icn_fleche-droite.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: rotate(90deg);
+        filter: brightness(0) saturate(100%) invert(61%) sepia(14%) saturate(478%) hue-rotate(178deg) brightness(84%) contrast(85%);
+        pointer-events: none;
+    }
+
+.pic_form-modal-container {
+    width: 100%;
+    margin-right: 2rem;
+}
+
+.pic_modal--texte {
+    width: 100%;
+    display: block;
+    max-width: 100%;
+    height: 150px;
+}
+
+.pic_modal-container-btn-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+
+/* Infos perso */
+.pic_select-liste--infos {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pic_infos-champs input, .pic_infos-champs .form-select {
+    text-align: left;
+    width: calc(100% - 12px);
+    border: none;
+    border-radius: 10px;
+    background: var(--pic_n30);
+    font-size: var(--pic_size-12);
+    font-weight: var(--pic_weight-400);
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 12px;
+    margin: 10px 0 20px;
+    max-width: 100%;
+}
+
+
+.pic_label-info {
+    font-size: var(--pic_size-14);
+    color: var(--pic_n200);
+    margin-left: 10px;
+    font-weight: var(--pic_weight-300);
+    width: 100%;
+}
+
+.pic_info-i {
+    font-size: 13px;
+    color: var(--pic_d200);
+    margin-left: 10px;
+    font-weight: var(--pic_weight-300);
+}
+
+.pic_info--container {
+    width: 100%;
+}
+
+.pic_info--container-flex {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.pic_mon-compte--info form {
+    width: 100%;
+}
+
+.pic_info--part {
+    width: 44%;
+}
+
+.pic_select-liste--infos .form-select {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.pic_select-liste--infos::after {
+    top: 40px;
+}
+
+.pic_btn-infos {
+    padding: 7px 30px;
+    margin: 40px auto 10px;
+}
+
+.pic_info--texte-container {
+    width: 100%;
+}
+
+.pic_info-texte-fin {
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+    text-align: center;
+    color: var(--pic_gris-sombre);
+    font-size: var(--pic_size-12);
+    line-height: 1.2;
+}
+
+.pic_infos-champs--check {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+}
+
+    .pic_infos-champs--check input {
+        width: fit-content;
+        height: fit-content;
+        margin-top: 19px;
+    }
+
+.pic_infos-texte-nl {
+    color: var(--pic_gris-clair);
+}
+
+.pic_infos-champs--check label {
+    color: var(--pic_gris-tres-sombre);
+}
+/* mes demandes */
+.pic_une-facture-ul--demandes {
+    width: 100%;
+}
+
+.pic_demandes--tickets {
+    font-size: var(--pic_size-18);
+    font-weight: var(--pic_weight-600);
+    margin-bottom: -10px;
+}
+
+.pic_avoirs-container {
+    width: 100%;
+}
+
+.pic_adresse_une {
+    border: solid 1px var(--pic_blanc-sombre);
+    box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -webkit-box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    background: var(--pic_blanc);
+    padding: 20px;
+    min-width: 320px;
+}
+
+.pic_adresse-ligne {
+    font-size: var(--pic_size-14);
+}
+
+.pic_livraison--texte-titre {
+    font-size: var(--pic_size-20);
+    margin-bottom: 5px;
+}
+
+.pic_adresse_une--ajouter {
+    max-width: 285px;
+    border: dashed 1px var(--pic_gris-clair);
+    display: flex;
+    align-items: center;
+    background: none;
+}
+
+.pic_ajouter {
+    margin: 50px auto;
+}
+
+.pic_uneadresse-modif-supr {
+    display: flex;
+    gap: 20px;
+    margin: 10px auto;
+}
+
+.pic_livraison--texte-titre--nom {
+    font-size: var(--pic_size-18);
+    margin-bottom: 15px;
+    min-height: 21px;
+}
+
+.pic_form-uneadresse-par-defaut {
+    display: flex;
+    align-items: flex-end;
+}
+
+.pic_modif-adresse-container {
+    width: calc(100% - 40px) !important;
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--pic_blanc);
+    padding: 30px 40px;
+    gap: 20px;
+    /* border-radius: 5px; */
+    box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -webkit-box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -moz-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.25);
+    margin-top: 20px;
+    max-width: 1216px;
+    margin: auto;
+}
+
+.pic_adresse-modif--btns {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    margin: auto;
+    margin-top: 80px;
+}
+
+.pic_info--container-flex-adresse {
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+    max-width: 920px;
+    margin: auto;
+}
+
+.pic_select-liste--infos-adresse {
+    margin-bottom: 26px;
+}
+
+.pic_info-texte-infos {
+    margin: auto;
+    text-align: center
+}
+
+.pic_modal--body--container {
+    overflow-y: scroll;
+    max-height: 55vh;
+    align-items: flex-start;
+}
+
+.pic_message-alert-adresse--container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    border-radius: 5px;
+    align-items: center;
+    background: var(--pic_t50);
+    width: fit-content;
+    padding: 10px 20px;
+    border: solid 1px var(--pic_color-tertiary);
+}
+
+.pic_message-alert-adresse {
+    color: var(--pic_color-tertiary);
+}
+
+
+
+/* Tickets */
+.pic_modal-add-cart--container-message {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.pic_message--ul-primero {
+    display: flex;
+    justify-content: flex-start;
+    gap: 90px;
+}
+
+.pic_message--li-primero {
+    font-size: var(--pic_size-14);
+}
+
+.pic_message--li-primero-span {
+    font-size: var(--pic_size-10);
+    font-weight: var(--pic_weight-600);
+    display: flex;
+    justify-content: center;
+}
+
+.pic_h3--modal-message {
+    font-size: var(--pic_size-24);
+    font-weight: var(--pic_weight-500);
+    color: var(--pic_h1-color);
+    position: relative;
+    border-top: solid 2px var(--pic_gris-tres-sombre);
+    padding-top: 15px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    width: calc(100% + 40px);
+    padding-left: 20px;
+    margin-left: -20px;
+}
+
+.pic_message--li-secondo {
+    font-size: var(--pic_size-14);
+    padding: 0 0 10px;
+}
+
+.pic_demande-liees--menu {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 13px);
+    padding: 10px;
+    border-bottom: solid 2px var(--pic_n60);
+    margin: auto;
+}
+
+.pic_demande-liees--item {
+    width: 33%;
+    text-align: center;
+    font-size: var(--pic_size-18);
+    font-weight: var(--pic_weight-400);
+}
+
+.pic_demande-liees--menu-line {
+    width: calc(100% - 13px);
+    padding: 10px;
+    border-bottom: solid 1px var(--pic_n40);
+    margin: auto;
+}
+
+.pic_demande-liees--item-line {
+    width: 33%;
+    text-align: center;
+    font-size: var(--pic_size-14);
+    font-weight: var(--pic_weight-300);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic_h3--modal-message--piece {
+    margin-top: 30px;
+}
+
+.pic_btn--primary--demande {
+    font-size: var(--pic_size-10);
+    font-weight: var(--pic_weight-700);
+}
+
+.pic_a--demande {
+    width: fit-content;
+    position: relative;
+    color: var(--pic_h5-color);
+}
+
+    .pic_a--demande:after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        left: 50%;
+        bottom: 0;
+        background: var(--pic_gris-clair);
+        transition: 0.3s;
+    }
+
+    .pic_a--demande:hover:after {
+        width: 100%;
+        left: 0;
+    }
+
+.pic_demande-liees--menu-line-success {
+    background: var(--pic_p50);
+}
+
+.pic_demande-liees--status {
+    color: var(--pic_vert);
+    font-weight: var(--pic_weight-500);
+}
+
+.info.pic_demande-liees--item {
+    font-weight: var(--pic_weight-500);
+}
+
+.pic_demande-liees--status {
+    color: var(--pic_bleu);
+}
+
+.success.pic_demande-liees--status {
+    color: var(--pic_vert);
+}
+
+.pic_container-add-file {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.pic_container-add-file--action {
+    width: 50%;
+}
+
+.pic_demande-liees--item-line--first {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pic_nom-du-fichier {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--pic_h5-color);
+    font-weight: var(--pic_weight-400);
+    font-size: var(--pic_size-12);
+}
+
+.pic_add-file--limite {
+    width: fit-content;
+    position: relative;
+}
+
+
+    .pic_add-file--limite:after {
+        content: "";
+        width: 25px;
+        height: 25px;
+        background: url(../../Content/images/icons/icn_alert.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        left: -27px;
+        position: absolute;
+        top: -5px;
+        display: inline-block;
+        filter: brightness(0) saturate(100%) invert(31%) sepia(58%) saturate(4366%) hue-rotate(344deg) brightness(97%) contrast(95%);
+    }
+
+.pic_message--li-primero--add-btn {
+    width: 134px;
+}
+
+.pic_message--ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pic_message-right {
+    align-self: flex-end;
+    width: 55%;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.pic_message-left {
+    align-self: flex-start;
+    width: 55%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.pic_message-recu {
+    background: var(--pic_p50);
+    padding: 15px 15px;
+    margin: 0 0 15px;
+    position: relative;
+    font-size: var(--pic_size-14);
+    white-space: pre-line;
+}
+
+    .pic_message-recu::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -20px;
+        bottom: 0;
+        background: var(--pic_p50);
+        clip-path: polygon(0 54%, 0 100%, 100% 100%);
+    }
+
+.pic_message-recu--date {
+    transform: translate(10px, -5px);
+}
+
+
+.pic_message-envoye {
+    background: var(--pic_n30);
+    padding: 15px 15px;
+    margin: 0 0 15px;
+    position: relative;
+    font-size: var(--pic_size-14);
+    white-space: pre-line;
+}
+
+.pic_message-envoye--date {
+    transform: translate(-10px, -5px);
+}
+
+.pic_message-envoye::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -20px;
+    bottom: 0;
+    background: var(--pic_n30);
+    clip-path: polygon(100% 54%, 0% 100%, 100% 100%);
+}
+
+.pic_message--content {
+    width: 100%;
+    max-width: 570px;
+    margin: auto;
+    padding: 20px 10px;
+    border: solid 1px var(--pic_n40);
+}
+
+.pic_message--ul {
+    max-height: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0 30px;
+}
+
+.pic_container-message-send {
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 1px var(--pic_n50);
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.pic_new-message-input {
+    max-width: 100%;
+    width: 100%;
+    max-height: 90px;
+    margin-top: 10px;
+    height: fit-content;
+    min-height: 48px;
+    font-family: 'Poppins';
+    padding: 10px;
+}
+
+#voucher_send_message_action {
+    bottom: -10px;
+    position: relative;
+}
+
+/* --- */
+.pic_modal--texte--zone-area {
+    width: 100%;
+    display: block;
+    max-width: calc(100% - 6px);
+    height: 150px;
+}
+
+.pic_h4--facture {
+    margin-bottom: 10px;
+}
+
+.pic_effacerpanier {
+    background: var(--pic_p50);
+    padding: 20px 30px;
+    margin-top: 10px;
+    width: fit-content;
+    font-size: var(--pic_size-14);
+}
+
+.pic_delete-a {
+    border-radius: 20px;
+    border: none;
+    height: 22px;
+    width: 22px;
+    background: var(--pic_gris-tres-sombre);
+    color: var(--pic_blanc);
+    font-size: var(--pic_size-14);
+    font-weight: var(--pic_weight-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: monospace;
+    margin-left: 20px;
+    position: relative;
+    transition: 0.3s;
+}
+
+    .pic_delete-a::after {
+        content: "+";
+        transform: rotate(45deg);
+        font-size: var(--pic_size-14);
+        position: absolute;
+        top: -1px;
+        left: 6px;
+    }
+
+    .pic_delete-a:hover {
+        background: var(--pic_color-tertiary);
+    }
+
+@media screen and (max-width: 1200px) {
+    .pic_mon-compte--a {
+        padding: 10px 20px;
+        width: calc(100% - 40px);
+        text-align: center;
+    }
+
+    .pic_mon-compte--container {
+        flex-wrap: wrap;
+    }
+
+    .pic_moncompte--liste {
+        display: flex;
+        /*flex-wrap:nowrap;*/
+        width: 100%;
+        align-items: center;
+    }
+
+    .pic_mon-compte-li {
+        border: solid 1px var(--pic_n30);
+        width: 33%;
+    }
+
+        .pic_mon-compte-li:last-child {
+            border: solid 1px var(--pic_n30);
+        }
+
+    .pic_une-facture-ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .pic_mon-compte-form--content {
+        flex-wrap: wrap;
+    }
+
+        .pic_mon-compte-form--content div {
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+    .pic_facture--container-links {
+    }
+
+    .pic_mon-compte--content-princ {
+        width: calc(100% - 40px) !important;
+        padding: 20px 20px;
+    }
+
+    .pic_une-facture-li {
+        width: 100%;
+    }
+
+    .pic_une-facture--container-ul {
+        flex-wrap: wrap;
+    }
+
+    .pic_content--div-mon-compte {
+        overflow: hidden;
+    }
+
+
+    .pic_modal-add-cart--container-inside {
+        left: 0;
+    }
+
+    .pic_modal--body--container {
+        padding-top: 170px;
+    }
+
+
+
+    .pic_modal-facture-ul {
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+        .pic_modal-facture-ul li:nth-child(1) {
+            width: 20%;
+        }
+
+        .pic_modal-facture-ul li:nth-child(2) {
+            width: 80%;
+        }
+
+        .pic_modal-facture-ul li:nth-child(3) {
+            width: 45%;
+        }
+
+        .pic_modal-facture-ul li:nth-child(4) {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+            width: fit-content;
+            font-size: var(--pic_size-18);
+        }
+
+        .pic_modal-facture-ul li:nth-child(5) {
+            width: 45%;
+        }
+
+
+    .pic_modal-add-cart--container-inside {
+        top: 140px;
+        min-width: 10px;
+        z-index: 100;
+        min-width: 10px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .pic_info--container-flex {
+        flex-wrap: wrap;
+    }
+
+    .pic_info--part {
+        width: 100%;
+    }
+
+    .pic_mon-compte--content-princ-adresses {
+        padding: 0px;
+    }
+
+        .pic_mon-compte--content-princ-adresses .pic_info--container-flex {
+            justify-content: center;
+        }
+
+    .pic_adresse_une {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .pic_info--container-flex-adresse {
+        width: calc(100% - 40px);
+    }
+
+    .pic_mon-compte-li {
+        width: 49%;
+    }
+
+    .pic_mon-compte--a {
+        padding: 10px 20px;
+        width: calc(100% - 40px);
+        text-align: center;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.table {
+    --bs-table-color: var(--bs-body-color);
+    --bs-table-bg: rgba(0, 0, 0, 0);
+    --bs-table-border-color: var(--bs-border-color);
+    --bs-table-accent-bg: rgba(0, 0, 0, 0);
+    --bs-table-striped-color: var(--bs-body-color);
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: var(--bs-body-color);
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: var(--bs-body-color);
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--bs-table-color);
+    vertical-align: top;
+    border-color: var(--bs-table-border-color)
+}
+
+    .table > :not(caption) > * > * {
+        padding: .5rem .5rem;
+        background-color: var(--bs-table-bg);
+        border-bottom-width: 1px;
+        box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg)
+    }
+
+    .table > tbody {
+        vertical-align: inherit
+    }
+
+    .table > thead {
+        vertical-align: bottom
+    }
+
+.table-group-divider {
+    border-top: 2px solid currentcolor
+}
+
+.caption-top {
+    caption-side: top
+}
+
+.table-sm > :not(caption) > * > * {
+    padding: .25rem .25rem
+}
+
+.table-bordered > :not(caption) > * {
+    border-width: 1px 0
+}
+
+    .table-bordered > :not(caption) > * > * {
+        border-width: 0 1px
+    }
+
+.table-borderless > :not(caption) > * > * {
+    border-bottom-width: 0
+}
+
+.table-borderless > :not(:first-child) {
+    border-top-width: 0
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: var(--bs-table-striped-color)
+}
+
+.table-striped-columns > :not(caption) > tr > :nth-child(even) {
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: var(--bs-table-striped-color)
+}
+
+.table-active {
+    --bs-table-accent-bg: var(--bs-table-active-bg);
+    color: var(--bs-table-active-color)
+}
+
+.table-hover > tbody > tr:hover > * {
+    --bs-table-accent-bg: var(--bs-table-hover-bg);
+    color: var(--bs-table-hover-color)
+}
+
+.table-primary {
+    --bs-table-color: #000;
+    --bs-table-bg: #cfe2ff;
+    --bs-table-border-color: #bacbe6;
+    --bs-table-striped-bg: #c5d7f2;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #bacbe6;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #bfd1ec;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.table-secondary {
+    --bs-table-color: #000;
+    --bs-table-bg: #e2e3e5;
+    --bs-table-border-color: #cbccce;
+    --bs-table-striped-bg: #d7d8da;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #cbccce;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #d1d2d4;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.table-success {
+    --bs-table-color: #000;
+    --bs-table-bg: #d1e7dd;
+    --bs-table-border-color: #bcd0c7;
+    --bs-table-striped-bg: #c7dbd2;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #bcd0c7;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #c1d6cc;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.table-info {
+    --bs-table-color: #000;
+    --bs-table-bg: #cff4fc;
+    --bs-table-border-color: #badce3;
+    --bs-table-striped-bg: #c5e8ef;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #badce3;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #bfe2e9;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.table-warning {
+    --bs-table-color: #000;
+    --bs-table-bg: #fff3cd;
+    --bs-table-border-color: #e6dbb9;
+    --bs-table-striped-bg: #f2e7c3;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #e6dbb9;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #ece1be;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.table-danger {
+    --bs-table-color: #000;
+    --bs-table-bg: #f8d7da;
+    --bs-table-border-color: #dfc2c4;
+    --bs-table-striped-bg: #eccccf;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #dfc2c4;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #e5c7ca;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.table-light {
+    --bs-table-color: #000;
+    --bs-table-bg: #f8f9fa;
+    --bs-table-border-color: #dfe0e1;
+    --bs-table-striped-bg: #ecedee;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #dfe0e1;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #e5e6e7;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.table-dark {
+    --bs-table-color: #fff;
+    --bs-table-bg: #212529;
+    --bs-table-border-color: #373b3e;
+    --bs-table-striped-bg: #2c3034;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #373b3e;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #323539;
+    --bs-table-hover-color: #fff;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+.text-center {
+    text-align: center;
+}
+
+.modal-table-produit-header {
+    font-size: large;
+}
+
+.modal-table-produit-value {
+    font-size: small;
+}
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
+

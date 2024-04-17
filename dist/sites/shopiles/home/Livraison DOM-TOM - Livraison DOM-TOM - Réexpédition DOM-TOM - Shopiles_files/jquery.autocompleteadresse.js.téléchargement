@@ -1,0 +1,427 @@
+/*
+- Mettre une div autour de la zone de formulaire à gérer et affecter la class 'autocompletionadresse' à cette div
+- Placer un champ input texte dans cette zone avec pour class 'search', c'est le champ de saisie de l'adresse complète
+- placer tous les champs à auto-remplir dans cette zone. Affecter une class à chaque champ en fonction du contenu à récupérer
+  - name : 16 rue des Ponts
+  - postcode : 54200
+  - city : TOUL
+  - country_id : 1
+  - country : France
+- Mettre une div autour des champs à autoremplir pour les masquer avant qu'une saisie ne soit faite sdans le champs postcode. Affecter la class 'zone_adresse_champs' à cette div
+*/
+
+
+( function($) {
+
+  $.AutocompleteAdresse = function(container, options) {
+
+    //--> Attache à plugin tout ce qui doit être accessible via $container.data('AutocompleteAdresse')
+    var plugin = this,
+    $container = $(container),
+
+    //--> Valeurs par défaut
+    defaults = {
+      select_box_class            : 'autocompletion-adresse_select_box',
+      select_box_loader_class     : 'select_box_loader',
+      select_box_error_class      : 'select_box_error',
+      select_box_value_class      : 'select_box_value',
+      liste_box                   : 'liste_box',
+      li_order_handler            : 'liste_handler',
+      li_btn_delete               : 'liste_btn_delete',
+      zone_adresse_champs_class   : 'zone_adresse_champs',
+      select_box_offset_x         : 0,
+      select_box_offset_y         : 0,
+      onSelectChange              : undefined
+    },
+
+    // =============================================================
+    //--> Instances de variables internes au plugin, non disponibles via l'object AutocompleteAdresse général
+    url_action,
+    select_box ,
+    liste_select ,
+    select_active = -1,
+    search_length = 0,
+    search_field ,
+    btn_add ,
+    xhr,
+    autocompletion_multi = false,
+    autocompletion_horsliste = false,
+    ancienne_valeur = '',
+    empty_on_select = false,      //--> Vide le champ visible après sélection
+
+    resultats = {},
+    executeRecherche,
+
+    // =============================================================
+    //--> Variable facilitant l'utilisation des settings du plugin
+    settings;
+
+    // =============================================================
+    // Functions disponibles via l'objet AutocompleteAdresse
+    // =============================================================
+
+    plugin.init = function() {
+      //--> Merge les options par défaut et celles spécifiées pour ce plugin
+      plugin.settings = settings = $.extend({}, defaults, options);
+      //--> Enregistre l'objet AutocompleteAdresse sur l'object $container en cours pour pouvoir y faire appel par $container.AutocompleteAdresse('fonction', option1, option2, ...)
+      $container.data('AutocompleteAdresse', {});
+      //--> Ajoute l'attribut HTML 5 data-AutocompleteAdresse pour faciliter l'appel des instances AutocompleteAdresse avec les pseudo-selector CSS 
+      $container.attr('data-AutocompleteAdresse', true);
+      // =============================================================
+      //--> Code d'initialisation du plugin
+      url_action = 'https://api-adresse.data.gouv.fr/search/';
+      
+      autocompletion_multi     = $container.attr('autocompletion_multi');
+      autocompletion_horsliste = $container.attr('autocompletion_horsliste');
+      if($container.attr('empty_on_select') == 'true') empty_on_select = true;
+      
+      //--> initalisation du champ caché
+      search_field = $container.find('.search');
+
+      executeRecherche = debounce(plugin.lanceRecherche, 250);
+
+      if (autocompletion_multi) {
+        liste_select = $('<div class="'+settings.liste_box+'"><ul></ul></div>').css({clear:'both'});
+        search_field.after(liste_select);
+        liste_select.find('ul').sortable({
+          // handle: "."+settings.li_order_handler,
+          axis : "y",
+          helper : "clone",
+          update : function(){
+            plugin.setValueHidden()
+          }
+        });
+
+        // $container.on('change',function(){
+        //  plugin.XmListe($(this).val());
+        // });
+      };
+
+      //AS--> Si un champ de codepostal est trouvé et qu'il n'est pas renseigné, masque la zone_adresse_champs
+      plugin.update_zone_adresse_champs_affichage();
+
+      //--> initalisation du select
+      select_box = $('<div class="'+settings.select_box_class+'"><ul><li class="'+settings.select_box_loader_class+'"></li><li class="'+settings.select_box_error_class+'"></li></ul></div>').css({
+        display: 'none',
+        position: 'absolute'
+      });
+      $('body').append(select_box);
+
+      //--> Evénements
+      search_field.keyup(function(event){
+        switch(event.keyCode){
+          //--> si touche entrer
+           case 40 :
+            if (search_length > 0 && select_active+1 <= search_length-1) {
+              select_active = select_active+1;
+              plugin.navigationSelect();
+            }
+            break;
+          //--> si flèche haut
+          case 38 :
+            if (search_length > 0 && select_active-1 >= 0) {
+              select_active = select_active-1;
+              plugin.navigationSelect();
+            }
+            break;
+          case 13 :
+              event.preventDefault();
+              select_box.find('li').eq(select_active+2).find('a').click();
+              return false;
+            break;
+          default :
+            if(search_field.val() != ancienne_valeur){
+              if (search_field.val() == '') {
+                search_field.next('.autocompletion_btn_add').hide();
+              }
+              executeRecherche();
+              if(autocompletion_horsliste){
+                search_field.val(search_field.val());
+              }
+              ancienne_valeur = search_field.val();
+            }
+        }
+      });
+
+      search_field.keydown(function(event){
+        switch(event.keyCode){
+          //--> si touche entrer
+          case 13 :
+              event.preventDefault();
+              return false;
+            break;
+        }
+      });
+
+      //--> si l'on perd le focus
+      search_field.blur(function(){
+        setTimeout(plugin.masque,200);
+      });
+
+
+      //--> Initialisation de la valeur par défaut si elle existe
+      if(search_field.val() != ''){
+        // plugin.reverse(search_field.val());
+      }
+
+    };
+
+    plugin.lanceRecherche = function(search_val){
+      if(undefined == search_val ) search_val = search_field.val();
+      if (search_val != '') {
+        if (xhr != undefined) xhr.abort();
+        xhr = $.ajax({
+          url : url_action,
+          data : {q: search_val},
+          type : 'get',
+          dataType : 'json',
+          beforeSend : function(event,obj_ajax,g,h){
+            select_box.css({
+              display : 'block',
+              top : search_field.offset().top+search_field.height()+settings.select_box_offset_y,
+              left : search_field.offset().left+settings.select_box_offset_x,
+              'z-index': 10000,
+            });
+            select_box.find('.'+settings.select_box_loader_class).show().siblings().hide();
+          },
+          success : function(data,type,event){
+            if(undefined != data.features){
+              resultats = data.features;
+            }else{
+              resultats = {};
+            }
+            plugin.setSelectBox();
+          },
+          error : function(event,error_type,error){
+            select_box.find('.'+settings.select_box_error_class).html(error.message).show().siblings().hide();
+          }
+        });
+      }else{
+        if (!autocompletion_multi) {
+          search_field.val('');
+        };
+      };
+    };
+
+    plugin.setSelectBox = function(){
+      var function_name = search_field.attr('CustomSelectBox');
+      if(function_name != undefined){
+        eval(function_name+'(resultats);');
+      }else{
+        search_length = Object.keys(resultats).length;
+        search_field.next('.autocompletion_btn_add').show();
+        if(search_length > 0) {
+          select_active = -1;
+          select_box.find('li').hide();
+          select_box.find('.'+settings.select_box_value_class).remove();
+          $.each(resultats,function(key, adresse){
+            select_box.find('ul').append('<li class="'+settings.select_box_value_class+'"><a href="" rel="'+key+'">'+adresse.properties.label+'</a></li>');
+          });
+
+          select_box.find('ul .'+settings.select_box_value_class+' a').on('click',function(event){
+            event.preventDefault();
+            plugin.selection($(this));
+            return false;
+          });
+        }else{
+          if(!autocompletion_horsliste){
+            select_box.find('.'+settings.select_box_error_class).html('Aucun résultat').show().siblings().hide();
+          }
+        }
+      }
+    };
+
+    plugin.navigationSelect = function(){
+      select_box.find('li').eq(select_active+2).addClass('active').siblings().removeClass('active');
+    }
+
+    //--> S'exécute à la séléction d'un élément dans la liste
+    plugin.selection = function(element){
+      id = element.attr('rel');
+
+      if(undefined != resultats[id]){
+        $.each(resultats[id].properties, function(key, value){
+          //AS--> Traite le pays
+          if(key == 'postcode'){
+            var country    = 'France';
+            var country_id = 1;
+            if(value.length == 5){
+              if(value == '97150'){
+                country    = 'Saint-Martin';
+                country_id = 191;
+              }else if(value == '97133'){
+                country    = 'Saint-Barthélemy';
+                country_id = 243;
+              }else if(value.substring(0,2) == '97' || value.substring(0,2) == '98'){
+                switch(value.substring(0,3)){
+                  case '971':
+                    country    = 'Guadeloupe';
+                    country_id = 92;
+                    break;
+                  case '972':
+                    country    = 'Martinique';
+                    country_id = 137;
+                    break;
+                  case '973':
+                    country    = 'Guyanne';
+                    country_id = 77;
+                    break;
+                  case '974':
+                    country    = 'La Réunion';
+                    country_id = 181;
+                    break;
+                  case '975':
+                    country    = 'Saint-Pierre-et-Miquelon';
+                    country_id = 189;
+                    break;
+                  case '976':
+                    country    = 'Mayotte';
+                    country_id = 52;
+                    break;
+                  case '986':
+                    country    = 'Wallis-et-Futuna';
+                    country_id = 238;
+                    break;
+                  case '987':
+                    country    = 'Polynésie française';
+                    country_id = 78;
+                    break;
+                  case '988':
+                    country    = 'Nouvelle-Calédonie';
+                    country_id = 154;
+                    break;
+                }
+              }
+            }
+            $container.find('.country').val(country);
+            $container.find('.country_id').val(country_id);
+          }
+          $container.find('.'+key).val(value);
+        })
+        plugin.update_zone_adresse_champs_affichage();
+      }
+
+      /*if (autocompletion_multi) {
+        plugin.XmListe(element.attr('rel'),element.html());
+      }else{
+        search_field.val(element.attr('rel'));
+        $container.val(element.html());
+        ancienne_valeur = element.html();
+      };
+
+      select_box.hide();
+
+      if (settings.onSelectChange != undefined) {
+        settings.onSelectChange();
+      };
+
+      var function_name = $container.attr('onSelectChange');
+      if(function_name != undefined){
+        eval(function_name+'(id);');
+      }
+      search_field.trigger('hidden_change', 'data');
+
+      if(empty_on_select){
+        $container.val('');
+        search_field.val('');
+        ancienne_valeur = '';
+      }*/
+    }
+
+    plugin.masque = function(){
+      select_box.hide();
+      if(search_field.val() == ''){
+        search_field.val('');
+      }else if(search_field.val() == '' && !autocompletion_multi) {
+        search_field.val('');
+      }else{
+        if (!autocompletion_multi) {
+          // plugin.reverse(search_field.val());
+        };
+      }
+    }
+
+    plugin.setValueHidden = function(){
+      ids = '';
+      liste_select.find('ul li').each(function(){
+        coma = ids === '' ? '' : ',';
+        ids = ids+coma+$(this).attr('rel');
+      });
+      search_field.val(ids);
+    };
+
+    plugin.update_zone_adresse_champs_affichage = function(){
+      if($container.find('.postcode').length > 0){
+        if($container.find('.postcode').val() == ''){
+          $container.find('.'+settings.zone_adresse_champs_class).hide();
+        }else{
+          $container.find('.'+settings.zone_adresse_champs_class).show();
+        }
+      }
+    }
+
+    plugin.debounce = function(func, wait, immediate, context) {
+      var result;
+      var timeout = null;
+      return function() {
+        var ctx = context || this, args = arguments;
+        var later = function() {
+          timeout = null;
+          if (!immediate) result = func.apply(ctx, args);
+        };
+        var callNow = immediate && !timeout;
+        // Tant que la fonction est appelée, on reset le timeout.
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) result = func.apply(ctx, args);
+        return result;
+      };
+    }
+
+    // =============================================================
+    // Functions privée
+    // =============================================================
+
+    // Triggers an event on an element and returns the event result
+    var fire = function(name, data) {
+      search_field.trigger(name, data);
+    }
+
+    //--> Exécution de l'initialisation du plugin
+    plugin.init();
+
+  };
+
+  $.fn.AutocompleteAdresse = function(options) {
+    var args = arguments;
+    return this.each(function() {
+      var plugin = $(this).data('AutocompleteAdresse');
+      if (undefined === plugin) {
+        plugin = new $.AutocompleteAdresse(this, options);
+        $(this).data('AutocompleteAdresse', plugin);
+      }else if ( plugin[options] ) {
+        return plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+      }
+    });
+  };
+
+})(jQuery);
+
+jQuery(document).ready(function(){
+  jQuery('.autocompletionadresse').AutocompleteAdresse();
+});
+
+jQuery(document).ajaxComplete(function(){
+  setTimeout(function(){
+    jQuery('.autocompletionadresse').AutocompleteAdresse();
+  }, 500);
+});
+
+Object.keys = Object.keys || function(o) {  
+    var result = [];  
+    for(var name in o) {  
+        if (o.hasOwnProperty(name))  
+          result.push(name);  
+    }  
+    return result;  
+};

@@ -1,0 +1,144 @@
+( function($) {
+
+	$.Confirm = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Confirm')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			oui				: 'oui',
+			non				: 'non',
+			buttonValide	: 'ok',
+			outerClass		: 'confirm',
+			textClass		: 'confirm-text',
+			buttonsClass	: 'confirm-buttons',
+			ouiClass		: 'confirm-oui',
+			nonClass		: 'confirm-non',
+			fancyboxOptions	: '',
+			type_modal		: 'confirm',
+			callback		: undefined,
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object Confirm général
+		titre,
+		oui,
+		non,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Confirm
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Ajoute l'attribut HTML 5 data-Confirm pour faciliter l'appel des instances Confirm avec les pseudo-selector CSS 
+			$container.attr('data-Confirm', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+			titre = _data('text');
+			oui = _data('oui') == undefined ? settings.oui : _data('oui');
+			non = _data('non') == undefined ? settings.non : _data('non');
+			callback = _data('callback') == undefined ? settings.callback : _data('callback');
+			type_modal = _data('type-modal') == undefined ? settings.type_modal : _data('type-modal');
+
+			$container.on('click', function (e){
+				e.preventDefault();
+				plugin.openModale();
+			})
+
+		};
+
+		plugin.openModale = function (){
+			var debut_contenu_modal	= '<div class="'+settings.outerClass+'"><div class="'+settings.textClass+'"><h3>'+titre+'</h3></div>';
+			if (type_modal == 'confirm') {
+				var boutons_modal		= '<div class="'+settings.buttonsClass+'"><a id="confirm-oui" href="#" class="'+settings.ouiClass+'">'+oui+'</a><a id="confirm-non" href="#" class="'+settings.nonClass+'">'+non+'</a></div>'
+			} else if(type_modal == 'alert') {
+				var boutons_modal		= '<div class="'+settings.buttonsClass+'"><a id="confirm-non" href="#" class="'+settings.nonClass+'">'+settings.buttonValide+'</a></div>'
+			}
+			var fin_contenu_modal	= '</div>';
+
+			var contenu_final 		= debut_contenu_modal + boutons_modal + fin_contenu_modal;
+
+			$.fancybox.open(
+				contenu_final,
+				settings.fancyboxOptions
+			);
+
+			$('#confirm-non').on('click', function (e){
+				e.preventDefault();
+				$.fancybox.close();
+			});
+			$('#confirm-oui').on('click', function (e){
+				e.preventDefault();
+				if (callback != undefined && callback != '') {
+					eval(callback+'($container);');
+					$.fancybox.close();
+				} else{
+					var href = $container.attr('href');
+					location.href = href;
+				};
+			});
+		}
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('Confirm - ' + _var);
+		}
+
+		var response = function(val){
+			$container.data('Confirm_response', val);
+		}
+
+		var _data = function(data){
+			return $container.data(('Confirm-'+data).toLowerCase());
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Confirm = function(options) {
+		var args		= arguments;
+		var response	= 'no_response';
+		return this.each(function() {
+			var plugin = $(this).data('Confirm');
+			if (undefined === plugin) {
+				plugin = new $.Confirm(this, options);
+				$(this).data('Confirm', plugin);
+				$(this).data('Confirm_response', 'no_response');
+			}else if ( plugin[options] ) {
+				var exec = plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+				if($(this).data('Confirm_response') != 'no_response'){
+					response = $(this).data('Confirm_response');
+					$(this).data('Confirm_response', 'no_response');
+					return response;
+				}else{
+					return exec;
+				}
+			}
+		});
+		if(response != 'no_response'){
+			return response;
+		}else{
+			return this;
+		}
+	};
+
+})(jQuery);

@@ -1,0 +1,2174 @@
+﻿/*Landing AMD BUNDLE DURT*/
+
+
+/*@font-face {
+    font-family: 'Klavika';
+    src: url('../fonts/KlavikaWebBasicRegular.eot');*/ /* IE9 Compat Modes */
+    /*src: url('../fonts/KlavikaWebBasicRegular.eot?') format('embedded-opentype'),*/ /* IE6-IE8 */ /*url('../fonts/KlavikaWebBasicRegular.woff') format('woff'),*/ /* Pretty Modern Browsers */ /*url('../fonts/Klavika-Regular.ttf') format('truetype');*/ /* Safari, Android, iOS */
+    /*font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Klavika';
+    src: url('../fonts/KlavikaWebBasicBold.eot');*/ /* IE9 Compat Modes */
+    /*src: url('../fonts/KlavikaWebBasicBold.eot?') format('embedded-opentype'),*/ /* IE6-IE8 */ /*url('../fonts/KlavikaWebBasicBold.woff') format('woff'),*/ /* Pretty Modern Browsers */ /*url('../fonts/Klavika-Bold.ttf') format('truetype');*/ /* Safari, Android, iOS */
+    /*font-weight: var(--semibold);
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'xolonium';
+    src: url('../fonts/xolonium-Regular.ttf');*/ /* IE9 Compat Modes */
+    /*font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'rogfont';
+    src: url('../fonts/rogfont.ttf');*/ /* IE9 Compat Modes */
+    /*font-weight: 400;
+    font-style: normal;
+}*/
+
+.landing-bundle-durt img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.landing-bundle-durt p {
+    margin-top: 0px;
+    margin-bottom: var(--val_10);
+}
+
+.landing-bundle-durt h1 {
+    text-transform: uppercase;
+}
+
+.landing-bundle-durt .underlined {
+    border-bottom: 1px solid var(--blanc);
+}
+/*
+.landing-bundle-durt {
+    background-color: var(--blanc);
+    font-family: 'Klavika', sans-serif;
+    color: var(--noir);
+    font-size: 16px;
+    line-height: 22px;
+}
+*/
+    .landing-bundle-durt .heading-1 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: var(--noir);
+        font-size: 41px;
+        line-height: 50px;
+        letter-spacing: -1px;
+    }
+
+    .landing-bundle-durt .hero-text-box {
+        max-width: 575px;
+        margin-bottom: var(--val_40);
+        padding: 15px 20px var(--marg_10_20);
+        background-color: var(--blanc);
+    }
+
+        .landing-bundle-durt .hero-text-box.mobile-hero-text-box {
+            display: none;
+        }
+
+    .landing-bundle-durt .hero {
+        width: 100%;
+        background: var(--noir);
+        background-position: center;
+        position: relative;
+        height: auto;
+        border-bottom: 1px solid var(--gris_200);
+    }
+
+    .landing-bundle-durt .hero-mobile-img {
+        display: none;
+    }
+
+    .landing-bundle-durt .hero .call-out {
+        padding: 25px 25px 25px 25px;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+30,0.8+51,0.66+69,0.71+90,0.5+100 */
+        background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0.8) 51%, rgba(255, 255, 255, 0.66) 69%, rgba(255, 255, 255, 0.71) 90%, rgba(255, 255, 255, 0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        display: flex; /* so can put copy and image in same row */
+        display: -ms-flexbox;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        line-height: 1.2;
+        margin-bottom: 96px; /* must match height of amd arrow */
+    }
+
+        .landing-bundle-durt .hero .call-out .copy {
+            flex: 0 1 45%;
+            align-self: center;
+            padding-right: var(--val_20);
+        }
+
+            .landing-bundle-durt .hero .call-out .copy p {
+                margin-top: 0px;
+                margin-bottom: 0px;
+                font-size: 28px;
+            }
+
+        .landing-bundle-durt .hero .call-out .logo {
+            flex: 0 1 55%;
+            align-self: center;
+            border-left: 2px solid : var(--noir);
+        }
+
+            .landing-bundle-durt .hero .call-out .logo img {
+                padding-top: 0px;
+                vertical-align: baseline;
+                padding-left: var(--val_30);
+            }
+
+    .landing-bundle-durt .hero .call-out-box {
+        position: absolute;
+        bottom: 15%;
+        left: 10%;
+        transform: translate(5%, 20%);
+        display: flex;
+        display: -ms-flexbox;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 43%; /* includes arrow width */
+        min-width: 700px;
+    }
+
+        .landing-bundle-durt .hero .call-out-box img.amd-arrow {
+            flex-shrink: 0;
+            width: 96px; /* controls size of amd arrow */
+        }
+
+    .landing-bundle-durt .mobile-img, .fnatic-mobile-img, .products-RyzenRadeon-mobile-img, .Radeon-Performance-mobile-img, .Ryzen-Fastest-mobile-img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .landing-bundle-durt .fnatic-mobile-img, .products-RyzenRadeon-mobile-img, .Radeon-Performance-mobile-img, .Ryzen-Fastest-mobile-img {
+        display: none;
+    }
+
+@media (max-width: 2400px) {
+    .landing-bundle-durt .hero .call-out-box {
+        width: 47%; /* includes arrow width */
+        left: 2%;
+    }
+}
+
+@media (max-width: 2200px) {
+    .landing-bundle-durt .hero .call-out-box {
+        width: 48%; /* includes arrow width */
+        left: 2%;
+    }
+}
+
+@media (max-width: 1920px) {
+    .landing-bundle-durt .hero .call-out-box {
+        width: 56%; /* includes arrow width */
+        left: 1%;
+        bottom: 12%;
+    }
+}
+
+@media (max-width: 1700px) {
+
+    .landing-bundle-durt .hero {
+    }
+
+        .landing-bundle-durt .hero .call-out-box {
+            width: 56%; /* includes arrow width */
+            transform: translate(10%, 0%);
+            bottom: 5%;
+            left: -2%;
+        }
+
+        .landing-bundle-durt .hero .call-out .copy {
+            flex: 0 1 55%;
+        }
+
+        .landing-bundle-durt .hero .call-out .logo {
+            flex: 0 1 45%;
+        }
+}
+
+@media (max-width: 1500px) {
+    .landing-bundle-durt .hero {
+    }
+
+        .landing-bundle-durt .hero .call-out-box {
+            transform: translate(0%, 0%);
+            bottom: 5%;
+            width: 60%;
+            left: 2%;
+        }
+}
+
+@media (max-width: 1300px) {
+    .landing-bundle-durt .hero .call-out-box {
+        transform: translate(-10%, 0%);
+        width: 65%;
+        left: 8%;
+    }
+
+    .landing-bundle-durt .hero .call-out {
+        padding: 10px 20px var(--marg_10_20);
+        margin-bottom: 50px; /* must match height of amd arrow */
+    }
+
+        .landing-bundle-durt .hero .call-out .logo img {
+            padding-left: var(--val_20);
+        }
+
+    .landing-bundle-durt .hero .call-out-box img.amd-arrow {
+        width: 50px; /* controls size of amd arrow */
+    }
+}
+
+@media (max-width: 1150px) {
+    .landing-bundle-durt .hero {
+        height: auto;
+        background: var(--noir);
+    }
+
+    .landing-bundle-durt .hero-mobile-img {
+        display: block;
+    }
+
+    .landing-bundle-durt .hero .mobile-img {
+        display: none;
+    }
+
+    .landing-bundle-durt .hero .call-out-box {
+        transform: translate(5%, -25%);
+    }
+
+    .landing-bundle-durt .hero .call-out-box {
+        transform: none;
+        position: relative;
+        margin: 0 auto;
+        top: 0;
+        left: 0;
+        padding: 0px 0px 20px 0px;
+        justify-content: center;
+        width: 75%;
+        min-width: inherit;
+        margin-top: var(--val_30);
+    }
+
+    .landing-bundle-durt .hero .call-out {
+        background: var(--blanc);
+        padding: 10px 20px var(--marg_10_20);
+        margin-bottom: var(--val_40); /* must match height of amd arrow */
+    }
+
+        .landing-bundle-durt .hero .call-out .logo img {
+            padding-left: var(--val_20);
+        }
+
+    .landing-bundle-durt .hero .call-out-box img.amd-arrow {
+        width: var(--val_40); /* controls size of amd arrow */
+    }
+}
+
+@media (max-width: 991px) {
+
+    .landing-bundle-durt .hero .call-out-box {
+        width: 90%;
+    }
+
+    br.hide-break {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    .landing-bundle-durt .hero .call-out {
+        flex-direction: column;
+    }
+
+    .hero .call-out .logo {
+        margin-top: var(--val_20);
+        border-left: 0px;
+    }
+
+    br.hide-break {
+        display: none;
+    }
+}
+
+@media (max-width: 479px) {
+}
+
+.landing-bundle-durt .hero-info {
+    display: flex;
+    display: -ms-flexbox;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 310px; /* move box down below faces */
+}
+
+.landing-bundle-durt .hero-wrapper {
+    width: 100%;
+    max-width: 1100px;
+}
+
+.landing-bundle-durt .section-content.intro {
+    display: flex;
+    display: -ms-flexbox;
+    padding: 40px 50px;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../Images/durt/intro-bg.jpg);
+    background-position: 0px 0px;
+    background-size: cover;
+    border-bottom: none;
+    min-height: 300px;
+    border-bottom: 1px solid var(--gris_200);
+}
+
+.landing-bundle-durt .intro {
+    text-align: center;
+}
+
+.landing-bundle-durt .intro-logos {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--val_20);
+}
+
+.landing-bundle-durt .intro .heading-2-center {
+    margin-top: var(--val_20);
+}
+
+.landing-bundle-durt .paragraph-intro {
+    margin-bottom: 0px;
+    color: var(--blanc);
+    font-size: 28px;
+    line-height: 42px;
+    font-weight: var(--medium);
+    text-align: center;
+    width: 100%;
+    margin-top: var(--val_20);
+    margin-bottom: var(--val_20);
+}
+
+.landing-bundle-durt .paragraph-DIRT {
+    margin-bottom: 0px;
+    color: var(--blanc);
+    font-size: var(--size_h3);
+    line-height: 34px;
+    font-weight: var(--medium);
+    text-align: left;
+    width: 62%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.landing-bundle-durt .intro .project-sku-row {
+    border-top: 2px solid var(--gris_200);
+    margin-top: var(--val_20);
+}
+
+.landing-bundle-durt .section-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+    .landing-bundle-durt .section-wrapper.align-right {
+        align-items: flex-end;
+    }
+
+    .landing-bundle-durt .section-wrapper.align-center {
+        flex-wrap: nowrap;
+        align-items: center;
+        flex: 0 auto;
+    }
+
+.landing-bundle-durt .heading-2 {
+    margin-top: 0px;
+    margin-bottom: var(--val_10);
+    color: var(--noir);
+    font-size: var(--val_30);
+    line-height: var(--val_40);
+    letter-spacing: -0.25px;
+}
+
+    .landing-bundle-durt .heading-2.white {
+        color: var(--blanc);
+    }
+
+sup {
+    font-size: 60%;
+}
+
+.landing-bundle-durt .t1 {
+    color: var(--blanc);
+    line-height: 28px;
+    font-weight: 400;
+    padding-bottom: var(--val_10);
+}
+
+.landing-bundle-durt .section-content {
+    display: flex;
+    min-height: 420px;
+    padding: 40px 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--gris_200);
+    background-color: var(--noir);
+}
+
+    .landing-bundle-durt .section-content.xbox-gamepass {
+        background-image: url('../images/gamepass-bg.jpg');
+        background-position: 50% 50%;
+        background-size: cover;
+    }
+
+    .landing-bundle-durt .section-content.rx-graphics {
+        background-image: url('../images/radeon-side-bg.jpg');
+        background-position: 50% 0%;
+        background-size: cover;
+    }
+
+    .landing-bundle-durt .section-content.rx5700 .project-sku-row.first {
+        padding-top: 60px;
+    }
+
+    .landing-bundle-durt .section-content.rx-graphics .project-sku-row.first {
+        padding-top: 60px;
+    }
+
+    .landing-bundle-durt .section-content.rx5700 {
+        background-image: url('../Images/durt/Dirt5-monitor-bg.jpg');
+        background-position: 54% 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+        .landing-bundle-durt .section-content.rx5700 .heading-2 {
+            margin-top: var(--val_40);
+        }
+
+@media (max-width: 1900px) {
+    .landing-bundle-durt .section-content.rx5700 {
+        background-size: cover;
+    }
+}
+
+.landing-bundle-durt .section-content.fnatic {
+    background-image: url('../Images/durt/DiRT5_bg.jpg');
+    background-position: 60% 50%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-repeat: no-repeat;
+}
+
+    .landing-bundle-durt .section-content.fnatic .content-box {
+        font-size: var(--size_h3);
+        max-width: 68%;
+    }
+
+    .landing-bundle-durt .section-content.fnatic .fnatic-name {
+        color: var(--blanc);
+        font-size: var(--val_20);
+        font-weight: var(--semibold);
+        display: table; /* makes border same width as name */
+    }
+
+        .landing-bundle-durt .section-content.fnatic .fnatic-name p {
+            margin-top: var(--val_10); /* space between rule and name */
+        }
+
+    .landing-bundle-durt .section-content.fnatic .fnatic-rule {
+        border-top: 1px solid #535353;
+    }
+
+.landing-bundle-durt .section-content.qualifying {
+    background-color: var(--noir);
+}
+
+    .landing-bundle-durt .section-content.qualifying:first-of-type {
+        border-bottom: none;
+    }
+
+    .landing-bundle-durt .section-content.qualifying h1 {
+        text-align: center;
+        padding-bottom: var(--val_30);
+    }
+
+    .landing-bundle-durt .section-content.qualifying .section-wrapper {
+        align-items: center;
+    }
+
+.landing-bundle-durt .section-content.fidelity, .section-content.sharpening, .section-content.freesync {
+    background-color: var(--noir);
+    border-bottom: 0;
+    padding-bottom: var(--val_20);
+    min-height: unset;
+}
+
+.landing-bundle-durt .section-content.sharpening, .section-content.freesync {
+    padding-top: 0px;
+}
+
+.landing-bundle-durt .section-content.sharpening {
+    padding-bottom: 50px;
+}
+
+.landing-bundle-durt .section-content.fidelity h1, .section-content.freesync h1 {
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: var(--val_20);
+}
+
+.landing-bundle-durt .section-content.fidelity .t1, .section-content.freesync .t1 {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.landing-bundle-durt .section-content.freesync {
+    border-top: 1px solid #535353;
+    padding-top: var(--val_40);
+}
+
+.landing-bundle-durt .Ryzen-Fastest .section-wrapper .content-box {
+    max-width: 490px;
+    padding: 75px 0 50px 0;
+}
+
+.landing-bundle-durt .Ryzen-Fastest-footer {
+    text-align: right;
+    right: var(--val_10);
+    bottom: var(--val_10);
+    margin-left: auto;
+}
+
+.landing-bundle-durt .Radeon-Performance .section-wrapper {
+    max-width: 1400px;
+}
+
+    .landing-bundle-durt .Radeon-Performance .section-wrapper .content-box {
+        max-width: 510px;
+        padding: 75px 0 50px 0;
+    }
+
+.landing-bundle-durt .products-RyzenRadeon .section-wrapper .content-box {
+    max-width: 570px;
+    padding: 150px 0 150px 0;
+}
+
+.landing-bundle-durt .section-content.Radeon-Performance {
+    background-image: url('../Images/durt/Radeon-bg.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    min-height: 450px; /* actual height */
+}
+
+.landing-bundle-durt .section-content.Ryzen-Fastest {
+    background-image: url('../Images/durt/Ryzen-bg.jpg');
+    background-position: 30% 50%;
+    background-size: cover;
+    min-height: 450px; /* actual height */
+}
+
+.landing-bundle-durt .section-content.products-RyzenRadeon {
+    background-image: url('../Images/durt/products-bg.jpg');
+    background-position: 60% 50%;
+    background-size: cover;
+    min-height: 450px; /* actual height */
+}
+
+@media (max-width: 991px) {
+    /*
+	  .section-content.Radeon-Performance {
+        background-position: 60% 50%;
+        background-size: auto, cover;
+        min-height: 420px;
+    }
+    .section-content.Ryzen-Fastest {
+        background-position: 47% 50%;
+        background-size: auto, cover;
+    }
+    .section-content.products-RyzenRadeon {
+        background-position: 47% 50%;
+        background-size: auto, cover;
+    }*/
+    .landing-bundle-durt .section-content.products-RyzenRadeon {
+        background: var(--noir);
+        padding-top: 0px;
+        padding-bottom: var(--val_40);
+        min-height: var(--val_30);
+        max-width: 100%;
+    }
+
+        .landing-bundle-durt .section-content.products-RyzenRadeon .content-box {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .landing-bundle-durt .section-content.products-RyzenRadeon img.mobile-img, .products-RyzenRadeon-mobile-img {
+            margin: 0 auto;
+            display: block;
+        }
+
+    .landing-bundle-durt .section-content.Radeon-Performance {
+        background: var(--noir);
+        padding-top: 0px;
+        padding-bottom: var(--val_40);
+        min-height: var(--val_30);
+        max-width: 100%;
+    }
+
+        .landing-bundle-durt .section-content.Radeon-Performance .content-box {
+            max-width: 100%;
+            margin: 0;
+            padding-bottom: 0;
+            padding-top: var(--val_10);
+        }
+
+        .landing-bundle-durt .section-content.Radeon-Performance img.mobile-img, .Radeon-Performance-mobile-img {
+            margin: 0 auto;
+            display: block;
+        }
+
+    .landing-bundle-durt .section-content.Ryzen-Fastest {
+        background: var(--noir);
+        padding-top: 0px;
+        padding-bottom: var(--val_40);
+        min-height: var(--val_30);
+        max-width: 100%;
+    }
+
+        .landing-bundle-durt .section-content.Ryzen-Fastest .content-box {
+            max-width: 100%;
+            margin: 0;
+            padding-bottom: 0;
+            padding-top: var(--val_10);
+        }
+
+        .landing-bundle-durt .section-content.Ryzen-Fastest img.mobile-img, .Ryzen-Fastest-mobile-img {
+            margin: 0 auto;
+            display: block;
+        }
+
+    .landing-bundle-durt .section-content.fnatic {
+        background: var(--noir);
+        padding-top: 0px;
+        padding-bottom: var(--val_40);
+        min-height: var(--val_30);
+        max-width: 100%;
+    }
+
+        .landing-bundle-durt .section-content.fnatic .content-box {
+            max-width: 100%;
+            margin: 0;
+        }
+
+            .landing-bundle-durt .section-content.fnatic .content-box .paragraph-DIRT {
+                width: 100%;
+            }
+
+        .landing-bundle-durt .section-content.fnatic img.mobile-img, .fnatic-mobile-img {
+            margin: 0 auto;
+            display: block;
+        }
+
+    .landing-bundle-durt .paragraph-intro {
+        width: 100%;
+    }
+}
+
+.landing-bundle-durt .section-content.immersive-gaming {
+    background-image: url('../images/ghost-recon-monitor.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.landing-bundle-durt .section-product.immersive-gaming {
+    background-image: url('../images/ghost-recon-monitor.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+@media (max-width: 767px) {
+    .landing-bundle-durt .section-content.immersive-gaming {
+        background-image: linear-gradient(315deg, rgba(0, 0, 0, 0.5), var(--noir)), url('../images/ghost-recon-monitor.jpg');
+        background-position: 0px 0px, 60% 50%;
+        background-size: auto, cover;
+    }
+
+    .landing-bundle-durt .Radeon-Performance .section-wrapper .content-box {
+        max-width: 100%;
+    }
+
+    .landing-bundle-durt .Ryzen-Fastest .section-wrapper .content-box {
+        max-width: 100%;
+    }
+
+    .landing-bundle-durt .products-RyzenRadeon .section-wrapper .content-box {
+        max-width: 100%;
+    }
+}
+
+.landing-bundle-durt .section-product {
+    display: flex;
+    min-height: 420px;
+    padding: 40px 50px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(var(--noir))), url('../images/section_9_bg.jpg');
+    background-image: linear-gradient(180deg, transparent, var(--noir)), url('../images/section_9_bg.jpg');
+    background-position: 0px 0px, 50% 50%;
+    background-size: auto, cover;
+}
+
+.landing-bundle-durt .line {
+    width: 100%;
+    height: 1px;
+    margin-bottom: var(--val_30);
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
+}
+
+.landing-bundle-durt .heading-3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: var(--blanc);
+    font-size: 16px;
+    line-height: var(--val_20);
+    text-align: center;
+    letter-spacing: -0.25px;
+}
+
+    .landing-bundle-durt .heading-3.white {
+        color: var(--blanc);
+    }
+
+@media (max-width: 767px) {
+    .section-product {
+        padding-right: var(--val_30);
+        padding-left: var(--val_30);
+    }
+
+    br.line-break {
+        display: none;
+    }
+
+    .section-footer {
+        padding-right: var(--val_30);
+        padding-left: var(--val_30);
+    }
+}
+
+.content-box {
+    max-width: 490px;
+    align-self: auto;
+}
+
+.section-content.product-skus-footer {
+    background-image: url('../Images/durt/product-skus-footer-bg.jpg');
+    background-size: cover;
+    border-bottom: none;
+    padding-top: var(--val_30);
+    border-top: 1px solid var(--gris_200);
+}
+
+@media (max-width: 1150px) {
+    .section-content.Ryzen-Fastest {
+        background-position: 50% 50%;
+    }
+
+    .section-content.Radeon-Performance {
+        background-position: 40% 50%;
+    }
+
+    .section-content.products-RyzenRadeon {
+        background-position: 50% 50%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .section-content.Ryzen-Fastest {
+        background-position: 50% 50%;
+    }
+
+    .section-content.Radeon-Performance {
+        background-position: 35% 50%;
+    }
+
+    .section-content.products-RyzenRadeon {
+        background-position: 55% 50%;
+    }
+}
+
+@media (max-width: 1500px) {
+    .section-content.Ryzen-Fastest {
+        background-position: 53% 50%;
+    }
+
+    .section-content.Radeon-Performance {
+        background-position: 35% 50%;
+    }
+
+    .section-content.products-RyzenRadeon {
+        background-position: 55% 50%;
+    }
+}
+
+@media (max-width: 1900px) {
+    .section-content.product-skus-footer {
+        background-size: cover;
+    }
+}
+
+.section-content.product-skus-footer .section-title {
+    border-bottom: 1px solid #4a4b4c;
+    /*opacity: 0.8;*/
+    opacity: 1.0;
+    width: 100%;
+}
+
+    .section-content.product-skus-footer .section-title h1 {
+        text-align: center;
+    }
+
+.section-content.product-skus-footer .section-wrapper.first {
+    padding-top: var(--val_15);
+    border-bottom: 1px solid #4a4b4c;
+    /*opacity: 0.8;*/
+    opacity: 1.0;
+    width: 100%;
+}
+
+.section-content.product-skus-footer .section-wrapper {
+    padding-top: var(--val_40);
+}
+
+    .section-content.product-skus-footer .section-wrapper img {
+        display: block;
+        margin: 0 auto;
+        padding-bottom: var(--val_30);
+    }
+
+.section-content.product-skus-footer .grid .product span, .product span {
+    color: var(--blanc);
+    text-align: center;
+}
+
+    .section-content.product-skus-footer .grid .product span.title, .product span.title {
+        color: var(--blanc);
+        font-weight: var(--semibold);
+    }
+
+.grid {
+    width: 100%;
+    margin-top: var(--val_30);
+    margin-bottom: 50px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-auto-columns: 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+}
+
+.product {
+    display: flex;
+    max-width: 271px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-img {
+    margin-bottom: var(--val_20);
+}
+
+.image-7 {
+    margin-bottom: var(--val_20);
+}
+
+.product .button {
+    margin-top: var(--val_15);
+    padding: 7px 15px 5px 15px;
+    border: 2px solid var(--blanc);
+    background-color: transparent;
+    color: var(--blanc);
+    font-weight: var(--semibold);
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+    .product .button:hover {
+        background-color: var(--blanc);
+        color: var(--noir);
+    }
+
+.footnotes {
+    margin-bottom: var(--val_10);
+    color: var(--blanc);
+    font-size: var(--size_p);
+    line-height: 12px;
+    font-weight: 400;
+}
+
+    .footnotes a, .chart-footnotes a {
+        color: var(--blanc);
+        text-decoration: none;
+    }
+
+.heading-2-center {
+    margin-top: 0px;
+    margin-bottom: var(--val_10);
+    color: var(--noir);
+    font-size: var(--val_30);
+    line-height: 28px;
+    letter-spacing: -0.25px;
+}
+
+    .heading-2-center.white {
+        display: block;
+        width: auto;
+        max-width: 700px;
+        margin-right: auto;
+        margin-bottom: var(--val_15);
+        margin-left: auto;
+        float: none;
+        clear: none;
+        color: var(--blanc);
+        text-align: center;
+    }
+
+.content-box-center {
+    max-width: none;
+}
+
+.grid-3 {
+    position: static;
+    overflow: visible;
+    width: 80%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+.column {
+    padding-left: var(--val_10);
+}
+
+.column-2 {
+    padding-left: var(--val_10);
+}
+
+.qualify-heading {
+    margin-top: var(--val_20);
+    padding-right: var(--val_10);
+    color: var(--blanc);
+    font-size: var(--val_20);
+}
+
+.image-8 {
+    margin-bottom: var(--val_30);
+}
+
+.game-pass-container {
+    position: static;
+    left: 0%;
+    top: 0%;
+    right: auto;
+    bottom: auto;
+    width: 490px;
+    clear: none;
+    align-self: flex-start;
+}
+
+table.chart {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+    table.chart td {
+        color: #ffffff;
+        padding: var(--val_10);
+        border-left: 3px solid var(--noir);
+        border-right: 3px solid var(--noir);
+        width: 25%;
+    }
+
+        table.chart td:first-child {
+            border-left: none;
+        }
+
+        table.chart td:last-child {
+            border-right: none;
+        }
+
+    table.chart .header-row {
+        font-weight: var(--semibold);
+        text-align: center;
+        font-size: var(--size_h3);
+        line-height: 28px;
+        background-color: #212121;
+    }
+
+        table.chart .header-row td {
+            padding-top: var(--val_35);
+            padding-bottom: var(--val_10);
+        }
+
+    table.chart .chart-check {
+        vertical-align: top;
+    }
+
+    table.chart .chart-body, table.chart .chart-check {
+        text-align: center;
+    }
+
+    table.chart p.chart-footnotes {
+        text-align: left;
+        font-size: var(--size_p);
+        line-height: 12px;
+        margin-top: var(--val_5);
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+
+    table.chart .label-row {
+        border-bottom: 1px solid var(--gris_200);
+    }
+
+    table.chart .dark-row {
+        background-color: #141414;
+    }
+
+    table.chart .light-row {
+        background-color: #212121;
+    }
+
+.chart-title {
+    font-size: var(--size_h4);
+    line-height: 22px;
+    text-align: center;
+    font-weight: var(--semibold);
+    vertical-align: top;
+}
+
+td > div {
+    position: relative;
+    padding: 0px;
+}
+
+.chart-addition {
+    position: absolute;
+    top: 50%;
+    right: -34px;
+    padding: 0px;
+}
+
+table.chart .title-row td {
+    text-align: center;
+    font-size: var(--val_30);
+    text-transform: uppercase;
+    font-weight: var(--semibold);
+    padding: var(--val_25);
+    border-bottom: 1px solid var(--gris_200);
+}
+
+.grid-4 {
+    display: grid;
+    align-self: stretch;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: var(--val_20);
+    grid-row-gap: var(--val_20);
+    grid-template-rows: auto;
+}
+
+.grid-5 {
+    margin-top: 23px;
+    align-self: stretch;
+    grid-template-rows: auto;
+}
+
+.div-block {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div-block-2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.div-block-3 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-width: 380px;
+    flex-direction: column;
+}
+
+.test {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+    .test.align-right {
+        align-items: flex-end;
+    }
+
+    .test.align-center {
+        max-width: none;
+        flex-wrap: nowrap;
+        align-items: center;
+        flex: 0 auto;
+    }
+
+.image-10 {
+    margin-bottom: 13px;
+}
+
+.div-block-4 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.grid-6 {
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.line {
+    display: flex;
+    min-width: 380px;
+    flex-direction: column;
+}
+
+.div-block-5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: stretch;
+}
+
+.div-block-6 {
+    width: 1px;
+    margin-right: 56px;
+    margin-left: 56px;
+    background-image: repeating-linear-gradient(180deg, var(--noir), #4e4e4e 50%, var(--noir));
+}
+
+.dev-logos {
+    margin-bottom: var(--val_30);
+    text-align: center;
+}
+
+@media (max-width: 991px) {
+    .hero-info {
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .content-box {
+        max-width: 390px;
+    }
+
+    .content-box-center {
+        max-width: 390px;
+    }
+
+    .grid-4 {
+        width: 100%;
+        justify-items: stretch;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero .call-out .copy p {
+        margin-top: var(--val_20);
+        font-size: 28px;
+    }
+
+    .hero-text-box.mobile-hero-text-box {
+        display: block;
+        max-width: 575px;
+        margin-bottom: 0px;
+    }
+
+    .hero-info {
+        display: none;
+    }
+
+    .section-content.intro {
+        padding-right: var(--val_30);
+        padding-left: var(--val_30);
+    }
+
+    .paragraph-intro {
+        font-size: var(--val_20);
+        line-height: 29px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .section-wrapper.align-right {
+        align-items: center;
+    }
+
+    .heading-2 {
+        font-size: var(--size_h3);
+        line-height: 29px;
+    }
+
+    .section-content {
+        padding-right: var(--val_30);
+        padding-left: var(--val_30);
+    }
+
+    .content-box {
+        max-width: none;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        margin-bottom: var(--val_20);
+    }
+
+    .heading-2-center {
+        font-size: var(--size_h3);
+        line-height: 29px;
+    }
+
+    .content-box-center {
+        max-width: none;
+    }
+
+    .game-pass-container {
+        width: 100%;
+    }
+
+    .grid-4 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .hero .call-out {
+        padding: 20px !important;
+    }
+
+        .hero .call-out .logo {
+            align-self: auto !important;
+        }
+
+            .hero .call-out .logo img {
+                padding-left: 0px;
+                max-width: 426px;
+            }
+}
+
+@media (max-width: 479px) {
+    .hero-text-box.mobile-hero-text-box {
+        margin-bottom: 0px;
+    }
+
+    .heading-1 {
+        font-size: var(--size_h1);
+    }
+
+    .t1 {
+        overflow: visible;
+        width: 100%;
+        float: none;
+    }
+
+    .section-content {
+        padding: 40px 30px;
+    }
+
+    .hero .call-out .logo img {
+        max-width: 350px;
+    }
+
+    .hero .call-out .copy p {
+        font-size: var(--size_h3);
+    }
+}
+/*FIN BUNLDE AMD DURT*/
+
+/** Opération Asus PBA Gamer **/
+
+
+.landing-pbapcgamer {
+    width: 100%;
+    background: #1a1a1a;
+}
+
+    .landing-pbapcgamer .container-landing {
+        width: 100%;
+    }
+
+        .landing-pbapcgamer .container-landing .banner {
+            width: 100%;
+            height: 60vh;
+            background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/asus/pba-pcgamer/banner-desktop.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: right;
+        }
+
+            .landing-pbapcgamer .container-landing .banner .container {
+                display: flex;
+                width: 70%;
+                margin: auto;
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+                .landing-pbapcgamer .container-landing .banner .container .content-text {
+                    width: 40%;
+                    float: left;
+                    position: relative;
+                }
+
+                    .landing-pbapcgamer .container-landing .banner .container .content-text .column {
+                        padding-left: var(--val_10);
+                    }
+
+                        .landing-pbapcgamer .container-landing .banner .container .content-text .column .text {
+                        }
+
+                            .landing-pbapcgamer .container-landing .banner .container .content-text .column .text h3 {
+                                text-transform: uppercase;
+                                color: #d1111b;
+                                font-weight: var(--semibold);
+                                font-size: 80px;
+                                padding-top: var(--val_20);
+                                font-family: rogfont;
+                            }
+
+                            .landing-pbapcgamer .container-landing .banner .container .content-text .column .text div {
+                                padding: var(--marg_10_0);
+                            }
+
+                                .landing-pbapcgamer .container-landing .banner .container .content-text .column .text div p {
+                                    padding: var(--marg_10_0);
+                                    font-weight: normal;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: xolonium;
+                                    color: var(--blanc);
+                                }
+
+}
+
+.landing-pbapcgamer .container-landing {
+    background: var(--noir);
+}
+
+    .landing-pbapcgamer .container-landing .presentation-pc {
+        width: 100%;
+        height: 90vh;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/asus/pba-pcgamer/background-red-2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+        .landing-pbapcgamer .container-landing .presentation-pc .cta-war {
+            width: 100%;
+            display: flex;
+            padding-top: 80px;
+        }
+
+            .landing-pbapcgamer .container-landing .presentation-pc .cta-war a {
+                width: 250px;
+                margin: auto;
+                display: flex;
+                border: solid 1px #d1111b;
+                transition: 0.2s;
+            }
+
+                .landing-pbapcgamer .container-landing .presentation-pc .cta-war a:hover {
+                    background: #d1111b;
+                    transition: 0.3s all;
+                }
+
+                .landing-pbapcgamer .container-landing .presentation-pc .cta-war a span {
+                    margin: auto;
+                    color: var(--blanc);
+                    padding: 12px;
+                    font-size: var(--size_h4);
+                }
+
+        .landing-pbapcgamer .container-landing .presentation-pc .text {
+            width: 70%;
+            margin: auto;
+            padding-bottom: 50px;
+        }
+
+            .landing-pbapcgamer .container-landing .presentation-pc .text h2 {
+                font-size: 80px;
+                color: #d1111b;
+                text-align: center;
+                font-weight: var(--semibold);
+                font-family: rogfont;
+            }
+
+        .landing-pbapcgamer .container-landing .presentation-pc .container-pc {
+            display: flex;
+            width: 1450px;
+            margin: auto;
+        }
+
+            .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-droite, .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-gauche {
+                width: 30%;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+                .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-droite div, .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-gauche div {
+                    width: 200px;
+                    margin: auto;
+                }
+
+                    .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-droite div img, .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-gauche div img {
+                        display: block;
+                        width: 70%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-bottom: 6px;
+                    }
+
+                    .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-droite div p, .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-gauche div p {
+                        color: var(--blanc);
+                        text-align: center;
+                        font-size: var(--size_p);
+                        position: relative;
+                    }
+
+                    .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-droite div .dénomination, .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-gauche div .dénomination {
+                        height: var(--val_40);
+                        padding-left: var(--val_10);
+                        padding-right: var(--val_10);
+                        text-shadow: var(--noir) 5px 5px 20px;
+                    }
+
+                .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-droite .dénomination:after, .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-gauche .dénomination:after {
+                    content: "";
+                    .m width: 75px;
+                    height: 1px;
+                    position: absolute;
+                    bottom: 0;
+                    transform: translate(-50%, -50%);
+                    left: 50%;
+                    background: var(--blanc);
+                }
+
+                .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-droite div .marque, .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-gauche div .marque {
+                    font-weight: 800;
+                    padding-bottom: 6px;
+                    color: #c10014;
+                    font-size: var(--size_h4);
+                    font-family: xolonium;
+                    text-shadow: var(--noir) 5px 5px 20px;
+                }
+
+            .landing-pbapcgamer .container-landing .presentation-pc .container-pc .photos-pc {
+                width: 40%;
+            }
+
+                .landing-pbapcgamer .container-landing .presentation-pc .container-pc .photos-pc .container {
+                    display: flex;
+                    width: 100%;
+                    margin: auto;
+                }
+
+                    .landing-pbapcgamer .container-landing .presentation-pc .container-pc .photos-pc .container img {
+                        display: block;
+                        width: 80%;
+                        margin: auto;
+                    }
+
+    .landing-pbapcgamer .container-landing .box-nvidia-gsync {
+        background: var(--noir);
+    }
+
+        .landing-pbapcgamer .container-landing .box-nvidia-gsync .container {
+            display: flex;
+            width: 70%;
+            margin: auto;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+            .landing-pbapcgamer .container-landing .box-nvidia-gsync .container .content {
+                width: 40%;
+                padding-right: 50px;
+            }
+
+                .landing-pbapcgamer .container-landing .box-nvidia-gsync .container .content h2 {
+                    font-size: var(--size_h3);
+                    font-weight: 800;
+                    color: var(--blanc);
+                }
+
+                .landing-pbapcgamer .container-landing .box-nvidia-gsync .container .content h3 {
+                    font-size: var(--size_h3);
+                    font-weight: 400;
+                    color: var(--blanc);
+                }
+
+                .landing-pbapcgamer .container-landing .box-nvidia-gsync .container .content p {
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: var(--blanc);
+                }
+
+            .landing-pbapcgamer .container-landing .box-nvidia-gsync .container .container-video {
+                width: 60%;
+                margin: auto;
+                display: flex;
+            }
+
+                .landing-pbapcgamer .container-landing .box-nvidia-gsync .container .container-video .video {
+                    margin: auto;
+                    overflow: hidden;
+                    padding-bottom: 56.25%;
+                    position: relative;
+                    height: 0;
+                }
+
+                    .landing-pbapcgamer .container-landing .box-nvidia-gsync .container .container-video .video iframe {
+                    }
+
+.landing-pbapcgamer .box-nvidia-gsync .first-part {
+    background-image: url(https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/geforce-gsync-product-page/geforce-gsync-hero-2560x770-d.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-pbapcgamer .box-nvidia-gsync .container {
+    max-width: 1290px;
+}
+
+    .landing-pbapcgamer .box-nvidia-gsync .container .content-text {
+        width: 40%;
+        float: left;
+        position: relative;
+    }
+
+        .landing-pbapcgamer .box-nvidia-gsync .container .content-text .logonvidia {
+            width: 250px;
+        }
+
+        .landing-pbapcgamer .box-nvidia-gsync .container .content-text .text div {
+            padding: var(--marg_10_0);
+        }
+
+        .landing-pbapcgamer .box-nvidia-gsync .container .content-text .text h3 {
+            text-transform: uppercase;
+            color: #76b900;
+            font-weight: var(--semibold);
+            font-size: 28px;
+            padding-top: var(--val_20);
+        }
+
+        .landing-pbapcgamer .box-nvidia-gsync .container .content-text .text p {
+            padding: var(--marg_10_0);
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            font-family: DINPro,Helvetica,Arial,Sans-Serif;
+            color: var(--blanc);
+        }
+
+.landing-pbapcgamer .second-part .container-gsync {
+    width: 100%;
+    display: block;
+}
+
+    .landing-pbapcgamer .second-part .container-gsync h2 {
+        font-weight: normal;
+        font-size: var(--size_h1);
+        line-height: var(--val_40);
+        font-family: GeForce,Helvetica,Arial,Sans-Serif;
+        color: var(--blanc);
+        text-align: center;
+        padding-top: 125px;
+    }
+
+    .landing-pbapcgamer .second-part .container-gsync .container-flex {
+        display: flex;
+        flex-wrap: wrap;
+        width: 70%;
+        margin: auto;
+        padding-top: 50px;
+        padding-bottom: 75px;
+    }
+
+        .landing-pbapcgamer .second-part .container-gsync .container-flex div {
+            min-height: 2px;
+            padding: 0 15px;
+            margin: 0;
+            position: relative;
+            background-size: inherit;
+            background-repeat: no-repeat;
+            width: 450px;
+            margin: auto;
+        }
+
+            .landing-pbapcgamer .second-part .container-gsync .container-flex div h4 {
+                color: #ffffff;
+                font-size: var(--size_h3);
+                font-weight: 800;
+                text-align: center;
+            }
+
+            .landing-pbapcgamer .second-part .container-gsync .container-flex div p {
+                padding: var(--marg_10_0);
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 24px;
+                font-family: DINPro,Helvetica,Arial,Sans-Serif;
+                color: var(--blanc);
+                text-align: center;
+                padding-left: var(--val_15);
+                padding-right: var(--val_15);
+            }
+
+.landing-pbapcgamer .second-part .tableau-gsync {
+    width: 100%;
+}
+
+    .landing-pbapcgamer .second-part .tableau-gsync .responsive-container {
+        width: 1280px;
+        margin: auto;
+        display: block;
+    }
+
+        .landing-pbapcgamer .second-part .tableau-gsync .responsive-container img {
+            width: 80%;
+            margin: auto;
+            display: block;
+        }
+
+.landing-pbapcgamer .box-nvidia-reflex {
+    background: var(--noir);
+    background-image: url("https://www.cybertek.fr/images_produits/cybertek/images-landing/asus/pba-pcgamer/background-geforce.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+}
+
+    .landing-pbapcgamer .box-nvidia-reflex .responsive-cont {
+        max-width: 1280px;
+        margin: auto;
+    }
+
+        .landing-pbapcgamer .box-nvidia-reflex .responsive-cont .content {
+            width: 40%;
+            float: left;
+            position: relative;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+            .landing-pbapcgamer .box-nvidia-reflex .responsive-cont .content h2 {
+                font-weight: 800;
+                font-size: 56px;
+                line-height: 56px;
+                font-family: GeForce,Helvetica,Arial,Sans-Serif;
+                color: var(--blanc);
+            }
+
+            .landing-pbapcgamer .box-nvidia-reflex .responsive-cont .content h3 {
+                text-transform: uppercase;
+                color: #76b900;
+                font-weight: var(--semibold);
+                font-size: 28px;
+                padding-top: var(--val_20);
+            }
+
+            .landing-pbapcgamer .box-nvidia-reflex .responsive-cont .content p {
+                padding: var(--marg_10_0);
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 24px;
+                font-family: DINPro,Helvetica,Arial,Sans-Serif;
+                color: #ffffff;
+            }
+
+.container-pc .bloc-compo {
+    padding-bottom: 14px;
+}
+
+.landing-pbapcgamer .specs-pc {
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: var(--noir);
+}
+
+    .landing-pbapcgamer .specs-pc .container-div {
+        width: 60%;
+        margin: auto;
+        display: flex;
+    }
+
+        .landing-pbapcgamer .specs-pc .container-div .content {
+            width: 100%;
+            ;
+            margin: auto;
+            display: flex;
+        }
+
+            .landing-pbapcgamer .specs-pc .container-div .content .container-img {
+                width: 50%;
+                display: flex;
+            }
+
+                .landing-pbapcgamer .specs-pc .container-div .content .container-img .flexiflux {
+                    margin: auto;
+                }
+
+                    .landing-pbapcgamer .specs-pc .container-div .content .container-img .flexiflux .sec {
+                        display: flex;
+                    }
+
+                    .landing-pbapcgamer .specs-pc .container-div .content .container-img .flexiflux div * {
+                        margin: auto;
+                    }
+
+                    .landing-pbapcgamer .specs-pc .container-div .content .container-img .flexiflux div a {
+                        width: 250px;
+                        margin: auto;
+                        border: solid 1px #d1111b;
+                        transition: 0.2s;
+                        color: var(--blanc);
+                        text-align: center;
+                        padding: 14px;
+                        margin-top: 26px;
+                    }
+
+                .landing-pbapcgamer .specs-pc .container-div .content .container-img div a:hover {
+                    background: #d1111b;
+                    transition: 0.3s all;
+                }
+
+                .landing-pbapcgamer .specs-pc .container-div .content .container-img div img {
+                    width: 70%;
+                    margin: auto;
+                }
+
+        .landing-pbapcgamer .specs-pc .container-div .specs-container {
+            display: flex;
+            width: 50%;
+        }
+
+            .landing-pbapcgamer .specs-pc .container-div .specs-container div {
+                width: 100%;
+                margin: auto;
+                border-bottom: 1px solid var(--blanc);
+            }
+
+                .landing-pbapcgamer .specs-pc .container-div .specs-container div h6 {
+                    font-size: var(--size_p);
+                    color: #d1111b;
+                    padding-bottom: 6px;
+                    padding-top: var(--val_15);
+                    letter-spacing: 1px;
+                    font-family: xolonium;
+                }
+
+                .landing-pbapcgamer .specs-pc .container-div .specs-container div p {
+                    font-size: var(--size_p);
+                    color: var(--blanc);
+                    padding-bottom: 12px;
+                    font-family: xolonium;
+                    line-height: 14px;
+                }
+
+@media screen and (max-width: 1600px) {
+    .landing-pbapcgamer .container-landing .presentation-pc {
+        height: auto;
+    }
+
+        .landing-pbapcgamer .container-landing .presentation-pc .container-pc {
+            display: block;
+        }
+
+            .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-droite, .landing-pbapcgamer .container-landing .presentation-pc .container-pc .compo-gauche {
+                width: 70%;
+                margin: auto;
+            }
+
+            .landing-pbapcgamer .container-landing .presentation-pc .container-pc .photos-pc {
+                width: 100%;
+            }
+
+                .landing-pbapcgamer .container-landing .presentation-pc .container-pc .photos-pc .container img {
+                    width: 20%;
+                }
+
+        .landing-pbapcgamer .container-landing .presentation-pc .cta-war {
+            padding-top: var(--val_30);
+        }
+
+        .landing-pbapcgamer .container-landing .presentation-pc .container-pc {
+            width: 1200px;
+        }
+}
+
+/** FAQ Cybertek **/
+
+.landing-faq {
+    width: 100%;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    background: var(--blanc);
+    position: relative;
+    box-shadow: 5px 5px 10px #dfdfdf;
+    border-radius: 0 0 var(--marg_20_20);
+}
+
+    .landing-faq .container-faq {
+        width: 1200px;
+        margin: auto;
+    }
+
+        .landing-faq .container-faq .cont {
+            width: 100%;
+            margin: auto;
+        }
+
+            .landing-faq .container-faq .cont .header-part {
+            }
+
+                .landing-faq .container-faq .cont .header-part h1 {
+                    font-size: var(--size_h1);
+                    line-height: 1.05;
+                    font-weight: var(--medium);
+                    letter-spacing: .008em;
+                }
+
+                .landing-faq .container-faq .cont .header-part p {
+                    padding-top: 14px;
+                    font-size: var(--size_h4);
+                    line-height: 1.52947;
+                    font-weight: 400;
+                    letter-spacing: -.021em;
+                    color: var(--gris_200);
+                    font-style: normal;
+                }
+
+                .landing-faq .container-faq .cont .header-part ul {
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+                    margin: 20px 0 var(--marg_20_0);
+                }
+
+                    .landing-faq .container-faq .cont .header-part ul li {
+                        width: 300px;
+                        margin: auto;
+                        justify-content: center;
+                        align-items: center;
+                        height: auto;
+                        border-radius: var(--val_10);
+                        padding: var(--val_30);
+                        cursor: pointer;
+                        transition: 0.1s;
+                        justify-content: space-evenly;
+                        margin: var(--val_25);
+                        background: #252525;
+                    }
+
+                        .landing-faq .container-faq .cont .header-part ul li:hover {
+                            transition: 0.3s;
+                        }
+
+                        .landing-faq .container-faq .cont .header-part ul li div {
+                            width: 80%;
+                            margin: auto;
+                            display: flex;
+                            padding: 0;
+                        }
+
+                            .landing-faq .container-faq .cont .header-part ul li div img {
+                                width: var(--val_40);
+                                margin: auto;
+                            }
+
+                            .landing-faq .container-faq .cont .header-part ul li div h2 {
+                                font-size: var(--size_h4);
+                                line-height: 1.5;
+                                text-align: center;
+                                margin: auto;
+                                padding-top: var(--val_10);
+                                width: 100%;
+                                color: var(--blanc);
+                            }
+
+.question-container {
+    width: 1200px;
+    margin: auto;
+}
+
+    .question-container h2 {
+        font-size: 28px;
+        line-height: 1.05;
+        letter-spacing: .008em;
+        color: #838383;
+        padding-right: 16px;
+        padding-top: var(--val_30);
+        font-weight: var(--semibold);
+    }
+
+    .question-container .faq-cat {
+        position: relative;
+    }
+
+        .question-container .faq-cat .faq-list {
+            list-style: none;
+            padding-top: var(--val_25);
+        }
+
+            .question-container .faq-cat .faq-list .lifaqlist {
+                margin: var(--marg_30_0);
+                padding: 27px 30px;
+                margin: 0px auto 30px;
+                text-align: left;
+                width: 100%;
+                border-radius: var(--val_10);
+                background: var(--blanc);
+            }
+
+                .question-container .faq-cat .faq-list .lifaqlist h3::before {
+                    background-image: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/faq/down.svg');
+                    font-size: var(--size_h1);
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: -8px;
+                    color: #c2c2c2;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .question-container .faq-cat .faq-list .lifaqlist h3::before {
+                    content: '';
+                    background-image: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/faq/down.svg');
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .question-container .faq-cat .faq-list .lifaqlist .classspecial::before {
+                    content: '';
+                    background-image: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/faq/up.svg') !important;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .question-container .faq-cat .faq-list .lifaqlist h3 {
+                    position: relative;
+                    cursor: pointer;
+                    font-weight: 400;
+                    margin: 0;
+                    font-size: var(--size_h4);
+                    letter-spacing: -.021em;
+                    font-weight: var(--semibold);
+                }
+
+                .question-container .faq-cat .faq-list .lifaqlist .faq-text {
+                    display: none;
+                    font-size: 16px;
+                    margin-top: var(--val_25);
+                    margin-bottom: 16px;
+                    font-size: var(--size_h4);
+                    color: var(--gris_200);
+                    line-height: 1.52947;
+                    font-weight: 400;
+                    letter-spacing: -.021em;
+                }
+
+                .question-container .faq-cat .faq-list .lifaqlist ul {
+                    padding-left: 60px;
+                }
+
+                    .question-container .faq-cat .faq-list .lifaqlist ul li {
+                        margin-bottom: 16px;
+                    }
+
+            .question-container .faq-cat .faq-list .souligne {
+                text-decoration: underline;
+            }
+
+            .question-container .faq-cat .faq-list .gros {
+                font-weight: var(--semibold);
+            }
+
+            .question-container .faq-cat .faq-list .blue {
+                color: blue;
+            }
+
+            .question-container .faq-cat .faq-list a {
+                color: blue;
+                text-decoration: underline;
+            }
+
+            .question-container .faq-cat .faq-list .lifaqlist .faq-text .read {
+                font-size: 16px;
+                margin-top: var(--val_25);
+                margin-bottom: 16px;
+                font-size: var(--size_h4);
+                color: var(--gris_200);
+                line-height: 1.52947;
+                font-weight: 400;
+                letter-spacing: -.021em;
+            }
+
+    .question-container .none {
+        display: none;
+    }
+
+    .question-container .faq-cat .faq-list .lifaqlist .square {
+        list-style-type: square
+    }
+
+    .question-container .faq-cat .faq-list .lifaqlist .tiret {
+        list-style-type: '-';
+    }
+
+    .question-container .faq-cat .faq-list .lifaqlist .rond {
+        list-style-type: circle;
+    }
+
+    .question-container .faq-cat .faq-list .lifaqlist .etape {
+        list-style-type: decimal;
+    }
+
+.art-box svg {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+}
+
+    .row .col {
+        flex-basis: 50%;
+    }
+
+.container {
+    width: 1200px;
+    margin: auto;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .landing-faq .container-faq, .question-container {
+        width: 850px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .landing-faq .container-faq, .question-container {
+        width: 650px;
+    }
+
+        .landing-faq .container-faq .cont .header-part ul li {
+            margin: 12px;
+        }
+}
+
+@media screen and (max-width: 700px) {
+    .landing-faq .container-faq, .question-container {
+        width: 400px;
+    }
+
+    .landing-faq .container-faq, .question-container {
+        width: calc(100% - 60px);
+        margin: auto;
+    }
+
+        .landing-faq .container-faq .cont .header-part ul li {
+            width: 42%;
+            padding: var(--val_10);
+        }
+
+        .landing-faq .container-faq .cont .header-part ul {
+            justify-content: center;
+        }
+}
+
+@media screen and (max-width: 500px) {
+    .landing-faq .container-faq, .question-container {
+        width: 280px;
+    }
+
+    .landing-faq .container-faq, .question-container {
+        width: calc(100% - 60px);
+    }
+
+        .question-container .faq-cat .faq-list .lifaqlist h3 {
+            font-size: 16px;
+            padding-right: 31px;
+            line-height: 1.5;
+        }
+
+            .question-container .faq-cat .faq-list .lifaqlist h3::before {
+                transform: translateY(8px);
+            }
+}
+
+/** FAQ Anchor **/
+
+.question-container #first-anchor, .question-container #second-anchor, .question-container #third-anchor, .question-container #fourth-anchor, .question-container #fifth-anchor {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    top: -130px;
+}

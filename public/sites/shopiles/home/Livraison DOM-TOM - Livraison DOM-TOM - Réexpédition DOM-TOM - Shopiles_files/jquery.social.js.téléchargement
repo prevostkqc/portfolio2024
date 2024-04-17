@@ -1,0 +1,223 @@
+(function () {
+
+  if ( typeof window.CustomEvent === "function" ) return false;
+
+  function CustomEvent ( event, params ) {
+    params = params || { bubbles: false, cancelable: false, detail: undefined };
+    var evt = document.createEvent( 'CustomEvent' );
+    evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+    return evt;
+   }
+
+  CustomEvent.prototype = window.Event.prototype;
+
+  window.CustomEvent = CustomEvent;
+})();
+
+( function($) {
+	//AR--> Structure du code HTML pour chaque bouton de réseau social :
+	/*	<div class="social nom_du_reseau_social"></div>
+	* 	ex :
+	* 	<div class="social facebook">Facebook</div>
+	* 	<div class="social twitter">Twitter</div>
+	* 	<div class="social google">Google Plus</div>
+	* 	
+	* 	Pour le mail : 
+	*	Avec l'attribut data-social-sujet-mail="", on peut indiquer un sujet par défaut au mail qui sera envoyé.
+	*	ex :
+	*	<div class="social mail" data-social-sujet-mail="Voici le sujet de mon mail"></div>
+	*/
+	var social_load_facebook = false;
+	var social_load_twitter = false;
+	var social_load_google = false;
+
+
+	$.Social = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Social')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			number		: 5
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object Social général
+		reseau, href, nom, subjectMail, 
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Social
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Ajoute l'attribut HTML 5 data-Social pour faciliter l'appel des instances Social avec les pseudo-selector CSS 
+			$container.attr('data-Social', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+
+			if($container.hasClass('facebook')){	reseau = 'facebook';}
+			else if($container.hasClass('twitter')){reseau = 'twitter';}
+			else if($container.hasClass('google')){	reseau = 'google';}
+			else if($container.hasClass('mail')){	reseau = 'mail';}
+			else if($container.hasClass('print')){	reseau = 'print';}
+
+			// plugin.loadSdk();
+
+			nom         = _data('name');
+			subjectMail = _data('sujet-mail');
+			href        = _data('href') != undefined ? _data('href') : window.location.href;
+
+			$container.on('click', function(event){
+				switch(reseau){
+					case 'facebook': 	plugin.facebookClick(); break;
+					case 'twitter': 	plugin.twitterClick(); 	break;
+					case 'google': 		plugin.googleClick(); 	break;
+					case 'mail': 		plugin.mailClick(); 	break;
+					case 'print': 		plugin.printClick(); 	break;
+				}
+				return false;
+			});			
+
+		};
+
+		plugin.loadSdk = function(){
+			$.ajaxSetup({ cache: true });
+
+			switch(reseau){
+				case 'facebook':
+					if(!social_load_facebook){
+						social_load_facebook = true;					
+					}
+					break;
+				case 'twitter':
+					if(!social_load_twitter){
+						social_load_twitter = true;
+					}
+					break;
+				case 'google':
+					if(!social_load_google){
+						social_load_google = true;
+					}
+					break;
+			}
+		};
+
+		//AR--> Ation au clic du bouton Facebook
+		plugin.facebookClick = function(){
+			window.open("https://www.facebook.com/sharer/sharer.php?u="+href, "pop", "width=600, height=400, scrollbars=no");
+		}
+
+		//AR--> Action au clic du bouton Twitter
+		plugin.twitterClick = function(){
+			var urlPage  = encodeURIComponent(href);
+			window.open('https://twitter.com/intent/tweet?url='+urlPage,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;
+		}
+
+		//AR--> Action au clic du bouton Google+
+		plugin.googleClick = function(){
+			window.open('https://plus.google.com/share?url='+href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=200,width=600');return false;
+		}
+
+
+		//AR--> Action au clic du bouton Mail
+		plugin.mailClick = function(){
+
+			var content = 'Lien de la page que je viens de consulter : ' + href;
+
+			if(subjectMail == undefined || subjectMail == "") {
+
+				window.location.href = 'mailto:?body='+content;
+			}else {
+				window.location.href = 'mailto:?subject='+subjectMail+'&body='+content;
+			}
+		}
+
+		//AR--> Action au clic du bouton Print
+		plugin.printClick = function(){
+
+			window.print();
+
+		}
+
+		plugin.update = function(){
+
+			// ...
+
+		};
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('Social - ' + _var);
+		}
+
+		var __log = function(texte){
+			$('body').Log('log', '<b>Social</b> - ' + texte, 'rgb(51, 153, 255)', $container.parent());
+		}
+
+		var response = function(val){
+			$container.data('Social_response', val);
+		}
+
+		var _data = function(data, element){
+			if(element == undefined) element = $container;
+			return element.data(('Social-'+data).toLowerCase());
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Social = function(options) {
+		var args		= arguments;
+		var response	= 'no_response';
+		this.each(function() {
+			var plugin = $(this).data('Social');
+			if (undefined === plugin) {
+				plugin = new $.Social(this, options);
+				$(this).data('Social', plugin);
+				$(this).data('Social_response', 'no_response');
+			}else if ( plugin[options] ) {
+				var exec = plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+				if($(this).data('Social_response') != 'no_response'){
+					response = $(this).data('Social_response');
+					$(this).data('Social_response', 'no_response');
+					return response;
+				}else{
+					return exec;
+				}
+			}
+		});
+		if(response != 'no_response'){
+			return response;
+		}else{
+			return this;
+		}
+	};
+
+	window.dispatchEvent(new CustomEvent('Social_loaded'));
+
+	$(document).ready(function() {
+		
+		$('.social').Social();
+	});
+
+
+})(jQuery);

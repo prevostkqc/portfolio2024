@@ -1,0 +1,969 @@
+( function($) {
+
+	/* ------------------------------------------------
+	Cherche tous les éléments qui ont un href et un target.
+	href : 				contient le lien de la page à afficher en ajax
+	target : 			contient le chemin DOM vers l'élément à updater avec les données Ajax. Target ne doit pas commencer par _. Indiquer 'requete' pour ne faire qu'une simple requête sans réinjection de contenu
+	insertion : 		indique comment insérer les données par rapport à la cible (html, append, prepend, ...) html par défaut
+	page : 				contient le nom de la page pour faire changer l'url de la page
+	lmenu : 			indique quel menu il faut activer à gauche
+	rmenu : 			indique quel menu il faut activer à droite
+	confirmation : 		indique qu'il faut demander une confirmation avant de lancer la requête. Le texte indiqué dans confirmation sera affiché dans la modale. (nécessite fancybox2)
+	suppr : 			indique l'élément à supprimer une fois la requête terminée
+	elements : 			indique comment sélectionner les éléments à compter pour mettre à jour le offset (ex: .ul li)
+	onSuccess : 		nom de la fonction à exécuter après réception des données ajax
+	supprLien : 		supprime le lien si supprLien = "true"
+	infiniteScroll : 	active le scroll infini si infiniteScroll = "true"
+	loader : 			Mettre à false pour ne pas afficher le spinner de loading
+	no_preload : 		Mettre à true pour ne pas attendre que les images soient loadées pour afficher le nouveau contenu.
+	beforenavigator : 	Nom de la fonction à exécuter avant la mécanique principal du navigator
+
+	-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+	FORMULAIRE
+	action : 			url de soumission du formulaire en ajax
+	target : 			contient le chemin DOM vers l'élément à updater avec les données Ajax. Target ne doit pas commencer par _
+	autoSend : 			soumet le formulaire tout seul sur un onBlur
+	videForm : 			vide le formulaire après soumission (par default à true). Ne vide pas les éléments qui ont la classe no_empty
+	return : 			'html' par défaut. Indiquer 'json' dans le cas d'un retour JSON
+	+ attributs cités au-dessus
+
+	# Pour les champs input file, indiquer ces paramètres sur le champ :
+	uid : 				champ obligatoire. Peut contenir soit la valeur de id du modèle lié à ce fihier, soit un uid qui correspond à la valeur du uid du modèle
+	unique : 			mettre à true quand on utilise la colonne uid du modèle, ne pas l'indiquer sinon
+	champ : 			indique le nom de la colonne du modèle dans laquelle insérer le nom du fichier. Peut être de la forme :
+						champ
+						Model.champ
+						Plugin_Model.champ
+	media : 			indiquer un id pour remplacer le fichier media de cet id. Indiquer 'media' pour ajouter un nouveau média
+	height / width / ratio / bgcolor : indiquer les paramètres de resize d'image à retourner. Si le fichier n'est pas de type image ... : à développer !!
+	target : 			élément ciblé pour l'insertion du retour image. Le système crée une balise img avec en src l'url de l'image retournée après upload ajax. Peut remplacer un tag --id-- par l'id du modèle renvoyé en ajax
+	insertion : 		mode d'insertion par rapport à target
+	loader : 			Indiquer un chemin CSS pour afficher le loader par dessus
+	callback : 			indiquer le nom de la fonction à exécuter au succès de l'upload. Le JSON des data de l'upload est passé en premier paramètre.
+	------------------------------------------------ */
+
+	$.Navigator = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Navigator')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			number		: 5
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non via disponibles l'object Navigator général
+		requetes			= [],
+		scroll_elements		= [],
+		address_index		= -1, //--> Ne pas changer !
+		surveille_scroll	= 'off',
+		timeOutLoaded,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Navigator
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Enregistre l'objet Navigator sur l'object $container en cours pour pouvoir y faire appel par $container.Navigator('fonction', option1, option2, ...)
+			$container.data('Navigator', {});
+			//--> Ajoute l'attribut HTML 5 data-Navigator pour faciliter l'appel des instances Navigator avec les pseudo-selector CSS
+			$container.attr('data-Navigator', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+
+			plugin.navigation();
+
+			plugin.update();
+
+			//--> Mise à jour des nouveaux liens après une requête ajax
+			$(document).ajaxComplete(function() {
+				plugin.update();
+			});
+
+		};
+
+		plugin.update = function(){
+			// $container.find('[href][target]:not([target^="_"]):not(.navigator)').addClass('navigator').on('click', function(event){
+			// 	plugin.navigue($(this), event);
+			// });
+
+			//--> Gestion des liens
+			$container.find('[href][target]:not([target^="_"]):not(.navigator)').each(function(index, element){
+
+				//--> Ajoute la class pour marquer le lien comme déjà pris en charge
+				$(element).addClass('navigator');
+
+				//--> Ajoute la gestion de l'événement
+				$(element).on('click', function(event){
+					plugin.navigue($(element), event);
+				});
+
+				//--> Vérifie s'il faut supprimer le lien
+				plugin.masqueLien($(element));
+
+				//--> Si l'element a infiniteScroll à true, on met en place la surveillance
+				if ($(element).attr('infiniteScroll') == 'true') {
+					scroll_elements.push($(element));
+				};
+
+			});
+
+			//--> Suveille les évenement de scroll, resize et orientationchange
+			plugin.lanceEcouteurScroll();
+
+			//--> Gestion des formulaires
+			$container.find('form[action][target]:not([target^="_"]):not(.navigator)').each(function(index, element){
+
+				//--> Ajoute la class pour marquer le form comme déjà pris en charge
+				$(element).addClass('navigator');
+
+				$(element).find('.fileuploader').each(function(index_, element_){
+					var_name = 'finuploader_'+$(element_).attr('id');
+					$(element_).after('<div class="btn_multi_select"></div>');
+					var manualuploader = new qq.FineUploader({
+						element: $(element_).siblings('.btn_multi_select')[0],
+						// allowedExtensions: ['jpg', 'png', 'gif', 'pdf'],
+						button: false,
+						request: {
+							endpoint: $(element).attr("action")
+						},
+						autoUpload: false,
+						text: {
+							uploadButton: '<i class="icon-plus icon-white"></i> Select Files'
+						},
+						validation: {
+							sizeLimit: 5000000 //--> 5Mo
+						},
+						callbacks: {
+							onUpload: function(id, name){
+								var _loader = $(element_).attr('loader');
+								if(_loader != undefined){
+									plugin.afficheSpinner($(_loader));
+								}
+							},
+							onComplete: function(id, name, responseJSON, maybeXhr){
+						 		plugin.insertImage(responseJSON);
+						 		if (responseJSON.callback != '') {
+						 			eval(responseJSON.callback+'(responseJSON);');
+						 		}
+						 		var _loader = $(element_).attr('loader');
+								if(_loader != undefined){
+									plugin.masqueSpinner($(_loader));
+								}
+							 }
+						}
+					});
+
+					// eval(var_name+' = '+manualuploader);
+					window[var_name] = manualuploader;
+				});
+
+				$(element).find("input.fileuploader:file").change(function (){
+					var_name = 'finuploader_'+$(this).attr('id');
+					var fileName = $(this).val();
+					var nbr_fichiers = $(this).attr('nbr_fichiers') == undefined ? 1 : $(this).attr('nbr_fichiers');
+
+					// $(".filename").html(fileName);
+					// console.log($('#testForm').serialize());
+					if ($(this).attr('uid') != undefined) {
+						var_uid = $(this).attr('uid');
+						unique = false;
+					} else{
+						var_uid = $(element).find('.file_uploader_uid input').val();
+						unique = true;
+					};
+					manualuploader = eval(var_name);
+					if (manualuploader._storedIds.length < nbr_fichiers) {
+						id = manualuploader.addFiles(
+							$(this)[0],
+							{
+								fields 		: $(this).attr('champ'),
+								uid 		: var_uid,
+								unique 		: unique,
+								name 		: $(this).attr('name'),
+								height 		: $(this).attr('height'),
+								width 		: $(this).attr('width'),
+								ratio 		: $(this).attr('ratio'),
+								media 		: $(this).attr('media'),
+								bgcolor 	: $(this).attr('bgcolor'),
+								callback 	: $(this).attr('callback'),
+								target 		: $(this).attr('target'),
+								insertion 	: $(this).attr('insertion')
+							}
+						);
+					};
+
+					// id = manualuploader.addFiles($(this)[0],{fields: $(this).attr('rel'), uid: $('#testForm #WsfNewsUid').val()});
+					// console.log(manualuploader._storedIds[(manualuploader._storedIds.length-1)]);
+
+					// attr = $(this).attr('file_id');
+					// if (typeof attr !== 'undefined' && attr !== false){
+					// 	manualuploader.cancel(attr);
+					// 	$(this).attr('file_id',manualuploader._storedIds[(manualuploader._storedIds.length-1)]);
+					// }else{
+					// 	$(this).attr('file_id',manualuploader._storedIds[(manualuploader._storedIds.length-1)]);
+					// };
+			    });
+
+				//--> Ajoute la gestion de l'événement
+				if($(element).attr('autoSend')){
+					$(element).find('input:not([type=radio],[type=checkbox]),textarea').on('blur', function(event){
+						plugin.formSubmit($(element), event);
+					});
+					$(element).find('select,input[type=checkbox],input[type=radio]').live('change', function(event){
+						console.log('change');
+						plugin.formSubmit($(element), event);
+					});
+					$(element).find("input.fileuploader:file").change(function (event){
+						plugin.formSubmit($(element), event);
+					});
+				}else{
+					$(element).on('submit', function(event){
+						plugin.formSubmit($(element), event);
+					});
+				};
+
+			});
+
+			$container.trigger('navigator_updated');
+
+		};
+
+		plugin.navigue = function(element, event){
+			var url				= element.attr('href');
+			var page			= element.attr('page');
+			var cible			= $(element.attr('target'));
+			var confirmation	= element.attr('confirmation');
+			var beforenavigator = element.attr('beforenavigator');
+			var lmenu			= element.attr('lmenu');
+			var rmenu			= element.attr('rmenu');
+			var insertion		= element.attr('insertion');
+
+			plugin.debug(element);
+
+			if(url != undefined && cible != undefined){
+				if(event != undefined) event.preventDefault();
+
+				if(page != undefined){
+					if(insertion == undefined) insertion = 'html';
+					plugin.addressEnregistre(page, lmenu, rmenu, url, cible, insertion);
+				}
+
+				if(confirmation != undefined){
+					plugin.confirmation(element);
+				}else{
+					if(beforenavigator != undefined){
+						check = eval(beforenavigator+'(element)');
+						if(check != false) plugin._navigue(element);
+					}else{
+						plugin._navigue(element, undefined, undefined, undefined, page != undefined);
+					}
+				}
+			}
+		}
+
+		plugin._navigue = function(element, url, cible, insertion, scrollTop){
+			if(element){
+				if(element.hasClass('_loading')) return;
+				var lmenu			= element.attr('lmenu');
+				var rmenu			= element.attr('rmenu');
+				if(url == undefined)		var url			= element.attr('href');
+				if(cible == undefined) 		var cible 		= $(element.attr('target'));
+				if(insertion == undefined) 	var insertion 	= element.attr('insertion');
+
+				//--> Mise à jour du lien pour la valeur de l'offset
+				if(element.attr('elements') != undefined){
+					var reg_offset = new RegExp("--offset--","gi");
+					if (url.match(reg_offset)){
+						var compte 	= $(element.attr('elements')).length;
+						url = url.replace(reg_offset, compte);
+					}
+				}
+			}
+
+			if(rmenu != undefined) right_menu(rmenu);
+			if(lmenu != undefined) left_menu(lmenu);
+
+			if((!element && cible.attr('loader') != 'false') || (element && element.attr('loader') != 'false')) plugin.afficheSpinner(cible, insertion);
+
+			if(element) element.addClass('_loading');
+
+			if(cible != undefined && (insertion == undefined || insertion == 'html')){
+				cible.attr('navigator_url', url);
+			}
+
+			if(url == '#'){
+				plugin.onSuccess(element, null, null, null, cible, insertion);
+			}else{
+				$.ajax({
+					url			: url,
+					dataType	: 'html',
+					beforeSend : function(){
+						if(scrollTop) $('html, body').animate({ scrollTop: 0 }, 300);
+					},
+					success : function(data, textStatus, jqXHR){
+						var is_json_response = true;
+						try{
+							data_json = JSON.parse(data);
+						}catch(e){
+							is_json_response = false;
+						}
+						if((element && element.attr('no_preload') == 'true') || is_json_response){
+							plugin.onSuccess(element, data, textStatus, jqXHR, cible, insertion);
+						}else{
+							data = data.replace(/(?:^[\s\n\t]*|[\s\n\t]*$)/g, '');
+							//--> On charge d'abord toutes les images puis on injecte le contenu dans la page
+							var _html = $(data);
+							images = _html.find('img');
+							plugin.preloadImages(images, function(){plugin.onSuccess(element, data, textStatus, jqXHR, cible, insertion)});
+						}
+					},
+					complete : function(){
+						//if(element)	element.removeClass('_loading');
+					},
+					error : function(jqXHR, textStatus, errorThrown){
+						// alert("Erreur sur l'url " + url + " - " + errorThrown);
+						return false;
+					}
+				});
+			}
+		}
+
+		plugin.formSubmit = function(element, event){
+			var url				= element.attr('action');
+			var page			= element.attr('page');
+			var cible			= $(element.attr('target'));
+			var confirmation	= element.attr('confirmation');
+			var beforenavigator = element.attr('beforenavigator');
+			var lmenu			= element.attr('lmenu');
+			var rmenu			= element.attr('rmenu');
+			var insertion		= element.attr('insertion');
+
+			if(url != undefined && cible != undefined){
+				event.preventDefault();
+
+				if(page != undefined){
+					if(insertion == undefined) insertion = 'html';
+
+					//-->  Ajout de q dans l'url
+					if(element.find('input[name=q]').length){
+						url += '?q=' + element.find('input[name=q]').val();
+					}
+
+					plugin.addressEnregistre(page, lmenu, rmenu, url, cible, insertion);
+				}
+
+				if(confirmation != undefined){
+					plugin.confirmation(element);
+				}else{
+					if(beforenavigator != undefined){
+						check = eval(beforenavigator+'(element)');
+						if(check != false) plugin._formSubmit(element, cible, insertion);
+					}else{
+						plugin._formSubmit(element, cible, insertion);
+					}
+				}
+			}
+		}
+
+		plugin._formSubmit = function(element, cible, insertion){
+			var lmenu			= element.attr('lmenu');
+			var rmenu			= element.attr('rmenu');
+
+			if(rmenu != undefined) right_menu(rmenu);
+			if(lmenu != undefined) left_menu(lmenu);
+
+			var _type = element.attr('method');
+			if(_type == undefined) _type = 'GET';
+
+			var _return			= element.attr('return');
+			if(_return == undefined) _return = 'html';
+
+			if((!element && cible.attr('loader') != 'false') || (element && element.attr('loader') != 'false')){
+				if(element.attr('loader') && element.attr('loader') != 'true' && element.attr('loader') != 'false'){
+					var cible_loader = $(element.attr('loader'));
+				}else{
+					var cible_loader = cible;
+				}
+				plugin.afficheSpinner(cible_loader, insertion);
+			}
+
+			$.ajax({
+				type		: _type,
+				url			: element.attr('action'),
+				data		: element.serialize(),
+				dataType	: _return,
+				success		: function(data, textStatus, jqXHR){
+					data = data.replace(/(?:^[\s\n\t]*|[\s\n\t]*$)/g, '');
+					//--> Masquage des anciens messages d'erreur
+					element.find("[id$='_errorNavigator']").hide();
+
+					if(_return == 'html'){
+						_elem_erreur = '';
+						$(data).each(function(key_elem, elem_erreur){
+							// console.log($(elem_erreur));
+							if ($(elem_erreur).context.className == 'liste_erreurs') {
+								_elem_erreur = $(elem_erreur);
+							};
+						});
+						if (_elem_erreur != '') {
+							_elem_erreur.find('li').each(function(key_li, el_li){
+								$container.find('.ajax_avertissement').remove();
+								cible_erreur = $container.find('#'+$(el_li).attr('rel'));
+								cible_erreur.parent().after('<div class="ajax_avertissement">'+$(el_li).html()+'</div>')
+							});
+						}else{
+							$container.find('.ajax_avertissement').remove();
+						}
+						// console.log(data);
+
+
+
+						// plugin.onSuccess(element, data, textStatus, jqXHR, cible);
+						//--> On charge d'abord toutes les images puis on injecte le contenu dans la page
+						var _html = $(data);
+						var images = _html.find('img');
+						plugin.preloadImages(images, function(){plugin.onSuccess(element, data, textStatus, jqXHR, cible, insertion)});
+					}
+
+					if(_return == 'json'){
+
+						if(data.errors){
+							$.each(data.errors, function(id, error){
+								element.find('#'+id+'_errorNavigator').html(error).show();
+							})
+						}
+
+						plugin.onSuccess(element, data, textStatus, jqXHR, cible, insertion);
+					}
+
+
+
+
+					vide_form = $(element).attr('videForm') != undefined ? $(element).attr('videForm') : 'true';
+					if (vide_form == 'true') {
+						$(element).find('input:not(input[type=submit]):not(.no_empty), textarea:not(.no_empty)').val('');
+					};
+					$(element).find("input.fileuploader:file").each(function (key, value){
+						var_name = 'finuploader_'+$(this).attr('id');
+						manualuploader = eval(var_name);
+						manualuploader.uploadStoredFiles();
+						// if (manualuploader._storedIds.length < nbr_fichiers) {
+							// id = manualuploader.addFiles($(this)[0],{fields: $(this).attr('rel')});
+						// };
+
+						// id = manualuploader.addFiles($(this)[0],{fields: $(this).attr('rel'), uid: $('#testForm #WsfNewsUid').val()});
+						// console.log(manualuploader._storedIds[(manualuploader._storedIds.length-1)]);
+
+						// attr = $(this).attr('file_id');
+						// if (typeof attr !== 'undefined' && attr !== false){
+						// 	manualuploader.cancel(attr);
+						// 	$(this).attr('file_id',manualuploader._storedIds[(manualuploader._storedIds.length-1)]);
+						// }else{
+						// 	$(this).attr('file_id',manualuploader._storedIds[(manualuploader._storedIds.length-1)]);
+						// };
+				    });
+
+				    var uniqueID = new Date();
+					unique_id = uniqueID.getTime();
+					element.find('.file_uploader_uid input:hidden').val(unique_id);
+				},
+				error : function(jqXHR, textStatus, errorThrown){
+					// alert("Erreur sur l'url " + url + " - " + errorThrown);
+				}
+			});
+
+		}
+
+		plugin.onSuccess = function(element, data, textStatus, jqXHR, cible, insertion){
+			if(cible == undefined){
+				var cible		= $(element.attr('target'));
+			}
+			if(insertion == undefined && element != undefined){
+				var insertion	= element.attr('insertion');
+			}
+
+			if(!element || (element && element.attr('loader') != 'false')){
+				if(element && element.attr('loader') && element.attr('loader') != 'true' && element.attr('loader') != 'false'){
+					var cible_loader = $(element.attr('loader'));
+				}else{
+					var cible_loader = cible;
+				}
+				plugin.masqueSpinner(cible_loader);
+			}
+
+			var is_json_response = true;
+			try{
+				data_json = JSON.parse(data);
+			}catch(e){
+				is_json_response = false;
+			}
+			if(data != null && data.length > 10 && !is_json_response){
+				data = $(data);
+			}
+			//--> Insertion des données
+			plugin.inject(data, cible, insertion);
+
+			//--> masquage du lien au besoin
+			plugin.masqueLien(element);
+
+			//--> suppression d'un élément au besoin
+			plugin.supprElement(element);
+
+			//--> appel du callback onSuccess
+			plugin.callbackSuccess(element, data);
+
+			//--> Tout est chargé et exécuté, on trig le loaded
+			plugin.triggerLoaded(cible, insertion);
+
+			if(element)	element.removeClass('_loading');
+
+			// setTimeout(function(){$(window).trigger('resize')}, 200);
+		}
+
+		plugin.inject = function(data, cible, insertion){
+			if(cible != undefined && cible != 'requete'){
+				if(typeof cible == 'string') cible = $(cible);
+				if(insertion == undefined || insertion == ''){
+					cible.html(data);
+				}else if(insertion == 'replace'){
+					cible.addClass('navigator_to_delete');
+					cible.after(data);
+					$('.navigator_to_delete').remove();
+				}else{
+					eval('cible.'+insertion+'(data)');
+				}
+			}
+		}
+
+		plugin.triggerLoaded = function(cible, insertion, force){
+			$(document).trigger('ajaxComplete');
+			$(document).trigger('ajax_loaded', [cible,insertion]);
+		}
+
+		plugin.masqueLien = function(element){
+			if(element != undefined){
+				var total	= element.attr('total');
+				var compte	= $(element.attr('elements')).length;
+				if(total != undefined && compte != undefined){
+					if(total == 'Array' || parseInt(compte) >= parseInt(total)){
+						if (element.attr('supprLien') == 'true') {
+							element.remove();
+						} else{
+							element.addClass('navigator_masque');
+						};
+					}
+				}
+			}
+		}
+
+		plugin.supprElement = function(element){
+			if(element != undefined && element.attr('suppr') != undefined){
+				$(element.attr('suppr')).remove();
+			}
+		}
+
+		plugin.confirmation = function(element){
+			if(element != undefined && element.attr('confirmation') != undefined){
+				var url				= element.attr('href');
+				var cible			= $(element.attr('target'));
+				var insertion		= element.attr('insertion');
+				// var box = $('<div class="navigator_confirmation popup modale"><h2 class="titre-section">'+element.attr('confirmation')+'</h2><div style="text-align:center; font-size: 16px" class="boutons"><a class="btn_oui" href="#">Oui</a> - <a class="btn_non" href="#">Non</a></div></div>');
+
+				var debut_contenu_modal	= '<div class="confirm"><div class="confirm-text"><h3>'+element.attr('confirmation')+'</h3></div>';
+				var boutons_modal		= '<div class="confirm-buttons"><a id="confirm-oui" href="#" class="btn_oui button medium red">Oui</a><a id="confirm-non" href="#" class="btn_non button medium blue">Non</a></div>'
+				var fin_contenu_modal	= '</div>';
+
+				var box 		= $(debut_contenu_modal + boutons_modal + fin_contenu_modal);
+
+				box.find('a.btn_oui').on('click', function(event){
+					event.preventDefault();
+					$.fancybox.close();
+					if(element[0].tagName == 'FORM'){
+						plugin._formSubmit(element);
+					}else{
+						plugin._navigue(element);
+					}
+				})
+				box.find('a.btn_non').on('click', function(event){
+					event.preventDefault();
+					$.fancybox.close();
+				})
+				$.fancybox.open(
+					box,
+					{
+						padding 	: 0,
+						autoSize	: true,
+						autoResize	: true,
+						autoCenter	: true,
+						minHeight 	: 0
+					}
+				);
+			}else{
+				return true;
+			}
+		}
+
+		plugin.addressEnregistre = function(page, lmenu, rmenu, url, cible, insertion){
+			address_index++;
+			if($.address) $.address.value('?'+page+'&ref='+address_index);
+			requetes.push({
+				url			: url,
+				lmenu		: lmenu,
+				rmenu		: rmenu,
+				cible		: cible,
+				insertion	: insertion
+			});
+		}
+
+		plugin.address_navigue = function(ref){
+			origine = requetes[ref];
+			if(origine != undefined){
+				if(origine.cible != undefined && origine.url != undefined){
+					plugin._navigue(undefined, origine.url, origine.cible, origine.insertion);
+					if(origine.rmenu != undefined) right_menu(origine.rmenu)
+					if(origine.lmenu != undefined) left_menu(origine.lmenu)
+				}
+			}
+		}
+
+		plugin.afficheSpinner = function(cible, insertion){
+			if(cible != undefined){
+				cible.Loading();
+				cible.Loading('start', insertion);
+			}
+		}
+
+		plugin.masqueSpinner = function(cible){
+			cible.Loading('stop');
+		}
+
+		plugin.callbackSuccess = function(element, data){
+			if(element != undefined){
+				var onSuccess = element.attr('onSuccess');
+				if(onSuccess != undefined && typeof eval(onSuccess) != 'undefined'){
+					eval(onSuccess+'(element, data);');
+				}
+			}
+		}
+
+		plugin.lanceEcouteurScroll = function(){
+			if(surveille_scroll == 'off'){
+				surveille_scroll = 'on';
+				$(window).on('resize scroll orientationchange', function(event){
+					plugin.executeScroll();
+				});
+			}
+		}
+
+		plugin.executeScroll = function(){
+			$.each(scroll_elements, function(index, element){
+				if($('body').has(element).length == 0){
+					scroll_elements.splice(index, 1);
+				}else{
+					var target = element.attr('target');
+					if($(target).is(':visible')){
+						if (element.offset().top != 0) {
+							if ($(window).scrollTop() + $(window).height() > element.offset().top + element.outerHeight()) {
+								element.trigger('click');
+							}
+						};
+					}
+				}
+			});
+		}
+
+		//--> Fait naviguer vers la première page ou écrit la première URL de navigation par défault
+		plugin.navigation = function(){
+			/*var redirige = false;
+			if($get('page').length > 0){
+
+				var page		= $get('page');
+				var el			= $('<span target=".page .block-right .content"></span>').appendTo('body');
+				var lmenu		= undefined;
+				var rmenu		= undefined;
+				var target		= '.page .block-right .content';
+				var insertion	= 'html';
+
+				switch(page){
+					case 'accueil':
+						var url = url_default;
+						el.attr('rmenu', 'accueil');
+						rmenu = 'feeds';
+						break;
+					case 'feed':
+						var url = url_feed;
+						el.attr('rmenu', 'feeds');
+						rmenu = 'feeds';
+						break;
+					case 'brand':
+						var url = url_brand;
+						el.attr('rmenu', 'brands');
+						rmenu = 'brands';
+						break;
+					case 'store':
+						var url = url_store;
+						el.attr('rmenu', 'stores');
+						rmenu = 'stores';
+						break;
+					case 'collection':
+						var url = url_collection;
+						el.attr('rmenu', 'brands');
+						rmenu = 'brands';
+						break;
+					case 'showroomprive':
+						var url = url_showroomprive;
+						el.attr('rmenu', 'brands');
+						rmenu = 'brands';
+						break;
+					case 'linesheet':
+						var url = url_linesheet;
+						el.attr('rmenu', 'brands');
+						rmenu = 'brands';
+						break;
+					case 'produit':
+						var url = url_produit;
+						el.attr('rmenu', 'brands');
+						rmenu = 'brands';
+						break;
+					case 'profil':
+						var url = url_profil;
+						el.attr('rmenu', '');
+						rmenu = '';
+						break;
+					case 'message':
+						var url = url_message;
+						el.attr('lmenu', 'messages');
+						lmenu = 'messages';
+						target	= '.page .block-left .content';
+						break;
+					case 'contacts':
+						var url = url_contacts;
+						el.attr('lmenu', 'contacts');
+						lmenu = 'contacts';
+						target	= '.page .block-left .content';
+						break
+					case 'calendar':
+						var url = url_calendar;
+						el.attr('lmenu', 'calendar');
+						lmenu = 'calendar';
+						target	= '.page .block-left .content';
+						break
+
+				}
+
+				if(url != undefined){
+
+					if($get('id').length > 0){
+						var reg_offset = new RegExp("--id--","gi");
+						url = url.replace(reg_offset, $get('id'));
+					}
+
+					el.attr('href', url);
+					el.attr('target', target);
+
+					//--> On récupère les paramètres de l'url et on enlève la valeur éventuelle de réf
+					var reg_offset = new RegExp("&?ref=[0-9]*","gi");
+					page = $get('?').replace(reg_offset, '');
+
+					//--> Enregistrement de l'instance de page
+					redirige = true;
+					plugin.addressEnregistre(page, lmenu, rmenu, url, $(target), insertion);
+					plugin.navigue(el);
+
+				}
+			}*/
+		}
+
+		plugin.insertImage = function(data){
+			if (data.target != "") {
+				if (data.model_id != undefined) {};
+				var target = data.target.replace('--id--',data.model_id);
+				var img = $('<img src="'+data.img+'"/>');
+				//--> Insertion des données
+				plugin.inject(img, target, data.insertion);
+			};
+		}
+
+		plugin.actualise = function(cible){
+			if(cible != undefined){
+				var cible = $(cible);
+				var url = cible.attr('navigator_url');
+				if(url != undefined && url != ''){
+					plugin._navigue(undefined, url, cible);
+				}
+			}
+		}
+
+		plugin.debug = function(element){
+			element = $(element);
+
+			var debug = element.attr('debug');
+
+			if(debug == 'true'){
+				var href			= element.attr('href');
+				var target			= element.attr('target') 			== undefined ? '-- non défini --' : $(element.attr('target'));
+				var insertion		= element.attr('insertion') 		== undefined ? '-- non défini --' : element.attr('insertion');
+				var page			= element.attr('page') 				== undefined ? '-- non défini --' : element.attr('page');
+				var lmenu			= element.attr('lmenu') 			== undefined ? '-- non défini --' : element.attr('lmenu');
+				var rmenu			= element.attr('rmenu') 			== undefined ? '-- non défini --' : element.attr('rmenu');
+				var confirmation	= element.attr('confirmation') 		== undefined ? '-- non défini --' : element.attr('confirmation');
+				var suppr			= element.attr('suppr') 			== undefined ? '-- non défini --' : element.attr('suppr');
+				var elements		= element.attr('elements') 			== undefined ? '-- non défini --' : $(element.attr('elements'));
+				var onSuccess		= element.attr('onSuccess') 		== undefined ? '-- non défini --' : element.attr('onSuccess');
+				var supprLien		= element.attr('supprLien') 		== undefined ? '-- non défini --' : element.attr('supprLien');
+				var infiniteScroll	= element.attr('infiniteScroll') 	== undefined ? '-- non défini --' : element.attr('infiniteScroll');
+				var loader			= element.attr('loader') 			== undefined ? '-- non défini --' : element.attr('loader');
+				var beforenavigator	= element.attr('beforenavigator') 	== undefined ? '-- non défini --' : element.attr('beforenavigator');
+
+				var debug = {
+					href : 				href,
+					target : 			target,
+					insertion : 		insertion,
+					page : 				page,
+					lmenu : 			lmenu,
+					rmenu : 			rmenu,
+					confirmation : 		confirmation,
+					suppr : 			suppr,
+					elements : 			elements,
+					onSuccess : 		onSuccess,
+					supprLien : 		supprLien,
+					infiniteScroll : 	infiniteScroll,
+					loader : 			loader,
+					beforenavigator : 	beforenavigator
+				};
+				console.log(debug);
+			}
+		}
+
+		plugin.preloadImages = function(images, callback){
+		    images.each(function(){
+		        $('<img/>')[0].src = $(this).attr('src');
+		    });
+
+		    var nimages = images.length;
+
+		    if(nimages == 0) {
+				callback();
+				return;
+			}
+
+			timeOutLoaded = setTimeout(callback, 2000);
+
+			images.load(function() {
+				nimages--;
+				if(nimages == 0) {
+					clearTimeout(timeOutLoaded);
+					callback();
+				}else{
+					clearTimeout(timeOutLoaded);
+					timeOutLoaded = setTimeout(callback, 2000);
+				}
+			});
+		}
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+
+		}
+
+		var __log = function(texte, cible){
+			$('body').Log('log', '<b>Navigator</b> - ' + texte, '#9c01ae', cible);
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Navigator = function(options) {
+		var args = arguments;
+		return this.each(function() {
+			var plugin = $(this).data('Navigator');
+			if (undefined === plugin) {
+				plugin = new $.Navigator(this, options);
+				$(this).data('Navigator', plugin);
+			}else if ( plugin[options] ) {
+				return plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+			}
+		});
+	};
+
+})(jQuery);
+
+
+jQuery(function($){
+
+	/*first_externalChange = false;
+
+	if($.address){
+		// $.address.internalChange(function(event){
+		// 	console.log('internalChange');
+		// });
+
+		$.address.externalChange(function(event){
+			if(first_externalChange != false){
+				if($.address.parameter('ref') != undefined){
+					$('body').Navigator('address_navigue',$.address.parameter('ref'));
+				}
+			}else{
+				first_externalChange = true;
+			}
+		});
+
+		// $.address.init(function(event){
+		// 	console.log('init');
+		// });
+
+		// $.address.change(function(event){
+		// 	console.log('change');
+		// });
+
+		// $.address.bind(type, data, function(event){
+		// 	console.log('bind');
+		// });
+	}
+
+	$('.block-right .header .menu li a').on('click', function(event){
+		if($(this).parent().hasClass('menu_feeds')) right_menu('feeds');
+		if($(this).parent().hasClass('menu_brands')) right_menu('brands');
+		if($(this).parent().hasClass('menu_stores')) right_menu('stores');
+	})
+
+	right_menu = function(menu){
+		// if(!$('.block-right').hasClass('active-page'))
+		$(document).trigger('show_right');
+		$('.block-right .header .menu li').removeClass('active');
+		if(menu != undefined) $('.block-right .header .menu li.menu_'+menu).addClass('active');
+	}
+
+	$('.block-left .header .navigation li a').on('click', function(event){
+		if($(this).parent().hasClass('menu_messages')) left_menu('messages');
+	})
+
+	left_menu = function(menu){
+		$(document).trigger('show_left');
+		$('.block-left .header .navigation li').removeClass('active');
+		if(menu != undefined) $('.block-left .header .navigation li.menu_'+menu).addClass('active');
+	}*/
+
+	$('body').Navigator();
+
+})

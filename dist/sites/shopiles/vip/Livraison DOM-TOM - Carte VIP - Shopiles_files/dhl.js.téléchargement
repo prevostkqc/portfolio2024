@@ -1,0 +1,70 @@
+var selected_pays = '';
+var villes = [];
+
+var filtre_ville = function(first_call){
+	var code_pays = $('.pays').val();
+	villes = [];
+
+	$('input[type="hidden"]#DHLCodep').remove();
+	$('input[type="hidden"]#DHLVille').remove();
+
+	// codeps_options = '';
+	// villes_options = '';
+
+	// var type = '';
+
+	// refs.forEach(function(elem){
+	// 	if(elem.code_pays == code_pays){
+	// 		villes.push(elem);
+			
+	// 		//RZ--> On vide les champs
+	// 		$('.codep').val('').next().find('input').val('');
+	// 		$('.ville').val('').next().find('input').val('');
+
+	// 		$('.codep').attr('disabled', true);
+	// 		$('.ville').attr('disabled', true);
+
+	// 		if(elem.type == 'C'){
+	// 			$('.ville').attr('disabled', false);
+	// 			villes_options += '<option value="'+elem.ville+'">'+elem.ville+'</option>';
+	// 		}
+
+	// 		if(elem.type == 'CP'){
+	// 			$('.codep').next().show();
+	// 			$('.codep').attr('disabled', false);
+
+	// 			for (var i = elem.codep_start; i <= elem.codep_end; i++) {
+	// 				codeps_options += '<option value="'+i+'='+elem.ville+'">'+i+', '+elem.ville+'</option>';
+	// 			}
+	// 		}
+
+	// 		if(elem.type == 'S'){
+	// 			$('.ville').attr('disabled', false);
+
+	// 			villes_options += '<option value="'+elem.ville+'='+elem.sub+'">'+elem.ville+', '+elem.sub+'</option>';
+	// 		}
+
+	// 		type = elem.type;
+	// 	}
+	// })
+
+
+
+	// $('.codep').html(codeps_options);
+	// $('.ville').html(villes_options);
+
+	// if (!first_call) $('.codep').transformSelect('resetValue');
+	// $('.codep').transformSelect('repaint');
+	// $('.ville').transformSelect('repaint');
+
+
+	// if(type == 'CP'){
+	// 	$('.ville').next().hide();
+	// }else{
+	// 	$('.codep').next().hide();
+	// }
+}
+
+setTimeout(function(){
+	filtre_ville(true);
+}, 1000)

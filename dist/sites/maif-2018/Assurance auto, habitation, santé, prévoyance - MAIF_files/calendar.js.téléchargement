@@ -1,0 +1,35 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+(function(){moment.locale("fr",{weekdaysShort:["D","L","M","M","J","V","S"]});var nowDay=moment().startOf("day");var app=angular.module("calendar",[]);var countDay=0;var countDraw=0;app.directive("cal",["$compile",function($compile){var template='<month ng-repeat="month in months"></month>';return{restrict:"E",replace:true,scope:{dayClick:"=?",yearRender:"=?",monthRender:"=?",weekRender:"=?",dayRender:"=?",start:"=?",minDate:"=?",numberOfMonth:"=?",numberOfWeek:"=?",numberOfDay:"=?",startDayOfWeek:"=?",afterRender:"=?"},link:function(scope,ielt,attr){scope.render=scope.yearRender||function(year){return'<div class="cal-year"><header><a class="prev" href="javascript:void(0)" ng-click="prevMonth()"></a><span class="title">'+year.format("MMMM YYYY")+'</span><a class="next" href="javascript:void(0)" ng-click="nextMonth()"></a></header></div>';};scope.numberOfMonth=scope.numberOfMonth||1;scope.numberOfWeek=scope.numberOfWeek||6;scope.numberOfDay=scope.numberOfDay||7;countDay=scope.numberOfMonth*scope.numberOfWeek*scope.numberOfDay;countDraw=0;scope.startDayOfWeek=typeof scope.startDayOfWeek!=="undefined"?scope.startDayOfWeek:1;scope.nextMonth=function(){scope.start.add(1,"M");ielt.empty();scope.$$ChildScope();init();};scope.prevMonth=function(){scope.start.add(-1,"M");ielt.empty();scope.$$ChildScope();init();};function init(){scope.start=scope.start||moment();var startMonth=scope.start.clone().startOf("month");scope.startDisplay=startMonth.clone();scope.months=[];var month=startMonth.clone();for(var i=0;i<scope.numberOfMonth;i++){scope.months.push(month);month=month.clone().add(1,"M");}var templateElem=angular.element(template);var dom=angular.element(scope.render(scope.start));dom.append(templateElem);ielt.append(dom);var domCompiled=$compile(dom);domCompiled(scope);}init();}};}]);app.directive("month",["$compile",function($compile){var template='<week ng-repeat="week in weeks"></week>';return{restrict:"E",replace:true,scope:{},link:function(scope,ielt,attr){var numberOfWeek=scope.$parent.numberOfWeek;var numberOfDay=scope.$parent.numberOfDay;scope.render=scope.$parent.monthRender||function(month){var libelle="";var idx=scope.$parent.startDayOfWeek;for(var i=idx;i<numberOfDay+idx;i++){libelle+='<div class="cal-day cal-libelle">'+moment.weekdaysShort(i%7)+"</div>";}return'<div class="cal-header"><div class="cal-month">'+libelle+"</div></div>";};var month=scope.$parent.month.clone();var week=month.clone().startOf("week").day(scope.$parent.startDayOfWeek);scope.weeks=[];for(var i=0;i<numberOfWeek;i++){scope.weeks.push(week);week=week.clone().add(1,"w");}var templateElem=angular.element(template);var dom=angular.element(scope.render(month));dom.append(templateElem);ielt.append(dom);var domCompiled=$compile(templateElem);domCompiled(scope);}};}]);app.directive("week",["$compile",function($compile){var template='<day ng-repeat="day in days" date="{{day.format(\'YYYY-MM-DD\')}}" flex></day>';return{restrict:"E",replace:true,scope:{},link:function(scope,ielt,attr){scope.render=scope.$parent.$parent.$parent.weekRender||function(week){return'<div class="cal-week"></div>';};var numberOfDay=scope.$parent.$parent.$parent.numberOfDay;var day=scope.$parent.week.clone();scope.days=[];for(var i=0;i<numberOfDay;i++){scope.days.push(day);day=day.clone().add(1,"d");}var dom=angular.element(scope.render(scope.current));var templateElem=angular.element(template);dom.append(templateElem);ielt.append(dom);var domCompiled=$compile(templateElem);domCompiled(scope);}};}]);app.directive("day",["$compile",function($compile){return{restrict:"E",replace:true,scope:{},link:function(scope,ielt,attr){scope.render=scope.$parent.$parent.$parent.$parent.$parent.dayRender||function(day,ielt){var dom=angular.element('<div class="cal-day">'+(day.format("MM")==scope.$parent.$parent.$parent.$parent.$parent.start.format("MM")?"<span>"+day.format("D")+"</span>":"")+"</div>");ielt.append(dom);};scope.current=scope.$parent.day.clone();var diff=nowDay.diff(scope.current.clone().startOf("day"));var cmpNow=diff>0?"cal-before":(diff===0?"cal-now":"cal-after");ielt.addClass(cmpNow);if(scope.current.get("M")!==scope.$parent.$parent.$parent.$parent.$parent.month.get("M")){ielt.addClass("cal-other-month");}scope.render(scope.current,ielt);if(typeof scope.$parent.$parent.$parent.$parent.$parent.dayClick==="function"){ielt.bind("click",function(evt){scope.$parent.$parent.$parent.$parent.$parent.dayClick(scope.current,angular.element(evt.currentTarget),evt);});}var domCompiled=$compile(ielt.children());domCompiled(scope);countDraw++;if(countDraw>=countDay){if(typeof scope.$parent.$parent.$parent.$parent.$parent.afterRender==="function"){scope.$parent.$parent.$parent.$parent.$parent.afterRender();}countDraw=0;}}};}]);})();
+
+}
+/*
+     FILE ARCHIVED ON 20:44:34 Aug 11, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:49:23 Apr 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.584
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.067
+  esindex: 0.009
+  LoadShardBlock: 340.758 (3)
+  PetaboxLoader3.datanode: 364.489 (5)
+  load_resource: 524.012 (2)
+  PetaboxLoader3.resolve: 227.648 (2)
+*/

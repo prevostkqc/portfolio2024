@@ -1,0 +1,1725 @@
+﻿
+
+/* ===================== */
+/*      DEBUT CRYSIS     */
+/* ===================== */
+
+
+img {
+	max-width: initial;
+}
+
+.crysis__content_parties {
+	width: 90%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 2vw 0;
+	position: relative;
+}
+
+.crysis__content_parties--center {
+	align-items: center;
+}
+
+.crysis__partie {
+	width: 45%;
+	position: relative;
+}
+
+.crysis__partie__totale {
+	width: 90%;
+	position: relative;
+}
+
+.crysis__partie__small {
+	width: 45%;
+	position: relative;
+}
+
+.crysis__partie__large {
+	width: 55%;
+	position: relative;
+}
+
+.crysis__partie__xsmall {
+	width: 35%;
+	position: relative;
+	z-index: 10;
+}
+
+.crysis__partie__xsmall__caract {
+	width: 40%;
+}
+
+.crysis__partie__xlarge {
+	width: 60%;
+	position: relative;
+}
+
+.crysis__content_titre, .crysis__titre {
+	font-family: 'Teko', sans-serif !important;
+}
+
+.crysis__content_titre {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	text-transform: uppercase;
+	font-family: 'Teko', sans-serif !important;
+}
+
+.crysis__titre {
+	color: #ffffff;
+	font-size: 3vw;
+	margin-left: 0.5vw;
+	position: relative;
+	font-family: 'Teko', sans-serif !important;
+}
+
+	.crysis__titre:after {
+		content: "";
+		position: absolute;
+		background: #e3242a;
+		height: 0.2vw;
+		width: 4vw;
+		left: 0;
+		top: 2.8vw;
+		transition: all 0.4s;
+	}
+
+	.crysis__titre:hover::after {
+		width: 100%;
+		transition: all 0.4s;
+		background-color: var(--blanc);
+	}
+
+.crysis__texte__texte {
+	width: 100%;
+	color: var(--blanc);
+	font-family: 'Montserrat',sans-serif;
+	font-weight: 200;
+	margin-top: 2vw;
+	line-height: 1.5;
+	font-size: 1vw;
+	text-shadow: 1px 1px 2px #000000B3;
+	position: relative;
+}
+
+.crysis__strong {
+	font-weight: 6ej 00;
+}
+
+.crysis__maxi-strong {
+	font-weight: var(--semibold);
+}
+
+.crysis_strong__intel {
+	font-weight: var(--semibold);
+	color: #00b5e7;
+}
+
+.crysis__content_number {
+	background: #e3242a;
+	padding: 0.5vw 0.7vw 0vw 1vw;
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%, 0 75%);
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 25% 100%, 0 75%);
+	width: 4vw !important;
+	font-size: 3vw;
+	color: #ffffff;
+	margin-top: 0.7vw;
+	transition: all 0.4s;
+	font-family: 'Teko', sans-serif !important;
+}
+
+	.crysis__content_number:hover {
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%, 0 100%);
+		transition: all 0.4s;
+	}
+
+
+
+
+/* ==================== */
+/* Intro */
+@keyframes opentitle {
+	0% {
+		opacity: 0;
+		width: 50%;
+		overflow: hidden;
+		text-align: left;
+		letter-spacing: 3.8vw;
+	}
+
+	100% {
+		opacity: 1;
+		width: 90%;
+		text-align: left;
+		letter-spacing: 1.8vw;
+	}
+}
+
+.crysis__intro__titre {
+	animation-duration: 3.5s;
+	animation-timing-function: ease-out;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-name: opentitle;
+	width: 100%;
+	text-align: center;
+	letter-spacing: 1.8vw;
+}
+
+.crysis_intro {
+	overflow: hidden;
+	position: relative;
+}
+
+.crysis__intro__intro {
+	position: relative;
+	background: : var(--noir);
+	width: 100%;
+}
+
+.crysis__h1, .crysis__h2 {
+	font-family: 'Teko', sans-serif;
+	position: absolute;
+	top: 15vw;
+	font-size: 3vw;
+	text-transform: uppercase;
+	line-height: 3vw;
+	color: var(--blanc);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	font-weight: 300;
+	text-shadow: 1px 1px 2px : var(--noir);
+	width: 100%;
+	text-align: center;
+}
+
+.crysis__h1 {
+	top: 20.6vw;
+	font-size: 12vw;
+	width: 100%;
+	letter-spacing: 1.4vw;
+	text-align: center;
+}
+
+
+.crysis__intro__logo_crysis {
+	top: 25vw;
+	left: 37.5%;
+	width: 21.5%;
+	position: absolute;
+}
+
+.crysis__intro__logo_cybertek {
+	top: 40vw;
+	left: 43%;
+	width: 12%;
+	position: absolute;
+}
+
+	.crysis__intro__logo_cybertek img, .crysis__intro__logo_crysis img {
+		width: 100%;
+	}
+
+.crysis__bandeau-fin-intro {
+	background: rgb(36,36,36);
+	background: linear-gradient( 180deg, rgba(36,36,36,1) 0%, rgba(0,0,0,1) 50%, rgba(36,36,36,1) 100%);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: -3px;
+	z-index: 10;
+	position: relative;
+}
+
+.crysis__intro__bouton {
+	top: 45.6vw;
+	left: 43.8%;
+	width: 9%;
+	position: absolute;
+}
+
+.crysis__intro__decouvrir {
+	top: 45.7vw;
+	left: 46.5%;
+	width: 9%;
+	position: absolute;
+}
+
+.crysis__intro__decouvrir__p {
+	color: #ffffff;
+	font-family: 'Montserrat',sans-serif;
+	font-size: 0.7vw;
+}
+
+
+.crysis__intro_btn {
+	-webkit-clip-path: polygon(14% 13%, 86% 13%, 92% 23%, 57% 85%, 43% 85%, 8% 23%);
+	clip-path: polygon(14% 13%, 86% 13%, 92% 23%, 57% 85%, 43% 85%, 8% 23%);
+}
+
+.crysis__intro_color_btn {
+	stop-color: var(--gris_200);
+	transition: all .4s;
+}
+
+.crysis__intro_btn:hover .crysis__intro_color_btn {
+	stop-color: #62858d;
+	transition: all .4s;
+}
+
+
+.crysis__bandeau__logo {
+	width: 10%;
+	padding: 1vw 1vw;
+}
+
+
+@keyframes svg_intro_fade {
+	0% {
+		opacity: 0.4;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0.4;
+	}
+}
+
+.crysis_intro_back_svg {
+	animation-duration: 3.5s;
+	animation-timing-function: ease-out;
+	animation-delay: 0s;
+	animation-iteration-count: infinite;
+	animation-name: svg_intro_fade;
+	background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/hexa-bck.svg);
+	width: 100%;
+	height: 58vw;
+	position: absolute;
+	top: 0;
+	background-size: cover;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.crysis__partie__large--youtube {
+	margin-top: 6vw;
+}
+/* ==================== */
+/* Youtube */
+.crysis__01__youtube {
+	background: : var(--noir);
+	padding: 1vw 0;
+	position: relative;
+	height: 45vw;
+	overflow: hidden;
+}
+
+.crysis__youtube_cadre {
+	width: 99%;
+	-webkit-clip-path: polygon(70% 4%, 85% 50%, 70% 98%, 30% 95%, 15% 50%, 30% 2%);
+	clip-path: polygon(70% 4%, 85% 50%, 70% 98%, 30% 95%, 15% 50%, 30% 2%);
+	transition: all 0.6s;
+}
+
+	.crysis__youtube_cadre:hover {
+		-webkit-clip-path: polygon(100% 0, 100% 49%, 100% 100%, 0 100%, 0 48%, 0 0);
+		clip-path: polygon(100% 0, 100% 49%, 100% 100%, 0 100%, 0 48%, 0 0);
+		transition: all 0.6s;
+	}
+
+.crysis__youtube_fond-cadre {
+	position: absolute;
+	background: #519494;
+	width: 99%;
+	height: 30vw;
+	-webkit-clip-path: polygon(71% 0%, 85% 50%, 70% 98.5%, 29% 99%, 14.99% 50%, 30% 1%);
+	clip-path: polygon(71% 0%, 85% 50%, 70% 98.5%, 29% 99%, 14.99% 50%, 30% 1%);
+}
+
+.crysis__video_youtube {
+	width: 100%;
+	height: 30vw;
+}
+
+
+
+.crysis__youtube__images_fond {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.crysis__youtube__image {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.crysis__youtube__image--boitier {
+	width: 38vw;
+	top: 19vw;
+	left: 15vw;
+}
+
+.crysis__youtube__image--pc {
+	width: 23vw;
+	top: 20vw;
+	left: 0vw;
+}
+
+.crysis__youtube__image--crysis {
+	width: 18vw;
+	top: 21.5vw;
+	left: 1vw;
+}
+
+
+
+
+/* ==================== */
+/* Caractéristiques */
+
+.crysis__02_cara {
+	background: #192021;
+	background-image: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/caract_background.gif');
+	overflow: hidden;
+	height: 57vw;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.crysis__caract__border {
+	position: absolute;
+	width: 1.5vw;
+	top: -1.2vw;
+	left: 3vw;
+}
+
+.crysis__liste__caract {
+	font-family: 'Montserrat',sans-serif;
+	font-weight: var(--medium);
+	font-size: 1.1vw;
+	color: #96deb9;
+	text-shadow: 0 0 3px #ffffff;
+	background: rgb(0,0,0);
+	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.18110994397759106) 90%, rgba(0,0,0,0) 100%);
+	padding: 0.8vw;
+	margin-left: 4vw;
+}
+
+.crysis__texte__jaune {
+	color: #dcc300;
+	font-family: 'Montserrat',sans-serif;
+	position: absolute;
+	top: 19.5vw;
+	left: 4vw;
+	font-size: 1.3vw;
+	text-shadow: 0 0 #f1ffa7;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=0, Color=#F8FF99)";
+	text-shadow: 0 0 6px #a2ae00;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=135, Color=#F8FF99);
+	line-height: 1.5;
+	text-shadow: 4px 4px 6px : var(--noir);
+	text-transform: uppercase;
+}
+.crysis__maxi-strong {
+	text-transform: uppercase;
+}
+
+.crysis__liste__caract__item--desc {
+	font-weight: 200;
+}
+
+.crysis__liste__caract__item--line {
+	padding: 0.8vw;
+	border-width: 1px;
+	border-style: solid;
+	border-image: linear-gradient(to right, #91d7aa00, #96deab00) 1;
+	cursor: pointer;
+	transition: all 1s;
+}
+
+	.crysis__item__selected, .crysis__liste__caract__item--line:hover {
+		padding: 0.8vw;
+		border-width: 1px;
+		border-style: solid;
+		border-image: linear-gradient(to right, #91d7aa, #96deab00) 1;
+		transition: all 1s;
+	}
+
+.crysis__caract__red_circle {
+	width: 80%;
+	float: right;
+}
+
+.crysis__hexa__produit {
+	position: absolute;
+}
+
+.crysis__caract__item {
+	position: absolute;
+	width: 19vw;
+}
+
+
+.crysis__hexa__produit--ram {
+	left: 13vw;
+	top: -5vw;
+}
+
+.crysis__hexa__produit--cpu {
+	left: 13vw;
+	top: 28vw;
+}
+
+.crysis__hexa__produit--tour {
+	left: 5vw;
+	top: 12vw;
+}
+
+.crysis__hexa__produit--gpu {
+	left: 33vw;
+	top: 28vw;
+}
+
+.crysis__hexa__produit--cm {
+	left: 32vw;
+	top: -5vw;
+}
+
+.crysis__hexa__produit--ssd {
+	left: 41vw;
+	top: 12vw;
+}
+
+
+
+.crysis__hexa__selected {
+	position: absolute;
+	left: 16.5vw;
+	top: 3vw;
+}
+
+.crysis__caract__item__selected {
+	width: 40vw;
+	position: absolute;
+	border: none;
+	top: -3vw;
+	left: -4vw;
+}
+
+
+
+.crysis__caract__item--noview {
+	opacity: 0;
+	transition: all 0.4s;
+}
+
+.crysis__caract__item--view {
+	opacity: 1;
+	transition: all 0.4s;
+}
+.crysis__btn__decouvrir__carct {
+	width: 17vw;
+	margin-left: 8vw;
+	margin-top: 8vw;
+	position: absolute;
+}
+
+
+
+
+/* ==================== */
+/* Cool master */
+
+.crysis__03__cooler {
+	background: #6e050a;
+	background-image: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/bck-cooler-master.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 55vw;
+}
+
+.crysis__cooler_imgs {
+	position: absolute;
+	width: 50vw;
+	margin-left: 18vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 11vw;
+}
+
+.crysis__cooler_img__back {
+	width: 26vw;
+	height: 26vw;
+	position: absolute;
+}
+
+.crysis__cooler_img__back1 {
+	transform: scale(1);
+	transition: all 1s;
+}
+
+	.crysis__cooler_img__back1:hover {
+		transform: scale(1.4);
+		transition: all 1s;
+	}
+
+.crysis__crysis__cooler_img__back__mask1 {
+	position: absolute;
+	width: 26vw;
+	height: 26vw;
+	-webkit-clip-path: polygon(45% 8%, 55% 8%, 96% 83%, 91% 92%, 8% 92%, 4% 83%);
+	clip-path: polygon(45% 8%, 55% 8%, 96% 83%, 91% 92%, 8% 92%, 4% 83%);
+}
+
+.crysis__crysis__cooler_img__back__mask2 {
+	position: absolute;
+	width: 26vw;
+	height: 26vw;
+	webkit-clip-path: polygon(9% 8%, 91% 8%, 96% 18%, 55% 92%, 45% 92%, 4% 17%);
+	clip-path: polygon(9% 8%, 91% 8%, 96% 18%, 55% 92%, 45% 92%, 4% 17%);
+}
+
+.crysis__cooler_img {
+	width: 26vw;
+	height: 26vw;
+	position: absolute;
+}
+
+.crysis__cooler_img {
+	pointer-events: none;
+}
+
+.crysis__partie__xsmall__bottom {
+	margin-top: 33vw;
+}
+
+
+
+
+/* ==================== */
+/* Intel */
+
+
+.crysis__04__intel {
+	background: #141414;
+	height: 60vw;
+	overflow: hidden;
+}
+
+.crysis__04__intel__nom_intel {
+	height: 60vw;
+}
+
+.crysis__content_parties--fond-intel {
+	background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(20,20,20,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
+	height: 60vw;
+	position: relative;
+}
+
+.crysis__intel__fond {
+	position: absolute;
+	left: -5.5vw;
+}
+
+.crysis__texte--intel {
+	border: solid 2px #00b5e7;
+	background: #141414;
+	padding: 1vw;
+	-webkit-box-shadow: 5px 5px 15px 5px : var(--noir);
+	box-shadow: 5px 5px 15px 5px #000000A6;
+}
+
+.crysis__intel__proc--zone {
+	position: absolute;
+	width: 16vw;
+	text-align: center;
+	height: 23vw;
+	margin: auto;
+	left: 42.5vw;
+	top: 18vw;
+	z-index: 10;
+}
+
+.crysis__intel__proc {
+	width: 100%;
+	text-align: center;
+	height: 55vw;
+	position: absolute;
+}
+
+.crysis__intel__socle, .crysis__intel__cpu {
+	position: absolute;
+}
+
+.crysis__intel__socle {
+	width: 17vw;
+	left: calc(50% - 14vw);
+	top: 11vw;
+	transition: all 1s;
+}
+
+.crysis__intel__cpu {
+	width: 13vw;
+	left: calc(50% - 12vw);
+	transition: all 1s;
+}
+
+
+.crysis__intel__fond--forme {
+	transform: scale(1.0);
+	opacity: 1;
+	transition: all 1s;
+	z-index: 0;
+	pointer-events: none;
+	width: 101vw;
+}
+
+.crysis__intel__fond--pattern {
+	transform: scale(0.0);
+	opacity: 0;
+	transition: all 1s;
+	z-index: 0;
+	pointer-events: none;
+	width: 101vw;
+}
+
+.crysis__intel__proc--zone:hover ~ .crysis__intel__fond--forme {
+	transform: scale(0.0);
+	opacity: 0;
+	transition: all 1s;
+}
+
+.crysis__intel__proc--zone:hover ~ .crysis__intel__fond--pattern {
+	transform: scale(1.0);
+	opacity: 1;
+	transition: all 1s;
+}
+
+
+.crysis__intel__proc--zone:hover .crysis__intel__cpu {
+	transform: scale(1.2);
+	transition: all 1s;
+}
+
+.crysis__intel__proc--zone:hover .crysis__intel__socle {
+	transform: scale(0.7);
+	transition: all 1s;
+	top: 12vw;
+}
+
+
+
+
+/* ==================== */
+/* Composants */
+.crysis__05__composants {
+	background: #2d2d2d;
+	border-top: 1px solid : var(--noir);
+	padding-bottom: 4vw;
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/back_comp.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.crysis__composants__container {
+	display: flex;
+	justify-content: center;
+	padding-top: 5vw;
+	flex-wrap: wrap;
+}
+
+.crysis__composants__top {
+	display: flex;
+	justify-content: center;
+	width: 90%;
+	margin-bottom: -0.17vw;
+	z-index: 3;
+}
+
+.crysis__composants__content {
+	width: 100%;
+	height: 39vw;
+	border: 0.2vw solid #64bbbb;
+	background: rgb(0,0,0);
+	background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgb(45 45 45) 45%, rgb(28 28 28) 100%);
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/bac_comp.png');
+	padding-top: 2vw;
+	position: relative;
+	-webkit-clip-path: polygon(0 0, 99.2% 0, 99.2% 80%, 84% 100%, 25% 100%, 0 69%);
+	clip-path: polygon(0 0, 99.2% 0, 99.2% 80%, 84% 100%, 25% 100%, 0 69%);
+}
+
+.crysis__composants__content__back {
+	background: #64bbbb;
+	width: 80%;
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 86% 100%, 20% 100%, 0 70%);
+	clip-path: polygon(0 0, 100% 0, 100% 85%, 86% 100%, 20% 100%, 0 70%);
+}
+
+
+
+.crysis__composants__icon {
+	margin: 0 0.3vw;
+	color: #dcc300 !important;
+	font-size: 0.7vw;
+	font-family: 'Montserrat',sans-serif;
+	font-weight: 400;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	font-weight: var(--semibold);
+	text-transform: uppercase;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=var(--noir))"; /*IE 8*/
+	text-shadow: 1px 1px 4px : var(--noir); /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=var(--noir)); /*IE 5.5-7*/
+
+	cursor: pointer;
+}
+
+.crysis__composants__icon p {
+	margin: 0 0.3vw;
+	color: #dcc300 !important;
+	font-size: 0.7vw;
+	font-family: 'Montserrat',sans-serif;
+	font-weight: 400;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	font-weight: var(--semibold);
+	text-transform: uppercase;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=var(--noir))"; /*IE 8*/
+	text-shadow: 1px 1px 4px : var(--noir); /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color=var(--noir)); /*IE 5.5-7*/
+
+	cursor: pointer;
+}
+
+.crysis__composants__titre {
+	background: #00000085;
+	padding: 0.3vw;
+	width: 6vw;
+	text-align: center;
+	font-size: 0.6vw;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* -------------------------------------------------------------- */
+.crysis__composants__icon0 {
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_boitier_simple.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 7vw;
+	height: 7vw;
+	border-style: inset;
+}
+
+	.crysis__composants__icon0__hover, .crysis__composants__icon0:hover {
+		background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_boitier_hover.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 7vw;
+		height: 7vw;
+		border-style: inset;
+	}
+
+/* ---- */
+.crysis__composants__icon1 {
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_cpu_simple.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 7vw;
+	height: 7vw;
+}
+
+	.crysis__composants__icon1__hover, .crysis__composants__icon1:hover {
+		background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_cpu_hover.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 7vw;
+		height: 7vw;
+		border-style: inset;
+	}
+
+/* ---- */
+.crysis__composants__icon2 {
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_cmere_simple.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 7vw;
+	height: 7vw;
+	
+}
+
+	.crysis__composants__icon2__hover, .crysis__composants__icon2:hover {
+		background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_cmere_hover.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 7vw;
+		height: 7vw;
+		border-style: inset;
+	}
+
+/* ---- */
+.crysis__composants__icon3 {
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_ram_simple.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 7vw;
+	height: 7vw;
+	
+}
+
+	.crysis__composants__icon3__hover, .crysis__composants__icon3:hover {
+		background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_ram_hover.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 7vw;
+		height: 7vw;
+		border-style: inset;
+	}
+
+/* ---- */
+.crysis__composants__icon4 {
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_gpu_simple.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 7vw;
+	height: 7vw;
+	
+}
+
+	.crysis__composants__icon4__hover, .crysis__composants__icon4:hover {
+		background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_gpu_hover.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 7vw;
+		height: 7vw;
+		border-style: inset;
+	}
+
+/* ---- */
+.crysis__composants__icon5 {
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_ssd_simple.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 7vw;
+	height: 7vw;
+	
+}
+
+	.crysis__composants__icon5__hover, .crysis__composants__icon5:hover {
+		background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_ssd_hover.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 7vw;
+		height: 7vw;
+		border-style: inset;
+	}
+
+/* ---- */
+.crysis__composants__icon6 {
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_wcooling_simple.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 7vw;
+	height: 7vw;
+	
+}
+
+	.crysis__composants__icon6__hover, .crysis__composants__icon6:hover {
+		background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_wcooling_hover.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 7vw;
+		height: 7vw;
+		border-style: inset;
+	}
+
+/* ---- */
+.crysis__composants__icon7 {
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_alim_simple.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 7vw;
+	height: 7vw;
+	
+}
+
+	.crysis__composants__icon7__hover, .crysis__composants__icon7:hover {
+		background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_alim_hover.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 7vw;
+		height: 7vw;
+		border-style: inset;
+	}
+
+/* ---- */
+.crysis__composants__icon8 {
+	background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_windows_simple.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 7vw;
+	height: 7vw;
+	
+}
+
+	.crysis__composants__icon8__hover, .crysis__composants__icon8:hover {
+		background: url('https://www.cybertek.fr/images_produits/cybertek/images-landing/crysis_cooler/last_picto_windows_hover.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 7vw;
+		height: 7vw;
+		border-style: inset;
+	}
+/* ---- */
+
+
+
+.crysis__content_titre__composant {
+	padding: 0.5vw 0.7vw 0vw 1vw;
+	-webkit-clip-path: polygon(1.5% 0%, 100% 0, 100% 100%, 0% 100%, 0% 21%);
+	clip-path: polygon(1.5% 0%, 100% 0, 100% 100%, 0% 100%, 0% 21%);
+	width: 68vw;
+	font-size: 3vw;
+	color: #ffffff;
+	margin-top: 0.7vw;
+	transition: all 0.4s;
+	background: rgb(227,36,42);
+	background: linear-gradient(90deg, rgba(227,36,42,1) 0%, rgba(227,36,36,0.4738270308123249) 15%, rgba(227,36,42,0) 26%);
+	font-family: 'Teko', sans-serif !important;
+}
+
+.crysis__titre_composant {
+	color: #ffffff;
+	font-size: 1vw;
+	margin-left: 0.5vw;
+	position: relative;
+	font-family: 'Montserrat',sans-serif !important;
+	margin-top: 1vw;
+}
+
+	.crysis__titre_composant:after {
+		content: "";
+		position: absolute;
+		background: #e3242a;
+		height: 0.2vw;
+		width: 33%;
+		left: 0;
+		top: 1.5vw;
+		transition: all 0.4s;
+	}
+
+	.crysis__titre_composant:hover::after {
+		width: 100%;
+		transition: all 0.4s;
+		background-color: var(--blanc);
+	}
+
+
+
+
+.crysis__composant__item {
+	width: 74vw;
+	margin: auto;
+}
+
+.crysis__jeu_offert {
+	position: absolute;
+	width: 20vw;
+	top: 12vw;
+	left: 2.5vw;
+}
+
+.crysis__jeu__image {
+	position: absolute;
+	width: 100%;
+}
+
+.crysis__jeu_offert_titre {
+	position: absolute;
+	font-family: 'Montserrat',sans-serif;
+	color: var(--blanc);
+	font-weight: 400;
+	top: 10.1vw;
+	margin-left: 1vw;
+	font-size: 0.83vw;
+}
+
+.crysis__composant__presentation_img {
+	width: 25vw;
+	left: 15vw;
+	position: absolute;
+	top: 0vw;
+}
+
+.crysis__composant__presentation_img0 {
+	width: 25vw;
+	left: 14.5vw;
+	position: absolute;
+	top: 3vw;
+}
+
+.crysis__composant__presentation_img1 {
+	width: 20vw;
+	left: 17vw;
+	position: absolute;
+	top: 2vw;
+}
+
+.crysis__composant__presentation_img2 {
+	width: 23vw;
+	left: 15vw;
+	position: absolute;
+	top: 2vw;
+}
+
+.crysis__composant__presentation_img3 {
+	width: 25vw;
+	left: 14.5vw;
+	position: absolute;
+	top: 4vw;
+}
+
+.crysis__composant__presentation_img4 {
+	width: 21vw;
+	left: 16.5vw;
+	position: absolute;
+	top: 4vw;
+}
+
+.crysis__composant__presentation_img5 {
+	width: 21vw;
+	left: 16.5vw;
+	position: absolute;
+	top: 4vw;
+}
+
+.crysis__composant__presentation_img6 {
+	width: 21vw;
+	left: 16.5vw;
+	position: absolute;
+	top: 4vw;
+}
+
+.crysis__composant__presentation_img7 {
+	width: 21vw;
+	left: 16.5vw;
+	position: absolute;
+	top: 4vw;
+}
+
+.crysis__composant__presentation_img8 {
+	width: 21vw;
+	left: 16.5vw;
+	position: absolute;
+	top: 4vw;
+}
+
+.crysis__composant__arrow_left {
+	border: solid var(--blanc);
+	border-width: 0 0.5vw 0.5vw 0;
+	/* border-radius: 3vw; */
+	display: inline-block;
+	padding: 1vw;
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+	position: absolute;
+	left: 27vw;
+	top: 13vw;
+	transition: all 0.5s;
+	cursor: pointer;
+	z-index: 666;
+}
+
+.crysis__composant__arrow_right {
+	border: solid var(--blanc);
+	border-width: 0 0.5vw 0.5vw 0;
+	/* border-radius: 3vw; */
+	display: inline-block;
+	padding: 1vw;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	position: absolute;
+	left: 54vw;
+	top: 13vw;
+	transition: all 0.5s;
+	cursor: pointer;
+	z-index: 666;
+}
+
+	.crysis__composant__arrow_right:hover, .crysis__composant__arrow_left:hover {
+		padding: 0.8vw;
+		transition: all 0.5s;
+	}
+
+.crysis__composant__item__view {
+	display: block;
+}
+
+.crysis__composant__item__noview {
+	display: none;
+}
+
+.crysis__comp__caract {
+	position: absolute;
+	right: 3vw;
+	text-align: right;
+	font-family: 'Montserrat',sans-serif;
+	color: var(--blanc);
+	top: 4vw;
+	width: 18.5vw;
+}
+
+.crysis__comp__titre__caract {
+	font-size: 1vw;
+	padding-bottom: 1vw;
+	text-transform: uppercase;
+}
+
+.crysis__comp__caract__titre {
+	padding: 0.3vw 1.5vw;
+	border-width: 1px;
+	border-style: solid;
+	border-image: linear-gradient(to left, #91d7aa, #96deab00) 1;
+	border-left: none;
+	border-bottom: none;
+	background: linear-gradient(269deg, rgb(100 187 187) 0%, rgb(100 187 187 / 45%) 15%, rgb(100 187 187 / 0%) 71%);
+	text-transform: uppercase;
+	font-size: 0.7vw;
+	font-weight: 300;
+}
+
+.crysis__comp__caract__type {
+	padding: 0.3vw 1.5vw;
+	border-width: 1px;
+	border-style: solid;
+	border-image: linear-gradient(to left, #91d7aa, #96deab00) 1;
+	border-left: none;
+	border-bottom: none;
+	border-top: none;
+	font-size: 0.7vw;
+	font-weight: 300;
+}
+
+.crysis__btn__achat_prix {
+	position: absolute;
+	text-align: center;
+	color: #FFFFFF;
+	font-family: 'Montserrat',sans-serif;
+	font-weight: var(--semibold);
+	font-size: 2.5vw;
+	left: 28vw;
+	top: 27.5vw;
+}
+
+.crysis__btn__achat_back {
+	-webkit-clip-path: polygon(12% 0, 88% 0, 100% 60%, 83% 100%, 13% 100%, 0 40%);
+	clip-path: polygon(12% 0, 88% 0, 100% 60%, 83% 100%, 13% 100%, 0 40%);
+	background: rgb(56,105,105);
+}
+
+.crysis__btn__achat {
+	padding: 1.5vw 4vw;
+	-webkit-clip-path: polygon(15% 5%, 86% 4%, 97% 58%, 82% 95%, 15% 94%, 3% 42%);
+	clip-path: polygon(15% 5%, 86% 4%, 97% 58%, 82% 95%, 15% 94%, 3% 42%);
+	text-align: center;
+	color: #8fdfdf;
+	font-family: 'Montserrat',sans-serif;
+	font-weight: var(--semibold);
+	font-size: 1.2vw;
+	background: rgb(56,105,105);
+	background: linear-gradient(0deg, rgba(56,105,105,1) 0%, rgba(97,182,182,1) 100%);
+}
+
+	.crysis__btn__achat:hover {
+		background: linear-gradient(180deg, rgba(56,105,105,1) 0%, rgba(97,182,182,1) 100%);
+	}
+
+.crysis__btn__achat__a {
+	text-decoration: none !important;
+}
+
+.crysis__comp__prix {
+	padding-bottom: 0.5vw;
+	text-shadow: 4px 4px 6px : var(--noir);
+}
+
+.crysis__prix_centimes {
+	font-size: 1.2vw;
+}
+
+.crysis__pc__prix {
+	font-family: 'Montserrat',sans-serif;
+	text-shadow: 4px 4px 6px : var(--noir);
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+	.crysis__broff {
+		display: none;
+	}
+
+	.crysis__bandeau__logo {
+		width: 23%;
+		padding: 0;
+	}
+
+	.crysis__youtube__images_fond {
+		display: none;
+	}
+
+	.crysis__content_number {
+		width: 10vw !important;
+		height: 9vw;
+		padding: 1.5vw 1vw 0 3vw;
+		font-size: 8vw;
+		margin-right: 1vw;
+	}
+
+	.crysis__partie__small {
+		width: 100%;
+	}
+
+	.crysis__partie__large {
+		width: 100%;
+	}
+
+	.crysis__partie__xsmall {
+		width: 100%;
+	}
+
+	.crysis__partie__xlarge {
+		width: 100%;
+	}
+
+	.crysis__titre {
+		font-size: 7vw;
+	}
+
+		.crysis__titre:after {
+			height: 0.8vw;
+			width: 15vw;
+			left: 0;
+			top: 6.2vw;
+		}
+
+	.crysis__texte__texte {
+		line-height: 1.5;
+		font-size: 3vw;
+		margin-top: 6vw;
+		text-transform: initial;
+	}
+
+	.crysis__01__youtube {
+		background: : var(--noir);
+		height: auto;
+		overflow: hidden;
+	}
+
+	.crysis__youtube_cadre {
+		clip-path: none;
+	}
+
+	.crysis__youtube_fond-cadre {
+		display: none;
+	}
+
+	.crysis__liste__caract {
+		font-size: 3vw !important;
+	}
+
+	.crysis__liste__caract__item--line span {
+		font-size: 3vw !important;
+	}
+
+	.crysis__caract__border {
+		width: 2.5vw;
+		left: 2vw;
+	}
+
+	.crysis__texte__jaune {
+		position: initial;
+		margin-top: 2vw;
+		margin-left: 4vw;
+		font-size: 3.2vw;
+		line-height: 1.5;
+	}
+
+	.crysis__02_cara {
+		height: auto;
+	}
+
+	.crysis__caract__red_circle {
+		width: 90%;
+		margin-bottom: 10vw;
+		margin-left: 3vw;
+		float: none;
+		margin-top: 10vw;
+	}
+
+	.crysis__caract__item {
+		width: 30vw;
+	}
+
+	.crysis__hexa__produit--ram {
+		left: 13vw;
+		top: 0vw;
+	}
+
+	.crysis__hexa__produit--cpu {
+		left: 13vw;
+		top: 62vw;
+	}
+
+	.crysis__hexa__produit--gpu {
+		left: 46vw;
+		top: 62vw;
+	}
+
+	.crysis__hexa__produit--ssd {
+		left: 61vw;
+		top: 31vw;
+	}
+
+	.crysis__hexa__produit--tour {
+		left: -6vw;
+		top: 31vw;
+	}
+
+	.crysis__hexa__produit--cm {
+		left: 46vw;
+		top: 0vw;
+	}
+
+	.crysis__caract__item__selected {
+		width: 83vw;
+		position: absolute;
+		border: none;
+		top: 0vw;
+		left: -15vw;
+	}
+
+	.crysis__03__cooler {
+		height: auto;
+	}
+
+	.crysis__cooler_imgs {
+		position: relative;
+		width: 50vw;
+		margin-left: 11vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 0vw;
+	}
+
+	.crysis__cooler_img__back {
+		width: 36vw;
+		height: 36vw;
+	}
+
+	.crysis__crysis__cooler_img__back__mask1, .crysis__crysis__cooler_img__back__mask2 {
+		width: 36vw;
+		height: 36vw;
+	}
+
+	.crysis__cooler_img {
+		width: 36vw;
+		height: 36vw;
+	}
+
+	.crysis__partie__xsmall__bottom {
+		margin-top: 40vw;
+		margin-bottom: 9vw;
+	}
+
+	.crysis__content_parties--fond-intel, .crysis__04__intel__nom_intel, .crysis__04__intel {
+		height: auto;
+	}
+
+	.crysis__texte--intel {
+		width: 96%;
+	}
+
+	.crysis__intel__proc {
+		margin-top: 46vw;
+	}
+
+	.crysis__partie__xsmall__intel__bottom {
+		margin-top: 1vw;
+	}
+
+	.crysis__intel__cpu {
+		width: 20vw;
+		left: calc(50% - 16vw);
+		top: -11vw;
+		transition: all 1s;
+	}
+
+	.crysis__intel__socle {
+		width: 27vw;
+		left: calc(50% - 19vw);
+		top: 6vw;
+		transition: all 1s;
+	}
+
+	.crysis__composants__top {
+		display: none;
+	}
+
+	.crysis__intel__proc {
+		position: relative;
+		margin-top: 0vw;
+	}
+
+	.crysis__composants__content, .crysis__composants__content__back {
+		clip-path: none;
+		width: 90%;
+		height: auto;
+	}
+
+	.crysis__composants__content {
+		clip-path: none;
+		width: 100%;
+	}
+
+	.crysis__jeu_offert {
+		position: initial;
+	}
+
+	.crysis__content_titre__composant {
+		width: 100%;
+	}
+
+	.crysis__content_titre__composant {
+		font-size: 8vw;
+		padding: 1.5vw 1.7vw 1vw;
+		margin-left: -5vw;
+		background: rgb(227,36,42);
+		background: linear-gradient(90deg, rgba(227,36,42,1) 0%, rgba(227,36,36,0.4738270308123249) 35%, rgba(227,36,42,0) 54%);
+	}
+
+	.crysis__comp__caract {
+		position: relative;
+		left: -12vw;
+		text-align: right;
+		font-family: 'Montserrat',sans-serif;
+		color: var(--blanc);
+		top: 72vw;
+		width: 82vw;
+		margin-left: 15vw;
+	}
+
+	.crysis__composants__content {
+		height: 348vw;
+		background-size: contain;
+	}
+
+	.crysis__composant__arrow_right {
+		left: 73vw;
+		top: 55vw;
+		border-width: 0 2vw 2vw 0;
+		padding: 4vw;
+	}
+
+	.crysis__composant__arrow_left {
+		left: 7vw;
+		top: 55vw;
+		border-width: 0 2vw 2vw 0;
+		padding: 4vw;
+	}
+
+
+
+	.crysis__composant__presentation_img {
+		width: 35vw;
+		left: 3vw;
+		position: absolute;
+		top: 25vw;
+	}
+
+		.crysis__composant__presentation_img img {
+			width: 55vw;
+			left: 14.5vw;
+			position: absolute;
+			top: 3vw;
+		}
+
+	.crysis__jeu_offert {
+		margin-top: 80.5vw;
+	}
+
+	.crysis__jeu__image {
+		position: absolute;
+		width: 80%;
+		margin-left: 10%;
+	}
+
+
+	.crysis__jeu_offert_titre {
+		bottom: 10vw;
+		margin-left: 11.6vw;
+		font-size: 3.1vw;
+		top: auto;
+	}
+
+	.crysis__titre_composant {
+		font-size: 3vw;
+		margin-left: -5vw;
+		position: absolute;
+		top: 14vw;
+	}
+
+		.crysis__titre_composant:after {
+			top: 4.5vw;
+		}
+
+
+
+	.crysis__comp__caract__type {
+		padding: 2.3vw 4.5vw;
+		border-width: 1px;
+		border-style: solid;
+		border-image: linear-gradient(to left, #91d7aa, #96deab00) 1;
+		border-left: none;
+		border-bottom: none;
+		border-top: none;
+		font-size: 4vw;
+		font-weight: 300;
+		background: linear-gradient(269deg, rgb(0 0 0) 0%, rgb(0 0 0 / 45%) 15%, rgb(0 0 0 / 0%) 71%);
+	}
+
+	.crysis__comp__caract__titre {
+		padding: 2vw 1.5vw;
+		border-width: 1px;
+		border-style: solid;
+		border-image: linear-gradient(to left, #91d7aa, #96deab00) 1;
+		border-left: none;
+		border-bottom: none;
+		background: linear-gradient( 269deg, rgb(100 187 187) 0%, rgb(100 187 187 / 45%) 15%, rgb(100 187 187 / 0%) 71%);
+		text-transform: uppercase;
+		font-size: 5vw;
+		font-weight: 300;
+	}
+
+	.crysis__comp__titre__caract {
+		font-size: 6vw;
+		padding-bottom: 4vw;
+		text-transform: uppercase;
+	}
+
+	.crysis__btn__achat_prix {
+		position: relative;
+		text-align: center;
+		color: #FFFFFF;
+		font-family: 'Montserrat',sans-serif;
+		font-weight: var(--semibold);
+		font-size: 2.5vw;
+		margin: auto;
+		top: 70.5vw;
+		width: 90%;
+		left: 0;
+	}
+
+	.crysis__btn__achat {
+		font-size: 5vw;
+		padding: 5vw;
+	}
+
+	.crysis__btn__decouvrir__carct {
+		left: 5vw !important;
+	}
+
+	.crysis__btn__achat_back {
+		height: 15vw;
+		margin-top: 6vw;
+		width: 62vw;
+		margin-left: 8vw;
+		margin-bottom: 9vw;
+	}
+
+	.crysis__comp__prix {
+		font-size: 15vw;
+	}
+
+	.crysis__prix_centimes {
+		font-size: 8vw;
+	}
+
+	.crysis__composant__arrow_right:hover, .crysis__composant__arrow_left:hover {
+		padding: 2.8vw;
+		transition: all 0.5s;
+	}
+
+	.crysis__composant__presentation_img1 {
+		width: 46vw !important;
+		left: 18.5vw !important;
+	}
+
+	.crysis__h1 {
+		top: 20.6vw;
+		font-size: 21vw;
+	}
+
+	.crysis__h2 {
+		top: 7vw;
+		font-size: 12vw;
+	}
+
+	.crysis__intro__logo_crysis {
+		top: 28vw;
+		left: 26.5%;
+		width: 41.5%;
+	}
+
+	.crysis__intro__logo_cybertek {
+		top: 48vw;
+		left: 73%;
+		width: 22%;
+	}
+
+	.crysis__intro__bouton, .crysis__intro__decouvrir {
+		display: none;
+	}
+
+	.crysis__btn__decouvrir__carct {
+		position: relative;
+	}
+}
+
+	* {
+		scroll-behavior: smooth !important;
+	}

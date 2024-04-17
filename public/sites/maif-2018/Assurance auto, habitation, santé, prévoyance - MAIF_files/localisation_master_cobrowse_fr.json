@@ -1,0 +1,66 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+jQuery182027617884087791494_1533063661436(﻿{
+  "agentJoined": "Un agent a rejoint la session",
+  "youLeft": "Vous avez quitté la session. Le Cobrowse est terminé.",
+  "sessionTimedOut": "Session expirée. Le cobrowse est terminé.",
+  "sessionInactiveTimedOut": "Session expirée. Le cobrowse est terminé.",
+  "agentLeft": "L'agent a quitté la session. Le cobrowse est terminé.",
+  "sessionError": "Erreur. Le cobrowse est terminé.",
+  "sessionStarted": "Votre identifiant est {sessionId}. Indiquez-le à l'agent avec qui vous êtes en relation téléphonique .",
+  "navRefresh": "L'agent a rafraichit la page. Rechargement.",
+  "navBack": "L'agent a cliqué sur retour arrière \"Back\" . Rechargement de la page.",
+  "navForward": "L'agent a cliqué sur \"Forward\" . Rechargement de la page.",
+  "navUrl": "L'agent a entré une url. Rechargement de la page.",
+  "navFailed": "Tentative de navigation échouée.",
+  "toolbarContent": "Identifiant Session: {sessionId}",
+  "contentMasked": "Contenu caché à l'agent",
+  "contentMaskedPartially": "Contenu caché à l'agent.",
+  "exitBtnTitle": "Quitter la session de cobrowse",
+  "areYouOnPhone": "Souhaitez-vous une assistance à la navigation ?",
+  "areYouOnPhoneOrChat": "Souhaitez-vous une assistance à la navigation ?",
+  "connectBeforeCobrowse": "Vous devez être en communication avec un agent pour continuer la session de cobrowse. Appelez ou démarrez un chat avec un de nos agents avant de commencer la session de cobrowse.",
+  "sessionStartedAutoConnect": "La session de Co-browse a démarrée. En attente de la connexion de l'agent.",
+  "browserUnsupported": "Malheureusement, votre navigateur ne permet pas d'effectuer une session de cobrowsing.<br><br> Les navigateurs supportés sont : <ul><li><a target='_blank' href='https://web.archive.org/web/20240416215109/http://www.google.com/chrome'>Google Chrome</a></li><li><a target='_blank' href='https://web.archive.org/web/20240416215109/http://www.firefox.com/'>Mozilla Firefox</a></li><li><a target='_blank' href='https://web.archive.org/web/20240416215109/http://microsoft.com/ie'>Internet Explorer 9 et plus</a></li><li><a target='_blank' href='https://web.archive.org/web/20240416215109/https://www.apple.com/safari'>Safari 6 et plus</a></li></ul>",
+  "chatIsAlreadyRunning": "Chat déjà démarré.",
+  "modalYes": "Oui",
+  "modalNo": "Non",
+  "downgradeMode": "Reprendre le contrôle",
+  "modeDowngraded": "Le conseiller n'a plus le contrôle",
+  "modeUpgradeRequested": "Votre conseiller demande à passer en mode prise de contrôle.",
+  "modeUpgraded": "Le conseiller peut maintenant prendre le contrôle partagé",
+  "writeModeInProgress": "Le conseiller a maintenant le contrôle partagé."
+}
+);
+
+}
+/*
+     FILE ARCHIVED ON 21:51:09 Apr 16, 2024 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:51:10 Apr 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.768
+  exclusion.robots: 0.088
+  exclusion.robots.policy: 0.078
+  cdx.remote: 0.058
+  esindex: 0.01
+  LoadShardBlock: 125.748 (3)
+  PetaboxLoader3.resolve: 81.056 (2)
+  PetaboxLoader3.datanode: 41.593 (3)
+  load_resource: 55.838
+*/

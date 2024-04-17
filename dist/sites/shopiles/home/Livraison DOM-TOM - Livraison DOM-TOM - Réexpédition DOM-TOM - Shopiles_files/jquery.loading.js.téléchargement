@@ -1,0 +1,162 @@
+/********************
+
+Place un fond avec un loader au dessus de l'élément ciblé
+
+Attributs disponibles sur le container :
+loading_class 	: class suplémentaire à affecter à la div du loading pour le personnaliser spécialement pour ce container
+
+
+********************/
+
+
+( function($) {
+
+	$.Loading = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Loading')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			number		: 5
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object Loading général
+		loading = undefined,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Loading
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Enregistre l'objet Loading sur l'object $container en cours pour pouvoir y faire appel par $container.Loading('fonction', option1, option2, ...)
+			$container.data('Loading', {});
+			//--> Ajoute l'attribut HTML 5 data-Loading pour faciliter l'appel des instances Loading avec les pseudo-selector CSS 
+			$container.attr('data-Loading', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+
+		};
+
+		/**
+		* insertion : mode d'insertion (html, before, after, ...)
+		* _class : indiquer un nom de class qui sera ajouté au loader
+		* animation : passer à false pour ne pas avoir d'animation sur l'opacity lors de l'affichage
+		*/
+		plugin.start = function(insertion, _class, animation){
+
+			if(insertion == undefined) insertion = 'html';
+			if(animation == undefined) animation = true;
+			
+			loading = plugin.getLoading();
+
+			//--> Si le loader est déjà affiché, on s'arrête là.
+			if(loading.is(':visible')) return;
+
+			if(insertion == 'html'){
+				var largeur = $container.outerWidth();
+				var hauteur = $container.outerHeight();
+				var offset 	= $container.offset();
+				var _x 		= offset.left;
+				var _y 		= offset.top;
+				
+				$('body').append(loading.removeClass('direct'));
+
+				if($container.attr('loading_class') != undefined) loading.addClass($container.attr('loading_class'));
+				if(_class != undefined) loading.addClass(_class);
+
+				var opacity = animation == true ? 0 : 0.7;
+				loading.css({
+					display 	: 'block',
+					width		: largeur,
+					height		: hauteur,
+					left		: _x,
+					top			: _y,
+					position	: 'absolute',
+					opacity 	: opacity
+				});
+
+				if(animation == true){
+					loading.animate({
+						opacity : 0.7
+					},200)
+				}
+			}else{
+				loading.addClass('direct');
+				eval('$container.'+insertion+'(loading)');
+			}
+
+		};
+
+		plugin.stop = function(){
+			// return
+			if(loading != undefined){
+				if(loading.hasClass('direct')){
+					loading.hide();
+				}else{
+					loading.animate(
+						{
+							opacity : 0
+						},
+						200,
+						'swing',
+						function(){
+							loading.css('display', 'none');
+							loading.attr('class', 'loading off');
+						}
+					)
+				}
+			}
+		};
+
+		plugin.getLoading = function(){
+			if(loading == undefined){
+				loading = $('<div class="loading off">&nbsp;</div>');
+				loading.on('click', function(event){
+					plugin.stop();
+				});
+			}
+			return loading;
+		}
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('Loading - ' + _var);
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Loading = function(options) {
+		var args = arguments;
+		return this.each(function() {
+			var plugin = $(this).data('Loading');
+			if (undefined === plugin) {
+				plugin = new $.Loading(this, options);
+				$(this).data('Loading', plugin);
+			}else if ( plugin[options] ) {
+				return plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+			}
+		});
+	};
+
+})(jQuery);

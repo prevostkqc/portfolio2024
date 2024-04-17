@@ -1,0 +1,109 @@
+﻿@media print {
+    .mred_main__navigation--content,
+    .mred_gammes__nav--list,
+    .mred_footer__container--liste,
+    .mred_footer_link_instagram,
+    .mred_fiche-content,
+    .mred_caract--entete,
+    .mred_prod-carac--content,
+    .mred_mini-visuels--container,
+    .mred_icn_swipe,
+    .mred-personnalisation,
+    .mred_couleur--container,
+    .mred_miniatures--container,
+    .mred_caract--entete,
+    .mred_produits_associes,
+    .mred_main__header-container
+	{
+        display: none;
+    }
+    .mred_main__header-logo {
+        z-index: 1;
+        width: 400px;
+        position: absolute;
+        top: 50px;
+        left: 420px;
+        max-width: 200px;
+        filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(22%) hue-rotate(54deg) brightness(103%) contrast(106%);
+    }
+    .mred_caract--line::after {
+        display: none;
+    }
+
+    .mred_footer__logo {
+        z-index: 1;
+        width: 400px;
+        position: absolute;
+        top: 50px;
+        left: 420px;
+        filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(22%) hue-rotate(54deg) brightness(103%) contrast(106%);
+    }
+    .mred_titre-produit, .mred_ref {
+        position: absolute;
+        top: 100px;
+        left: 400px;
+    }
+    .mred_titre-produit {
+        text-transform: uppercase;
+        color: black;
+    }
+    .mred_part {
+        height: 150px;
+    }
+    .mred_part:first-of-type {
+        transform: scale(0.8) translateY(-200px) translateX(-150px);
+        z-index: 9999;
+    }
+    .mred_part:last-of-type{
+        z-index: 4;
+    }
+    .mred_caract--title {
+        color: black;
+        font-size: 20px;
+        text-align: left;
+        text-transform: uppercase;
+        border-bottom: solid 1px red;
+        display: block;
+        padding-bottom: 20px;
+    }
+    .mred_caract--line::after{
+        display: none;
+    }
+
+    .mred_caract--value {
+        font-weight: bold;
+        text-align:left;
+    }
+    .mred_caract--line {
+        margin-bottom: 5px;
+        font-size: 1.2em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+    }
+
+    .mred_home__caract--block {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mred_caract--block {
+        row-gap: 20px;
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        height: auto;
+    }
+    .mred_caract--title{
+        width: 100%;
+    }
+    .mred_caract--nom,
+    .mred_caract--value {
+        font-size: 14px;
+    }
+    .mred_caract--title_print {
+        display: none;
+    }
+}

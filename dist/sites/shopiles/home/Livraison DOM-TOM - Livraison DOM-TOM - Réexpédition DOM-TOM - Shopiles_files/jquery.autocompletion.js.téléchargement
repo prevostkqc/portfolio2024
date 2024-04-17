@@ -1,0 +1,426 @@
+( function($) {
+
+	$.AutoCompletion = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('AutoCompletion')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			select_box_class		: 'autocompletion_select_box',
+			select_box_loader_class	: 'select_box_loader',
+			select_box_error_class	: 'select_box_error',
+			select_box_value_class	: 'select_box_value',
+			liste_box				: 'liste_box',
+			li_order_handler		: 'liste_handler',
+			li_btn_delete			: 'liste_btn_delete',
+			select_box_offset_x		: 0,
+			select_box_offset_y		: 0,
+			onSelectChange			: undefined
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object AutoCompletion général
+		url_action,
+		select_box ,
+		liste_select ,
+		select_active = -1,
+		search_length = 0,
+		hidden_field ,
+		btn_add ,
+		xhr,
+		autocompletion_add = false,
+		autocompletion_multi = false,
+		autocompletion_horsliste = false,
+		ancienne_valeur = '',
+		empty_on_select = false, 			//--> Vide le champ visible après sélection
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet AutoCompletion
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Enregistre l'objet AutoCompletion sur l'object $container en cours pour pouvoir y faire appel par $container.AutoCompletion('fonction', option1, option2, ...)
+			$container.data('AutoCompletion', {});
+			//--> Ajoute l'attribut HTML 5 data-AutoCompletion pour faciliter l'appel des instances AutoCompletion avec les pseudo-selector CSS 
+			$container.attr('data-AutoCompletion', true);
+			// =============================================================
+			//--> Code d'initialisation du plugin
+			url_action = $container.attr('autocompletion');
+			
+			autocompletion_add			= $container.attr('autocompletion_add');
+			autocompletion_multi		= $container.attr('autocompletion_multi');
+			autocompletion_horsliste	= $container.attr('autocompletion_horsliste');
+			if($container.attr('empty_on_select') == 'true') empty_on_select = true;
+			
+			//--> initalisation du champ caché
+			hidden_field = $('<input type="hidden"/>').attr('name',$container.attr('name')).val($container.val());
+			// hidden_field = $('<input type="text" style="left: 227px; top:136px; position: absolute;"/>').attr('name',$container.attr('name')).val($container.val());
+			$container.after(hidden_field).removeAttr('name');
+
+
+			if (autocompletion_multi) {
+				liste_select = $('<div class="'+settings.liste_box+'"><ul></ul></div>').css({clear:'both'});
+				$container.after(liste_select);
+				liste_select.find('ul').sortable({
+					// handle: "."+settings.li_order_handler,
+					axis : "y",
+					helper : "clone",
+					update : function(){
+						plugin.setValueHidden()
+					}
+				});
+
+				// $container.on('change',function(){
+				// 	plugin.XmListe($(this).val());
+				// });
+			};
+
+			//--> initalisation du select
+			select_box = $('<div class="'+settings.select_box_class+'"><ul><li class="'+settings.select_box_loader_class+'"></li><li class="'+settings.select_box_error_class+'"></li></ul></div>').css({
+				display: 'none',
+				position: 'absolute'
+			});
+			$('body').append(select_box);
+
+			//--> Evénements
+			$container.keyup(function(event){
+				switch(event.keyCode){
+					//--> si touche entrer
+					case 40 : break;
+					case 38 : break;
+					case 13 :
+						 	event.preventDefault();
+							select_box.find('li').eq(select_active+2).find('a').click();
+							return false;
+						break;
+					default :
+						if($container.val() != ancienne_valeur){
+							if ($container.val() == '') {
+								$container.next('.autocompletion_btn_add').hide();
+							}
+							plugin.lanceRecherche($container.val());
+							if(autocompletion_horsliste){
+								hidden_field.val($container.val());
+							}
+							ancienne_valeur = $container.val();
+						}
+				}
+			});
+			$container.keypress(function(event){
+				switch(event.keyCode){
+					case 13 : break;
+					//--> si flèche bas
+					case 40 :
+						if (search_length > 0 && select_active+1 <= search_length-1) {
+							select_active = select_active+1;
+							plugin.navigationSelect();
+						}
+						break;
+					//--> si flèche haut
+					case 38 :
+						if (search_length > 0 && select_active-1 >= 0) {
+							select_active = select_active-1;
+							plugin.navigationSelect();
+						}
+						break;
+				}
+			});
+
+			$container.keydown(function(event){
+				switch(event.keyCode){
+					//--> si touche entrer
+					case 13 :
+						 	event.preventDefault();
+							return false;
+						break;
+				}
+			});
+
+			//--> si l'on perd le focus
+			$container.blur(function(){
+				setTimeout(plugin.masque,200);
+			});
+
+
+			//--> Initialisation de la valeur par défaut si elle existe
+			if($container.val() != ''){
+				plugin.reverse($container.val());
+			}
+
+			//--> initalisation du select
+			if (autocompletion_add) {
+				//--> initalisation du champ caché
+				btn_add = $('<a href="#" style="display:none;">Ajouter</a>').addClass('autocompletion_btn_add');
+				$container.after(btn_add);
+
+				$container.next('.autocompletion_btn_add').on('click',function(event){
+					event.preventDefault();
+					plugin.setNouveau();
+					return false;
+				});
+			};
+
+
+		};
+
+		plugin.lanceRecherche = function(search_val){
+			if (search_val != '') {
+				if (xhr != undefined) xhr.abort();
+				xhr = $.ajax({
+					url : url_action,
+					data : {q :search_val, not:hidden_field.val()},
+					type : 'post',
+					dataType : 'json',
+					beforeSend : function(event,obj_ajax,g,h){
+						select_box.css({
+							display : 'block',
+							top : $container.offset().top+$container.height()+settings.select_box_offset_y,
+							left : $container.offset().left+settings.select_box_offset_x,
+							'z-index': 10000,
+						});
+						select_box.find('.'+settings.select_box_loader_class).show().siblings().hide();
+					},
+					success : function(data,type,event){
+						plugin.setSelectBox(data);
+					},
+					error : function(event,error_type,error){
+						select_box.find('.'+settings.select_box_error_class).html(error.message).show().siblings().hide();
+					}
+				});
+			}else{
+				if (!autocompletion_multi) {
+					hidden_field.val('');
+				};
+			};
+		};
+
+		plugin.setSelectBox = function(options){
+			// console.log(options);
+			var function_name = $container.attr('CustomSelectBox');
+			if(function_name != undefined){
+				eval(function_name+'(options);');
+			}else{
+				search_length = Object.keys(options.select).length;
+				select_add = options.sans_filtre;
+				options = options.select;
+				$container.next('.autocompletion_btn_add').show();
+				if(search_length > 0) {
+					select_active = -1;
+					select_box.find('li').hide();
+					select_box.find('.'+settings.select_box_value_class).remove();
+					$.each(options,function(key, value){
+						select_box.find('ul').append('<li class="'+settings.select_box_value_class+'"><a href="" rel="'+key+'">'+value+'</a></li>');
+					});
+					if (select_add != undefined) {
+						$.each(select_add,function(key_select, value_select){
+							if ($container.next('.autocompletion_btn_add:visible').length >= 1 && $container.val() == value_select) {
+								$container.next('.autocompletion_btn_add:visible').hide();
+							};
+						});
+					};
+
+					select_box.find('ul .'+settings.select_box_value_class+' a').on('click',function(){
+						plugin.selection($(this));
+						return false;
+					});
+				}else{
+					if(!autocompletion_horsliste){
+						select_box.find('.'+settings.select_box_error_class).html('Aucun résultat').show().siblings().hide();
+					}
+				}
+			}
+		};
+
+		plugin.navigationSelect = function(){
+			select_box.find('li').eq(select_active+2).addClass('active').siblings().removeClass('active');
+		}
+
+		//--> S'exécute à la séléction d'un élément dans la liste
+		plugin.selection = function(element){
+			id = element.attr('rel');
+			if (autocompletion_multi) {
+				plugin.XmListe(element.attr('rel'),element.html());
+			}else{
+				hidden_field.val(element.attr('rel'));
+				$container.val(element.html());
+				ancienne_valeur = element.html();
+			};
+
+			select_box.hide();
+
+			if (settings.onSelectChange != undefined) {
+				settings.onSelectChange();
+			};
+
+			var function_name = $container.attr('onSelectChange');
+			if(function_name != undefined){
+				eval(function_name+'(id);');
+			}
+			hidden_field.trigger('hidden_change', 'data');
+
+			if(empty_on_select){
+				$container.val('');
+				hidden_field.val('');
+				ancienne_valeur = '';
+			}
+		}
+
+		plugin.masque = function(){
+			select_box.hide();
+			if(hidden_field.val() == ''){
+				$container.val('');
+			}else if($container.val() == '' && !autocompletion_multi) {
+				hidden_field.val('');
+			}else{
+				if (!autocompletion_multi) {
+					plugin.reverse(hidden_field.val());
+				};
+			}
+		}
+
+		//--> Cherche une liste valeur=>affichage basé sur la valeur et non sur l'affichage
+		plugin.reverse = function(valeur){
+			//--> Cherche la valeur à afficher
+			// if (xhr != undefined) xhr.abort();
+			xhr = $.ajax({
+				url			: url_action,
+				data		: {q : valeur, reverse:1},
+				type		: 'post',
+				dataType	: 'json',
+				success : function(data,type,event){
+					// console.log(data);
+					_valeurs = Object.keys(data.select);
+					if(_valeurs.length > 0){
+						if (autocompletion_multi) {
+							keys = valeur.split(',');
+							$.each(keys, function(index,key) {
+								plugin.XmListe(key, data.select[key]);
+							});
+						}else{
+							$container.val(data.select[_valeurs[0]]);
+						};
+					}
+				},
+				error : function(event,error_type,error){
+					$container.val(error.message);
+				}
+			});
+		}
+
+		//ajoute un enregistrement à la volé
+		plugin.setNouveau = function(){
+			_plugin		= $container.attr('plugin');
+			_controller	= $container.attr('controller');
+			_model		= $container.attr('model');
+			_champ		= $container.attr('champ');
+			var nom = $container.val();
+			if(nom == null){
+				//--> Remise à 0 du select
+				$container.val('');
+			}else{
+				if(confirm('Ajouter la nouvelle valeur : \n'+nom+' ?')){
+					label = $container.val();
+					//--> Création de la nouvelle option et ajout dans le select
+					// ajout = $('<option value="__temp__">'+nom+'</option>');
+					// vide.before(ajout);
+					// $container.val('__temp__');
+
+					$.ajax({
+						type	: "POST",
+						url		: "admin/"+_plugin.toLowerCase()+"/"+_controller+"/select_add/"+_plugin+"/"+_model+"/"+_champ,
+						data	: {'nom': nom}
+					}).done(function(id){
+						// ajout.attr('value', id);
+						if (autocompletion_multi) {
+							plugin.XmListe(id,label);
+						}else{
+							hidden_field.val(element.attr('rel'));
+						};
+					});
+				}else{
+					//--> Remise à 0 du select
+					$container.val('');
+				}
+			}
+		};
+
+		plugin.XmListe = function(value, label){
+			// console.log('select_1 '+value);
+			// console.log('select_2 '+label);
+
+			// $container.find('2ption[value="'+value+'"]').attr('disabled','disabled');
+			// label = $container.find('option[value="'+value+'"]').html();
+			if (value != null && value != '' && label != '' && label != null) {
+				liste_select.find('ul').append('<li rel="'+value+'" class="'+settings.li_order_handler+'"><span><a href="#" class="'+settings.li_btn_delete+'">suppr</a></span>'+label+'</li>');
+				
+				liste_select.find('li a').off('click');
+				liste_select.find('li a').on('click',function(event){
+					event.preventDefault();
+					// $container.find('option[value="'+$(this).parent().attr('rel')+'"]').removeAttr('disabled');
+					$(this).parent().parent().remove();
+					plugin.setValueHidden();
+				});
+				$container.val('');
+
+				plugin.setValueHidden();
+			};
+		};
+
+		plugin.setValueHidden = function(){
+			ids = '';
+			liste_select.find('ul li').each(function(){
+				coma = ids === '' ? '' : ',';
+				ids = ids+coma+$(this).attr('rel');
+			});
+			hidden_field.val(ids);
+		};
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.AutoCompletion = function(options) {
+		var args = arguments;
+		return this.each(function() {
+			var plugin = $(this).data('AutoCompletion');
+			if (undefined === plugin) {
+				plugin = new $.AutoCompletion(this, options);
+				$(this).data('AutoCompletion', plugin);
+			}else if ( plugin[options] ) {
+				return plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+			}
+		});
+	};
+
+})(jQuery);
+
+jQuery(document).ready(function(){
+	jQuery('input[autocompletion]').AutoCompletion();
+});
+
+Object.keys = Object.keys || function(o) {  
+    var result = [];  
+    for(var name in o) {  
+        if (o.hasOwnProperty(name))  
+          result.push(name);  
+    }  
+    return result;  
+};

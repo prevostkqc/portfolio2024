@@ -1,0 +1,593 @@
+var init_select_default = function () {
+	$('.select-defaut').transformSelect({
+		dropDownClass: "custom-select",
+		showFirstItemInDrop: true
+	});
+
+	$('.select-defaut-input').transformSelect({
+		dropDownClass: "custom-select",
+		showFirstItemInDrop: true,
+		useManualInputAsFilter: true,
+		acceptManualInput: true
+	});
+
+	$('.select-reexpedition').transformSelect({
+		dropDownClass: "custom-select select-reexpedition",
+		showFirstItemInDrop: true
+	});
+	$('.custom-select > li > ul').mCustomScrollbar({
+		theme: "dark",
+		scrollInertia: 200
+	});
+}
+$(function () {
+	jQuery.fx.interval = 30;
+
+	//RC--> Carrousel
+	$('.carousel-photos-colis').owlCarousel({
+		items: 1,
+		singleItem: true,
+		nav: true,
+		dots: true,
+		navRewind: true,
+	});
+
+	$('.carrousel-home').owlCarousel({
+		items: 1,
+		nav: true,
+		video: true,
+	});
+
+	setTimeout(function () {
+		$('.carrousel-home').OrangeHeader();
+	}, 200);
+
+	//GC--> Déclaration des styles de forms via Fancyform -- SELECTS
+	init_select_default()
+	//GC--> Déclaration des styles de forms via Fancyform -- CHECKBOXES
+	/*$('input:checkbox').transformCheckbox({
+		checked: "../img/checkbox-checked.png",
+		unchecked: "../img/checkbox-unchecked.png",
+	});*/
+	$('.checkbox img').on('click', function () {
+		$(this).parent().toggleClass('input-checked');
+	});
+	//GC--> Déclaration des styles de forms via Fancyform -- INPUTS
+	$('.jq_changement_avatar input:file').transformFile({
+		cssClass: "custom-file",
+		label: "Modifier mon image"
+	});
+	//AR--> Style du bouton parcourir pour uploader un document
+	// $('.jq_upload_document input:file').transformFile({
+	// 	cssClass: "custom-file",
+	// 	label: "Parcourir"
+	// });
+	$('.jq_upload_document').on('change', 'input[type="file"]', function () {
+		var valeur = $(this).val();
+
+		$(this).parents('.jq_upload_document').find('span.input-url').text(valeur);
+	});
+	//GC--> PAGE COMMENT CA MARCHE => Gestion de la zone vidéo
+	$('.video-youtube').on('click', '.bouton-video', function (e) {
+		e.preventDefault();
+
+		$('.appel-video').show();
+
+		setTimeout(function () {
+			$('#video-comment-ca-marche').get(0).play();
+		}, 50);
+	});
+	// $('.video-youtube').on('click', '.appel-video', function (){
+	// 	$('.appel-video').hide();
+	// })
+
+	//GC--> PAGE TARIFS => Gestion des accordéons
+	$('.accordeon-tarif h4').on('click', function (e) {
+		e.preventDefault();
+
+		accordeon = $(this).parents('.accordeon-tarif');
+
+		if (accordeon.hasClass('active')) {
+			accordeon.find('.accordeon-tarif-contenu').slideUp(400);
+			accordeon.removeClass('active');
+		} else {
+			accordeon.find('.accordeon-tarif-contenu').slideDown(400);
+			accordeon.siblings('.accordeon-tarif').find('.accordeon-tarif-contenu').slideUp(400);
+			accordeon.siblings('.accordeon-tarif').removeClass('active');
+			accordeon.addClass('active');
+		}
+	})
+
+	//GC--> PAGE FAQ => Gestion des accordéons
+	$('.faq-accordeon h3').on('click', function (e) {
+		e.preventDefault();
+
+		btnParent = $(this).parents('.faq-accordeon');
+		blocQuestion = $(this).parents('.bloc-question');
+
+		if (btnParent.hasClass('active')) {
+			btnParent.find('.faq-accordeon-contenu').slideUp(400);
+			btnParent.removeClass('active');
+		} else {
+			btnParent.find('.faq-accordeon-contenu').slideDown(400);
+			blocQuestion.siblings('.bloc-question').find('.faq-accordeon-contenu').slideUp(400);
+			blocQuestion.siblings('.bloc-question').find('.active').removeClass('active');
+			btnParent.addClass('active');
+		};
+	});
+
+	//GC--> PAGE RECUP MDP => Fermeture du message de validation
+	$('.fermeture').on('click', function (e) {
+		e.preventDefault();
+		$(this).parentsUntil('.validation-pass').slideUp();
+	})
+
+	//GC--> PAGE MON COMPTE : Ajout d'une facture
+	$('.btn_add_facture').fancybox({
+		padding: 0,
+		margin: 0,
+		arrows: false,
+		type: 'ajax',
+		closeBtn: false
+	});
+
+	//GC--> PAGE MON COMPTE : Ajout d'une facture
+	$('.modal_multi_colis').fancybox({
+		padding: 0,
+		margin: 0,
+		arrows: false,
+		type: 'ajax',
+		closeBtn: false
+	});
+
+	//GC--> PAGE MON COMPTE : Gestion des Adresses
+	$('#jq_ajouter_une_adresse').fancybox({
+		type: 'ajax',
+		padding: 0,
+		margin: 0,
+		arrows: false,
+		closeBtn: false
+	});
+
+	$('#jq_confirmation_transporteur').fancybox({
+		type: 'inline',
+		padding: 0,
+		margin: 0,
+		arrows: false,
+		closeBtn: false,
+		beforeLoad: function () {
+			$('#confirmationExpedition .relais').hide();
+			$('#confirmationExpedition .transporteur').text($('.liste_expeditions .active').find('p:first').text());
+			$('#confirmationExpedition .delai').text($('.liste_expeditions .active').find('td').eq(1).text());
+			$('#confirmationExpedition .message').text($('.liste_expeditions .active').find('.description').html());
+			$('#confirmationExpedition .validate').attr('href', $('#jq_confirmation_transporteur').attr('data-href'));
+
+			if ($('.api_livraison .checkbox.active').length > 0) {
+				adresse = $('.api_livraison .checkbox.active label span').text();
+				name = $('.api_livraison .checkbox.active label').clone().children().remove().end().text();
+				$('#confirmationExpedition .relais').show();
+				$('#confirmationExpedition .relais span').html(name + '<br>' + adresse);
+			}
+		}
+	});
+
+	$('#jq_editer_une_adresse').fancybox({
+		type: 'ajax',
+		padding: 0,
+		margin: 0,
+		arrows: false,
+		closeBtn: false
+	});
+	//GC--> PAGE MON COMPTE : Gestion des Colis
+	$('#colis-produits').on('click', '.renommer-colis a', function (e) {
+		e.preventDefault();
+		$(this).slideUp(400, function () {
+			$(this).parent().find('.selection-nom-colis').slideDown(400);
+		});
+	})
+
+	//GC--> PAGE MON COMPTE : Gestion des Factures
+	$('#colis-produits').on('click', '.renommer-facture a', function (e) {
+		e.preventDefault();
+		$(this).slideUp(400, function () {
+			$(this).parent().find('.selection-nom-facture').slideDown(400);
+		});
+	})
+
+	$('#colis-produits').on('click', '.selection-nom-facture img', function (e) {
+		e.preventDefault();
+		$(this).parent().slideUp(400, function () {
+			$(this).parents('.renommer-facture').find('a').slideDown(400);
+		});
+	})
+
+	//GC--> PAGE MON COMPTE : Gestion de l'input du contenu du colis
+	$('#colis-produits').on('keyup paste cut', '.renommer-facture-input', function () {
+		if (!($(this).val() == '')) {
+			$(this).removeClass('vide');
+		} else {
+			$(this).addClass('vide');
+		};
+	})
+
+	// $('.selection-nom-colis img').on('click', function (){
+	// 	$(this).parent().slideUp(400, function() {
+	// 		$(this).parentsUntil('.infos-colis').find('a').slideDown(400);
+	// 	});
+	// })
+
+	$('.lien_modal.ajout-panier').fancybox({
+		type: 'inline',
+		padding: 0,
+		margin: 0,
+		arrows: false,
+		closeBtn: false,
+		helpers: {
+			overlay: null
+		}
+	});
+
+	$('.modal-link').fancybox({
+		type: 'inline',
+		// padding: 0,
+		// margin: 0,
+		minWidth: 500,
+		maxWidth: 500,
+		arrows: false,
+		closeBtn: false,
+		helpers: {
+			// overlay : null
+		}
+	});
+
+	$('.modale_avantages_carte').fancybox({
+		type: 'ajax',
+		padding: 0,
+		margin: 0,
+		arrows: false,
+		closeBtn: false
+	});
+
+	$('body').on('click', '.fermeture-modale', function (e) {
+		e.preventDefault();
+		$.fancybox.close();
+	})
+
+	$('body').on('click', '.bouton-accordeon', function () {
+		var parentTr = $(this).parentsUntil('tr').parent();
+		if (parentTr.hasClass('active')) {
+			$(this).css({
+				'-webkit-transform': 'rotate(0deg)',
+				'-moz-transform': 'rotate(0deg)',
+				'-ms-transform': 'rotate(0deg)',
+				'transform': 'rotate(0deg)'
+			});
+			parentTr.next('.accordeon-tr').find('.accordeon-action').slideUp(400);
+			parentTr.next('.accordeon-tr').find('.accordeon-action').css(
+				'border-bottom', 'none'
+			);
+			parentTr.removeClass('active');
+		} else {
+			$(this).css({
+				'-webkit-transform': 'rotate(90deg)',
+				'-moz-transform': 'rotate(90deg)',
+				'-ms-transform': 'rotate(90deg)',
+				'transform': 'rotate(90deg)'
+			});
+			parentTr.next('.accordeon-tr').find('.accordeon-action').slideDown(400);
+			parentTr.next('.accordeon-tr').find('.accordeon-action').css(
+				'border-bottom', '1px solid #e8e8e9'
+			);
+			parentTr.addClass('active');
+		}
+	});
+	// $('.bouton-accordeon').trigger('click');
+
+	//RC--> Inscription adresse
+	gestion_adresse_facturation = function () {
+		if ($('.jq_adresse_facturation').prop('checked')) {
+			$('#adresse_facturation_container').stop(true, true).slideDown(300);
+			$('#adresse_facturation_container input').removeAttr('disabled');
+		} else {
+			$('#adresse_facturation_container').stop(true, true).slideUp(300);
+			$('#adresse_facturation_container input').prop("disabled", true);
+		}
+	}
+	gestion_adresse_facturation();
+
+
+	//SM--> affichage du champ du nom de la societe si on coche la checkbox "Je suis un professionnel" sur l'inscription
+	if ($('#Adresse0EstUnPro').prop('checked')) {
+		$('#Adresse0Entreprise').show();
+	}
+	$('body').on('change', '#Adresse0EstUnPro', function () {
+		if (this.checked) {
+			$('#Adresse0Entreprise').show();
+		} else {
+			$('#Adresse0Entreprise').slideUp(300);
+		}
+	});
+
+
+	//SM--> affichage du champ du nom de la societe si on coche la checkbox "Je suis un professionnel" sur la gestion du profil
+	if ($('#ProfilEstUnPro').prop('checked')) {
+		$('#ProfilEntreprise').show();
+	}
+	$('body').on('change', '#ProfilEstUnPro', function () {
+		if (this.checked) {
+			$('#ProfilEntreprise').show();
+		} else {
+			$('#ProfilEntreprise').slideUp(300);
+		}
+	});
+
+
+	$('.jq_adresse_facturation').on('change', function () {
+		gestion_adresse_facturation();
+	});
+
+	$('#button_submit_inscription_adresse').on('click', function (event) {
+		if (!$('.jq_cgv_inscription_adresse').prop('checked')) {
+			event.preventDefault();
+
+			$('#avertissement_inscription_adresse_cgv').slideDown(300);
+		} else {
+			$('#avertissement_inscription_adresse_cgv').slideUp(300);
+		}
+	});
+
+	//RC--> Gestion du changement d'avatar depuis un fichier file
+	$('.jq_changement_avatar').on('change', 'input[type="file"]', function (event) {
+		readUrl(this);
+		$(this).css({
+			opacity: 0,
+			top: '-99999px'
+		})
+	});
+
+	function readUrl(input) {
+		if (window.FileReader) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (element) {
+					$('.avatar').attr('src', element.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+	}
+
+	//RC--> Affichage d'une image en modalbox
+	$('.fancybox-image').fancybox();
+
+	//RC--> Bouton parcourir
+	$('.jq_importer_fichier').on('change', 'input[type="file"]', function () {
+		var valeur = $(this).val();
+
+		$(this).parents('.jq_importer_fichier').find('span.input-url').text(valeur);
+	});
+
+	check_notifications = function () {
+		$.ajax({
+			url: "/plugin_discussions/plugin_discussions_discussions/ajax_check_notifications",
+			success: function (data) {
+				if (data != undefined && data != '') {
+					if ($('.jq_avatar_compte').find('.pastille-notification').length == 0) {
+						$('.jq_avatar_compte').append('<span class="pastille-notification connecte"></span>');
+					}
+				}
+			}
+		});
+		timeout_check_notif = setTimeout(
+			function () {
+				check_notifications();
+			}, 30000
+		);
+	}
+
+	check_notifications();
+	setTimeout(function () {
+		clearTimeout(timeout_check_notif);
+	}, 600000);
+
+
+	$('#ContactContactSujetId').on('change', function () {
+		var id = $(this).val();
+
+		$('.jq_description_sujet .description').hide();
+		$('.jq_description_sujet .description[data-Sujet-id="' + id + '"]').show();
+
+		$('.jq_select').hide();
+		$('.jq_select').each(function (k, elem) {
+			ids = $(elem).data('sujet-ids')
+			if (Number.isInteger(ids)) ids = ids.toString()
+			ids = ids.split('-');
+			if (ids.includes(id.toString())) {
+				$(elem).show();
+			}
+		})
+	});
+	$('#ContactContactSujetId').trigger('change');
+
+	if ($('.banderole').length == 1) {
+		w = $(window).outerWidth();
+		span = $('.banderole span').outerWidth() + 20;
+		$('.banderole span').css('display', 'block');
+		$('.banderole span').css('left', w + 'px');
+		$('.banderole span').css('width', span + 'px').show();
+		t = w * 0.01;
+		//RZ--> Boucle banderolle
+		_anim = TweenLite.fromTo(
+			'.banderole span',
+			t,
+			{
+				left: w
+			}, {
+			ease: Power0.easeNone,
+			left: -span,
+			onComplete: function () {
+				_anim.restart();
+			}
+		}
+		);
+	}
+
+	//RZ--> Maj notes
+	$('body').on('note_send', function (e, data) {
+		$('.publication .notes').html(Math.round(data.note * 10) / 10);
+	})
+
+
+	//MH--> Neadly
+	$('.jq_demande_remboursement').fancybox({
+		type: 'ajax',
+		wrapCSS: 'fancybox-neadly',
+		tpl: {
+			closeBtn: '<a title ="Fermer" class="fancybox-item fancybox-close" href="javascript:;">fermer</a>',
+		},
+		padding: 0,
+		margin: 0,
+		arrows: false,
+		closeBtn: true
+	});
+
+	sorttable.init;
+
+
+	scrollYtoFix('.subscribe-vip-card-bloc', '.overlay-slide', 0, 0, {
+		desktop: {
+			elRefStop: '.zone-tarifs.part-2',
+			offset: 30
+		}
+	});
+
+	$('#ProfilOrigineId').on('change', function (event) {
+		if (event.target.value == '999999') {
+			$('#origine_autre').show();
+		} else {
+			$('#origine_autre').hide();
+		}
+	})
+
+});
+
+$(window).on('load', function () {
+	//RC--> Carousel de la page d'une actualité
+	$('#carousel-article').Owlcomplement({
+		params: {
+			items: 2,
+			singleItem: true,
+			video: false,
+			autoWidth: false,
+			nav: false,
+			dots: true
+		}
+	});
+});
+
+function initValidation() {
+	var errorClass = 'error';
+	var successClass = 'success';
+	var regEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	var regPhone = /^[0-9]+$/;
+	var isWP8 = /MSIE 10.*Touch/.test(navigator.userAgent);
+
+	$('form.validate-form').each(function () {
+		var form = $(this);
+		var page = jQuery('body, html')
+		var win = jQuery(window);
+		form.attr('novalidate', 'novalidate');
+		var successFlag = true;
+		var inputs = form.find('input:text, input[type="email"], input[type="tel"], textarea, select');
+		var submitBtn = form.find('.submit');
+
+		submitBtn.on('click', function (e) {
+			e.preventDefault();
+			form.find('input[type="submit"]').trigger('click');
+		});
+
+		// form validation function
+		function validateForm() {
+			successFlag = true;
+
+			inputs.each(checkField);
+
+			if (!successFlag) {
+				return false;
+			}
+			else {
+				jQuery.ajax({
+					url: form.attr('action'),
+					type: form.attr('method') || 'post',
+					data: form.serialize(),
+					success: function (data) {
+						// form.hide();
+						jQuery('.zone-form').hide();
+						jQuery('.felicitations').show();
+
+						if (data != undefined) {
+							$(data).appendTo('body');
+						}
+						setTimeout(function () {
+							if (isWP8) {
+								win.scrollTop(0);
+							} else {
+								page.animate({
+									scrollTop: 0
+								}, 10);
+							}
+						}, 300)
+					},
+					error: function () {
+						alert('Ajax error');
+					}
+				});
+				return false;
+			}
+		}
+
+		// check field
+		function checkField(i, obj) {
+			var currentObject = $(obj);
+			var currentParent = currentObject.parents('.row-val');
+
+			// not empty fields
+			if (currentObject.hasClass('required')) {
+				setState(currentParent, currentObject, !currentObject.val().length || currentObject.val() === currentObject.prop('defaultValue'));
+			}
+			// correct email fields
+			if (currentObject.hasClass('required-email')) {
+				setState(currentParent, currentObject, !regEmail.test(currentObject.val()));
+			}
+			// correct number fields
+			if (currentObject.hasClass('required-number')) {
+				setState(currentParent, currentObject, !regPhone.test(currentObject.val()));
+			}
+			// something selected
+			if (currentObject.hasClass('required-select')) {
+				setState(currentParent, currentObject, currentObject.get(0).selectedIndex === 0);
+			}
+		}
+
+		// set state
+		function setState(hold, field, error) {
+			hold.removeClass(errorClass).removeClass(successClass);
+			if (error) {
+				hold.addClass(errorClass);
+				field.one('focus', function () { hold.removeClass(errorClass).removeClass(successClass); });
+				successFlag = false;
+			} else {
+				hold.addClass(successClass);
+			}
+		}
+
+		// form event handlers
+		form.submit(validateForm);
+	});
+}
+
+if (jQuery('.active_validate_form').length > 0) {
+	initValidation();
+}

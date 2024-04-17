@@ -1,0 +1,89 @@
+/*
+Wordpress Popular Posts plugin stylesheet
+Developed by Hector Cabrera
+cabrerahector.com | @cabrerahector
+
+Use the following classes to style your popular posts list as you like.
+*/
+
+/* Styles the "Sorry, no data so far" message */
+.wpp-no-data {
+}
+
+/* UL - Popular Posts container styles */
+.wpp-list {	
+}
+
+	/* LI - Post container styles */
+	.wpp-list li {
+		overflow:hidden;
+		float:none;
+		clear:both;
+	}
+	
+		/* Thumbnail styles */
+		.wpp-thumbnail {
+			display:inline;
+			float:left;
+			margin:0 5px 0 0;
+			border:none;
+		}
+
+		/* Title styles */
+		.wpp-post-title {
+		}
+		
+		/* Excerpt styles */
+		.wpp-excerpt {
+		}
+		
+		/* Stats tag styles */
+		.post-stats {
+			display:block;
+			font-size:9px;
+			font-weight:bold;
+		}
+			
+			/* Comments count styles */
+			.wpp-comments {
+			}
+			
+			/* Views count styles */
+			.wpp-views {
+			}
+			
+			/* Author styles */
+			.wpp-author {
+			}
+			
+			/* Post date styles */
+			.wpp-date {
+			}
+			
+			/* Post category styles */
+			.wpp-category {
+			}
+		
+		/* WP-PostRatings styles */
+		.wpp-rating {
+		}
+/*
+     FILE ARCHIVED ON 14:23:24 Mar 05, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:37:41 Apr 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 1.449
+  exclusion.robots: 0.065
+  exclusion.robots.policy: 0.057
+  cdx.remote: 0.061
+  esindex: 0.01
+  LoadShardBlock: 244.939 (3)
+  PetaboxLoader3.datanode: 87.069 (4)
+  PetaboxLoader3.resolve: 219.981 (2)
+  load_resource: 93.891
+*/

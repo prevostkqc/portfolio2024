@@ -1,0 +1,128 @@
+( function($) {
+
+	$.Log = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Log')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			number		: 5
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object Log général
+		actif = false,
+		afficheur,
+		couleur = 'rgb(51, 153, 255)',
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Log
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Ajoute l'attribut HTML 5 data-Log pour faciliter l'appel des instances Log avec les pseudo-selector CSS 
+			$container.attr('data-Log', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+			afficheur = $('<div id="log_afficheur"></div>').css({
+				position	: 'fixed',
+				top			: 0,
+				left		: 0,
+				'z-index'	: 10000
+			});
+			$container.prepend(afficheur);
+
+		};
+
+		plugin.active = function(){
+			actif = true;
+		};
+
+		plugin.log = function(texte, _couleur){
+			if(actif){
+				var bg_color = _couleur != undefined ? _couleur : couleur;
+				var element = $('<div>'+texte+'</div>').css({
+					width				: 250,
+					padding				: '6px 10px',
+					'font-family'		: 'arial',
+					'background-color'	: bg_color,
+					'color' 			: '#FFFFFF',
+					'border-bottom' 	: '1px solid #FFFFFF'
+				});
+				afficheur.append(element);
+				setTimeout(function(){
+					element.slideUp(200, function(){
+						element.remove();
+					})
+				}, 3000);
+			}
+		};
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('Log - ' + _var);
+		}
+
+		var response = function(val){
+			$container.data('Log_response', val);
+		}
+
+		var _data = function(data){
+			return $container.data(('Log-'+data).toLowerCase());
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Log = function(options) {
+		var args		= arguments;
+		var response	= 'no_response';
+		return this.each(function() {
+			var plugin = $(this).data('Log');
+			if (undefined === plugin) {
+				plugin = new $.Log(this, options);
+				$(this).data('Log', plugin);
+				$(this).data('Log_response', 'no_response');
+			}else if ( plugin[options] ) {
+				var exec = plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+				if($(this).data('Log_response') != 'no_response'){
+					response = $(this).data('Log_response');
+					$(this).data('Log_response', 'no_response');
+					return response;
+				}else{
+					return exec;
+				}
+			}
+		});
+		if(response != 'no_response'){
+			return response;
+		}else{
+			return this;
+		}
+	};
+
+})(jQuery);
+
+
+$(function(){
+	$('body').Log();
+})

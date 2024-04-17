@@ -1,0 +1,248 @@
+/*****************************************************************************
+Monte et démonte des BXSlider en fonction des changements d'espace responsive de la page
+
+$(element).Owlcomplement({
+	params : {
+		desktop : {
+			_minexe 	: 3,													| facultatif - Nombre d'éléments minimum requis pour activer bxslider
+			controls	: false,												| 
+			captions	: true,													| Options du bxslider
+			pagerCustom	: '#bxpager-persons_<?php echo $categorie_id; ?>'		|
+			...																	|
+
+		},
+		tablet : {
+			controls	: false,
+			captions	: true,
+			pagerCustom	: '#bxpager-persons_<?php echo $categorie_id; ?>'
+		}
+	},
+	loader : '.element' 														| facultatif - Element sur lequel trigger 'click' pour charger la suite des éléments du slider
+});
+
+
+*****************************************************************************/
+
+
+( function($) {
+
+	$.Owlcomplement = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Owlcomplement')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			params : {			//AS--> Paramètres d'exécution des slider
+				scrollPerPage			: true,
+				itemsCustom				: [[0,1],[640,2]],
+				autoHeight				: true,
+				navigation				: true,
+				slideSpeed				: 600,
+				rewindSpeed				: 1000,
+				navigationText			: ['<','>'],
+				responsiveRefreshRate	: 50
+			},
+			loader		: undefined,		//AS--> Element sur lequel trigger 'click' pour charger la suite des éléments du slider
+			loader_nbr	: 8,				//AS--> Nbr d'éléments à charger à chaque appel ajax
+			attr_ids	: 'article_id'
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object Owlcomplement général
+		owl			= undefined,
+		params		= undefined,
+		data_add	= undefined, 	//AS--> HTML stocké en attente d'insertion
+		stop_ajax 	= false, 		//AS--> Passe à true à partir du moment où une requête ajax ne renvoie pas asser d'éléments
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Owlcomplement
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Enregistre l'objet Owlcomplement sur l'object $container en cours pour pouvoir y faire appel par $container.Owlcomplement('fonction', option1, option2, ...)
+			$container.data('Owlcomplement', {});
+			//--> Ajoute l'attribut HTML 5 data-Owlcomplement pour faciliter l'appel des instances Owlcomplement avec les pseudo-selector CSS 
+			$container.attr('data-Owlcomplement', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+				
+			params = $.extend({}, defaults.params, settings.params);
+			plugin.update();
+
+			$(window).on('wrswitch', function(event, data){
+				plugin.update();
+			});
+			
+
+		};
+
+		plugin.update = function(){
+
+			__log('update');
+
+			var fonction_origine_beforeMove = params.beforeMove;
+			params.beforeMove = function(){
+				if(fonction_origine_beforeMove != undefined) fonction_origine_beforeMove();
+				plugin.beforeMove();
+			}
+
+			var fonction_origine_afterMove = params.afterMove;
+			params.afterMove = function(){
+				if(fonction_origine_afterMove != undefined) fonction_origine_afterMove();
+				plugin.afterMove();
+			}
+
+			$container.owlCarousel(params);
+			owl = $container.data('owlCarousel');
+
+		};
+
+		plugin.re_init = function(){
+			__log('re_init');
+			$container.trigger('refresh.owl.carousel');
+		};
+
+		plugin.destroySlider = function(){
+			__log('destroySlider');
+			if (owl.e != null && owl.e._checkVisibile != undefined) {
+				window.clearInterval(owl.e._checkVisibile);
+			}
+			$container.trigger('destroy.owl.carousel');
+		};
+
+		plugin.supprStyle = function (){
+
+		}
+
+		plugin.beforeMove = function(){
+
+			var moveBy			= owl.visibleItems.length;
+			var numero_slide	= owl.currentItem;
+			var newIndex 		= Math.floor(numero_slide / moveBy);
+
+			if(settings.loader != undefined && !stop_ajax){
+				var nbr_slides	= owl.itemsAmount;
+				var pagemoins1	= Math.ceil(nbr_slides / moveBy) - 1 - 1;
+				
+				//AS--> Si on est sur l'avant dernière page
+				if(newIndex == pagemoins1){
+					__log('chargement ajax');
+
+					//AS--> Nombre d'éléments déjà chargés
+					var nbr_charge = $container.find('['+settings.attr_ids+']').length;
+
+					//AS--> Adaptation de l'url
+					var loader = settings.loader.replace('--offset--', nbr_charge);
+					loader = loader.replace('--nbr--', settings.loader_nbr);
+
+					//AS--> Chargement des données
+					$.ajax({
+						url : loader,
+						success : function(data, etat, xhr){
+							data_add = data;
+
+							//AS--> On compte les éléments retournés
+							var nbr_elements = $(data).find('['+settings.attr_ids+']').length;
+							if(nbr_elements < settings.loader_nbr) stop_ajax = true;
+						}
+					});
+					
+				}
+			}
+			
+		}
+
+		plugin.afterMove = function(){
+			plugin.insert_donnees();
+		}
+
+		plugin.insert_donnees = function(){
+			if(data_add != undefined){
+				//AS--> Fixe de la hauteur du carrousel pour éviter une saute lors de la mise à jour
+				var _height = $container.parent().innerHeight();
+				$container.parent().css('height', _height);
+				//AS--> Récupère le numéro du slide actuel
+				var numero_slide = owl.currentItem;//owl.currentItem;
+				//AS--> Ajoute les nouvelles données
+				$container.append($(data_add));
+				// $container.trigger('refresh.owl.carousel');
+				data_add = undefined;
+				//AS--> Remise en place de la hauteur en automatique
+				$container.parent().css('height', 'auto');
+				//AS--> Replace le slide au bon endroit
+				$container.trigger('to.owl.carousel', numero_slide);
+			}
+		}
+
+		plugin.reinit = function(params){
+			__log('reinit');
+			if(params == undefined) params = {};
+			var numero_slide = owl.currentItem;
+
+			$container.trigger('refresh.owl.carousel', params);
+			$container.trigger('to.owl.carousel', numero_slide);
+		}
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('Owlcomplement - ' + _var);
+		}
+
+		var __log = function(texte){
+			$('body').Log('log', '<b>Owlcomplement</b> - ' + texte, '#42c27f', $container);
+		}
+
+		var response = function(val){
+			$container.data('Owlcomplement_response', val);
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Owlcomplement = function(options) {
+		var args		= arguments;
+		var response	= 'no_response';
+		return this.each(function() {
+			var plugin = $(this).data('Owlcomplement');
+			if (undefined === plugin) {
+				plugin = new $.Owlcomplement(this, options);
+				$(this).data('Owlcomplement', plugin);
+				$(this).data('Owlcomplement_response', 'no_response');
+			}else if ( plugin[options] ) {
+				var exec = plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+				if($(this).data('Owlcomplement_response') != 'no_response'){
+					response = $(this).data('Owlcomplement_response');
+					$(this).data('Owlcomplement_response', 'no_response');
+					return response;
+				}else{
+					return exec;
+				}
+			}
+		});
+		if(response != 'no_response'){
+			return response;
+		}else{
+			return this;
+		}
+	};
+
+})(jQuery);

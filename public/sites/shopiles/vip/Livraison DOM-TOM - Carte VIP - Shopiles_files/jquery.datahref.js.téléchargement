@@ -1,0 +1,113 @@
+( function($) {
+	/**
+	* 	===========================================================================================
+	*	Plugin de redirection qui permet de rédiriger un utilisateur au clic sur un bloc entier.
+
+	*	Mettre l'attribut data-DataHref-url="" pour y insérer l'url qui redirigera l'utilisateur
+	* 	Une classe 'no_href' peut être placée sur les éléments qui ne doivent être entravés par la redirection
+	* 	===========================================================================================
+	*/
+	$.DataHref = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('DataHref')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			number		: 5
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object DataHref général
+		var1,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet DataHref
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Ajoute l'attribut HTML 5 data-DataHref pour faciliter l'appel des instances DataHref avec les pseudo-selector CSS 
+			$container.attr('data-DataHref', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+			
+			$container.css({
+				cursor: 'pointer'
+			});
+
+			$container.on('click', function(event){
+				if (event.target.nodeName == 'A' || $(event.target).hasClass('no_href') || $(event.target).closest('.no_href').length != 0) return;
+				plugin.redirige($(this).data('datahref-url'));
+			});
+		};
+
+		plugin.redirige = function(url){
+			if (url != '') {
+				window.location.href = url;
+			}
+		};
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('DataHref - ' + _var);
+		}
+
+		var response = function(val){
+			$container.data('DataHref_response', val);
+		}
+
+		var _data = function(data){
+			return $container.data(('DataHref-'+data).toLowerCase());
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.DataHref = function(options) {
+		var args		= arguments;
+		var response	= 'no_response';
+		return this.each(function() {
+			var plugin = $(this).data('DataHref');
+			if (undefined === plugin) {
+				plugin = new $.DataHref(this, options);
+				$(this).data('DataHref', plugin);
+				$(this).data('DataHref_response', 'no_response');
+			}else if ( plugin[options] ) {
+				var exec = plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+				if($(this).data('DataHref_response') != 'no_response'){
+					response = $(this).data('DataHref_response');
+					$(this).data('DataHref_response', 'no_response');
+					return response;
+				}else{
+					return exec;
+				}
+			}
+		});
+		if(response != 'no_response'){
+			return response;
+		}else{
+			return this;
+		}
+	};
+
+})(jQuery);
+
+$('[data-DataHref-url]').DataHref();

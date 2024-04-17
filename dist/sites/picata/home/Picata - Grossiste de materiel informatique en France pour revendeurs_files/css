@@ -1,0 +1,1979 @@
+/* Échec de l'agrandissement. Renvoi du contenu non agrandi.
+(86,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(87,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(88,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(89,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(90,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(91,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(92,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(93,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(98,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(99,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(100,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(101,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(102,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(103,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(104,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(109,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(110,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(111,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(112,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(113,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(114,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(115,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(116,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(121,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(122,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(123,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(124,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(125,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(126,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(127,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(128,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(129,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(130,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(131,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(132,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(133,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(134,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(135,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(136,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(137,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(138,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(139,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(144,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(145,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(146,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(147,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(148,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(149,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(150,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(155,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(156,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(157,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(158,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(159,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(160,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(161,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(166,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(167,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(168,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(169,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(170,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(171,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(172,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(176,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(177,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(178,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(179,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(184,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(185,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(186,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(187,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(188,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(189,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(190,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(191,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(192,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(193,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(194,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(204,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(205,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(206,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(207,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(208,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(209,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(210,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(211,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(212,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(213,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(214,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(215,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(218,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(219,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(220,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(221,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(222,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(223,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(224,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(227,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(228,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(229,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(230,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(231,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(232,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(242,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(243,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(244,5): run-time error CSS1062: Expected semicolon or closing curly-brace, found '-'
+(254,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(255,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(259,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(260,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(264,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(269,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(273,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(281,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_s300'
+(289,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc-sombre'
+(294,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-38'
+(295,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(296,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h1-color'
+(302,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-24'
+(303,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(304,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h2-color'
+(310,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-20'
+(311,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(312,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h3-color'
+(318,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-18'
+(319,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(320,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h4-color'
+(326,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(327,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-700'
+(328,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h5-color'
+(334,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(335,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(336,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_p-color'
+(342,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(343,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(344,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(348,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(349,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(350,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(354,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(355,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(356,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_noir'
+(360,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(361,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(362,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(369,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-700'
+(373,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-09'
+(376,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(410,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_n30'
+(479,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_t400'
+(523,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_t300'
+(524,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n10'
+(525,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_t400'
+(529,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_t310'
+(534,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_p300'
+(535,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n10'
+(536,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_p400'
+(540,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_p310'
+(544,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_p400'
+(549,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(550,29): run-time error CSS1039: Token not allowed after unary operator: '-pic_n90'
+(561,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_n80'
+(562,29): run-time error CSS1039: Token not allowed after unary operator: '-pic_n80'
+(563,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(568,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_n20'
+(569,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_s100'
+(570,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n400'
+(574,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_s500'
+(578,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_s100'
+(582,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_s500'
+(596,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_n40'
+(597,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_n40'
+(598,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n70'
+(603,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_n70'
+(607,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_n70'
+(639,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(640,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_n200'
+(681,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_s200'
+(685,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_t310'
+(689,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_p300'
+(719,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_color-neutral'
+(764,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-tres-sombre'
+(765,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(766,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-20'
+(767,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-700'
+(782,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(809,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-28'
+(810,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(811,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h1-color'
+(817,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-18'
+(818,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(819,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n800'
+(826,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-20'
+(827,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(828,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h1-color'
+(856,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-700'
+(860,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(865,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(866,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(867,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_rouge'
+(872,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-300'
+(881,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_p50'
+(887,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_t50'
+(895,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_t50'
+(905,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_t50'
+(915,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_p200'
+(916,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(917,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(918,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-700'
+(954,25): run-time error CSS1062: Expected semicolon or closing curly-brace, found '180px'
+(979,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_color-primary'
+(980,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-500'
+(997,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1002,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_n50'
+(1007,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_n40'
+(1042,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1046,41): run-time error CSS1046: Expect comma, found '0'
+(1046,45): run-time error CSS1046: Expect comma, found '/'
+(1047,49): run-time error CSS1046: Expect comma, found '0'
+(1047,53): run-time error CSS1046: Expect comma, found '/'
+(1059,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1060,41): run-time error CSS1046: Expect comma, found '0'
+(1060,45): run-time error CSS1046: Expect comma, found '/'
+(1061,49): run-time error CSS1046: Expect comma, found '0'
+(1061,53): run-time error CSS1046: Expect comma, found '/'
+(1092,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(1098,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-700'
+(1099,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1109,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_animation'
+(1112,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_neg-height-bandeau'
+(1129,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-tres-sombre'
+(1145,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_s300'
+(1155,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_s300'
+(1158,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_s500'
+(1161,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-tres-sombre'
+(1167,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1179,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(1187,30): run-time error CSS1039: Token not allowed after unary operator: '-pic_animation-rapide'
+(1199,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_s300'
+(1201,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1203,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_animation'
+(1207,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-sombre'
+(1213,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1217,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(1232,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(1233,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_animation'
+(1234,33): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(1243,37): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1247,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_p500'
+(1254,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_animation-rapide'
+(1265,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1290,29): run-time error CSS1039: Token not allowed after unary operator: '-pic_n60'
+(1293,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n80'
+(1297,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n80'
+(1300,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n80'
+(1313,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1314,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(1316,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-09'
+(1333,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1334,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(1338,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1339,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(1349,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(1367,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1378,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(1379,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1474,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(1502,25): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(1543,32): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-tres-sombre'
+(1547,26): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-tres-sombre'
+(1551,25): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(1557,25): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-10'
+(1617,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_s500'
+(1622,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_noir'
+(1628,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_s500'
+(1646,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(1647,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(1651,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-24'
+(1663,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(1679,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_color-neutral'
+ */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* FIN Reset */
+
+
+/* < ============================================  VARIABLES root  ============================================ > */
+
+:root {
+    /* -------------------- */
+    /* -- DEBUT Couleurs -- */
+
+    /* primary colors */
+    /* p */
+    --pic_p50:  #EEF6EB;
+    --pic_p75:  #BADAAB;
+    --pic_p100: #9DCB89;
+    --pic_p200: #73B456;
+    --pic_p300: #56A533; /* <- primary */
+    --pic_p310: #4D942E;
+    --pic_p400: #3C7324;
+    --pic_p500: #34651F;
+
+
+    /* secondary colors */
+    /* s */
+    --pic_s50:  #EAEAEA;
+    --pic_s75:  #A7A7A7;
+    --pic_s100: #828282;
+    --pic_s200: #4D4D4D; /* <- secondary */
+    --pic_s300: #282828;
+    --pic_s400: #1C1C1C; /* <- secondary */
+    --pic_s500: #181818;
+   
+
+    /* tertiary colors */
+    /* t */
+    --pic_t50:  #FEEBEB;
+    --pic_t75:  #FAADAB;
+    --pic_t100: #F78B89;
+    --pic_t200: #F45956;
+    --pic_t300: #f23733; /* <- tertiary */
+    --pic_t310: #E0312D;
+    --pic_t400: #A92724;
+    --pic_t500: #94221F;
+
+
+    /* neutral colors */
+    /* n */
+    --pic_n0:   #FFFFFF;
+    --pic_n10:  #FAFBFB;
+    --pic_n20:  #F5F6F7;
+    --pic_n30:  #EBEDF0;
+    --pic_n40:  #DFE2E6;
+    --pic_n50:  #C2C7D0;
+    --pic_n60:  #B3B9C4;
+    --pic_n70:  #A6AEBB;
+    --pic_n80:  #98A1B0;
+    --pic_n90:  #8993A4; /* <- neutral */
+    --pic_n100: #7A8699;
+    --pic_n200: #6B788E;
+    --pic_n300: #5D6B82;
+    --pic_n400: #505F79;
+    --pic_n500: #42526D;
+    --pic_n600: #354764;
+    --pic_n700: #243757;
+    --pic_n800: #15294B;
+    --pic_n900: #091E42;
+
+
+    /* success colors */
+    /* su */
+    --pic_su50:  #E8FCF2;
+    --pic_su75:  #A1F1C8;
+    --pic_su100: #7AEBB1;
+    --pic_su200: #41E38F;
+    --pic_su300: #1ADD78;
+    --pic_su400: #129B54;
+    --pic_su500: #108749;
+
+
+    /* warning colors */
+    /* w */
+    --pic_w50:  #FEF8E6;
+    --pic_w75:  #FAE399;
+    --pic_w100: #F7D86F;
+    --pic_w200: #F4C731;
+    --pic_w300: #F2BB07;
+    --pic_w400: #A98305;
+    --pic_w500: #947204;
+
+
+    /* danger colors */
+    /* d */ 
+    --pic_d50:  #FFF0EA;
+    --pic_d75:  #FEBFA9;
+    --pic_d100: #FDA585;
+    --pic_d200: #FD7E51;
+    --pic_d300: #FC642D; /* <- danger */
+    --pic_d400: #B0461F;
+    --pic_d500: #9A3D1B;
+
+
+    /* RECAP */
+    --pic_color-primary:   var(--pic_p300);
+    --pic_color-secondary: var(--pic_s200);
+    --pic_color-neutral:   var(--pic_n90);
+    --pic_color-tertiary:  var(--pic_t300);
+/*    --pic_color-success:   var(--pic_);
+    --pic_color-warning:   var(--pic_);
+    --pic_color-danger:    var(--pic_);*/
+
+    --pic_blanc:            #FFFFFF;
+    --pic_blanc-sombre:     #F5F5F5;
+    --pic_vert:             var(--pic_color-primary);
+    --pic_gris-tres-sombre: var(--pic_s400);
+    --pic_gris-sombre:      var(--pic_s200);
+    --pic_gris-clair:       var(--pic_n90);
+    --pic_gris:             var(--pic_gris-sombre);
+    --pic_rouge:            var(--pic_t300);
+    --pic_bleu :            #48B1C8;
+    --pic_noir :            #010101;
+    --pic_vertstock:        #31e12d;
+
+    /* -- FIN Couleurs -- */
+    /* ------------------ */
+
+
+    /* ------------------------- */
+    /* -- DEBUT Font / textes -- */
+
+    /* sizes */
+    --pic_size-09: 0.9em;
+    --pic_size-10: 1.0em;
+    --pic_size-12: 1.2em;
+    --pic_size-14: 1.4em;
+    --pic_size-18: 1.8em;
+    --pic_size-20: 2.0em;
+    --pic_size-24: 2.4em;
+    --pic_size-28: 2.8em;
+    --pic_size-35: 3.5em;
+    --pic_size-38: 3.8em;
+    --pic_size-48: 4.8em;
+    --pic_size-60: 6.0em;
+
+    /* weight */
+    --pic_weight-100: 100;
+    --pic_weight-200: 200;
+    --pic_weight-300: 300;
+    --pic_weight-400: 400;
+    --pic_weight-500: 500;
+    --pic_weight-600: 600;
+    --pic_weight-700: 700;
+
+    /* colors */
+    --pic_h1-color: var(--pic_vert);   
+    --pic_h2-color: var(--pic_color-secondary);   
+    --pic_h3-color: var(--pic_gris-sombre);   
+    --pic_h4-color: var(--pic_gris-sombre);   
+    --pic_h5-color: var(--pic_n600);   
+    --pic_p-color:  var(--pic_noir);
+
+    /* -- FIN Font / textes -- */
+    /* ----------------------- */
+
+    
+
+    /* ------------------------- */
+    /* -- DEBUT Animations -- */
+    
+    --pic_animation-rapide : 0.2s;
+    --pic_animation :        0.5s;
+    --pic_animation-lente :  0.9s;
+
+    /* -- FIN Animations -- */
+    /* ----------------------- */
+}
+
+/* ================================ */
+/* Selection texte                */
+/* ================================ */
+::-moz-selection {
+    color: var(--pic_blanc);
+    background: var(--pic_vert);
+}
+
+::selection {
+    color: var(--pic_blanc);
+    background: var(--pic_vert);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--pic_gris-clair) !important;
+    opacity: 1 !important; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--pic_gris-clair) !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--pic_gris-clair) !important;
+}
+
+/* ================================ */
+/* Font et texte                 */
+/* ================================ */
+html {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--pic_s300);
+    font-size: 10px;
+}
+p, h1, h2, h3, h4, h5, h6, span,div, input, text, textarea{
+    font-family: 'Poppins', sans-serif;
+}
+
+.pic_main {
+    background-color: var(--pic_blanc-sombre);
+    min-height: calc(100vh - 640px);
+}
+
+h1, .pic_h1 {
+    font-size: var(--pic_size-38);
+    font-weight: var(--pic_weight-600);
+    color: var(--pic_h1-color);
+    line-height: 1.2;
+    position: relative;
+}
+
+h2, .pic_h2 {
+    font-size: var(--pic_size-24);
+    font-weight: var(--pic_weight-600);
+    color: var(--pic_h2-color);
+    line-height: 1.2;
+    position: relative;
+}
+
+h3, .pic_h3 {
+    font-size: var(--pic_size-20);
+    font-weight: var(--pic_weight-600);
+    color: var(--pic_h3-color);
+    line-height: 1.2;
+    position: relative;
+}
+
+h4, .pic_h4 {
+    font-size: var(--pic_size-18);
+    font-weight: var(--pic_weight-600);
+    color: var(--pic_h4-color);
+    line-height: 1.2;
+    position: relative;
+}
+
+h5, .pic_h5 {
+    font-size: var(--pic_size-14);
+    font-weight: var(--pic_weight-700);
+    color: var(--pic_h5-color);
+    line-height: 1.2;
+    position: relative;
+}
+
+.pic_p {
+    font-size: var(--pic_size-12);
+    font-weight: var(--pic_weight-400);
+    color: var(--pic_p-color);
+    line-height: 1.2;
+    position: relative;
+}
+
+.pic_p-secondary {
+    font-size: var(--pic_size-12);
+    font-weight: var(--pic_weight-400);
+    color: var(--pic_gris-clair);
+}
+
+.pic_p-white {
+    font-size: var(--pic_size-12);
+    font-weight: var(--pic_weight-400);
+    color: var(--pic_blanc);
+}
+
+.pic_p-black {
+    font-size: var(--pic_size-12);
+    font-weight: var(--pic_weight-400);
+    color: var(--pic_noir);
+}
+
+.pic_a {
+    font-size: var(--pic_size-12);
+    font-weight: var(--pic_weight-400);
+    color: var(--pic_gris-clair);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.pic_p--bold {
+    font-weight: var(--pic_weight-700);
+}
+
+.pic_p--small {
+    font-size: var(--pic_size-09);
+}
+.pic_p--big {
+    font-size: var(--pic_size-14);
+}
+.pic_lh-12 {
+    line-height: 1.2;
+}
+.pic_lh-14 {
+    line-height: 1.4;
+}
+.pic_lh-16 {
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.pic_wrap {
+    width: calc(100% - 40px);
+    max-width: 1296px;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+.pic_wrap--container {
+    width: calc(100% - 80px);
+    max-width: calc(1336px - 40px);
+    padding: 20px;
+    margin: auto;
+}
+
+.pic_img {
+}
+
+.pic_select-liste--liste {
+    position: relative;
+}
+.pic_select-liste--liste select {
+    background-color: var(--pic_n30);
+    border: none;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    position: relative !important;
+    height: 38px;
+    padding: 5px 15px;
+    min-width: 180px;
+    width: 100%;
+    cursor: pointer;
+}
+
+    .pic_select-liste--liste select {
+        -moz-appearance: none; /* Firefox */
+        -webkit-appearance: none; /* Safari and Chrome */
+        appearance: none;
+    }
+
+    .pic_select-liste--liste::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 28px;
+        height: 15px;
+        z-index: 2;
+        background-image: url(../../content/images/icons/icn_fleche-droite.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: rotate(90deg);
+        filter: brightness(0) saturate(100%) invert(61%) sepia(14%) saturate(478%) hue-rotate(178deg) brightness(84%) contrast(85%);
+        pointer-events: none;
+    }
+/* ================================ */
+/* Icons et boutons                 */
+/* ================================ */
+/* --------------- */
+/* -- DEBUT BTN -- */
+/* btn */
+input[type="button"] {
+    cursor: pointer;
+}
+.pic_btn {
+    font-size: 1.6em;
+    position: relative;
+    padding: 10px 30px;
+    width: fit-content;
+    font-weight: 400;
+    display: flex;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: 0.3s;
+    margin: 10px 0;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* btn cart */
+.pic_btn--cart {
+    padding-right: 10px;
+}
+
+    .pic_btn--cart:before {
+        content: "";
+        width: 2px;
+        height: 100%;
+        background: var(--pic_t400);
+        position: absolute;
+        top: 0;
+        right: 35px;
+    }
+
+    .pic_btn--cart:after {
+        content: "";
+        background-image: url('../../Content/images/icons/icn_panier.svg');
+        background-repeat: no-repeat;
+        filter: brightness(0) saturate(100%) invert(98%) sepia(98%) saturate(7%) hue-rotate(136deg) brightness(103%) contrast(101%);
+        background-size: 17px;
+        display: inline-block;
+        width: 17px;
+        margin-left: 40px;
+        height: 17px;
+    }
+
+.pic_btn--print:after {
+    content: "";
+    background-image: url('../../Content/images/icons/icn_printer.svg');
+    background-repeat: no-repeat;
+    filter: brightness(0) saturate(100%) invert(98%) sepia(98%) saturate(7%) hue-rotate(136deg) brightness(103%) contrast(101%);
+    background-size: 17px;
+    display: inline-block;
+    width: 17px;
+    margin-left: 40px;
+    height: 17px;
+}
+
+.pic_btn--arrow:after {
+    content: "";
+    background-image: url('../../Content/images/icons/icn_fleche-droite.svg');
+    background-repeat: no-repeat;
+    filter: brightness(0) saturate(100%) invert(98%) sepia(98%) saturate(7%) hue-rotate(136deg) brightness(103%) contrast(101%);
+    background-size: 4px;
+    background-position: 0px 4px;
+    display: inline-block;
+    width: 5px;
+    margin-left: 7px;
+}
+
+/* btn primary */
+.pic_btn--primary {
+    background: var(--pic_t300);
+    color: var(--pic_n10);
+    border: solid 2px var(--pic_t400);
+}
+
+    .pic_btn--primary:hover {
+        background: var(--pic_t310);
+    }
+
+/* btn secondary */
+.pic_btn--secondary {
+    background: var(--pic_p300);
+    color: var(--pic_n10);
+    border: solid 2px var(--pic_p400);
+}
+
+    .pic_btn--secondary:hover {
+        background: var(--pic_p310);
+    }
+
+.pic_btn--secondary-cart:before {
+    background: var(--pic_p400);
+}
+
+
+.pic_btn--se-connecter--p {
+    font-size: var(--pic_size-14);
+    outline: solid 2px var(--pic_n90);
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.pic_home-nouveautes--link {
+    text-decoration: none;
+}
+
+.pic_btn--se-connecter--p:hover {
+    background-color: var(--pic_n80);
+    outline: solid 1px var(--pic_n80);
+    color: var(--pic_blanc);
+}
+
+/* btn tertiary */
+.pic_btn--tertiary {
+    background: var(--pic_n20);
+    border: solid 2px var(--pic_s100);
+    color: var(--pic_n400);
+}
+
+    .pic_btn--tertiary:hover {
+        border: solid 2px var(--pic_s500);
+    }
+
+.pic_btn--tertiary-cart:before {
+    background: var(--pic_s100);
+}
+
+.pic_btn--tertiary-cart:hover:before {
+    background: var(--pic_s500);
+}
+
+.pic_btn--tertiary-cart:after {
+    filter: brightness(0) saturate(100%) invert(39%) sepia(8%) saturate(1520%) hue-rotate(180deg) brightness(88%) contrast(91%);
+}
+
+/* btn tertiary arrow */
+.pic_btn--tertiary-arrow:after {
+    filter: brightness(0) saturate(100%) invert(39%) sepia(8%) saturate(1520%) hue-rotate(180deg) brightness(88%) contrast(91%);
+}
+
+/* btn disable */
+.pic_btn--disable {
+    background: var(--pic_n40);
+    border: solid 2px var(--pic_n40);
+    color: var(--pic_n70);
+    cursor: default;
+}
+
+.pic_btn--disable-cart:before {
+    background: var(--pic_n70);
+}
+
+.pic_btn--disable-cart:hover:before {
+    background: var(--pic_n70);
+}
+
+.pic_btn--disable-cart:after {
+    filter: brightness(0) saturate(100%) invert(77%) sepia(4%) saturate(827%) hue-rotate(176deg) brightness(92%) contrast(87%);
+}
+
+/* btn cart only */
+.pic_btn--cart-only {
+    padding: 20px;
+   /* border-radius: 8px;*/
+    margin: 0px;
+}
+.pic_btn--cart-only:after {
+    content: "";
+    background-image: url(../../Content/images/icons/icn_panier.svg);
+    background-repeat: no-repeat;
+    filter: brightness(0) saturate(100%) invert(98%) sepia(98%) saturate(7%) hue-rotate(136deg) brightness(103%) contrast(101%);
+    background-size: 20px;
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: 0px;
+    left: 10px;
+    top: 11px;
+}
+/* btn cart only */
+.pic_btn--cart-valid-only {
+    padding: 20px;
+    border-radius: 3px;
+    margin: 0px;
+    background: var(--pic_gris-clair);
+    border: solid 2px var(--pic_n200);
+}
+
+    .pic_btn--cart-valid-only:after {
+        content: "";
+        background-image: url(../../Content/images/icons/icn_fleche-droite.svg);
+        background-repeat: no-repeat;
+        filter: brightness(0) saturate(100%) invert(98%) sepia(98%) saturate(7%) hue-rotate(136deg) brightness(103%) contrast(101%);
+        background-size: 20px;
+        display: block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        margin-top: 0px;
+        left: 10px;
+        top: 11px;
+    }
+
+/* btn tertiary arrow */
+.pic_btn--disable-arrow:after {
+    filter: brightness(0) saturate(100%) invert(77%) sepia(4%) saturate(827%) hue-rotate(176deg) brightness(92%) contrast(87%);
+}
+/* -- FIN BTN -- */
+/* ------------- */
+
+
+/* ---------------- */
+/* -- DEBUT LINK -- */
+
+/* Link */
+.pic_link {
+    font-size: 1.6em;
+    text-decoration: none;
+    /* ========> a supprimer */ margin: 5px;
+}
+
+    .pic_link:hover {
+        text-decoration: underline;
+    }
+
+.pic_link--primary {
+    color: var(--pic_s200);
+}
+
+.pic_link--secondary {
+    color: var(--pic_t310);
+}
+
+.pic_link--tertiary {
+    color: var(--pic_p300);
+}
+
+.pic_link--disable {
+    opacity: 0.4;
+    cursor: default;
+}
+
+    .pic_link--disable:hover {
+        text-decoration: none;
+    }
+/* -- FIN LINK -- */
+/* -------------- */
+
+
+
+.pic__link {
+    width: fit-content;
+    transition: 1s;
+}
+
+.pic__link-p {
+    position: relative;
+}
+
+    .pic__link-p::after {
+        content: "";
+        height: 2px;
+        width: 0%;
+        position: absolute;
+        background: var(--pic_color-neutral);
+        bottom: -2px;
+        left: 50%;
+        transition: 0.3s;
+    }
+
+.pic__link:hover .pic__link-p::after {
+    width: 100%;
+    left: 0%;
+}
+
+
+/* ------------------- */
+/* Home SEO */
+.pic_p--home-seo {
+    padding: 55px 0;
+}
+
+
+/* ------------------ */
+/* Modal add cart */
+.pic_modal-add-cart {
+}
+
+.pic_modal-add-cart--container {
+}
+
+.pic_modal-add-cart--content {
+}
+
+.pic_container-back-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000000c9;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+}
+
+.pic_close-modal {
+    border-radius: 20px;
+    border: none;
+    height: 29px;
+    width: 29px;
+    background: var(--pic_gris-tres-sombre);
+    color: var(--pic_blanc);
+    font-size: var(--pic_size-20);
+    font-weight: var(--pic_weight-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.pic_modal-add-cart--container-inside {
+    position: fixed;
+    top: 200px;
+    left: calc(50% - 400px);
+    background: var(--pic_blanc);
+    width: 100%;
+    height: auto;
+    z-index: 15;
+    max-width: calc(800px - 100px);
+    animation: openaddcart 0.3s forwards;
+    padding: 50px;
+    border-radius: 2px;
+}
+
+.pic_modal-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+@keyframes openaddcart {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.pic_modal-title {
+    font-size: var(--pic_size-28);
+    font-weight: var(--pic_weight-400);
+    color: var(--pic_h1-color);
+    line-height: 1.2;
+    position: relative;
+}
+
+.pic_modal-texte-ajout {
+    font-size: var(--pic_size-18);
+    font-weight: var(--pic_weight-400);
+    color: var(--pic_n800);
+    line-height: 1.2;
+    position: relative;
+    margin-top: 15px;
+}
+
+.pic_modal-h5 {
+    font-size: var(--pic_size-20);
+    font-weight: var(--pic_weight-400);
+    color: var(--pic_h1-color);
+    line-height: 1.2;
+    position: relative;
+}
+
+.pic_modal-img-produit {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.pic_modal--add-panier {
+    width: 100%;
+}
+
+.pic_modal--body {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.pic_modal-texte-1 {
+    margin-top: 7px;
+}
+
+.pic_modal-texte-2 {
+    margin-top: 4px;
+    font-weight: var(--pic_weight-700);
+}
+
+.pic_modal-texte {
+    font-size: var(--pic_size-12);
+    line-height: 2;
+}
+
+.pic_modal-alert-stock {
+    font-size: var(--pic_size-14);
+    color: var(--pic_blanc);
+    background: var(--pic_rouge);
+    width: fit-content;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-weight: var(--pic_weight-300);
+}
+
+.alert.alert-success.alert-dismissible,
+.alert.alert-warning.alert-dismissible {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 10px 20px 10px 0px;
+    background: var(--pic_p50);
+    border-radius: 5px;
+    align-items: center;
+}
+
+.alert.alert-warning.alert-dismissible {
+    background: var(--pic_t50);
+ }
+
+.alert.alert-fail.alert-dismissible {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 10px 20px 10px 0px;
+    background: var(--pic_t50);
+    border-radius: 5px;
+    align-items: center;
+}
+
+.alert.alert-fail.alert-dismissible {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 10px 20px 10px 0px;
+    background: var(--pic_t50);
+    border-radius: 5px;
+    align-items: center;
+}
+
+.pic_p pic_delete-a {
+    border-radius: 20px;
+    border: none;
+    height: 23px;
+    width: 23px;
+    background: var(--pic_p200);
+    color: var(--pic_blanc);
+    font-size: var(--pic_size-14);
+    font-weight: var(--pic_weight-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pic_display-none {
+    display: none !important;
+}
+
+.required::after {
+    content: " *";
+    font-weight: bold;
+    color: #dc3545;
+}
+/* < ==================================================================  RESPONSIVE  ================================================================== > */
+/* tablette < 1024 */
+@media screen and (max-width: 1024px) {
+    /* Btn */
+    .pic_btn {
+        font-size: 1.4em;
+        padding: 8px 15px;
+    }
+
+    .pic_btn--cart {
+        padding-right: 10px;
+    }
+
+        .pic_btn--cart:before {
+            width: 2px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 35px;180px
+        }
+
+        .pic_btn--cart:after {
+            content: "";
+            background-size: 15px;
+            width: 15px;
+            margin-left: 25px;
+            height: 15px;
+        }
+
+    .pic_btn--arrow:after {
+        content: "";
+        background-size: 4px;
+        width: 5px;
+        margin-left: 6px;
+        background-position: 0px 3px;
+    }
+
+    /* Link */
+    .pic_link {
+        font-size: 1.4em;
+    }
+}
+.pic_a--mail-infos {
+    color: var(--pic_color-primary);
+    font-weight: var(--pic_weight-500);
+}
+/* < ==================================================================  RESPONSIVE  ================================================================== > */
+/* PRINT */
+@media print {
+    #blocDroite, #pic_footer, .pic_btn, .pic_header-menu-content, #recherche, .pic_compte-panier, .pic_addcart, .pic_link-panier-print {
+        display: none !important;
+    }
+
+    .pic_fproduit__input {
+        border: none !important;
+    }
+}
+
+
+
+::-webkit-scrollbar {
+    background: var(--pic_blanc) !important;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--pic_n50) !important;
+    border-radius: 2px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--pic_n40);
+    }
+
+scrollbar {
+    scrollbar-color: #000000 #F5F5F5;
+}
+
+.pic_hide{
+    display:none;
+}
+
+
+.pic_batn-plus-filtres {
+    width: 100%;
+    max-width: 150px;
+}
+
+.pic_btn.pic_btn--primary.pic_btn--primary-cart.pic_btn--cart.pic_btn-end {
+    padding: 5px 10px;
+    padding: 5px 10px 5px 50px;
+}
+
+/* ---------------------------------------------------------- */
+.pic_principale-content--container {
+    width: calc(100% - 80px);
+    padding: 40px;
+    max-width: calc(1296px - 80px);
+    margin: auto;
+    display: flex;
+    gap: 20px;
+}
+.pic_container-border {
+    width: calc(100% - 40px) !important;
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--pic_blanc);
+    padding: 20px 40px;
+    gap: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -webkit-box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -moz-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.25);
+}
+
+/* < ==================================================================  RESPONSIVE  ================================================================== > */
+/* ERREUR */
+.pic_erreur-container {
+    margin-bottom: -20px;
+    padding-bottom: 50px;
+}
+.pic_erreur-content {
+    width: calc(100% - 80px);
+    background: var(--pic_blanc);
+    box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -webkit-box-shadow: 0px 0px 10px -5px rgb(0 0 0 / 25%);
+    -moz-box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.25);
+    padding: 40px;
+    padding-top: 20px;
+    margin-bottom: 40px;
+}
+@media screen and (max-width: 1024px) {
+    .pic_btn {
+        min-height: 24px;
+        min-width: 10px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .pic_modal-add-cart--container-inside {
+        padding: 10px;
+        left: 0 !important;
+        width: calc(100% - 20px);
+        top: 300px;
+    }
+    .pic_modal-img-produit{
+        display: none;
+    }
+    .pic_close-modal {
+        top: 10px;
+        right: 10px;
+    }
+}
+#pic_header--bandeau-contact {
+    width: calc(100% - 24px);
+    padding: 0 12px;
+    text-align: center;
+    background-color: var(--pic_vert);
+}
+.pic_bandeau-contact--p {
+    padding: 12px 0;
+}
+.pic_a--bandeau-contact {
+    font-weight: var(--pic_weight-700);
+    color: var(--pic_blanc);
+    text-decoration: none;
+}
+
+/* ------------ */
+/* Header start */
+#pic_header {
+    position: sticky;
+    z-index: 50;
+    top: 0;
+    transition: var(--pic_animation);
+}
+.pic_header--hide_bandeau {
+    transform: translateY(var(--pic_neg-height-bandeau));
+}
+/*.pic_main {
+    transform: translateY(var(--pic_height-bandeau));
+    transition: var(--pic_animation);
+}
+.pic_main--hide_bandeau {
+    transform: translateY(0);
+}*/
+.pic_container_logo-header-princ {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    flex-wrap: wrap;
+}
+.pic_header-logo-container {
+    background-color: var(--pic_gris-tres-sombre);
+    width:100%;
+}
+#pic_logo {
+    width: 217px;
+    height: 60px;
+}
+
+.pic_logo-img {
+    width: 100%;
+}
+
+/* ----------- */
+/* Header menu */
+.pic_header-menu-container {
+    width: 100%;
+    background-color: var(--pic_s300);
+}
+.pic_header-menu-content {
+}
+.pic_header-li-titre {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+    background: var(--pic_s300);
+}
+.pic_header-li-titre:hover {
+    background: var(--pic_s500);
+}
+#pic_header {
+    background: var(--pic_gris-tres-sombre);
+}
+.pic_header-li-a {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: var(--pic_blanc) !important;
+}
+.pic_header-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+.pic_header-ul-secondaire {
+    display: none;
+    position: absolute;
+    background-color: var(--pic_vert);
+    width: calc(100% - 40px);
+    padding: 0 20px 20px;
+    left: 0;
+    top: 45px;
+    opacity: 0;
+    transform: translateY(-500px);
+    z-index: -1;
+    transition: opacity var(--pic_animation-rapide);
+}
+.pic_header-li-titre:hover .pic_header-ul-secondaire, .pic_header-li-titre:hover .pic_header-li-secondaire {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.8%;
+    opacity: 1;
+    transform: translateY(0px);
+}
+.pic_header-p-secondaire {
+    background-color: var(--pic_s300);
+    padding: 7px;
+    color: var(--pic_blanc);
+    font-weight: 400;
+    transition: var(--pic_animation);
+    font-size: 1.2em;
+}
+    .pic_header-p-secondaire:hover {
+        background-color: var(--pic_gris-sombre);
+    }
+.pic_header__titre-principal{
+    
+}
+.pic_header-p-tertiaire {
+    color: var(--pic_blanc);
+    padding: 3px 0;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: var(--pic_weight-400);
+}
+
+.pic_header-ul-tertiaire {
+    padding-top: 10px;
+    width: 100%;
+}
+.pic_header-li-secondaire {
+    margin-top: 20px;
+    width: 18.5%;
+}
+.pic_header--bandeau-titre {
+    width: 100%;
+}
+.pic_header-li-tertiaire{
+    background: var(--pic_vert);
+    transition: var(--pic_animation);
+    border-left: solid 2px var(--pic_vert);
+    position: relative;
+    padding-right:30px;
+    width: fit-content;
+}
+    .pic_header-li-tertiaire:hover {
+        /*background: var(--pic_p500);*/
+        padding-left: 15px;
+        padding-right: 15px;
+        border-left: solid 2px var(--pic_blanc);
+    }
+    .pic_header-li-tertiaire::before {
+        content: "";
+        background: var(--pic_p500);
+        width: 0%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: var(--pic_animation-rapide);
+    }
+    .pic_header-li-tertiaire:hover::before {
+        width: 100%;
+        opacity: 1;
+    }
+.pic_link-menu {
+    line-height: 1.2;
+}
+.pic_p-white--menu{
+    font-size: 1.0em;
+    color: var(--pic_blanc);
+}
+
+/* --------------*/
+/* Header search */
+#pic_btn-search{
+    display: none;
+}
+.pic_search--icn {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(5%) saturate(0%) hue-rotate(282deg) brightness(87%) contrast(92%);
+    position: absolute;
+    width: 20px;
+    top: 10px;
+    right: 0;
+}
+#recherche {
+    width: 100%;
+    max-width: 550px;
+    height: 40px;
+    position: relative;
+}
+#searchString {
+    padding: 10px 15px;
+    max-width: 530px;
+    width: 100%;
+    outline: solid 1px var(--pic_n60);
+}
+::placeholder { 
+    color: var(--pic_n80);
+    opacity: 1;
+}
+:-ms-input-placeholder { 
+    color: var(--pic_n80);
+}
+::-ms-input-placeholder { 
+    color: var(--pic_n80);
+}
+
+/* ----------------- */
+/* Header mon compte */
+.pic_mon-compte--img, .pic_mon-panier--img {
+    filter: brightness(0) saturate(100%) invert(49%) sepia(92%) saturate(425%) hue-rotate(70deg) brightness(92%) contrast(87%);
+    width: 30px;
+}
+.pic_mon-compte--icn-cart{
+    position:relative;
+}
+.pic_mon-compte--nbr-articles {
+    color: var(--pic_blanc);
+    font-weight: var(--pic_weight-600);
+    background: #1c1c1c;
+    font-size: var(--pic_size-09);
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    width: 19px;
+    height: 7px;
+    text-align: center;
+    padding: 1px 0px 0;
+}
+.pic_mon-compte {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.pic_mon-compte--titre {
+    color: var(--pic_blanc);
+    font-weight: var(--pic_weight-600);
+}
+.pic_mon-compte--titre-icn-txt {
+    font-size: 1.1em;
+    color: var(--pic_blanc);
+    font-weight: var(--pic_weight-600);
+}
+.pic_compte-panier {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+}
+.pic_mon-panier--prix {
+    text-decoration: underline;
+    margin-left: 7px;
+    font-weight: var(--pic_weight-600);
+}
+.pic_mon-panier--link{
+    text-decoration:none;
+    display: flex;
+}
+
+.hide-filtre{
+    display:none;
+}
+
+.pic_batn-plus-filtres{
+    padding: 10px 44px;
+}
+.pic_header-search {
+    cursor: pointer;
+}
+.pic_numerotel {
+    color: var(--pic_blanc);
+    text-decoration: none;
+}
+.pic_prix-appel{
+    display: none;
+}
+.pic_menu-burger{
+    display:none;
+}
+
+.pic_link-menu--a {
+    font-size: var(--pic_size-12);
+    color: var(--pic_blanc);
+    cursor: default;
+}
+
+.fake-menu {
+    height: 45px;
+    min-height: 45px;
+}
+
+.pic_header-top--mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pic_header-icons--mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.pic_header__recherche-declencheur {
+    display: none;
+    width: 35px;
+    height: 35px;
+    background-image: url('/Content/Images/icons/icn_loupe.svg');
+    filter: invert(48%) sepia(93%) saturate(381%) hue-rotate(57deg) brightness(97%) contrast(79%);
+    transition: all .2s ease;
+}
+
+@media screen and (max-width: 1230px) {
+    #searchString {
+        max-width: calc(100% - 40px);
+    }
+
+    .pic_compte-panier {
+        display: flex;
+        width: 350px;
+        justify-content: space-between;
+        margin: 20px auto 0px;
+    }
+
+    .pic_container_logo-header-princ {
+        justify-content: unset;
+    }
+
+    #pic_logo {
+        margin-bottom: 20px;
+    }
+    .pic_search--icn {
+        right: 20px;
+    }
+    #recherche{
+        max-width: 100%;
+    }
+
+    .pic_menu-burger {
+        display: block;
+        z-index: 10;
+        color: red;
+        font-size: 100px;
+        width: fit-content;
+    }
+    .pic_header-menu-content{
+        /*width: 100%;*/
+    }
+    .pic_header-menu {
+        max-height: calc(100vh + 43px);
+        overflow: hidden;
+        position: absolute;
+        top: 135px;
+        left: 0;
+        width: 100%;
+        background: #282828;
+        height: 0;
+        transition: 0.3s;
+    }
+    .pic_header-menu--show {
+        height: calc(100vh + 43px);
+    }
+    .pic_header-li-titre {
+        width: 100%;
+    }
+    .pic_header-menu {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .pic_p-white--menu {
+        display: flex;
+    }
+    .pic_menu-burger--line {
+        width: 50px;
+        height: 6px;
+        background: var(--pic_vert);
+        border-radius: 10px;
+        margin-bottom: 6px;
+        transition: 0.3s;
+        opacity: 1;
+    }
+    .pic_menu-burger--close .pic_menu-burger--line-1 {
+        transform: rotate(45deg) translate(6px, 13px);
+    }
+    .pic_menu-burger--close .pic_menu-burger--line-2 {
+        opacity: 0;
+    }
+    .pic_menu-burger--close .pic_menu-burger--line-3 {
+        transform: rotate(315deg) translate(4px, -12px);
+    }
+    .pic_header-li-titre--mobile--selected {
+        position: relative;
+        position: absolute;
+        top: 0px;
+        padding-left: 40px;
+        order: -10;
+        z-index: 10;
+        height: 90vh;
+        display: flex;
+        align-items: flex-start;
+        padding-top: 15px;
+    }
+    .pic_link-menu--a-tertiaire {
+        font-size: var(--pic_size-14);
+    }
+    .pic_header-li-titre--mobile--selected .pic_header-ul-secondaire {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1.8%;
+        opacity: 1 !important;
+        transform: translateY(0px);
+        position: absolute;
+        z-index: 10;
+        height: 100vh;
+        width: calc(100% - 70px);
+        transition: 0s;
+        overflow-y: scroll;
+    }
+
+        .pic_header-li-titre--mobile--selected:hover .pic_header-ul-secondaire {
+            display: none;
+        }
+    .pic_header-li-secondaire {
+        margin-top: 20px;
+        width: calc(100% - 20px);
+    }
+    .pic_header-li-titre--mobile--selected::before {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 15px;
+        width: 28px;
+        height: 15px;
+        z-index: 2;
+        background-image: url(../../content/images/icons/icn_fleche-droite.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: rotate(180deg);
+        filter: brightness(0) saturate(100%) invert(61%) sepia(14%) saturate(478%) hue-rotate(178deg) brightness(84%) contrast(85%);
+        pointer-events: none;
+    }
+    .pic_header-ul-secondaire {
+        background-color: var(--pic_gris-tres-sombre);
+    }
+    .pic_header-li-tertiaire {
+        width: calc(100% - 42px);
+        background: var(--pic_gris-tres-sombre);
+        padding-left: 10px;
+    }
+    .pic_header-li-titre--mobile {
+        font-size: var(--pic_size-12);
+    }
+/*    .pic_header-menu li:nth-child(1) div:nth-child(1) {
+        font-size: var(--pic_size-12) !important;
+    }*/
+    .pic_header-menu li ul li {
+        font-size: var(--pic_size-10) !important;
+    }
+
+    .fake-menu {
+        height: auto;
+        min-height: 0px;
+    }
+
+    .pic_header-top--mobile {
+        width: 100%;
+    }
+}
+
+/* toggler barre de recherche header */
+@media screen and (max-width: 768px) {
+    #pic_logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+        width: 170px;
+    }
+
+    #searchString {
+        font-size: 12px;
+    }
+
+    .pic_menu-burger--line {
+        width: 30px;
+    }
+
+    .pic_header__recherche-declencheur {
+        display: block;
+    }
+
+    #recherche {
+        height: 0;
+        overflow: hidden;
+    }
+
+    .pic_header-recherche {
+        height: 0;
+        transition: height .3s linear;
+    }
+
+    .recherche--visible {
+        height: 40px !important;
+    }
+   
+    .bg-fleche--droit {
+        background-image: url('/Content/Images/icons/icn_fleche-droite.svg');
+        filter: invert(48%) sepia(93%) saturate(381%) hue-rotate(57deg) brightness(97%) contrast(79%);
+    }
+
+    .bg-fleche--bas {
+        background-image: url('/Content/Images/icons/icn_fleche-bas.svg');
+        filter: invert(48%) sepia(93%) saturate(381%) hue-rotate(57deg) brightness(97%) contrast(79%);
+    }
+}
+#pic_footer {
+    background: var(--pic_s500);
+    position: relative;
+    z-index: 10;
+}
+.pic_footer-copy {
+    background-color: var(--pic_noir);
+    padding: 15px 0;
+    text-align:center;
+}
+
+.pic_footer--container {
+    background: var(--pic_s500);
+    padding: 30px 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 130px;
+    flex-wrap: wrap;
+}
+.pic_footer--ul{
+
+}
+.pic_footer-li--titre {
+    padding-top: 5px;
+}
+.pic_footer--li {
+    padding: 5px 0;
+    width: fit-content;
+}
+.pic_footer--a {
+    font-size: var(--pic_size-14);
+    color: var(--pic_blanc);
+    width: fit-content;
+}
+.pic_footer-a--titre {
+    font-size: var(--pic_size-24);
+    padding: 0 0 15px;
+    margin-bottom: 10px;
+    cursor: initial;
+}
+.pic_footer-a--titre::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--pic_vert);
+}
+
+
+
+
+.pic_footer--a-page {
+    position: relative;
+    width: fit-content;
+    transition: 1s;
+}
+.pic_footer--a-page::after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    background: var(--pic_color-neutral);
+    bottom: -2px;
+    left: 0%;
+    transition: 0.3s;
+}
+.pic_footer--li:hover .pic_footer--a-page::after {
+    width: 100%;
+}
+
+.pic_img-france-r {
+    width: 97px;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 700px) {
+    .pic_footer--container {
+        gap: 20px;
+    }
+}

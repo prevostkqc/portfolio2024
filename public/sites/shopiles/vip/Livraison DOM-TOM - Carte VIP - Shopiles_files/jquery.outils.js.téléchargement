@@ -1,0 +1,94 @@
+(function($){
+	
+	
+
+})(jQuery);
+
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+
+
+
+/**
+/* Fonction qui place une class sur un élément (elToFix) si la page a scrollé jusqu'à une certaine hauteur définie par la position de elRef - hauteur de elOffset + offset
+/* elToFix  - Element sur lequel placer la class 'to-fix'
+/* elRef  - Element à surveiller. On regarde sa position par rapport au haut de la page
+/* elOffset - Hauteur d'un élément à soustraire, par exemple le header
+/* offset   - Valeur numérique à ajouter à la valeur de référence
+/* stopFix - Espace avec la classe de l'élement à observer et un offset optionnel
+  ex : 
+  desktop : {
+    elRefStop   : '.widgets-zone-basse',
+    offset    : 109
+  },
+  tablet : {
+    elRefStop   : '.jq_pos_plans-block',
+    offset    : 0
+  }
+**/
+function scrollYtoFix(elToFix, elRef, elOffset, offset, stopFix){
+  if ($(elToFix).length == 0) return;
+
+  if(undefined == offset) offset = 0;
+
+  var on_scroll = function(){
+    var wTop = $(window).scrollTop();
+    if (wTop >= get_offset()) {
+      $(elToFix).addClass('to-fix');
+    } else {
+      $(elToFix).removeClass('to-fix');
+    }
+
+    var espace = 'desktop';
+    if(undefined != stopFix && undefined != stopFix[espace] && undefined != stopFix[espace].elRefStop){
+      var setting_stop  = stopFix[espace];
+      var el_bottom   = $(elToFix).offset().top + $(elToFix).outerHeight();
+      var stop_top    = $(setting_stop.elRefStop).offset().top;
+      if(undefined != setting_stop.offset) stop_top -= setting_stop.offset;
+      var val_stop_value  = $(elToFix).data('to-fix-stop-position');
+
+      if(wTop < val_stop_value){ 
+        $(elToFix).removeClass('to-fix-stop').removeData('to-fix-stop-position');
+      }
+      if (undefined == val_stop_value && el_bottom >= stop_top) {
+        var position_stop_avant_absolute = $(setting_stop.elRefStop).offset().top;
+        $(elToFix).addClass('to-fix-stop').data('to-fix-stop-position', wTop);
+        var position_stop_apres_absolute = $(setting_stop.elRefStop).offset().top;
+        //AR--> Si le fait de passer l'élément en absolue fait remonter le elRefStop, c'est que l'élément à fixer poussait vers le bas la colonne parente, donc on ne peut pas le passer en absolue sauf à risquer de modifier la taille de la page et faire sauter les éléments? 
+        if(position_stop_apres_absolute < position_stop_avant_absolute){
+          $(elToFix).removeClass('to-fix-stop').removeData('to-fix-stop-position');
+        }
+      }
+    }
+  };
+
+  var get_offset = function(){
+
+    if(undefined != elOffset){
+      return $(elRef).offset().top-$(elOffset).outerHeight()+offset;
+    }else{
+      return $(elRef).offset().top+offset;
+    }
+  };
+
+  $(window).scroll(function () {
+    on_scroll();
+  });
+  $(window).load(function () {
+    $(elToFix).removeClass('to-fix');
+    on_scroll();
+  });
+  on_scroll();
+};

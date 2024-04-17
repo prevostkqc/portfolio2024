@@ -1,0 +1,93 @@
+/* vietnamese */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Quicksand Light'), local('Quicksand-Light'), url(https://web.archive.org/web/20170203052256im_/http://fonts.gstatic.com/s/quicksand/v6/qhfoJiLu10kFjChCCTvGlORxkv-z7v24YaeSD5NjJs4.woff) format('woff');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Quicksand Light'), local('Quicksand-Light'), url(https://web.archive.org/web/20170203052256im_/http://fonts.gstatic.com/s/quicksand/v6/qhfoJiLu10kFjChCCTvGlLARKWikSFtPIMI7wRnh2OM.woff) format('woff');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Quicksand Light'), local('Quicksand-Light'), url(https://web.archive.org/web/20170203052256im_/http://fonts.gstatic.com/s/quicksand/v6/qhfoJiLu10kFjChCCTvGlHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Quicksand Regular'), local('Quicksand-Regular'), url(https://web.archive.org/web/20170203052256im_/http://fonts.gstatic.com/s/quicksand/v6/NUrn2XQrRfyGZp5Mknntadj00qvwa7FIWVKDOymo9DA.woff) format('woff');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Quicksand Regular'), local('Quicksand-Regular'), url(https://web.archive.org/web/20170203052256im_/http://fonts.gstatic.com/s/quicksand/v6/s2PXW4WrV3VLrOUpHiqsfdj00qvwa7FIWVKDOymo9DA.woff) format('woff');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Quicksand Regular'), local('Quicksand-Regular'), url(https://web.archive.org/web/20170203052256im_/http://fonts.gstatic.com/s/quicksand/v6/sKd0EMYPAh5PYCRKSryvWz8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Quicksand Bold'), local('Quicksand-Bold'), url(https://web.archive.org/web/20170203052256im_/http://fonts.gstatic.com/s/quicksand/v6/32nyIRHyCu6iqEka_hbKsuRxkv-z7v24YaeSD5NjJs4.woff) format('woff');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Quicksand Bold'), local('Quicksand-Bold'), url(https://web.archive.org/web/20170203052256im_/http://fonts.gstatic.com/s/quicksand/v6/32nyIRHyCu6iqEka_hbKsrARKWikSFtPIMI7wRnh2OM.woff) format('woff');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Quicksand Bold'), local('Quicksand-Bold'), url(https://web.archive.org/web/20170203052256im_/http://fonts.gstatic.com/s/quicksand/v6/32nyIRHyCu6iqEka_hbKsnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/*
+     FILE ARCHIVED ON 05:22:56 Feb 03, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:37:40 Apr 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.567
+  exclusion.robots: 0.066
+  exclusion.robots.policy: 0.058
+  cdx.remote: 0.051
+  esindex: 0.008
+  LoadShardBlock: 101.233 (3)
+  PetaboxLoader3.datanode: 51.298 (4)
+  load_resource: 119.611
+  PetaboxLoader3.resolve: 90.805
+*/

@@ -1,0 +1,168 @@
+( function($) {
+
+	/*************************************
+	Placer une class zone_like dans l'élément entourant l'affichage du like. Si le profil a déjà liké cet élément, ajouter la class profil_like
+		Attributs à ajouter sur ce container : 
+		relation="?page?" 						=> indique la relation du like (membre,produit,evenement,...)
+		ref="?88?" 								=> id de la relation à liker. Ex: 17 pour liker le produit dont l'id = 17
+		alert="true"							=> placer cet attribut pour qu'une fenêtre de popup s'affiche au like/unlike d'un élément
+		popup_like="popup_like_produit"			=> indique l'id de l'élément servant de popup d'alert pour les like. Si non indiqué, prend #popup_like par défaut
+		popup_unlike="popup_unlike_produit"		=> indique l'id de l'élément servant de popup d'alert pour les unlike. Si non indiqué, prend #popup_unlike par défaut
+		popup-info="lunette de soleil ref.1946" => contenu qui sera inséré dans la popup, dans un élément qui possède la class .insert
+	Placer une class btn_like sur le lien qui sert à liker
+	Placer une class nbr_like autour du chiffre de like pour qu'il évolue en fonction des actions de l'utilisateur.
+	*************************************/
+
+	$.Like = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Like')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			number		: 5
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object Like général
+		btn,
+		nbr,
+		relation,
+		ref,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Like
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Enregistre l'objet Like sur l'object $container en cours pour pouvoir y faire appel par $container.Like('fonction', option1, option2, ...)
+			$container.data('Like', {});
+			//--> Ajoute l'attribut HTML 5 data-Like pour faciliter l'appel des instances Like avec les pseudo-selector CSS 
+			$container.attr('data-Like', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+			btn = $container.find('.btn_like');
+			btn.css('cursor','pointer');
+			btn.on('click', function(event){
+				event.preventDefault();
+				plugin.clic();
+			})
+
+			relation	= $container.attr('relation');
+			ref			= $container.attr('ref');
+			_alert		= $container.attr('alert');
+
+			nbr			= $('.zone_like[relation='+relation+'][ref='+ref+'] .nbr_like');
+
+		};
+
+		plugin.clic = function(){
+			//--> Si le profil likait ce contenu, on le dislike
+			if($container.hasClass('profil_like')){
+				$('.zone_like[relation='+relation+'][ref='+ref+']').removeClass('profil_like');
+				var _nbr = parseInt(nbr.first().text()) - 1;
+				var _function = 'dislike';
+				popup_id = '#popup_unlike';
+
+				if($container.attr('popup_unlike') != undefined){
+					popup_id = '#'+$container.attr('popup_unlike');
+				}
+
+			//--> Si le profil ne likait pas ce contenu, on le like
+			}else{
+				$('.zone_like[relation='+relation+'][ref='+ref+']').addClass('profil_like');
+				var _nbr = parseInt(nbr.first().text()) + 1;
+				var _function = 'like';
+				popup_id = '#popup_like';
+
+				if($container.attr('popup_like') != undefined){
+					popup_id = '#'+$container.attr('popup_like');
+				}
+			}
+
+			$.ajax({
+				url: 'utilisateurs/utilisateurs_likes/'+_function+'/'+relation+'/'+ref,
+			}).done(function() {
+				//
+			});
+
+			$(popup_id + ' .insert').text($container.attr('popup-info'));
+
+			if ($container.attr('alert') == 'true') {
+				$.fancybox({
+					href			: popup_id,
+					padding			: 0,
+					cyclic			: false,
+					overlayShow		: true,
+					overlayOpacity	: 0.65,
+					overlayColor	: '#000000',
+					titlePosition	: 'inside',
+					maxWidth		: 800,
+					maxHeight		: 300,
+					fitToView		: false,
+					autoSize		: true,
+					closeClick		: false,
+					openEffect		: 'none',
+					closeEffect		: 'none',
+				});
+			};
+
+			nbr.text(_nbr);
+
+		};
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('Like - ' + _var);
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Like = function(options) {
+		var args = arguments;
+		return this.each(function() {
+			var plugin = $(this).data('Like');
+			if (undefined === plugin) {
+				plugin = new $.Like(this, options);
+				$(this).data('Like', plugin);
+			}else if ( plugin[options] ) {
+				return plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+			}
+		});
+	};
+
+})(jQuery);
+
+
+jQuery(function(){
+
+	update_zone_likes = function(){
+		$('.zone_like').Like();
+	}
+
+	update_zone_likes();
+
+	$('body').on('loaded', function(event){
+		update_zone_likes();
+	})
+
+})

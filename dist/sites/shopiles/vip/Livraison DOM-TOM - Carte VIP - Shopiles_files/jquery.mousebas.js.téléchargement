@@ -1,0 +1,84 @@
+( function($) {
+
+	$.Mousebas = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('Mousebas')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			interval		: 50,
+			delay 			: 300,
+			firstClick		: true,
+			stopAuto 		: 10000
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object Mousebas général
+		var1,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet Mousebas
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Enregistre l'objet Mousebas sur l'object $container en cours pour pouvoir y faire appel par $container.Mousebas('fonction', option1, option2, ...)
+			$container.data('Mousebas', {});
+			//--> Ajoute l'attribut HTML 5 data-Mousebas pour faciliter l'appel des instances Mousebas avec les pseudo-selector CSS 
+			$container.attr('data-Mousebas', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+			$container.on('mousedown', function(event){
+
+				if(settings.firstClick) $container.trigger('mousebas');
+
+				var interval	= undefined;
+				var delay		= undefined;
+
+				delay = setTimeout(function(){
+					interval = setInterval(function(){
+						$container.trigger('mousebas');
+					}, settings.interval);
+				}, settings.delay);
+
+				$container.off('mouseup').on('mouseup', function(event){
+					if(interval != undefined)	clearInterval(interval);
+					if(delay != undefined)		clearTimeout(delay);
+				});
+
+				//AS--> Sécurité. Arrêt au bout d'un certain temps défini
+				setTimeout(function(){
+					if(interval != undefined) 	clearInterval(interval);
+					if(delay != undefined) 		clearTimeout(delay);
+				}, settings.stopAuto)
+			})
+
+		};
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.Mousebas = function(options) {
+		var args = arguments;
+		return this.each(function() {
+			var plugin = $(this).data('Mousebas');
+			if (undefined === plugin) {
+				plugin = new $.Mousebas(this, options);
+				$(this).data('Mousebas', plugin);
+			}else if ( plugin[options] ) {
+				return plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+			}
+		});
+	};
+
+})(jQuery);

@@ -1,0 +1,217 @@
+/************************************************
+
+== Initialisation, une fois dans la page :
+$(window).WR(options);  //--> Voir defaults ci-dessous pour les options disponibles
+
+== Ecouteur :
+$(window).on('wrswitch', function(event, data){
+	//--> data = {
+		mini			: px mini du mode d'affichage,
+		maxi			: px maxi du mode d'affichage,
+		sens			: reduit / augmente pour désigner si on vient de réduire ou d'augmenter,
+		sens_palier		: >800 indique qu'on vient de passer en dessous de 800, <800 indique qu'on vient de passer au dessus de 800,
+		espace 			: nom du palier (phone,desktop,...),
+		palier_num		: numéro du palier
+	}
+	...
+	switch(data.espace){
+		case 'phone':
+			...
+			break;
+		case 'desktop':
+			...
+			break;
+	}
+})
+
+== Connaitre l'espace (ou mode) :
+$(window).WR('getEspace'); ==> Renvoie le nom du palier (phone,desktop, ...)
+
+
+************************************************/
+
+( function($) {
+
+	$.WR = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('WR')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			paliers			: [
+				{
+					nom : 'phone',
+					max : 642
+				},
+				{
+					nom : 'tablet',
+					max : 1279
+				},
+				{
+					nom : 'desktop',
+					max : 10000
+				}
+			],
+			event_change	: 'resize',
+			event_trigger 	: 'wrswitch'
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object WR général
+		paliers = [],
+		palier_actuel = 0,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet WR
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Enregistre l'objet WR sur l'object $container en cours pour pouvoir y faire appel par $container.WR('fonction', option1, option2, ...)
+			$container.data('WR', {});
+			//--> Ajoute l'attribut HTML 5 data-WR pour faciliter l'appel des instances WR avec les pseudo-selector CSS 
+			$container.attr('data-WR', true);
+
+			// =============================================================
+			//--> Code d'initialisation du plugin
+
+			plugin.setPaliers(settings.paliers);
+
+			$container.on(settings.event_change, function(event){
+				plugin.change();
+			})
+
+		};
+
+		plugin.setPaliers = function (_paliers){
+			paliers = _paliers;
+			plugin.change();
+		}
+
+		plugin.change = function(){
+			var nouveau_palier = plugin.checkPalier();
+			if(nouveau_palier != palier_actuel){
+				if(nouveau_palier < palier_actuel){
+					var sens = 'reduit';
+				}else{
+					var sens = 'augmente';
+				}
+
+				palier_actuel	= nouveau_palier;
+				var palier_nom	= paliers[palier_actuel].nom;
+
+				var maxi = paliers[palier_actuel].max;
+				var mini = paliers[palier_actuel-1] == undefined ? 0 : paliers[palier_actuel-1].max +1;
+
+				if(sens == 'reduit'){
+					var sens_palier = '>'+maxi;
+				}else{
+					var sens_palier = '<'+mini;
+				}
+
+				__log(palier_nom);
+
+				fire(
+					settings.event_trigger, 
+					{
+						mini			: mini,
+						maxi			: maxi,
+						sens			: sens,
+						sens_palier		: sens_palier,
+						espace 			: palier_nom,
+						palier_num		: palier_actuel
+					}
+				);
+			}
+		}
+
+		plugin.checkPalier = function(){
+			var _palier = -1;
+			var width = $container.width();
+			$.each(paliers, function(index, palier){
+				if(width < palier.max && _palier == -1) _palier = index;
+			})
+			return _palier;
+		};
+
+		plugin.getWidthMax = function(){
+			response(paliers[palier_actuel].max);
+		}
+
+		plugin.getWidthMin = function(){
+			var min = paliers[palier_actuel-1];
+			min = min == undefined ? min = 0 : min.max+1;
+			response(min);
+		}
+
+		plugin.getEspace = function(){
+			response(paliers[palier_actuel].nom);
+		}
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('WR - ' + _var);
+		}
+
+		var __log = function(texte){
+			$('body').Log('log', '<b>WR</b> - ' + texte, '#74C170');
+		}
+
+		var response = function(val){
+			$container.data('WR_response', val);
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.WR = function(options) {
+		var args		= arguments;
+		var response	= 'no_response';
+		this.each(function() {
+			var plugin = $(this).data('WR');
+			if (undefined === plugin) {
+				plugin = new $.WR(this, options);
+				$(this).data('WR', plugin);
+				$(this).data('WR_response', 'no_response');
+			}else if ( plugin[options] ) {
+				var exec = plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+				if($(this).data('WR_response') != 'no_response'){
+					response = $(this).data('WR_response');
+					$(this).data('WR_response', 'no_response');
+					return response;
+				}else{
+					return exec;
+				}
+			}
+		});
+		if(response != 'no_response'){
+			return response;
+		}else{
+			return this;
+		}
+	};
+
+})(jQuery);
+
+jQuery.fn.extend({
+	espace: function(){
+		return $(window).WR('getEspace');
+	}
+});

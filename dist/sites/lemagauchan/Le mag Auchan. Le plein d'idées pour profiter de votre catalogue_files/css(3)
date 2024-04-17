@@ -1,0 +1,29 @@
+/* latin */
+@font-face {
+  font-family: 'Goudy Bookletter 1911';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Goudy Bookletter 1911'), local('GoudyBookletter1911'), url(https://web.archive.org/web/20170203053954im_/http://fonts.gstatic.com/s/goudybookletter1911/v6/l5lwlGTN3pEY5Bf-rQEuIAQibyVIKv8boZ0oFv0g-Lo.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/*
+     FILE ARCHIVED ON 05:39:54 Feb 03, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:37:41 Apr 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.648
+  exclusion.robots: 0.068
+  exclusion.robots.policy: 0.06
+  cdx.remote: 0.086
+  esindex: 0.009
+  LoadShardBlock: 105.062 (6)
+  PetaboxLoader3.datanode: 112.428 (8)
+  load_resource: 371.594 (2)
+  PetaboxLoader3.resolve: 215.723 (2)
+*/

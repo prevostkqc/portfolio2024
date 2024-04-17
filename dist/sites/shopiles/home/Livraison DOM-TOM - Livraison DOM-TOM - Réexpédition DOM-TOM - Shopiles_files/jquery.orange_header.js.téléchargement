@@ -1,0 +1,223 @@
+( function($) {
+	/**
+	* 	===========================================================================================
+	*	Plugin de redirection qui permet de rédiriger un utilisateur au clic sur un bloc entier.
+
+	*	Mettre l'attribut data-OrangeHeader-url="" pour y insérer l'url qui redirigera l'utilisateur
+	* 	Une classe 'no_href' peut être placée sur les éléments qui ne doivent être entravés par la redirection
+	* 	===========================================================================================
+	*/
+	$.OrangeHeader = function(container, options) {
+
+		//--> Attache à plugin tout ce qui doit être accessible via $container.data('OrangeHeader')
+		var plugin = this,
+		$container = $(container),
+
+		//--> Valeurs par défaut
+		defaults = {
+			number		: 5
+		},
+
+		// =============================================================
+		//--> Instances de variables internes au plugin, non disponibles via l'object OrangeHeader général
+		page_scrollable = true,
+
+		// =============================================================
+		//--> Variable facilitant l'utilisation des settings du plugin
+		offset_header	= $('.header').innerHeight(),
+		hauteur_overlay	= $container.height(),
+		settings;
+
+		// =============================================================
+		// Functions disponibles via l'objet OrangeHeader
+		// =============================================================
+
+		plugin.init = function() {
+			//--> Merge les options par défaut et celles spécifiées pour ce plugin
+			plugin.settings = settings = $.extend({}, defaults, options);
+			//--> Ajoute l'attribut HTML 5 data-OrangeHeader pour faciliter l'appel des instances OrangeHeader avec les pseudo-selector CSS 
+			$container.attr('data-OrangeHeader', true);
+			
+			//RC--> Détection de la molette de la souris
+			$(window).on('mousewheel', function(event) {
+				if (!$('.header').hasClass('active')) {
+					//RC--> Récupération du scroll de la fenêtre
+					var top 			= $(window).scrollTop();
+
+					if (top == 0 && event.deltaY == '-1' && page_scrollable == true) {
+					 	page_scrollable = false;
+						$('html, body').animate({
+							scrollTop : '+' + hauteur_overlay + 'px'
+						}, 800, 'swing');
+
+						setTimeout(function() {
+							page_scrollable = true;
+						}, 800);
+					}
+
+					if (page_scrollable == false) {
+						event.preventDefault();
+					}
+				} else {
+					event.preventDefault();
+				}
+			});
+
+			$(window).on('resize', function(){
+				plugin.calculHauteurOverlay($container.innerWidth(), $container.innerHeight());
+			});
+			$(window).on('load', function(){
+				plugin.calculHauteurOverlay($container.innerWidth(), $container.innerHeight());
+			});
+			plugin.calculHauteurOverlay($container.innerWidth(), $container.innerHeight());
+
+			//RC--> Déclenchement du lecteur au clic sur le bouton play
+			$container.find('.jq_lecture_video').on('click', function(event) {
+				event.preventDefault();
+
+				plugin.initLecteur();
+			});
+			plugin.initLecteur();
+
+			$container.find('.vie_du_club').on('click', function(event) {
+				$('html, body').animate({
+					scrollTop : '+' + hauteur_overlay + 'px'
+				}, 800, 'swing');
+			});
+		};
+
+		plugin.calculHauteurOverlay = function(largeur, hauteur) {
+			//RC--> Set de la hauteur de l'overlay
+			hauteur_overlay = hauteur;
+			$container.css({
+				height : hauteur
+			});
+
+			//AS--> Calcul de la taille et position de la vidéo
+			if (largeur / hauteur > 16/9) {
+				var largeur_video	= largeur;
+				var hauteur_video	= (9 * largeur) / 16;
+				var decalage_top	= ((hauteur_video - hauteur) / 2) + 10;
+				var decalage_left	= 0;
+			} else {
+				var hauteur_video = hauteur;
+				var largeur_video = (16 * hauteur) / 9;
+				var decalage_top	= -80;
+				var decalage_left	= (largeur_video - largeur) / 2;
+			}
+
+			$container.find('video').css({
+				position: 'absolute',
+				width	: largeur_video,
+				height	: hauteur_video,
+				top		: -decalage_top,
+				left	: -decalage_left
+			});
+
+			$container.find('video').parent().css({
+				position: 'inital',
+				width	: '100%',
+				height	: '100%',
+				top		: 0,
+				left	: 0
+			});
+		}
+
+		plugin.initLecteur = function() {
+			if (navigator.appVersion.indexOf("iPad") != -1 || navigator.appVersion.indexOf("iPhone") != -1) {
+				$container.find('video').remove();
+			} else {
+				$container.addClass('lecteur_actif');
+
+				//RC--> On force un scroll en haut de la page
+				$('html, body').animate({
+					scrollTop : '0px'
+				}, 500, 'swing');
+
+				//RC--> On met la video en lecture
+				$container.find('video').show();
+				
+				if (navigator.appVersion.indexOf("iPhone") != -1) {
+					$container.find('video').get(0).play();
+				} else {
+					$container.addClass('video_js_actif');
+
+					$('.header .navigation').addClass('play');
+
+					var video_player = videojs($container.find('video').attr('id'), {}, function() {
+						var player = this;
+						player.play();
+						plugin.calculHauteurOverlay($container.innerWidth(), $container.innerHeight());
+					});
+				}
+			}
+		}
+
+		plugin.calculChapitrage = function(element_player) {
+			var duration	= element_player.duration();
+			var chapitrage	= eval(_data('chapitrage', $container));
+
+			if (chapitrage != undefined) {
+				$.each(chapitrage, function(index, chap) {
+					var secondes		= parseInt(chap.time[0] * 60) + parseInt(chap.time[1]);
+					var time_pourcent	= Math.round((secondes * 100) / duration);
+
+					$container.find('.vjs-control-bar .vjs-progress-control .vjs-slider').append('<div class="vjs-chapter" style="position: absolute; left: ' + time_pourcent + '%;" data-OrangeHeader-time="' + secondes + '"><div class="vjs-chapter-bar"><div class="vjs-chapter-placeholder">' + chap.text + '</div></div></div>')
+				});
+			}
+		}
+
+		// =============================================================
+		// Functions privée
+		// =============================================================
+
+		// Triggers an event on an element and returns the event result
+		var fire = function(name, data) {
+			$container.trigger(name, data);
+		}
+
+		var _log = function(_var){
+			console.log('OrangeHeader - ' + _var);
+		}
+
+		var response = function(val){
+			$container.data('OrangeHeader_response', val);
+		}
+
+		var _data = function(data){
+			return $container.data(('OrangeHeader-'+data).toLowerCase());
+		}
+
+		//--> Exécution de l'initialisation du plugin
+		plugin.init();
+
+	};
+
+	$.fn.OrangeHeader = function(options) {
+		var args		= arguments;
+		var response	= 'no_response';
+		return this.each(function() {
+			var plugin = $(this).data('OrangeHeader');
+			if (undefined === plugin) {
+				plugin = new $.OrangeHeader(this, options);
+				$(this).data('OrangeHeader', plugin);
+				$(this).data('OrangeHeader_response', 'no_response');
+			}else if ( plugin[options] ) {
+				var exec = plugin[options].apply( this, Array.prototype.slice.call( args, 1 ));
+				if($(this).data('OrangeHeader_response') != 'no_response'){
+					response = $(this).data('OrangeHeader_response');
+					$(this).data('OrangeHeader_response', 'no_response');
+					return response;
+				}else{
+					return exec;
+				}
+			}
+		});
+		if(response != 'no_response'){
+			return response;
+		}else{
+			return this;
+		}
+	};
+
+})(jQuery);

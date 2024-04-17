@@ -2,32 +2,35 @@
     {
         "titre": "Fiche PC GAMER",
         "techno": ["js", "jquery", "html5", "css3"],
-        "annee": "2024",
+        "annee": "2021 - 2024",
         "compagnie": "Cybertek",
         "id" : 1,
-        "url" : "https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-1019-137034.aspx",
+        "url" : "/sites/Cybertek/fiche-pc-gamer-1/",
+        "icn" : "cybertek",
         "description" : "J'ai eu l'opportunité d'être responsable de la refonte de la page de fiche PC GAMER dans le but d'améliorer l'expérience utilisateur. Ce projet m'a permis de mettre en pratique mes compétences en développement web pour créer une interface plus conviviale et intuitive.  J'ai effectué des ajustements significatifs dans le code afin d'optimiser la navigation et de garantir une présentation claire et attractive des produits. En travaillant sur chaque détail, des images aux descriptions, j'ai veillé à ce que les visiteurs puissent accéder rapidement aux informations dont ils ont besoin.  Cette refonte a eu un impact positif sur l'expérience d'achat en ligne, en réduisant la confusion et en facilitant la recherche de produits. Je suis fier du résultat final et convaincu que cette initiative a contribué à renforcer la satisfaction des clients.  Cette expérience m'a également permis de développer mes compétences en résolution de problèmes, en collaboration avec d'autres membres de l'équipe pour atteindre nos objectifs communs."
     },
     {
         "titre": "Liste PC GAMER",
         "techno": ["js", "jquery", "html5", "css3"],
-        "annee": "2024",
+        "annee": "2021 - 2024",
         "compagnie": "Cybertek",
         "id" : 2,
-        "url" : "https://www.cybertek.fr/univers-gamer/pc-assembles",
+        "url" : "/sites/Cybertek/liste-pc-gamer/",
+        "icn" : "cybertek",
         "description" : "J'ai été responsable de la refonte de la liste des PC gamers sur le site e-commerce Cybertek.fr. Cette initiative visait à améliorer l'expérience utilisateur en rendant la navigation plus fluide et intuitive. Les ajustements effectués ont permis une présentation claire et attractive des produits, facilitant ainsi la recherche des clients. Cette refonte a considérablement optimisé le processus d'achat en ligne, réduisant la confusion et renforçant la satisfaction des clients. Ce projet a été une opportunité précieuse pour perfectionner mes compétences en développement web et répondre aux besoins des utilisateurs de manière efficace."
     },
+
+
     {
         "titre": "Cybertek PRO",
         "techno": ["js", "jquery", "html5", "css3", "razor"],
-        "annee": "2023 - 2024",
-        "compagnie": "Cybertek",
+        "annee": "2022 - 2024",
+        "compagnie": "Cybertekpro",
         "id" : 3,
         "url" : "https://www.cybertek-pro.fr/",
-        "description" : "En tant que développeur web chez Cybertek.fr, j'ai eu la responsabilité de concevoir et de développer le site Cybertek Pro, dédié aux professionnels. Ce projet avait pour objectif de fournir une plateforme conviviale et efficace pour les clients B2B, en offrant des fonctionnalités spécifiques répondant à leurs besoins professionnels. En travaillant sur Cybertek Pro, j'ai pu mettre en pratique mes compétences en développement web pour créer une expérience utilisateur optimale, adaptée au marché professionnel. Ce projet a été une occasion enrichissante de contribuer à la croissance et à la satisfaction des clients professionnels de Cybertek.fr."
+        "icn" : "cybertekpro",
+        "description" : "En tant que développeur web chez Cybertek.fr, j'ai eu la responsabilité de m'occuper de la partie Front du site Cybertek Pro, dédié aux professionnels. Ce projet avait pour objectif de fournir une plateforme efficace pour les clients B2B, en offrant des fonctionnalités spécifiques répondant à leurs besoins professionnels. En travaillant sur Cybertek Pro, j'ai pu mettre en pratique mes compétences en développement web pour créer une expérience utilisateur optimale, adaptée au marché professionnel. Ce projet a été une occasion enrichissante de contribuer à la croissance et à la satisfaction des clients professionnels de Cybertek.fr."
     },
-
-
 
     
     {
@@ -36,21 +39,203 @@
         "annee": "2021 - 2024",
         "compagnie": "Grosbill",
         "id" : 4,
-        "url" : "https://www.grosbill.com/",
+        "url" : "/sites/grosbill/home/",
+        "icn" : "grosbill",
         "description" : "En qualité de Responsable du Développement Front chez le Groupe Cybertek, j'ai dirigé les efforts de conception et de développement du site e-commerce spécialisé dans la vente de matériel informatique. Mon rôle consistait à superviser la création et l'amélioration des fonctionnalités du site, ainsi qu'à garantir une expérience utilisateur optimale. En travaillant étroitement avec une équipe talentueuse, j'ai contribué à renforcer la visibilité et la performance de Grosbill.com sur le marché. Cette expérience m'a permis de démontrer mes compétences en gestion de projet et en développement web, tout en répondant aux besoins de notre clientèle spécialisée."
     },
-
 
 
     
     {
         "titre": "Mred",
         "techno": ["js", "jquery", "html5", "css3", "razor"],
-        "annee": "2021 - 2024",
+        "annee": "2022 - 2024",
         "compagnie": "Mred",
         "id" : 5,
         "url" : "https://m-red.com/",
+        "icn" : "mred",
         "description" : "En qualité de Responsable du Développement Front chez le Groupe Cybertek, j'ai dirigé les efforts de conception et de développement du site e-commerce spécialisé dans la vente de matériel informatique. Mon rôle consistait à superviser la création et l'amélioration des fonctionnalités du site, ainsi qu'à garantir une expérience utilisateur optimale. En travaillant étroitement avec une équipe talentueuse, j'ai contribué à renforcer la visibilité et la performance de Grosbill.com sur le marché. Cette expérience m'a permis de démontrer mes compétences en gestion de projet et en développement web, tout en répondant aux besoins de notre clientèle spécialisée."
+    },
+
+    
+    {
+        "titre": "Picata",
+        "techno": ["js", "jquery", "html5", "css3", "razor"],
+        "annee": "2022 - 2024",
+        "compagnie": "Picata",
+        "id" : 6,
+        "url" : "https://www.picata.fr/",
+        "icn" : "picata",
+        "description" : ""
+    },
+
+    
+    {
+        "titre": "Kusmi Tea",
+        "techno": ["js", "jquery", "html5", "css3", "php5", "mysql"],
+        "annee": "2020 - 2021",
+        "compagnie": "Kusmitea",
+        "id" : 7,
+        "url" : "/sites/kusmitea/",
+        "icn" : "kusmitea",
+        "description" : ""
+    },
+
+    
+    {
+        "titre": "Wedemain",
+        "techno": ["js", "jquery", "html5", "css3", "php5", "mysql"],
+        "annee": "2016 - 2020",
+        "compagnie": "Wedemain",
+        "id" : 8,
+        "url" : "/sites/wedemain/",
+        "icn" : "wedemain",
+        "description" : ""
+    },
+
+    
+    {
+        "titre": "Le Mag Auchan",
+        "techno": ["js", "jquery", "html5", "css3", "php5", "mysql"],
+        "annee": "2013 - 2016",
+        "compagnie": "MagAuchan",
+        "id" : 9,
+        "url" : "/sites/lemagauchan/",
+        "icn" : "auchan",
+        "description" : ""
+    },
+
+    
+    {
+        "titre": "Les Canardises",
+        "techno": ["js", "jquery", "html5", "css3", "php5", "mysql"],
+        "annee": "2010 - 2013",
+        "compagnie": "LesCanardises",
+        "id" : 10,
+        "url" : "/sites/lescanardises/",
+        "icn" : "lescanardises",
+        "description" : ""
+    },
+
+    
+    {
+        "titre": "Shopîles",
+        "techno": ["js", "jquery", "html5", "css3", "php5", "mysql"],
+        "annee": "2016 - 2017",
+        "compagnie": "Sophiles",
+        "id" : 11,
+        "url" : "/sites/shopiles/home/",
+        "icn" : "shopiles",
+        "description" : ""
+    },
+
+    
+    {
+        "titre": "Shopîles VIP",
+        "techno": ["js", "jquery", "html5", "css3", "php5", "mysql"],
+        "annee": "2016 - 2017",
+        "compagnie": "Sophiles",
+        "id" : 12,
+        "url" : "/sites/shopiles/vip/",
+        "icn" : "shopiles",
+        "description" : ""
+    },
+
+
+    
+    {
+        "titre": "Pokémon Opale",
+        "techno": ["js", "jquery", "html5", "css3", "php5", "mysql"],
+        "annee": "2018 - 2024",
+        "compagnie": "Opale",
+        "id" : 13,
+        "url" : "https://www.pokemonopale.fr/",
+        "icn" : "opale",
+        "description" : ""
+    },
+
+
+    {
+        "titre": "Halo Infinite",
+        "techno": ["js", "jquery", "html5", "css3"],
+        "annee": "2023",
+        "compagnie": "CybertekPcGamer",
+        "id" : 14,
+        "url" : "/sites/Cybertek/pc-serigraphies/halo-infinite/",
+        "icn" : "cybertek",
+        "description" : ""
+    },
+
+
+    {
+        "titre": "Sea of Thieves",
+        "techno": ["js", "jquery", "html5", "css3"],
+        "annee": "2022",
+        "compagnie": "CybertekPcGamer",
+        "id" : 15,
+        "url" : "/sites/Cybertek/pc-serigraphies/sea-of-thieves/",
+        "icn" : "cybertek",
+        "description" : ""
+    },
+
+
+    {
+        "titre": "The Witcher",
+        "techno": ["js", "jquery", "html5", "css3"],
+        "annee": "2022",
+        "compagnie": "CybertekPcGamer",
+        "id" : 16,
+        "url" : "/sites/Cybertek/pc-serigraphies/the-witcher/",
+        "icn" : "cybertek",
+        "description" : ""
+    },
+
+
+    {
+        "titre": "DeoToons",
+        "techno": ["js", "jquery", "html5", "css3"],
+        "annee": "2022",
+        "compagnie": "CybertekPcGamer",
+        "id" : 17,
+        "url" : "/sites/Cybertek/pc-serigraphies/deotoon/",
+        "icn" : "cybertek",
+        "description" : ""
+    },
+
+
+    {
+        "titre": "Ragnarock",
+        "techno": ["js", "jquery", "html5", "css3"],
+        "annee": "2022",
+        "compagnie": "CybertekPcGamer",
+        "id" : 18,
+        "url" : "/sites/Cybertek/pc-serigraphies/ragnarock/",
+        "icn" : "cybertek",
+        "description" : ""
+    },
+
+
+    {
+        "titre": "Halo infinite 2022",
+        "techno": ["js", "jquery", "html5", "css3"],
+        "annee": "2022",
+        "compagnie": "CybertekPcGamer",
+        "id" : 19,
+        "url" : "/sites/Cybertek/pc-serigraphies/halo-infinite-1/",
+        "icn" : "cybertek",
+        "description" : ""
+    },
+
+
+    {
+        "titre": "Dying Light 2",
+        "techno": ["js", "jquery", "html5", "css3"],
+        "annee": "2022",
+        "compagnie": "CybertekPcGamer",
+        "id" : 20,
+        "url" : "/sites/Cybertek/pc-serigraphies/dying-light/",
+        "icn" : "cybertek",
+        "description" : ""
     }
 ]
 

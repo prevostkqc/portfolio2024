@@ -1,0 +1,420 @@
+/* Échec de l'agrandissement. Renvoi du contenu non agrandi.
+(31,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(37,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc-sombre'
+(51,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc-sombre'
+(52,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_animation'
+(55,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(69,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_color-neutral'
+(140,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_s500'
+(147,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_color-secondary'
+(155,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(187,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_animation'
+(195,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_animation'
+(198,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_n80'
+(201,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_gris-clair'
+(222,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(236,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-20'
+(237,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(242,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-12'
+(243,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-400'
+(250,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_h4_size'
+(256,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-38'
+(257,23): run-time error CSS1039: Token not allowed after unary operator: '-pic_weight-600'
+(258,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_h1-color'
+(268,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(282,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(286,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+(300,22): run-time error CSS1039: Token not allowed after unary operator: '-pic_t300'
+(306,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_vert'
+(314,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-48'
+(315,17): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(322,28): run-time error CSS1039: Token not allowed after unary operator: '-pic_blanc'
+(330,21): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-18'
+(356,25): run-time error CSS1039: Token not allowed after unary operator: '-pic_size-14'
+ */
+/* ---------------*/
+/* Home Carrousel */
+.pic_home-carrousel {
+    background: #727272;
+}
+.pic_home-carrousel--li, .pic_home-carrousel--li a {
+    display: none;
+}
+.pic_home-carrousel--li:nth-child(1), .pic_home-carrousel--li a:nth-child(1) {
+    display: block;
+}
+
+.pic_a {
+    width: 100%;
+}
+
+.pic_home-diapo-img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.swiper-pagination-bullet {
+    width: 15px !important;
+    height: 15px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--pic_vert) !important;
+}
+
+/* ----------------*/
+/* Home catégories */
+.pic_wrap--home-categories-partenaires {
+    background-color: var(--pic_blanc-sombre);
+    padding-bottom: 40px;
+}
+.pic_wrap--home-categories {
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+    padding: 20px 0;
+    flex-wrap: wrap;
+}
+.pic_home_une-categorie {
+    width: 22%;
+    border-radius: 2px;
+    padding: 10px 0;
+    background-color: var(--pic_blanc-sombre);
+    transition: var(--pic_animation);
+}
+.pic_home_une-categorie:hover {
+    background-color: var(--pic_blanc);
+}
+.pic_home-categories-img {
+    width: 100%;
+    max-height: 179px;
+    object-fit: contain;
+}
+.pic_home-categorie--part {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.pic_home-categorie--link{
+    color: var(--pic_color-neutral);
+}
+.pic_link--home-categorie {
+    padding: 5px 0;
+    display: block;
+    margin: auto;
+}
+.pic_home-categorie--ul{
+    margin-top: 10px;
+}
+
+/* ----------------*/
+/* Home Partenaires */
+.pic_home-logo-partenaire--container{
+    width: 100%;
+    overflow: hidden;
+}
+.pic_home-logo-partenaire--img {
+    width: fit-content;
+    height: auto;
+}
+.pic_home-logo-partenaire--ul {
+    gap: 10px;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    padding: 0 20px;
+    max-height: 140px;
+    position: relative;
+}
+.pic_home-logo-partenaire--ul--right {
+    animation: rolepartright 200s linear infinite;
+}
+.pic_home-logo-partenaire--ul--left {
+    animation: rolepartleft 200s linear infinite;
+  /*  flex-direction: row-reverse;*/
+    margin-top:10px;
+}
+@keyframes rolepartright {
+    0% {
+        transform: translateX(0%);
+    }
+
+    50% {
+        transform: translateX(-150%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes rolepartleft {
+    0% {
+        transform: translateX(-150%);
+    }
+
+    50% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-150%);
+    }
+}
+
+
+.pic_home-logo-partenaire--li {
+    width: 100%;
+    max-width: 220px;
+    min-width: 180px;
+    height: 60px;
+    background: var(--pic_s500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+.pic_home-logo-partenaire--li:hover {
+    background: var(--pic_color-secondary);
+}
+/* ----------------*/
+/* Home Nouveautés */
+.pic_wrap--home-nouveautes, .pic_wrap--home-top-ventes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: var(--pic_blanc);
+}
+.pic_titre-nouveautes {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 30px;
+}
+.pic_home-nouveautes--ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.pic_home-nouveautes--li {
+    width: 16%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding-bottom: 20px;
+    padding: 0 20px 45px;
+}
+.pic_home-nouveautes--li:nth-child(6) {
+    display: none;
+}
+.pic_home-nouveautes-img {
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    object-fit: contain;
+    opacity: 1;
+    transition: var(--pic_animation);
+}
+.pic_nouveautes--a:hover .pic_home-nouveautes-img {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+.pic_texte-cat-nouveautes {
+    transition: var(--pic_animation)
+}
+.pic_nouveautes--a:hover .pic_texte-cat-nouveautes {
+    color: var(--pic_n80);
+}
+.pic_p-nouveautes {
+    color: var(--pic_gris-clair);
+    margin-top: 5px;
+}
+.pic_home-nouveautes--container-img {
+    margin-bottom: 10px;
+    height: 215px;
+    display: flex;
+    align-items: center;
+}
+.pic_btn--se-connecter {
+    text-align: center;
+    width: calc(100% - 2px);
+    left: 1px;
+    cursor:pointer;
+}
+.pic_nouveautes--a {
+    height: 304px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.pic_home-nouveautes--link:hover .pic_btn--se-connecter--p {
+    color: var(--pic_blanc);
+}
+.pic_a--addprix {
+    display: block;
+    width: 100%;
+}
+
+.pic_home-prix-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+.pic_home-prix-add--prix {
+    font-size: var(--pic_size-20);
+    font-weight: var(--pic_weight-400);
+    display: flex;
+    align-items: flex-start;
+}
+.pic_newsprix-ht {
+    font-size: var(--pic_size-12);
+    font-weight: var(--pic_weight-400);
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 3px;
+}
+.pic_prix-home{
+    font-size: var(--pic_h4_size);
+}
+/* ----------------*/
+/* Home Top ventes */
+.pic_home-h2 {
+    width: fit-content;
+    font-size: var(--pic_size-38);
+    font-weight: var(--pic_weight-600);
+    color: var(--pic_h1-color);
+    line-height: 1.2;
+}
+.pic_home-h2::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background: var(--pic_vert);
+}
+.pic_wrap--home-top-ventes {
+    margin-top: 40px;
+}
+
+.pic_prix-ht {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.pic_ht {
+    font-size: var(--pic_size-14);
+}
+.pic_prix-barre-home {
+    width: 100%;
+    font-size: var(--pic_size-14);
+}
+.pic_prix-barre-home--div{
+    width: fit-content;
+    position: relative;
+
+}
+.pic_prix-barre-home--div:after {
+    content: "";
+    width: calc(100% - 25px);
+    position: absolute;
+    height: 1px;
+    top: 40%;
+    left: 0;
+    background: var(--pic_t300);
+}
+
+/* ------------------- */
+/* Home Franco de port */
+.pic_home-franco-de-port {
+    background-color: var(--pic_vert);
+}
+.pic_home-franco-de-port {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px 0 10px;
+}
+.pic_titre--top-vente {
+    font-size: var(--pic_size-48);
+    color: var(--pic_blanc);
+    width: fit-content;
+    margin: auto;
+    padding-bottom: 10px;
+}
+.pic_titre--top-vente::after {
+    content: "";
+    background-color: var(--pic_blanc);
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    left: 10%;
+    bottom: 0;
+}
+.pic_p--franco {
+    font-size: var(--pic_size-18);
+    margin: 20px 0 30px;
+}
+
+
+@media screen and (max-width: 1230px) {
+    .pic_home-nouveautes--ul {
+        justify-content: center;
+    }
+
+    .pic_home-nouveautes--li {
+        width: 310px;
+        justify-content: center;
+        padding: 0 0 45px;
+    }
+
+    .pic_home-nouveautes-img {
+        width: 70%;
+        margin: auto;
+    }
+
+    .pic_home_une-categorie {
+        width: 41%;
+    }
+
+    .pic_home-une-categorie--h2 {
+        font-size: var(--pic_size-14);
+    }
+
+    .pic_home-prix-add {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 70%;
+        margin-top: -30px;
+    }
+}
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .pic_p--franco {
+        text-align: justify;
+        width: 90%;
+    }
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+    .pic_home-nouveautes--container-img {
+        border-top: solid;
+    }
+}
+

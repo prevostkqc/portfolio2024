@@ -1,0 +1,1986 @@
+﻿/*
+    Correction des problèmes responsive du header CYBERTEK
+    
+    Date d'ajout: 21/04/2023
+*/
+.ajout-panier.ajout-panier-0 .lbl_panier_container {
+    margin-top: 0 !important;
+}
+
+@media screen and (max-width: 960px) {
+    .ajout-panier {
+        min-height: var(--val_40);
+    }
+
+    .ajout-panier a {
+        padding: 4px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .ajout-panier .lbl_panier_container {
+        margin-top: -8px !important;
+    }
+
+    .cyb_header__search {
+        width: 100%;
+    }
+
+    .cyb_header__search-bar {
+        width: calc(100% - 40px);
+    }
+
+
+    .cyb_header__icon-group--mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .cbx_zone_recherche .ajout-panier {
+        top: 16px !important;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .cyb_header__search-bar {
+        max-width: calc(100% - 40px) !important;
+    }
+
+}
+
+
+.cyb-bandeau-attention-temporaire {
+    display: block !important;
+    z-index: 1;
+    position: relative;
+}
+
+
+/* ------------------------------------------------- */
+/* HEADER */
+
+.fixed_top {
+    position: fixed;
+    top: 0 !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    z-index: 999;
+    background: black !important;
+    height: 70px;
+    display: flex !important;
+    justify-content: center !important;
+}
+.cbk_header {
+    top: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.menu-bonsplans:hover {
+    background: linear-gradient(360deg,rgb(255 237 222) 0%,rgb(255 177 121) 6%,rgb(153 81 38) 79%);
+}
+.warp {
+    max-width: 1600px;
+}
+#cbk_menu_panel {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.cbk_header-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1600px;
+    align-items: center;
+    justify-content: space-around;
+    gap: var(--val_30);
+    height: 50px;
+    margin: var(--marg_10_0);
+}
+.cbk_img_logo {
+    width: 200px;
+}
+#sticker {
+    background: var(--noir_100); 
+}
+.cbk_header-content * {
+    color: var(--blanc);
+}
+.cbk_header-recherche-container {
+    display: flex;
+    width: 100%;
+}
+.cbk_header-recherche--input {
+    width: 100%;
+    height: 45px;
+    padding: var(--marg_0_20);
+    color: var(--noir) !important;
+}
+.cbk_header-magasins-compte {
+    display: flex;
+    gap: 50px;
+    align-items: flex-end;
+}
+.cbk_header_icn-mag-compte {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(10deg) brightness(103%) contrast(101%);
+    width: 100%;
+    max-width: var(--val_25);
+    transition: 0.3s;
+    min-width: var(--val_25);
+}
+.cbk_header-recherche--btn {
+    border-radius: 0;
+    border: none;
+    border-left: solid 1px #cda700;
+    background: var(--jaune);
+    width: 45px;
+    height: 45px;
+    background-image: url(https://cybertek.fr/images/icn_recherche.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.cbk_header-recherche--btn:hover {
+    background-color: #ffe783;
+}
+
+.cbk_header-content--part {
+    display: flex;
+    gap: var(--val_30);
+    width: calc(40% - 15px);
+    align-items: center;
+}
+
+.cbk_header-content--left {
+    width: calc(60% - 15px);
+}
+.cbk_header-content--right {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cbk_header-cart--container {
+    background: var(--jaune);
+    height: 45px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cbk_header-cart--container * {
+    color: black !important;
+}
+.ajout-panier-0 {
+    background: : var(--noir);
+}
+.cbk_header-cart--container.ajout-panier-0 * {
+    color: white !important;
+}
+.cbk_header-cart--container:hover {
+    background-color: #ffe783;
+}
+.cbk_header-cart--container.ajout-panier-0:hover {
+    background-color: : var(--noir);
+}
+
+.cbk_header-cart--icn {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(91%) saturate(7462%) hue-rotate(91deg) brightness(90%) contrast(108%);
+}
+.ajout-panier-0 .cbk_header-cart--icn {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(5deg) brightness(102%) contrast(102%);
+}
+
+.cbk_header-cart--icn {
+    max-width: var(--val_30);
+}
+.cbk_header-cart--flex {
+    display: flex;
+    justify-content: center;
+}
+.cbk_header-cart--icn-content {
+    width: var(--val_40);
+    position: relative;
+}
+.cbk_header-cart--p {
+    font-weight: var(--semibold);
+}
+.cbk_header-mag-mc {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: var(--val_10);
+}
+#_ctl0_lbl_panier_badge {
+    position: absolute;
+    color: white !important;
+    background: var(--noir);
+    width: var(--val_15);
+    height: var(--val_15);
+    border-radius: var(--val_30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -4px;
+    right: var(--val_5);
+    font-size: var(--size_p);
+}
+.cbk_header--mag-mc-a {
+    position: relative;
+}
+.cbk_header--mag-mc-a:after {
+    content: "";
+    bottom: -4px;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    position: absolute;
+    background: var(--blanc);
+    transition: 0.3s;
+}
+.cbk_header--mag-mc-a:hover:after {
+    width: 100%;
+    left: 0;
+}
+@media screen and (max-width:1920px) {
+        .cbk_header-content, .warp {
+        max-width: 1280px;
+    }
+}
+
+
+/* ------------------------------------------------- */
+/* MENU */
+#_ctl0_menu_cybertek_GlobalMenu{
+    width: 100%;
+}
+.cbk_menu_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    gap: var(--val_5);
+}
+#cbk_menu_panel{
+    height: fit-content;
+}
+.cbk_menu__uneoption {
+    width: calc(20% - 8px);
+    padding:7px 0;
+    /*border: solid 1px #FFFFFF;*/
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+}
+.menu-config{
+    background:none;
+    background:none;
+}
+.cbk_tout-menu {
+    display: none;
+    position: absolute;
+    top: 36px;
+    left: 0px;
+    background: var(--blanc);
+}
+@media screen and (min-width:961px) {
+    .cbk_menu__uneoption:hover .cbk_tout-menu {
+        display: block;
+    }
+}
+
+#tousnosproduits ~ .cbk_tout-menu {
+    min-height: 750px;
+    background: var(--gris_50);
+}
+.cbk_content-menu--tous-produits {
+    border-top: solid 1px lightgrey;
+}
+.cbk_menu_show-mobile{
+    display:none;
+}
+.cbk_menu--title-part {
+    width: fit-content;
+    border-top: solid 1px var(--gris_50);
+    border-bottom: solid 1px var(--gris_50);
+    /*border-right: solid 1px lightgrey;*/
+}
+.cbk_menu-sombre{
+    display:none;
+}
+@media screen and (min-width:961px) {
+
+    .menu-bonsplans:hover .cbk_menu-sombre {
+        display: block;
+        position: initial;
+        padding: 0px;
+        width: 100%;
+    }
+}
+.cbk_tout-menu--bureau ul li:nth-child(1){
+    background: var(--gris_25);
+    padding: var(--val_5);
+    max-height: 145px;
+    width: 220px;
+}
+.menu-gaming {
+    background: var(--jaune);
+    border: solid 1px var(--jaune);
+}
+.menu-gaming:hover {
+    background: #ffe783;
+    border: solid 1px #ffe783;
+}
+.cbk_tousnosproduits--content {
+    background:var(--blanc);
+}
+.cbk_menu-title-white {
+    background: var(--bleu_65);
+}
+.cbk_menu-title-white--a {
+    color: var(--blanc);
+    font-size: var(--size_p);
+    font-weight: var(--semibold);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+.menu-bonsplans {
+/*    background: var(--bleu);
+*/    background: linear-gradient(180deg,rgb(255 237 222) 0%,rgb(255 177 121) 6%,rgb(153 81 38) 79%);
+}
+.cbk_bonplans--title {
+    display: flex;
+    align-items: center;
+}
+}
+.cbk_universgamers,
+.cbk_tousnosproduits--title,
+.cbk_nav__tous-nos-produits,
+.cbk_bonsplans--title {
+   /* color: var(--noir);*/
+    /*font-weight: var(--semibold);*/
+}
+.call_menu {
+    display:none;
+}
+.call_menu--show {
+    display: block;
+    width: 60px;
+    height: 43px;
+    background: : var(--noir);
+    outline: solid 1px;
+    top: 1px;
+    position: relative;
+    cursor: pointer;
+}
+.cbk_tout-menu-cbk_menu-sombre {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    pointer-events: none;
+}
+@media screen and (min-width:961px) {
+
+    .cbk_menu__uneoption:hover .cbk_tout-menu-cbk_menu-sombre {
+        display: block;
+        background: #00000070;
+        transition: 0.1s;
+    }
+}
+
+.cbk_menu--title-part {
+    width: calc(20% - 8px);
+    padding: 10px 0 10px 40px;
+    background-color: var(--gris_50);
+    height: 54px;
+    display: flex;
+    align-items: center;
+    margin-left: 0px;
+}
+.cbk_menu-sombre {
+    position: absolute;
+    width: calc(80% + 8px);
+    left: calc(20% - 8px);
+    top: 0;
+    padding: var(--val_20);
+    height: 100%;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+@media screen and (min-width:961px) {
+    .cbk_menu--title-part:hover .cbk_menu-sombre {
+        display: flex;
+        align-content: flex-start;
+        row-gap: var(--val_5);
+    }
+}
+
+.cbk_menu-sombre {
+    background: var(--blanc);
+    border-top: solid 1px lightgrey;
+}
+.univ-g .cbk_menu-sombre {
+    display: flex;
+}
+.cbk_menu-sombre ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 244px;
+    align-items: flex-start;
+    padding: var(--val_5);
+    justify-content: space-between;
+    align-content: flex-start;
+    height: fit-content;
+}
+.univ-g .cbk_menu-sombre ul,
+.pc-bureau .cbk_menu-sombre ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: flex-start;
+    padding: var(--val_5);
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+.univ-g .cbk_title--princ,
+.pc-bureau .cbk_title--princ {
+    display: none;
+}
+.cbk_menu-sombre li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 240px;
+    padding: var(--val_5);
+    /*max-height: 145px;*/
+    /*overflow: hidden;*/
+}
+.pc-bureau .cbk_menu-sombre li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 320px;
+    padding: var(--val_5);
+}
+.cbk_menu-libele-title {
+    padding: 5px 10px;
+    background: var(--noir);
+    color: var(--jaune);
+    border-bottom: solid 1px #2f2f2f;
+    margin-bottom: var(--val_5);
+}
+.cbk_menu--title-part:hover {
+    background: var(--blanc);
+    border-top: solid 1px lightgrey;
+    border-bottom: solid 1px lightgrey;
+    border-right: solid 1px var(--blanc);
+}
+.cbk_title--princ {
+    background: var(--gris_25);
+    padding: 5px 5px;
+}
+.cbk_menu__boutons_li,
+.cbk_menu-libele-title {
+    font-size: var(--size_p);
+    margin-bottom: 0;
+    position: relative;
+}
+.univ-g .cbk_nav__menu_li:hover .cbk_menu-libele-title,
+.pc-bureau .cbk_nav__menu_li:hover .cbk_menu-libele-title {
+    /*background: #555555;*/
+    color: var(--blanc);
+}
+.univ-g .cbk_nav__menu_li img,
+.pc-bureau .cbk_nav__menu_li img {
+    transition: 0.3s;
+    opacity: 1;
+    width: 100%;
+}
+.univ-g .cbk_nav__menu_li:hover img,
+.pc-bureau .cbk_nav__menu_li:hover img {
+    opacity: 0.9;
+}
+.cbk_title--princ{
+
+}
+.cbk_cbk_nav__menu_li--div {
+    width: 230px;
+    /*    height: 140px;
+    overflow: hidden;*/
+}
+.pc-bureau .cbk_cbk_nav__menu_li--div {
+    width: 310px;
+}
+/*.pc-bureau .cbk_menu-sombre li {
+    width: 100%;
+}*/
+.pc-bureau .cbk_title--princ.title- {
+    display: none;
+}
+
+.cbk_title--princ:hover a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.cbk_nav__menu_li:hover .cbk_menu__boutons_li {
+    text-decoration: underline;
+}
+.cbk_hover--menu-princ:hover {
+    background: #416d81;
+    background: #FFFFFF;
+}
+.cbk_hover--menu-princ:hover a {
+    color: : var(--noir);
+}
+#_ctl0_bloc_panier {
+    margin-top:0px;
+}
+.cbk_hover--menu-princ:hover img {
+    filter: none;
+}
+.cbk_tout-menu--bureau {
+    width: 100%;
+    padding: var(--val_10);
+}
+.cbk_tout-menu--bureau li {
+    padding: var(--marg_5_0);
+}
+.cbk_icn-menu {
+    width: 17px;
+    margin-right: 7px;
+}
+.cbk_title-menu {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: var(--size_p);
+    font-weight: var(--semibold);
+    position: relative;
+    top: 0px;
+}
+.cbk_icn-menu--blanc {
+    filter: brightness(0) saturate(100%) invert(99%) sepia(14%) saturate(0%) hue-rotate(242deg) brightness(116%) contrast(100%);
+}
+.cbk_icn_bandeau-home {
+    width: var(--val_30);
+}
+.menu-bonsplans li,
+.menu-bonsplans ul{
+    width: 100%;
+}
+.cbk_title-menu  {
+    background: none !important;
+}
+#_ctl0_formulaire_login {
+    display: none;
+}
+.cbk_header--moncompte-a:hover #_ctl0_formulaire_login {
+    display: block;
+    position: absolute;
+    z-index: 90;
+    padding: var(--val_10);
+    background: var(--noir_100);
+}
+#_ctl0_formulaire_login input{
+    background: none;
+    padding: var(--marg_5_0);
+    cursor: pointer;
+}
+.cbk_moncompte--link {
+    position: relative;
+    width: fit-content;
+}
+
+
+.cbk_moncompte--link:after {
+    content: "";
+    bottom: 1px;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    position: absolute;
+    background: var(--blanc);
+    transition: 0.3s;
+}
+
+.cbk_moncompte--link:hover:after {
+    width: 100%;
+    left: 0;
+}
+#_ctl0_txt_compte {
+    overflow: hidden;
+    max-width: 300px;
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.cbk_menu-mobile--img {
+    pointer-events: none;
+    width: var(--val_40);
+    filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(5843%) hue-rotate(212deg) brightness(122%) contrast(100%);
+}
+#cbk_openmenu{
+    display: none;
+}
+
+
+.cbk_tousnosproduits--content .menu-338:before {
+    content: "";
+    width: var(--val_20);
+    height: var(--val_20);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    transform: translateX(-30px);
+}
+
+.menu-princ-340:before {
+    background-image: url(https://cybertek.fr/images/icn_gamer.svg);
+}
+.menu-princ-2:before {
+    background-image: url(https://cybertek.fr/images/icn_pcbureau.svg);
+}
+.menu-princ-4:before {
+    background-image: url(https://cybertek.fr/images/icn_pcportable3.svg);
+}
+.menu-princ-5:before {
+    background-image: url(https://cybertek.fr/images/icn_gpu.svg);
+}
+.menu-princ-6:before {
+    background-image: url(https://cybertek.fr/images/icn_imprimantes3.svg);
+}
+.menu-princ-7:before {
+    background-image: url(https://cybertek.fr/images/icn_peripherique3.svg);
+}
+.menu-princ-8:before {
+    background-image: url(https://cybertek.fr/images/icn_telephone.svg);
+}
+.menu-princ-9:before {
+    background-image: url(https://cybertek.fr/images/icn_logiciel3.svg);
+}
+.menu-princ-10:before {
+    background-image: url(https://cybertek.fr/images/icn_stockage3.svg);
+}
+.menu-princ-11:before {
+    background-image: url(https://cybertek.fr/images/icn_audio3.svg);
+}
+.menu-princ-12:before {
+    background-image: url(https://cybertek.fr/images/icn_consommable3.svg);
+}
+.menu-princ-2597:before {
+    background-image: url(https://cybertek.fr/images/icn_ecolocyber.svg);
+}
+.cyb_hide{
+    display:none;
+}
+
+.cbk_footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cbk_footer-paiement-magasins {
+    display: flex;
+    flex-wrap: wrap;
+    width: 33%;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+.foot a {
+    font-size: var(--size_p);
+}
+.foot ul li {
+    padding: var(--marg_5_0);
+}
+.cbk_footer-liste-container {
+    width: 66%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.foot {
+    width: 33% ;
+    float: none !important; 
+    margin: 0 !important; 
+    padding: var(--marg_30_0);
+}
+.paiement-footer,
+.cybertek-footer.foot.foot-mag {
+    width: 40%;
+}
+.cbk_optionmenulineadd-princ-off {
+    display: none;
+}
+.cbk__off-desktop{
+    display: none;
+}
+
+
+.cbk_title-menu, .cbk_tousnosproduits--title {
+    font-size: var(--size_p);
+    font-weight: var(--semibold);
+    text-transform: uppercase;
+}
+.cbk_header-mag-mc,
+#_ctl0_txt_compte {
+    font-size: var(--size_p);
+    font-weight: var(--semibold);
+    text-transform: uppercase;
+}
+
+.cbk_img_logo {
+    top: 2px;
+    position: relative;
+    width: 258px;
+}
+
+
+@media screen and (min-width:1920px) {
+    .cbk_img_logo {
+        max-width: 200px;
+    }
+}
+@media screen and (max-width:1920px) {
+    #_ctl0_txt_compte {
+        max-width: 200px;
+    }
+}
+@media screen and (max-width:1300px) {
+    .cbk_icn-menu {
+        display: none;
+    }
+    .cbk_menu__uneoption {
+        font-size: var(--size_p);
+    }
+    .cbk_header_icn-mag-compte {
+        width: var(--val_25);
+    }
+    .cbk_header-content, .warp {
+        max-width: 1000px;
+    }
+    .cbk_header-mag-mc {
+        font-size: var(--size_p);
+    }
+    .cbk_header-mag-mc {
+        align-items: center;
+    }
+    .cbk_header-content--left {
+        width: calc(60% - 15px);
+    }
+    .cbk_header-content--right {
+        width: calc(40% - 15px);
+    }
+    #_ctl0_txt_compte {
+        width: 90px;
+    }
+    .cbk_header-magasins-compte {
+        display: flex;
+        gap: var(--val_20);
+    }
+    .cbk_footer-paiement-magasins {
+
+    }
+}
+.cyb_footer-open-close {
+    display: none;
+}
+.cbk_menu-mobile--img-10 {
+    top: 2px;
+    position: relative;
+    left: 9px;
+    width: 28px;
+}
+
+.cbk_menu-mobile--img-20 {
+    top: -19px;
+    position: relative;
+    left: 9px;
+    width: 28px;
+}
+
+.cbk_menu-mobile--img-30 {
+    top: -40px;
+    position: relative;
+    left: 9px;
+    width: 28px;
+}
+@media screen and (max-width:1024px) {
+    .cbk_header_icn-mag-compte {
+        width: var(--val_25);
+    }
+    #_ctl0_l_panier {
+        font-size: var(--size_p);
+    }
+    .cbk_header-content--part {
+        gap: 0;
+    }
+    .cbk_header-recherche-container {
+        display: flex;
+        width: 500px;
+        width: calc(100% - 230px);
+        margin-left: var(--val_25);
+    }
+}
+
+
+.cbk_retour-btn,
+.cbk_header_logo--mobile-show {
+    display: none;
+}
+
+.cbk_header-magasins-compte {
+    top: -3px;
+    position: relative;
+}
+/* MENU MOBILE */
+@media screen and (max-width:960px) {
+    .cbk_menu-legend a p {
+        text-transform: uppercase;
+    }
+    .menu-bonsplans .cbk_title-menu,
+    .cyb_menu_configurateur .cbk_title-menu {
+        font-size: var(--size_p);
+        font-weight: 400;
+        padding-left: 2px;
+    }
+    .cbk_header-magasins-compte {
+        top: 0px;
+        position: initial;
+    }
+    .cbk_img_logo {
+        top: 0px;
+        position: relative;
+        width: 200px;
+    }
+    .cbk_retour-btn {
+        display: none;
+    }
+    .cbk__show-desktop {
+        display: block;
+    }
+
+    .cbk_optionmenulineadd-princ-off {
+        display: block;
+    }
+
+    .cbk_menu_show-mobile {
+        display: flex;
+        margin-right: var(--val_20);
+    }
+
+    .cbk_header_logo--container {
+        display: none;
+    }
+
+    .cbk_header_logo--container {
+        display: none;
+    }
+
+    .cbk_header-content {
+        width: 738px;
+    }
+
+    .cbk_header-recherche-container {
+        display: flex;
+        width: 500px;
+        width: calc(100% - 230px);
+        margin-left: 0px;
+    }
+
+    .cbk_header-recherche-container {
+        width: 100%;
+    }
+
+    #_ctl0_menu_cybertek_GlobalMenu {
+        display: none;
+    }
+
+    .cbk_header-magasins-compte {
+        display: none;
+    }
+
+    .cbk_header-content--left {
+        width: calc(80% - 35px);
+        gap: var(--val_30);
+    }
+    .cyb_sep-menu {
+        width: calc(100vw - 30px);
+        background: #d7d7d7;
+        margin-left: var(--val_10);
+        height: 1px;
+        margin-bottom: var(--val_10);
+    }
+        .cyb_sep-menu-2{
+            margin-top: 80px;
+        }
+        .cyb_paniertxt {
+            display: none;
+        }
+    .cyb_liste-link{
+        margin-left: var(--val_5);
+        width: 300px !important;
+        margin-top: var(--val_10);
+
+    }
+        .cyb_liste-link li a {
+            font-size: 16px;
+            padding: var(--marg_5_0);
+            display: block;
+        }
+
+        .cbk_header-content--right {
+            width: calc(20% - 15px);
+        }
+
+    #_ctl0_menu_cybertek_GlobalMenu {
+        display: flex;
+        overflow: hidden;
+        background: var(--blanc);
+        transition: 0.3s;
+        top: 0px;
+        max-height: 100vh;
+        transform: translateX(-100%);
+        transition: 0.3s;
+        pointer-events: none;
+        opacity: 0;
+    }
+    .warp-menu_mobile {
+        height: fit-content;
+    }
+
+    .menu-hover .cbk_menu-sombre {
+        /* display: flex;
+        align-content: flex-start;*/
+        row-gap: 25px !important;
+        overflow-y: scroll;
+    }
+
+    #cbk_openmenu:checked ~ #body .cbk_header #cbk_menu_panel #_ctl0_menu_cybertek_GlobalMenu {
+        display: flex;
+        position: fixed;
+        height: 100vh;
+        transform: translateX(0%);
+        opacity: 1;
+        pointer-events: initial;
+        width: calc(100% + 2px);
+        left: 0;
+    }
+    #cbk_openmenu:checked ~ #body .cbk_header .cbk_menu_panel {
+        position: fixed;
+    }
+
+    #cbk_openmenu:checked ~ #body .cyb-bandeau-attention-temporaire,
+    #cbk_openmenu:checked ~ #body .cbk_header--magasins-a {
+        display: none !important;
+    }
+
+    .cbk_menu_container {
+        flex-wrap: wrap;
+    }
+
+    .cbk_menu__uneoption {
+        width: 100%;
+    }
+    .menu-338 legend {
+        p position: relative;
+        display: flex;
+        width: 100vw;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+        .menu-338 legend:after {
+            content: "";
+            width: var(--val_15);
+            height: 17px;
+            background: url(https://cybertek.fr/images/icn_chevron.svg) no-repeat;
+            display: inline-block;
+            margin-left: 11px;
+            background-size: contain;
+            transform: rotate(270deg);
+            right: var(--val_20);
+            position: absolute;
+        }
+
+    .call_menu {
+        display: none;
+    }
+
+    .cbk_menu_container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        gap: var(--val_5);
+        align-items: flex-start;
+        align-content: flex-start;
+        width: 100% !important;
+    }
+
+    .cbk_menu__uneoption {
+        width: 100%;
+        height: var(--val_40);
+    }
+
+    .cbk_tout-menu {
+        width: 100%;
+        transform: translateX(100%);
+        transition: 0.3s;
+        /*position: absolute;*/
+        z-index: 999;
+        display: block;
+        height: 100vh;
+        top: -15px;
+    }
+
+    #tousnosproduits:checked ~ .cbk_tout-menu {
+        transform: translateX(0%);
+    }
+
+    .cbk_btn_retour {
+        display: none;
+    }
+    .offmobile{
+        display: none;
+    }
+
+    #tousnosproduits:checked ~ .cbk_tout-menu {
+        transform: translateX(0%);
+        background: var(--gris_50);
+    }
+    .cbk_optionmenulineadd-princ-off {
+        background: var(--gris_50);
+    }
+
+    .cbk_menu_container {
+        position: relative;
+    }
+
+    .cbk_menu-hori {
+        width: 100%;
+    }
+
+    .cbk_content-menu .cbk_menu_show-mobile,
+    .cbk_btn_retour {
+        width: 100%;
+    }
+
+    .cbk_line-menu {
+        padding: var(--val_10);
+        font-size: var(--size_p);
+    }
+
+    .cbk_menu__uneoption {
+        justify-content: flex-start;
+    }
+
+    #_ctl0_menu_cybertek_GlobalMenu {
+        /*top: 0px;*/
+    }
+
+    .cbk_tout-menu-cbk_menu-sombre {
+        display: none !important;
+        pointer-events: none;
+        opacity: 0 !important;
+        margin-top: var(--val_40);
+    }
+
+    .cbk_menu-sombre-niveau2 {
+    }
+
+    .cbk_btn_retour {
+        text-decoration: underline;
+        font-weight: var(--semibold);
+    }
+
+    .cbk_img_logo-menu {
+        filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(7461%) hue-rotate(347deg) brightness(105%) contrast(111%);
+    }
+
+    .cbk_tousnosproduits--title {
+        padding: 40px 0;
+    }
+    #sticker {
+        background: var(--noir_100);
+        display: flex;
+    }
+
+    .cbk_img_logo-menu {
+        height: 50px;
+        margin-left: 60px;
+        margin-top: 7px;
+    }
+    #cbk_menu_panel {
+        height: 72px !important;
+    }
+    .cbk_menu_show-mobile {
+        position: relative;
+        top: -16px;
+        height: 105px;
+        width: var(--val_40);
+    }
+
+    .cbk_menu-mobile--img-1 {
+        position: absolute;
+        top: -3px;
+        transition: 0 !important;
+    }
+    .cbk_menu-mobile--img-2 {
+        position: absolute;
+        top: 9px;
+        transition: 0.3s;
+    }
+    #tousnosproduits ~ .cbk_tout-menu {
+        min-height: 50px;
+        background: var(--gris_50);
+    }
+
+    .cbk_menu-mobile--img-3 {
+        position: absolute;
+        top: 21px;
+        transition: 0.3s;
+    }
+
+    #cbk_openmenu:checked ~ #body .cbk_header .cbk_menu_show-mobile .cbk_menu-mobile--img-2 {
+        transform: rotate(35deg);
+        opacity: 0;
+    }
+
+    #cbk_openmenu:checked ~ #body .cbk_header .cbk_menu_show-mobile .cbk_menu-mobile--img-1 {
+        transform: rotate(45deg);
+        top: 0px;
+    }
+
+    #cbk_openmenu:checked ~ #body .cbk_header .cbk_menu_show-mobile .cbk_menu-mobile--img-3 {
+        transform: rotate(-45deg);
+        top: 0px;
+    }
+    .cbk_tout-menu {
+        top: -15px;
+    }
+
+    #cbk_openmenu:checked ~ #body .cbk_header .cbk_menuopener {
+        /*filter: brightness(0) saturate(100%) invert(0%) sepia(3%) saturate(12%) hue-rotate(155deg) brightness(105%) contrast(101%);*/
+        top: -9px;
+        top: 18px;
+        top: -37px;
+    }
+
+    .cbk_menu-title-white {
+        color: var(--noir);
+        background: none;
+    }
+    .menu-same{
+    }
+
+    .cbk_menu-title-white--a {
+        color: var(--noir);
+    }
+
+    .menu-same {
+        display: flex !important;
+    }
+
+    #_ctl0_menu_cybertek_GlobalMenu {
+        position: absolute;
+    }
+
+    .cbk_menu_show-mobile {
+        z-index: 999999;
+    }
+
+    .cbk_tousnosproduits--title-img {
+        position: relative;
+        top: -8px;
+        height: 105px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        background: var(--noir);
+    }
+    .hide_cbk{
+        display: none !important;
+
+    }
+
+    .cbk_img_logo-menu {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+    }
+
+    .cbk_menu__uneoption {
+        padding: 0px 10px;
+    }
+
+    .cbk_icn-menu {
+        display: block;
+    }
+
+    .cbk_icn-menu {
+        filter: brightness(0) saturate(100%) invert(0%) sepia(84%) saturate(7500%) hue-rotate(324deg) brightness(115%) contrast(113%);
+    }
+
+    .cbk_menu_show-mobile--footer {
+        width: 100%;
+    }
+
+    .cbk_cap-footer-menu {
+        text-transform: uppercase;
+    }
+
+    .cbk_menu-sombre {
+        height: auto;
+    }
+
+    .cbk_hide-menu-surmobile {
+        display: none;
+    }
+
+    .cbk_title-menu,
+    .cbk_tousnosproduits--title {
+        font-size: var(--size_h4);
+    }
+
+
+
+    .warp-menu_mobile {
+        width: 100% !important;
+    }
+
+    .cbk_menu-sombre {
+        transform: translateX(100%);
+    }
+
+    .cbk_menu_hide-mobile {
+        display: none;
+    }
+
+    .cbk_size-height-mobile {
+        display: none;
+    }
+
+    /*    .cbk_menu__uneoption.cbk_menu-title-white.menu-same.menu-config.cbk_global-menu.cbk_hover--menu-princ {
+        top: 540px;
+        z-index: 999;
+    }*/
+    /*    .cbk_menu__uneoption.menu-bonplan.cbk_global-menu.menu-bonsplans {
+        top: 540px;
+        z-index: 999;
+    }
+    .cbk_menu__uneoption.cbk_menu-title-white.menu-bureautique.cbk_global-menu.cbk_hover--menu-princ {
+        top: 540px;
+        z-index: 999;
+    }
+    .cbk_menu__uneoption.cbk_menu_show-mobile.cbk_global-menu.cbk_menu_show-mobile--footer {
+        top: 540px;
+        z-index: 999;
+    }*/
+    .cbk_content-menu legend {
+        font-size: var(--size_p);
+    }
+
+    .cbk_title-menu {
+    }
+
+    .cbk_title-menu, .cbk_tousnosproduits--title {
+        font-size: var(--size_p);
+        font-weight: var(--semibold);
+    }
+
+    .menu-hover .cbk_menu-sombre {
+        max-height: 0;
+    }
+    .menu-hover .cbk_menu-sombre {
+        display: flex;
+        align-content: flex-start;
+        row-gap: var(--val_5);
+        background: #f7f7f7;
+        transition: 0.1s;
+        position: fixed;
+        top: 0px;
+        left: -100vw;
+        width: 100%;
+        z-index: 9999999999;
+        height: 100vh;
+        max-height: 100vh;
+    }
+    #cbk_openmenu:checked ~ #body .cbk_main-page-container,
+    #cbk_openmenu:checked ~ #body #_ctl0_bloc_contact,
+    #cbk_openmenu:checked ~ #body .footer {
+        max-height: 0px !important;
+        overflow: hidden !important;
+        transition: 0s !important;
+    }
+    .cbk_optionmenulineadd {
+        display: block;
+        height: fit-content;
+        width: 100%;
+        padding: var(--marg_10_0);
+    }
+
+    .cbk_optionmenulineadd-princ {
+        top: 0 !important;
+    }
+
+    .cbkdisplaynone {
+        display: none !important;
+    }
+
+    #cyb__list_config_gamer__cta__devis {
+        z-index: 999;
+    }
+
+    .cbk_tout-menu {
+        /*height: 100vh;*/
+        width: 100vw;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .menu-bonsplans.menu-hover .cbk_tout-menu {
+        background: #f7f7f7;
+        transition: 0.1s;
+        position: fixed;
+        top: 0px;
+        left: -100vw;
+        width: 100%;
+        z-index: 9999999999;
+        height: 95vh;
+    }
+
+    .menu-bonsplans.menu-hover .cbk_menu-sombre {
+        background: #f7f7f7;
+        transition: 0.1s;
+        /*position: fixed;*/
+        top: 0px;
+        left: -100vw;
+        width: 100%;
+        z-index: 9999999999;
+        height: 100%;
+    }
+
+    .cbk_header-magasins-compte {
+        opacity: 0;
+        transition: 0s;
+    }
+
+    #cbk_openmenu:checked ~ #body .cbk_header #cbk_menu_panel .cbk_header-content .cbk_header-magasins-compte {
+        display: block;
+        z-index: 99999999999999;
+        animation: showperso forwards 0.3s;
+        animation-delay: 0.3s;
+    }
+
+    #cbk_openmenu:checked ~ #body .cbk_header #cbk_menu_panel .cbk_header-content .cbk_header--mag-mc-a {
+        position: relative;
+        transform: translate(-30px, 5px);
+    }
+    .cbk_bonsplans--title{
+
+    }
+
+    .cbk_header--magasins-a {
+        display: none;
+    }
+
+    #_ctl0_txt_compte {
+        padding: 0px !important;
+    }
+
+    @keyframes showperso {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .cbk_menu__uneoption {
+        border: none !important;
+    }
+
+    .categorie-footer {
+        width: 50%;
+        float: none !important;
+        margin: 0 !important;
+        padding: var(--marg_30_0);
+    }
+
+    .paiement-footer, .cybertek-footer.foot.foot-mag {
+        width: 100%;
+    }
+
+    .cbk_cap-footer-menu {
+        font-size: 16px;
+        font-weight: var(--medium);
+    }
+    /*    .cbk_menu_show-mobile {
+        position: absolute;
+        left: var(--val_20);
+    }*/
+    /*    .cbk_header-content {
+        margin-left: var(--val_20);
+    }*/
+    .cbk_img_logo-menu {
+        height: 32px;
+        margin-left: 130px;
+        margin-top: 7px;
+    }
+    .cbk_tousnosproduits--title-img{
+        height: 80px;
+    }
+
+    .cbk_menuopener {
+        height: var(--val_40);
+        top: var(--val_10);
+        left: 21px;
+    }
+
+    .cbk_retour-btn {
+        position: relative;
+        z-index: 9999;
+        width: calc(100% - 20px);
+        padding: 10px 10px 10px;
+        top: 0px;
+        background: var(--noir);
+        font-size: var(--size_h4);
+        color: var(--blanc);
+        margin-bottom: -10px;
+        margin-left: var(--val_5);
+    }
+    .cbk_nav__tous-nos-produits{
+        display:none;
+    }
+
+    .menu-retour {
+        display: none !important;
+    }
+    .cbk_retour-btn{
+        display: none;
+    }
+
+    .menu-hover .cbk_retour-btn {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .cbk_menu-sombre{
+        pointer-events: none;
+    }
+    .menu-hover .cbk_menu-sombre {
+        animation: clickbutton 0.3s forwards;
+        /*margin-top:40px;*/
+    }
+    @keyframes clickbutton{
+        0% {
+            pointer-events: none;
+        }
+        100% {
+            pointer-events: initial;
+        }
+    }
+    .cbk_clickable {
+
+    }
+    .cbk_fleche {
+        width: var(--val_15);
+        filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(1%) hue-rotate(6deg) brightness(107%) contrast(101%);
+        margin-right: var(--val_10);
+    }
+    .paiement-footer,
+    .cybertek-footer.foot.foot-mag {
+        width: 50%;
+    }
+
+    .categorie-footer {
+        width: 30%;
+    }
+
+    .cbk_footer-liste-container {
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+
+
+    .cbk_menu__first-level {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: flex-start;
+        padding: var(--val_5);
+        justify-content: center;
+        align-content: flex-start;
+    }
+
+    .cbk_menu-legend {
+        padding-left: var(--val_35);
+        transform: translateX(-35px);
+        /*padding-right: 186px;*/
+    }
+
+    .cbk_menu_show-mobile--footer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .cbk_input-menu-footer {
+        width: 100%;
+        margin-top: var(--val_20);
+    }
+
+    .cbk_input-menu-footer--input {
+        width: 100%;
+        outline: solid 1px;
+        padding: var(--val_10);
+        margin-top: var(--val_15);
+        max-width: 300px;
+    }
+
+    .cbk_text-menu {
+        font-size: var(--size_p);
+        width: 100%;
+    }
+
+    .button_newsletter-footer {
+        background: #ffcf00 url(/images/hover-bouton.png) no-repeat -500px center;
+        border: 0 none;
+        filter: none;
+        overflow: hidden;
+        padding: 10px 13px 9px;
+        cursor: pointer;
+        font-weight: normal;
+        font-size: var(--size_p);
+        text-transform: capitalize;
+        color: var(--noir);
+        font-weight: var(--semibold);
+        float: left;
+        border-radius: 0;
+        font-family: "Montserrat";
+        height: 38px;
+        margin-bottom: -1px;
+        margin-left: 1px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cbk_menu-input--btn {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+    }
+
+ /*   .cbk_main-page-container {
+        max-height: 100vh;
+        overflow: hidden;
+    }
+    #_ctl0_Panel_Ligne_Historique_Info_Legales{
+        display:none;
+    }*/
+
+
+    .cyb_menu_configurateur {
+        height: 55px;
+        margin-top: var(--val_10);
+    }
+    .cyb_menu_bonsplanopen {
+        overflow: hidden;
+        height: 90vh;
+        transition: 0s;
+    }
+
+
+
+    .cbk_header_logo--mobile-show {
+        padding: 10px var(--marg_10_0);
+        display: block;
+        background: var(--noir);
+    }
+
+    .cbk_header-magasins-compte {
+        position: absolute;
+        top: -30px;
+        right: var(--val_20);
+    }
+
+    .cbk_header--magasins-a,
+    .cbk_header--moncompte-a,
+    .cbk_header_logo--container {
+        display: block;
+        opacity: 1;
+    }
+
+    .cbk_header-magasins-compte {
+        display: flex;
+        opacity: 1;
+    }
+    .cbk_header_logo--container {
+        display: none;
+    }
+    .tousnosproduits--select {
+        max-height: 0px !important;
+        overflow: hidden !important;
+    }
+    .tousnosproduits--select .menu-338 {
+        max-height: 0px !important;
+        overflow: hidden !important;
+    }
+    .cbk_menu-sombre {
+        max-height: 0px !important;
+        overflow: hidden !important;
+    }
+    .menu-hover .cbk_menu-sombre {
+        max-height: calc(100vh - 70px) !important;
+        overflow: scroll !important;
+    }
+
+}
+
+@media screen and (max-width:880px) {
+    .cbk_img_logo-menu {
+        margin-left: 80px;
+    }
+}
+
+
+@media screen and (max-width:797px) {
+    .cbk_header-content {
+        width: 698px;
+    }
+
+/*    .cbk_menu-mobile--img-2 {
+        position: absolute;
+        top: var(--val_25);
+    }*/
+}
+
+@media screen and (max-width:767px) {
+    .cbk_header-content {
+        width: 100%;
+    }
+
+    #cbk_menu_panel {
+        display: block !important;
+        padding: var(--marg_0_20);
+        height: 100px;
+        display: flex !important;
+        flex-wrap: nowrap;
+    }
+    /*    .cbk_menu_show-mobile {
+    position: relative;
+    top: -8px;
+    height: 105px;
+    width: 50px;
+}*/
+    .cbk_header-content {
+        gap: 0px;
+    }
+
+    .cbk_footer-liste-container,
+    .cbk_footer-paiement-magasins {
+        width: 100%;
+        display: flex !important;
+    }
+
+
+}
+
+@media screen and (max-width: 677px) {
+    .cbk_footer-content {
+        width: 70%;
+    }
+
+    .paiement-footer, .cybertek-footer.foot.foot-mag {
+        width: 100%;
+    }
+
+
+
+    .cyb_footer-open-close ~ ul {
+        display: none;
+        transition: 0.3s;
+        overflow: hidden;
+    }
+
+    .cyb_footer-open-close:checked ~ ul {
+        display: block;
+        max-height: 100%;
+    }
+
+    .cyb_footer-open-close:checked ~ label p {
+        display: block;
+        max-height: 100%;
+        font-weight: 800;
+        text-decoration: underline;
+    }
+
+    .cyb-label-footer {
+        position: relative;
+    }
+
+        .cyb-label-footer:after {
+            content: "";
+            width: var(--val_15);
+            height: 17px;
+            background: url(https://cybertek.fr/images/icn_chevron.svg) no-repeat;
+            display: inline-block;
+            margin-left: 11px;
+            background-size: contain;
+            /* transform: rotate(270deg); */
+            filter: brightness(0) saturate(100%) invert(100%) sepia(7%) saturate(27%) hue-rotate(267deg) brightness(108%) contrast(109%);
+            top: -19px;
+            position: relative;
+            left: var(--val_25);
+            transition: 0.3s;
+        }
+
+    .cyb_footer-open-close:checked ~ .cyb-label-footer:after {
+        transform: rotate(180deg);
+        top: -23px;
+    }
+
+    .foot {
+        width: 33%;
+        float: none !important;
+        margin: 0 !important;
+        padding: 10px 0 10px;
+    }
+
+        .foot p:after {
+            display: none !important;
+        }
+
+        .foot p {
+            width: fit-content;
+        }
+}
+
+@media screen and (max-width: 512px) {
+/*    .cbk_menu-mobile--img-2 {
+        position: absolute;
+        top: 28px;
+    }*/
+    .cbk_menu-sombre li {
+        width: 100%;
+        height: auto;
+        max-height: fit-content;
+        max-width: 100%;
+    }
+    .cbk_cbk_nav__menu_li--div {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: fit-content;
+    }
+    .cbk_menu__first-level a {
+        width: 100%;
+    }
+    .cbk_menu__first-level  img{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .foot a {
+        font-size: 14px !important;
+    }
+
+    .cbk_footer-liste-container {
+        width: 100%;
+    }
+
+    .footer div .foot {
+        width: 100%;
+    }
+
+    .foot p {
+        font-size: 15px !important;
+    }
+    /*
+    .cbk_header-cart--icn-content,*/
+    .cbk_header-cart--flex .cbk_header-cart--p,
+    .cbk_header-cart--p,
+    #_ctl0_l_panier {
+        display: none !important;
+    }
+
+    .cbk_img_logo-menu {
+    }
+
+    .cbk_img_logo-menu {
+        width: 150px;
+        height: auto;
+        margin-left: 50px;
+    }
+
+    .cbk_menu_show-mobile {
+        /*position: absolute;*/
+        /*left: var(--val_10);*/
+        /*height: 80px;*/
+    }
+
+    .cbk_header-recherche-container {
+        /*margin-left: var(--val_40);*/
+    }
+
+/*    .cbk_menu-mobile--img-2 {
+        margin-top: -6px;
+    }*/
+
+    .cbk_header-content {
+        margin-left: 0px;
+    }
+
+/*    .cbk_menu-mobile--img-2 {
+        margin-top: -1px;
+    }*/
+
+    .cbk__home__content-info-bandeau div ul li a {
+        flex-wrap: wrap;
+    }
+    .cbk__home__content-info-bandeau div ul li a img {
+        width: 26px;
+    }
+    #cbk_openmenu:checked ~ #body .cbk_header #cbk_menu_panel .cbk_menuopener {
+        top: 18px;
+        height: var(--val_40);
+    }
+
+    #cbk_menu_panel {
+        padding: 0 0 var(--marg_0_20);
+    }
+    #cbk_header-content-home {
+        display: flex;
+        justify-content: space-between;
+    }
+    .cbk_header-content--left {
+        width: calc(80% - 35px);
+        gap: var(--val_30);
+    }
+    .cbk_header-content--right {
+        width: 60px;
+    }
+    .cbk_header-mag-mc,
+    #_ctl0_txt_compte {
+        font-size: 0px !important;
+    }
+    #_ctl0_txt_compte{
+        width: 0px !important;
+    }
+    .cbk_header-content--part.cbk_header-content--left {
+        width: calc(100% - 70px);
+    }
+}
+
+@media screen and (max-width: 470px) {
+/*    #cbk_header--magasins-link{
+        display: none;
+    }*/
+
+    .cbk_menuopener {
+        top: 68px;
+    }
+    .fixed_top .cbk_menuopener {
+        top: 9px;
+    }
+    .cbk_menu-mobile--img-2 {
+    }
+
+    .cbk_menuopener {
+        position: absolute;
+        left: var(--val_10);
+    }
+
+    .cbk_header-recherche-container {
+        margin-left: var(--val_40);
+    }
+    /*    .cbk_menu-mobile--img-3 {
+    position: absolute;
+    top: 42px;
+}*/
+    .cbk_input-menu-footer {
+        width: 100%;
+        margin-top: var(--val_20);
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #cbk_openmenu:checked ~ #body .cbk_header .cbk_menuopener {
+        top: -9px;
+        top: 18px;
+    }
+    #_ctl0_txt_compte {
+        display: none;
+    }
+}
+
+.menu-scroll {
+    overflow: hidden;
+    max-height: 0px;
+}
+.menu-scroll-padding{
+    margin: 10px 0px;
+}
+/*.call_menu {
+    height: 100px !important;
+}*/
+
+
+.bodysite--scroll .fixed_top {
+    height: 107px !important;
+}
+
+.cbk_hover--pcassemble:hover {
+    background: var(--bleu);
+}
+.cbk_hover--pcassemble:hover .cbk_title-menu {
+    color: white !important;
+}
+.cbk_hover--pcassemble:hover .cbk_icn-menu--blanc {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7484%) hue-rotate(252deg) brightness(108%) contrast(108%);
+}
+.cbk_menu-legend a{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cbk_main-page-container {
+    background: var(--blanc);
+    padding-top: 1px;
+}
+.cbk_tout-menu .cbk_optionmenulineadd-princ.menu-princ-999 {
+    justify-content: flex-start;
+    position: relative;
+    cursor: pointer;
+    margin-left: var(--val_10);
+}
+.cbk_tout-menu .cbk_optionmenulineadd-princ.menu-princ-999 .cbk_bonsplans--title {
+    color: var(--noir);
+    font-weight: 400;
+    margin-top: var(--val_5);
+}
+.cbk_tout-menu .cbk_optionmenulineadd-princ.menu-princ-999:hover .cbk_bonsplans--title {
+    text-decoration: underline;
+}
+@media screen and (max-width:960px){
+    .cbk_tout-menu .cbk_optionmenulineadd-princ.menu-princ-999 .cbk_bonsplans--title {
+        margin-top: -38px;
+        margin-left: -8px;
+    }
+}

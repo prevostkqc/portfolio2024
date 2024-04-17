@@ -1,0 +1,2172 @@
+.dying_loader{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/background.jpg);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-size: cover;
+    opacity: 100%;
+    animation: dyingLoaderClose 1300ms forwards;
+    animation-delay: 1500ms;
+    position: absolute;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.landing-dying_content{
+    animation: dyingLoader 0ms forwards;
+    opacity: 0%;
+    animation-delay: 1500ms;
+}
+
+.dying_loader_content{
+    position: fixed;
+    height: 100vh;
+    overflow: hidden;
+    animation: dying_loader_content 0ms forwards;
+    animation-delay: 1500ms;
+}
+
+.dying_loader_title{
+    filter: drop-shadow(1px 0px 10px rgba(0,0,0,0.46));
+    position: absolute;
+    left: 10vw;
+    top: 12vh;
+    width: 70vh;
+}
+
+.dying_loader_bar{
+    position: absolute;
+    top: 60vh;
+    left: 10vw;
+}
+
+.dying_loader_percent_content{
+    animation: loopLoader 1500ms forwards;
+    animation-delay: 0ms;
+    position: absolute;
+    overflow: hidden;
+    top: 60vh;
+    left: 10vw;
+}
+
+.dying_loader_percent_bar, .dying_loader_percent{
+    width: 50vw;
+    height: 3vw;
+    max-width: initial;
+}
+
+@keyframes dyingLoader{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    };
+}
+
+@keyframes dyingLoaderClose{
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    };
+}
+
+@keyframes dying_loader_content{
+    0%{
+        height: 100vh;
+        position: fixed;
+    }
+    100%{
+        height: auto;
+        position: relative;
+    };
+}
+
+@keyframes loopLoader{
+    0%{
+        width: 0%;
+    }
+    33%{
+        width: 33%;
+    }
+    76%{
+        width: 49%;
+    }
+    84%{
+        width: 89%;
+    }
+    100%{
+        width: 100%;
+    };
+}
+
+
+@font-face{
+    font-family: "DIN";
+    src: url(../fonts/dinpro-CondMedium.otf) format('opentype');
+}
+
+@font-face{
+    font-family: "geforce";
+    src: url(../fonts/geforce_bold-webfont.eot) format('embedded-opentype');
+}
+
+@font-face{
+    font-family: "geforce_bold-webfont";
+    src: url(../fonts/geforce_bold-webfont.woff) format('woff');
+}
+
+@font-face{
+    font-family: "dinpro";
+    src: url(../fonts/dinpro.woff) format('woff');
+}
+
+.landing-dying_content{
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+.dying_block{
+    position: relative;
+    padding: 2vw 0;
+    background: var(--gris_200);
+    box-shadow: inset 0 20px 20px 20px #00000021;
+}
+
+.dying_parties-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.dying_parties-container-simple{
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.dying_partie{
+    width: 45%;
+    margin: 0 auto;
+}
+
+.dying_titre{
+    font-size: 4vw;
+    line-height: 1.5;
+    font-weight: var(--medium);
+    color: var(--blanc);
+    text-transform: uppercase;
+    font-family: "DIN";
+}
+
+.dying_sstitre{
+    font-size: 2.5vw;
+    line-height: 1.5;
+    font-weight: 300;
+    color: var(--blanc);
+    text-transform: uppercase;
+    font-family: "DIN";
+}
+
+.dying_paragraphe {
+    font-size: 1.2vw;
+    line-height: 1.5;
+    font-weight: 300;
+    font-family: montserrat,sans-serif;
+    color: var(--blanc);
+}
+.dying_paragraphe-black {
+    color: var(--noir);
+}
+.dying_texte-black {
+    color: var(--noir);
+    font-weight: var(--medium);
+}
+
+.dying_strong{
+    font-weight: var(--semibold);
+}
+
+.dying_btn{
+    font-weight: 100;
+    padding: 1vw;
+    border-radius: 1vw;
+    width: 5.5vw;
+    background: 0 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    cursor: pointer;
+}
+    .dying_btn::before{
+        content: '';
+        position: absolute;
+        background: #940d0d;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        left: 0;
+        top: 0;
+    }
+    .dying_btn::after{
+        content: '';
+        position: absolute;
+        background: var(--blanc);
+        left: -12px;
+        top: -12px;
+        width: 0%;
+        height: calc(100% + 12px);
+        transition: all .4s;
+        transform: skew(-30deg);
+        background: #bfab16;
+        z-index: -1;
+    }
+    .dying_btn:hover:after{
+        width: calc(100% + 48px);
+    }
+
+.dying_img{
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.dying_trade{
+    font-size: 2vw;
+    vertical-align: text-top;
+}
+
+
+.dying_block--0{
+    background: var(--noir);
+    padding: 0;
+    overflow: hidden;
+}
+
+.dying_parties-container--bloc-0{
+    width: 50vw;
+    margin: auto;
+    padding: 5vw 0 10vw;
+    z-index: 6;
+    position: relative;
+}
+
+.dying_block--0::after{
+    content: "";
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/ligne_rouge.png);
+    width: 100%;
+    height: 3vw;
+    position: absolute;
+    bottom: -1.6vw;
+    z-index: 10;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.dying_sstitre--intro{
+    width: 100%;
+    text-align: center;
+}
+
+.dying_img_titre{
+    width: 45vw;
+    margin-top: -1.5vw;
+    filter: drop-shadow(1px 1px 1px #000000AA);
+    pointer-events: none;
+}
+
+.dying_video_titre{
+    pointer-events: none;
+    position: absolute;
+}
+
+.dying_bandeau-intro{
+    width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    padding-bottom: 4vw;
+    margin-top: 3vw;
+    position: relative;
+    z-index: 5;
+}
+
+.dying_logo-bandeau{
+    width: 8vw;
+}
+
+.dying_logo-cybertek{
+    width: 100%;
+}
+
+.dying_img_cybertek{
+    width: 10vw;
+    margin-bottom: 2vw;
+}
+
+
+.dying_sstitre--intro{
+    overflow: hidden;
+}
+
+.dying_mentions{
+    position: absolute;
+    z-index: 20;
+    color: var(--blanc);
+    bottom: 1.5vw;
+    left: 41.5%;
+    font-size: .7vw;
+    left: 1vw;
+}
+
+.dying_intro_anim {
+    display: inline-block;
+    filter: drop-shadow(1px 1px 1px #000000AA);
+    font-family:"DIN";
+}
+
+.dying_intro_anim1{
+    transform: translateY(100%);
+    animation: startTitle 1000ms forwards;
+    animation-delay: 2150ms;
+    padding-left: 1vw;
+}
+
+.dying_intro_anim2{
+    transform: translateY(100%);
+    animation: startTitle 1000ms forwards;
+    animation-delay: 2400ms;
+}
+
+.dying_intro_anim3{
+    transform: translateY(100%);
+    animation: startTitle 1000ms forwards;
+    animation-delay: 2600ms;
+}
+
+.dying_content_jeu-offert{
+    position: absolute;
+    margin: auto;
+    overflow: hidden;
+    width: 0%;
+    top: 32vw;
+    left: 8vw;
+    -webkit-clip-path: polygon(47% 5%,65% 9%,76% 16%,82% 34%,77% 49%,62% 61%,38% 67%,0 65%,0 35%,0 0);
+    clip-path: polygon(47% 5%,65% 9%,76% 16%,82% 34%,77% 49%,62% 61%,38% 67%,0 65%,0 35%,0 0);
+    animation: tracePeinture 2000ms forwards;
+    animation-delay: 2500ms;
+}
+
+.dying_img_jeu-offert{
+    width: 35vw;
+    margin: auto;
+    margin-bottom: 2vw;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_blanc.png);
+    background-size: cover;
+    height: 6.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3vw;
+    text-transform: uppercase;
+    font-family: montserrat,sans-serif;
+    font-weight: 800;
+    text-shadow: 0 0 0 var(--blanc);
+    color: var(--blanc);
+    animation: textWhiteBlack 2000ms forwards;
+    animation-delay: 4000ms;
+}
+
+@keyframes startTitle{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0%);
+    };
+}
+
+@keyframes textWhiteBlack{
+    0%{
+        color: var(--blanc);
+        text-shadow: 0 0 0 var(--blanc);
+    }
+    100%{
+        color: var(--noir);
+        text-shadow: 1px 2px 3px #979797;
+    };
+}
+
+@keyframes tracePeinture{
+    0%{
+        width: 0%;
+        -webkit-clip-path: polygon(0% 0%,52% 0%,71% 5%,83% 9%,86% 21%,82% 30%,75% 33%,69% 39%,74% 44%,84% 45%,77% 56%,71% 61%,73% 71%,61% 79%,49% 84%,33% 94%,0 100%);
+        clip-path: polygon(0% 0%,52% 0%,71% 5%,83% 9%,86% 21%,82% 30%,75% 33%,69% 39%,74% 44%,84% 45%,77% 56%,71% 61%,73% 71%,61% 79%,49% 84%,33% 94%,0 100%);
+    }
+    100%{
+        width: 70%;
+        -webkit-clip-path: polygon(0% 0%,52% 0%,71% 0,88% 0,100% 0,100% 0,100% 28%,100% 34%,100% 35%,100% 43%,100% 55%,100% 60%,100% 67%,100% 75%,100% 90%,100% 100%,0 100%);
+        clip-path: polygon(0% 0%,52% 0%,71% 0,88% 0,100% 0,100% 0,100% 28%,100% 34%,100% 35%,100% 43%,100% 55%,100% 60%,100% 67%,100% 75%,100% 90%,100% 100%,0 100%);
+    };
+}
+
+
+
+.dying_block--1{
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/back_block2.png);
+    background-size: cover;
+    background-position: -27vw;
+    overflow: hidden;
+    padding: 5vw 0;
+    box-shadow: 0 -20px 70px 140px var(--noir);
+}
+    .dying_block--1::before{
+        content: "";
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/back_block2-1.jpg);
+        background-size: cover;
+        width: 100%;
+        height: 180vh;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+    }
+
+.dying_visuel_pc{
+    width: 50%;
+    margin-top: 2vw;
+    filter: drop-shadow(0px 0px 40px #FFFFFF55);
+}
+
+.dying_parties-container--block-1{
+    align-items: center;
+}
+
+.dying_visuels-pc{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 10vw;
+    position: relative;
+}
+
+.dying_sstitre__block1{
+    margin-bottom: 2vw;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush.png);
+    background-size: contain;
+    background-position: -27vw;
+    background-repeat: no-repeat;
+    height: 6.5vw;
+    font-size: 3.4vw;
+    line-height: 1.5;
+    font-weight: var(--medium);
+    color: var(--blanc);
+    text-transform: uppercase;
+    font-family: "DIN";
+    position: relative;
+    text-shadow: 3px 4px 4px #6b1111;
+}
+
+.dying_video_block2::before{
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/moulures_blanches.png);
+}
+
+.dying_video_block2{
+    width: 45vw;
+    height: 25vw;
+    margin-top: -8vw;
+}
+
+.dying_moulure_video{
+    position: absolute;
+    top: 5vw;
+    right: -4vw;
+    width: 58%;
+    pointer-events: none;
+}
+
+
+.dying_block--2{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/background3.png);
+    background-size: cover;
+    height: 75vw;
+    padding-top: 5vw;
+    overflow: hidden;
+}
+
+.dying_pc_config{
+    position: absolute;
+    width: 35vw;
+    margin-left: 39vw;
+    margin-top: 12vw;
+    pointer-events: none;
+}
+
+.dying_partie--bloc2-1{
+    width: 50%;
+}
+
+.dying_sstitre__partie{
+    margin-bottom: 2vw;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 6.5vw;
+    padding: .2vw 0 0 3vw;
+    font-size: 3.4vw;
+    line-height: 1.5;
+    font-weight: var(--medium);
+    color: var(--blanc);
+    text-transform: uppercase;
+    font-family: "DIN";
+    position: relative;
+    text-shadow: 3px 4px 4px #6b1111;
+}
+
+.dying_caract_item{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_noir.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    width: 25vw;
+    height: 4.5vw;
+    padding-top: .5vw;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.dying_caract_aff_fumee{
+    position: absolute;
+    width: 0;
+    left: -2.5vw;
+    top: 2.5vw;
+    opacity: 0;
+    transition: opacity .8s;
+}
+
+.dying_caract_aff_item{
+    position: absolute;
+    width: 0;
+    top: 5vw;
+    left: 8vw;
+    opacity: 0;
+    transition: opacity .4s;
+}
+
+
+
+
+
+
+.dying_caract_item:hover{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/encart_rouge.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+    .dying_caract_item:hover .dying_caract_aff_fumee{
+        width: 34vw;
+        height: 14vw;
+        opacity: 1;
+        transition: opacity 1s;
+    }
+    .dying_caract_item:hover .dying_caract_aff_item{
+        width: 9vw;
+        opacity: 1;
+        transition: opacity .4s;
+    }
+
+.dying_caract_item--title{
+    font-size: 1.8vw;
+}
+
+.dying_cacrt_item--desc{
+    line-height: .5vw;
+    font-size: .7vw;
+}
+
+.dyinng_caract_item--boitier{
+    position: absolute;
+    left: 17vw;
+    top: 16vw;
+}
+
+
+
+    .dyinng_caract_item--boitier::after{
+        content: "";
+        -webkit-clip-path: polygon(0 0,53% 0,100% 100%,96% 100%,51% 5%,0 4%);
+        clip-path: polygon(0 0,53% 0,100% 100%,96% 100%,51% 5%,0 4%);
+        background: var(--blanc);
+        width: 6vw;
+        height: 6vw;
+        position: absolute;
+        top: 2.5vw;
+        left: 24vw;
+    }
+
+.dyinng_caract_item--cgu{
+    position: absolute;
+    left: 10vw;
+    top: 30vw;
+}
+    .dyinng_caract_item--cgu::after{
+        content: "";
+        -webkit-clip-path: polygon(0 0,70% 0,100% 100%,97% 100%,69% 7%,0 7%);
+        clip-path: polygon(0 0,70% 0,100% 100%,97% 100%,69% 7%,0 7%);
+        background: var(--blanc);
+        width: 9vw;
+        height: 3vw;
+        position: absolute;
+        top: 2.5vw;
+        left: 25vw;
+    }
+
+.dyinng_caract_item--cm{
+    position: absolute;
+    left: 11vw;
+    top: 45vw;
+}
+    .dyinng_caract_item--cm::after{
+        content: "";
+        -webkit-clip-path: polygon(0 93%,62% 93%,100% 0,100% 7%,63% 100%,0 100%);
+        clip-path: polygon(0 93%,62% 93%,100% 0,100% 7%,63% 100%,0 100%);
+        background: var(--blanc);
+        width: 9vw;
+        height: 3vw;
+        position: absolute;
+        top: -.14vw;
+        left: 25vw;
+    }
+
+.dyinng_caract_item--processeur{
+    position: absolute;
+    left: 62vw;
+    top: 16vw;
+}
+    .dyinng_caract_item--processeur::after{
+        content: "";
+        -webkit-clip-path: polygon(30% 0,100% 0,100% 6%,31% 6%,3% 100%,0 100%);
+        clip-path: polygon(30% 0,100% 0,100% 6%,31% 6%,3% 100%,0 100%);
+        background: var(--blanc);
+        width: 9vw;
+        height: 4vw;
+        position: absolute;
+        top: 2.5vw;
+        left: -6vw;
+    }
+
+.dyinng_caract_item--ssd{
+    position: absolute;
+    left: 66vw;
+    top: 30vw;
+}
+    .dyinng_caract_item--ssd::after{
+        content: "";
+        -webkit-clip-path: polygon(30% 0,100% 0,100% 9%,31% 9%,4% 100%,0 100%);
+        clip-path: polygon(30% 0,100% 0,100% 9%,31% 9%,4% 100%,0 100%);
+        background: var(--blanc);
+        width: 7vw;
+        height: 2vw;
+        position: absolute;
+        top: 2.5vw;
+        left: -5vw;
+    }
+
+.dyinng_caract_item--ram{
+    position: absolute;
+    left: 62vw;
+    top: 45vw;
+}
+    .dyinng_caract_item--ram::after{
+        content: "";
+        -webkit-clip-path: polygon(26% 93%,100% 94%,100% 100%,25% 100%,0 0,3% 0);
+        clip-path: polygon(26% 93%,100% 94%,100% 100%,25% 100%,0 0,3% 0);
+        background: var(--blanc);
+        width: 9vw;
+        height: 3vw;
+        position: absolute;
+        top: -.14vw;
+        left: -7vw;
+    }
+
+.dying_perso--1{
+    position: absolute;
+    left: -15vw;
+    top: -26vw;
+    width: 42vw;
+    pointer-events: none;
+}
+
+.dying_perso--2{
+    position: absolute;
+    right: 0;
+    top: -14vw;
+    width: 42vw;
+    pointer-events: none;
+}
+
+.dying_content_jeu-offert_block2{
+    position: absolute;
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+    top: 63vw;
+    left: 1vw;
+}
+
+.dying_img_jeu-offert_block2{
+    width: 35vw;
+    margin: auto;
+    margin-bottom: 2vw;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_blanc.png);
+    background-size: cover;
+    height: 6.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3vw;
+    text-transform: uppercase;
+    font-family: montserrat,sans-serif;
+    font-weight: 800;
+    text-shadow: 0 0 0 #171717;
+}
+
+.dying_btn_content_block2{
+    width: 18vw;
+    height: 7vw;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/cta_rouge.png);
+    background-size: cover;
+    position: absolute;
+    top: 54vw;
+    left: 42vw;
+    transition: all .1s;
+}
+
+
+
+
+
+
+
+
+    .dying_btn_content_block2:hover{
+        width: 18vw;
+        height: 7vw;
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/cta_blanc.png);
+        background-size: cover;
+        position: absolute;
+        top: 54vw;
+        left: 42vw;
+        transition: all .1s;
+    }
+
+
+
+
+
+.dying_block--3{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/back_block_3.png);
+    background-size: cover;
+    height: 67vw;
+    padding-top: 5vw;
+    background-position: left;
+}
+    .dying_block--3::after{
+        content: "";
+        position: absolute;
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/fond_brush_blanc_long.png);
+        height: 4.9vw;
+        width: 100%;
+        background-size: cover;
+        z-index: 35;
+        bottom: -2.4vw;
+    }
+
+.dying_sstitre__partie-block3{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_rouge_3.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.dying_partie--bloc3-1{
+    width: 50%;
+}
+
+.dying_partie--bloc3-2{
+    width: 40%;
+}
+
+.dying_paragraphe-block3{
+    padding-left: 3vw;
+}
+
+.dying__youtube_cadre{
+    position: relative;
+}
+
+.dying__video_youtube{
+    padding-left: 8vw;
+    padding-top: 7vw;
+    position: relative;
+    width: 42vw;
+    height: 28vw;
+}
+
+.dying__youtube_cadre::before{
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/encadrement_video_trailer.png);
+    position: absolute;
+    width: 61vw;
+    height: 42vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: -5vw;
+    left: -5.81vw;
+    pointer-events: none;
+}
+
+.dying_mentions--black{
+    color: var(--noir);
+    font-weight: var(--medium);
+    text-shadow: 0 0 7px var(--blanc);
+}
+
+
+
+.dying_block--4{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/fond_brique_loop.png);
+    padding: 5vw 0;
+    background-position: left;
+}
+    .dying_block--4::after{
+        content: "";
+        background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/ligne_rouge.png);
+        width: 100%;
+        height: 3vw;
+        position: absolute;
+        bottom: -1.6vw;
+        z-index: 10;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+
+.dying_partie--bloc4-1{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dying_sstitre__partie-block4{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_rouge_3.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40vw;
+}
+
+.dying_img_asus{
+    width: 16vw;
+    height: 4.7vw;
+    margin: 1vw 0 0 3vw;
+}
+
+.dying_block4_content{
+    position: relative;
+    width: 80%;
+    margin: auto;
+}
+
+.dying_block4_item{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    position: relative;
+    padding: 1vw;
+}
+
+.dying_img_block4{
+    width: 9vw;
+    padding: 1vw 2vw 1vw 0;
+    filter: drop-shadow(0px 2px 19px #ff000000);
+    animation: dyingFire 3000ms infinite;
+    transition: all 2s;
+}
+
+.dying_sstitre_block4{
+    text-transform: inherit;
+    flex: 25;
+    font-size: 1.7vw;
+}
+
+.dying_paragraphe-block4{
+    font-size: .9vw;
+    flex: 22;
+    color: var(--blanc);
+}
+
+.dying_block4_item_bottom::after{
+    content: "";
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/flair.png);
+    width: 100%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 2vw;
+    bottom: -1vw;
+}
+
+@keyframes dyingFire{
+    0%{
+        filter: drop-shadow(0px 2px 19px #ff000000);
+        transition: all 2s;
+    }
+    40%{
+        filter: drop-shadow(0px 2px 19px #ff000099);
+        transition: all 1s;
+    }
+    60%{
+        filter: drop-shadow(0px 2px 19px #ff000099);
+        transition: all 1s;
+    }
+    100%{
+        filter: drop-shadow(0px 2px 19px #ff000000);
+        transition: all 2s;
+    };
+}
+
+
+.dying_block--5{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/fond_brique_loop.png);
+    padding: 5vw 0;
+    background-position: left;
+}
+
+.dying_partie--bloc5-1{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dying_sstitre__partie-block5{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_rouge_3.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 43vw;
+    padding-top: .7vw;
+    margin-left: -9vw;
+    font-size: 2.5vw;
+}
+
+.dying_blck5_content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.dying_img_block5-rtx{
+    width: 17vw;
+}
+
+.dying__video_youtube-nvidia{
+    width: 39vw;
+    height: 21.1vw;
+    box-shadow: 0 0 50px var(--noir);
+    border: solid 1px var(--noir);
+}
+
+.dying_perso--3{
+    position: absolute;
+    right: 0;
+    top: -14vw;
+    width: 10vw;
+    pointer-events: none;
+}
+
+.parallax_block5{
+    transform: translate3d(0px,-91.9317px,0px);
+    position: relative;
+    z-index: 99;
+}
+
+.dying_sstitre_block5{
+    text-transform: inherit;
+    flex: 25;
+    font-size: 1.8vw;
+    color: #84c70e;
+    text-decoration: underline;
+    text-underline-offset: .3vw;
+}
+
+.dying_paragraphe-block5{
+    font-size: 1.3vw;
+    font-family: "DIN";
+    margin-top: 1vw;
+}
+
+.dying_nvidia_texte{
+    padding-right: 6vw;
+    width: 26vw;
+}
+
+
+
+
+.dying_block--6{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/background_block6.png);
+    padding: 5vw 0 0;
+    margin-top: -10vw;
+    background-position: -15% 0%;
+    background-size: cover;
+}
+
+
+.dying_parties-container-simple-block6{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/back_block6.png);
+    padding: 5vw 0 0;
+    margin-top: -14vw;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 14vw;
+    background-size: cover;
+    width: 100%;
+    margin: -10vw auto auto;
+}
+
+.dying_titre_armes{
+    position: absolute;
+    left: 72vw;
+    top: 22vw;
+    font-size: .8vw;
+}
+
+.dying_titre_arme_selected{
+    position: absolute;
+    left: 70vw;
+    top: 25vw;
+    font-size: 1vw;
+    text-align: center;
+    width: 12vw;
+    font-weight: var(--semibold);
+    display: none;
+}
+
+.dying_parties-container-content-block6{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 3vw;
+}
+
+.dying_partie--bloc6-1{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 13vw;
+}
+
+.dying_sstitre__partie-block6{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_rouge_2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0 2vw;
+    width: 19vw;
+}
+
+.dying_sstitre_block6{
+    font-family: montserrat;
+    font-weight: var(--semibold);
+    font-size: 1vw;
+    color: var(--noir);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dying_paragraphe-block6{
+    font-size: .8vw;
+    color: var(--noir);
+    font-weight: 400;
+    padding: .5vw 0 .5vw .7vw;
+    position: relative;
+}
+
+.dying_ligne-block6{
+    height: .5vw;
+}
+
+.dying_details-pc{
+    position: relative;
+    width: 100%;
+}
+
+.dying_blck6_content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.dying_img-block-6{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/fumee_blanche.png);
+    background-size: cover;
+    pointer-events: none;
+    position: absolute;
+    width: 27vw;
+    right: 0;
+    top: -10vw;
+    padding: 5vw;
+}
+
+.dying_roue-armes{
+    position: absolute;
+    top: 14vw;
+    right: 0;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_transparent.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 3vw 13vw;
+}
+
+.dying_arme_mini{
+    filter: drop-shadow(2px 4px 6px black);
+    position: absolute;
+    width: 5vw;
+    opacity: .6;
+    top: 14.5vw;
+}
+
+.dying_arme_mini1{
+    right: 17vw;
+}
+
+.dying_arme_mini2{
+    right: 3.5vw;
+}
+
+.dying_arrow{
+    position: absolute;
+    width: 4vw;
+    top: 25vw;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.dying_arrow-oleft{
+    right: 20vw;
+}
+
+.dying_arrow-right{
+    right: 2vw;
+    transform: rotate(180deg);
+}
+
+.dying_arrow:hover{
+    width: 5vw;
+    top: 24.7vw;
+    transition: all .2;
+}
+
+.dying_arrow-oleft:hover{
+    right: 19.5vw;
+    transition: all .2;
+}
+
+.dying_arrow-right:hover{
+    right: 1.6vw;
+    transition: all .2;
+}
+
+
+.dying_img_jeu-offert_block6{
+    width: 25vw;
+    margin: auto;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_blanc.png);
+    background-size: cover;
+    height: 4.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .9vw;
+    text-transform: uppercase;
+    font-family: montserrat,sans-serif;
+    font-weight: 800;
+    text-shadow: 0 0 0 #171717;
+}
+
+.dying_titre-pc{
+    color: var(--noir);
+    margin-top: 2vw;
+    font-weight: 800;
+    padding-left: 3vw;
+}
+
+.dying_content_jeu-offert_block6{
+    width: 21vw;
+}
+
+.dying_aiden_pc{
+    position: absolute;
+    top: -14vw;
+    right: 20vw;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/aiden_pc.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 23vw 16vw;
+    transition: all 1s;
+    animation: animAiden 4000ms infinite;
+}
+
+.dying_arme_select{
+    filter: drop-shadow(2px 4px 6px black);
+    position: absolute;
+    top: 12vw;
+    right: 8.5vw;
+    width: 9vw;
+    pointer-events: none;
+    transform: scale(1);
+    animation: animArme 2000ms infinite ease-in;
+}
+
+@keyframes animAiden{
+    0%{
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/aiden_pc.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: all 2s;
+    }
+
+    50%{
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/aiden_pc2.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: all 2s;
+    }
+
+    100%{
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/aiden_pc.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transition: all 2s;
+    };
+}
+
+
+
+@keyframes animArme{
+    0%{
+        transform: scale(1);
+        transition: all 1s;
+    }
+    50%{
+        transform: scale(.9);
+        transition: all 1s;
+    }
+    100%{
+        transform: scale(1);
+        transition: all 1s;
+    };
+}
+
+
+.dying_content{
+    width: 40%;
+}
+
+.dying_content--toggle, .dying_content--body{
+    display: none;
+}
+
+
+
+
+
+
+
+
+.dying_img-block-6, .dying_arme_select, .dying_arrow, .dying_arme_mini1, .dying_arme_mini2{
+    display: none;
+}
+
+.dying_content--toggle:checked ~ label .dying_img-block-6, .dying_content--toggle:checked ~ label .dying_arme_select, .dying_content--toggle:checked ~ .dying_arrow, .dying_content--toggle:checked ~ .dying_arme_mini1, .dying_content--toggle:checked ~ .dying_arme_mini2, .dying_content--toggle:checked ~ label .dying_titre_arme_selected{
+    display: block;
+}
+
+.dying_sstitre_block6{
+    background-position: -40vw 1vw;
+    color: var(--noir);
+    transition: background-position .8s;
+}
+
+.dying_paragraphe-block6{
+    color: var(--noir);
+    transition: background-position color .6s;
+}
+
+.dying_content--toggle:checked ~ .dying_sstitre_block6{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_rouge_3.png);
+    background-repeat: no-repeat;
+    background-position: -2vw -1.5vw;
+    background-size: 130%;
+    color: var(--blanc);
+    text-shadow: 0 0 9px #790005;
+    transition: background-position color .8s;
+}
+    .dying_content--toggle:checked ~ .dying_sstitre_block6 .dying_paragraphe-block6, .dying_content--toggle:checked ~ .dying_sstitre_block6 .dying_sstitre_block6{
+        color: var(--blanc);
+        transition: all .6s;
+        text-shadow: 0 0 9px #790005;
+    }
+
+
+
+.dying_bandeau-fin{
+    width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    padding-bottom: 4vw;
+    margin-top: 3vw;
+    position: relative;
+    z-index: 5;
+}
+
+.dying_content_bandeau_fin{
+    width: 100%;
+    background: var(--blanc);
+    background: linear-gradient(180deg,rgba(255,255,255,0.004639355742296902) 0%,rgba(0,0,0,0.9192051820728291) 25%,rgba(0,0,0,1) 100%);
+    z-index: 2;
+    position: relative;
+}
+
+
+
+
+
+
+.dying_titre-prix{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 42vw;
+}
+
+.dying_titre-pc-prix{
+    color: var(--rouge);
+    font-weight: var(--semibold);
+}
+
+.dying_prix-centimes{
+    font-size: 1.5vw;
+}
+
+.dying_titre-prix__partie2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 15vw;
+}
+
+.dying_btn_content_block6{
+    width: 13vw;
+    height: 5vw;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/commander_rouge.png);
+    background-size: cover;
+    transition: all .1s;
+}
+    .dying_btn_content_block6:hover{
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/commander_blanc.png);
+        background-size: cover;
+        transition: all .1s;
+    }
+
+.parallax-content_mobile{
+    display: none;
+}
+
+#details{
+    position: absolute;
+    margin-top: 7vw;
+}
+
+.dying_trade_block6{
+    font-size: .5vw;
+    vertical-align: text-top;
+}
+
+
+
+.dying_block--nvidia-1{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/dl2_nvidia1.jpg);
+    background-size: cover;
+}
+
+.dying_partie--bloc-nvidia-1{
+    width: 71%;
+}
+
+.dying_sstitre_block-nvidia-1 {
+    margin-top: 3.8vw;
+    font-size: 3.3vw;
+    font-family: "geforce_bold-webfont";
+    color: #76b900;
+    letter-spacing: .1vw;
+    line-height: 1.15;
+    display: none;
+}
+
+.dying_paragraphe-block-nvidia{
+    width: 36vw;
+    margin-top: 1vw;
+    line-height: 1.45;
+    font-size: 1.2vw;
+    font-family: "dinpro";
+    color: var(--blanc);
+}
+
+.dying_sstitre2_block-nvidia-1{
+    font-size: 2.55vw;
+    font-family: "geforce_bold-webfont";
+}
+
+.dying_mention_block-nvidia-1{
+    font-family: "dinpro";
+    font-size: .8vw;
+    text-transform: initial;
+    margin-top: 1.8vw;
+    color: #616161;
+}
+
+.dying_trade_nvidia{
+    vertical-align: super;
+    font-size: 1.1vw;
+    font-size: 2vw;
+}
+
+.dying_img_block-nvidia-1{
+    width: 12.2vw;
+    margin-top: 4.4vw;
+    margin-bottom: 3vw;
+}
+
+
+
+/* Nvidia 2 ================================== */
+.dying_block--nvidia-2{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/nvidia2.jpg);
+    background-size: cover;
+    height: 48vw;
+}
+
+.dying_partie--bloc-nvidia-2{
+    width: 33%;
+    margin-left: 57vw;
+}
+
+.dying_sstitre_block-nvidia-2 {
+    margin-top: 3.8vw;
+    font-size: 3.3vw;
+    font-family: "geforce_bold-webfont";
+    color: #76b900;
+    letter-spacing: .1vw;
+    line-height: 1.15;
+}
+
+.dying_paragraphe-block-nvidia{
+    width: 36vw;
+    margin-top: 1vw;
+    line-height: 1.45;
+    font-size: 1.2vw;
+    font-family: "dinpro";
+}
+
+.dying_sstitre2_block-nvidia-2 {
+    font-size: 2.55vw;
+    font-family: "geforce_bold-webfont";
+}
+
+.dying_mention_block-nvidia-2{
+    font-family: "dinpro";
+    font-size: .8vw;
+    text-transform: initial;
+    margin-top: 1.8vw;
+    color: #616161;
+}
+
+.dying_trade_nvidia{
+    vertical-align: super;
+    font-size: 1.1vw;
+    font-size: 2vw;
+}
+
+.dying_img_block-nvidia-2{
+    width: 12.2vw;
+    margin-top: 4.4vw;
+    margin-bottom: 3vw;
+}
+
+.dying_block--tuto{
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/back_block2-1.jpg);
+    background-size: cover;
+    height: 48vw;
+    margin-bottom: -15vw;
+    position: relative;
+    box-shadow: -1px -15px 20px 10px #00000061;
+}
+.dying_partie--bloc-tuto-1{
+    width: 90%;
+}
+
+.dying_tuto_line{
+    display: flex;
+    align-items: center;
+}
+.dying_sstitre__block-tuto{
+    margin-bottom: 2vw;
+    background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 8vw;
+    padding: .2vw 0 0 3vw;
+    font-size: 3.4vw;
+    line-height: 1.5;
+    font-weight: var(--medium);
+    color: var(--blanc);
+    text-transform: uppercase;
+    font-family: "DIN";
+    position: relative;
+    text-shadow: 3px 4px 4px #6b1111;
+}
+
+.dying_tuto_point{
+    width: 4vw;
+}
+
+.dying_tuto_number{
+    position: absolute;
+    left: 6.5vw;
+    text-align: center;
+    width: 1vw;
+}
+
+.dying_tuto_link{
+    color: var(--blanc);
+    font-weight: var(--semibold);
+    text-decoration: underline;
+}
+
+.dying_tuto_block-line{
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 8vw;
+    color: var(--blanc);
+    text-transform: uppercase;
+    font-family: "DIN";
+    text-shadow: 3px 4px 4px #6b1111;
+    margin-top: -2vw;
+}
+
+.dying_nvidia_contente_container{
+    position: relative;
+}
+
+.dying_block--nvidia{
+    display: none !important;
+}
+
+.nvidia--toggle{
+    display: none;
+}
+    .nvidia--toggle:checked + .b .dying_block--nvidia{
+        display: flex !important;
+    }
+
+.nvidia_label{
+    position: absolute;
+    z-index: 15;
+    top: 3vw;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+}
+.nvidia--toggle:checked + .nvidia_label + .nvidia_block{
+    display: flex;
+    align-items: center;
+}
+
+.nvidia_label{
+    z-index: 5;
+    top: 1vw;
+    width: 10vw;
+    height: 2vw;
+    font-size: 1vw;
+    color: var(--blanc);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nvidia_label-1{
+    left: 6.2vw;
+}
+
+.nvidia_label-2{
+    left: 16.2vw;
+}
+
+.nvidia_label-3{
+    left: 26.2vw;
+}
+
+
+.nvidia_label::after{
+    content: "";
+    width: 10vw;
+    height: .1vw;
+    font-size: .8vw;
+    bottom: 0;
+    color: var(--blanc);
+    position: absolute;
+    background: #75b900;
+}
+
+.nvidia_label:hover{
+    color: #75b900;
+}
+
+.nvidia--toggle:checked + .b .nvidia_label{
+    background: #75b900;
+    color: var(--blanc);
+}
+
+
+
+
+/* Nvidia sp ================================== */
+.dying_block--iiyama{
+    background-color: #050505;
+    background-image: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/iiyama1.jpg);
+    background-size: 57%;
+    background-repeat: no-repeat;
+    height: 48vw;
+}
+
+.dying_partie--bloc-iiyama{
+    width: 35%;
+    margin-left: 57vw;
+}
+
+.deot_img_iiyama{
+    width: 25vw;
+    display: flex;
+    margin-top: 4vw;
+}
+
+.dying_sstitre_block-iiyama-1{
+    margin-top: 3.8vw;
+    font-size: 1.25vw;
+    color: #c11629;
+    letter-spacing: .1vw;
+    font-weight: 800;
+    line-height: 3.15;
+    font-family: 'DIN';
+}
+
+.dying_sstitre2_block-iiyama-2{
+    font-size: .8vw;
+    line-height: 2;
+    font-weight: var(--semibold);
+    color: var(--blanc);
+    text-transform: initial;
+    font-family: 'Montserrat';
+}
+
+.dying_paragraphe-block-iiyama{
+    width: 36vw;
+    margin-top: 1vw;
+    line-height: 2.0;
+    font-size: .8vw;
+    color: var(--blanc);
+}
+
+.dying_sstitre__partie-block5{
+    margin-top: 5vw;
+}
+/* Responsive ================================== */
+@media screen and (max-width: 768px){
+    .dying_partie--bloc-iiyama{
+        margin-top: 80;
+    }
+    .dying_sstitre_block-iiyama-1{
+        font-size: 6vw;
+        margin: 0;
+    }
+    .dying_partie--bloc-iiyama{
+        margin-left: 2vw;
+    }
+    .deot_img_iiyama{
+        width: 90%;
+    }
+    .dying_block--iiyama{
+        height: 269vw;
+    }
+    .dying_block--iiyama{
+        background-size: 100%;
+    }
+    .dying_sstitre2_block-iiyama-2{
+        font-size: 3.5vw;
+        margin-top: -1vw;
+        margin-bottom: 2vw;
+    }
+    .dying_partie{
+        width: 90%;
+    }
+    .dying_paragraphe{
+        font-size: 5vw;
+        font-size: 3.2vw;
+        width: 100%;
+    }
+    .dying_sstitre__partie{
+        height: 8.5vw;
+    }
+    .dying_mentions{
+        margin-top: 0;
+        position: relative;
+    }
+    .dying_block--3{
+        background-size: auto;
+        height: auto;
+    }
+    .dying__youtube_cadre::before{
+        display: none;
+    }
+    .dying__video_youtube{
+        width: 73vw;
+        height: 42vw;
+        margin-bottom: 11vw;
+    }
+    .dying_sstitre__block1{
+        background-size: contain;
+    }
+    .dying_sstitre_block4{
+        text-transform: inherit;
+        flex: 100%;
+        font-size: 6.5vw;
+        margin: 2vw 0;
+    }
+    .dying_paragraphe-block4{
+        margin-bottom: 5vw;
+    }
+    .dying_blck5_content{
+        flex-wrap: wrap;
+    }
+    .dying__video_youtube-nvidia{
+        width: 100%;
+        height: 46vw;
+    }
+    .dying_img_block5-rtx{
+        width: 70vw;
+        padding: 7vw 12vw;
+    }
+    .dying_nvidia_texte{
+        width: 100%;
+    }
+    .dying_block4_item{
+        flex-wrap: wrap;
+    }
+    .dying_img_block4{
+        width: 100%;
+        padding: 5vw 20vw;
+    }
+    .dying_visuel_pc{
+        margin-top: 10vw;
+        width: 85%;
+    }
+    .dying_partie--bloc1-2{
+        margin-top: 10vw;
+    }
+    .dying_moulure_video{
+        display: none;
+    }
+    .dying_sstitre_block5{
+        font-size: 7vw;
+    }
+    .dying_img_asus{
+        width: 86vw;
+        height: 23.7vw;
+        margin: 0;
+    }
+    .dying_paragraphe-block5{
+        font-size: 5vw;
+    }
+    .dying_block4_content{
+        position: relative;
+        width: 100%;
+        margin: auto;
+    }
+    .parallax_block5{
+        display: none;
+    }
+    .dying_roue-armes, .dying_aiden_pc, .dying_titre_armes, .dying_arme_mini, .dying_arrow, .dying_titre_arme_selected, .dying_arme_select{
+        display: none !important;
+    }
+    .dying_details-pc--item{
+        width: 95%;
+    }
+    .dying_sstitre_block6{
+        font-size: 3vw;
+    }
+    .dying_img-block-6{
+        background-size: cover;
+        pointer-events: none;
+        position: absolute;
+        width: 32vw;
+        right: 23vw;
+        top: -36vw;
+        padding: 0;
+    }
+    .dying_titre-prix{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .dying_titre-prix__partie{
+        width: 100%;
+    }
+    .dying_img_jeu-offert_block6{
+        width: 62%;
+        margin: auto;
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/brush_blanc.png);
+        background-size: cover;
+        height: 9vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.9vw;
+        text-transform: uppercase;
+        font-family: montserrat,sans-serif;
+        font-weight: 800;
+        text-shadow: 0 0 0 #171717;
+    }
+    .dying_content_jeu-offert_block6{
+        width: 100%;
+    }
+    .dying_details-pc{
+        margin-top: 40vw;
+    }
+    .dying_sstitre_block6{
+        background-position: -200vw -2vw;
+    }
+    .dying_content--toggle:checked ~ .dying_sstitre_block6{
+        background-position: -15vw -3vw;
+        background-size: 170%;
+    }
+    .dying_titre-pc{
+        font-size: 7vw;
+    }
+    .dying_titre-prix__partie2{
+        margin-top: 5vw;
+    }
+    .dying_titre-pc-prix{
+        font-size: 14vw;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+    .dying_prix-centimes{
+        font-size: 10vw;
+    }
+    .dying_btn_content_block6{
+        width: 43vw;
+        height: 17vw;
+    }
+    .dying_sstitre__partie, .dying_sstitre__partie-block3, .dying_sstitre__partie-block4, .dying_sstitre__partie-block5{
+        font-size: 6vw;
+        width: 100%;
+        height: 12vw;
+    }
+    .parallax{
+        display: none;
+    }
+    .parallax-content_mobile{
+        display: block;
+    }
+    .dying_block--2{
+        height: 190vw;
+    }
+    .dying_img_jeu-offert, .dying_img_jeu-offert_block2{
+        width: 61vw;
+        height: 11vw;
+        font-size: 2.3vw;
+        margin-left: 18vw;
+    }
+    .dying_parties-container--bloc-0{
+        width: 100%;
+    }
+    .dying_bandeau-intro{
+        width: 90%;
+    }
+    .dying_logo-bandeau{
+        width: 13vw;
+    }
+    .dying_mentions{
+        font-size: 2vw;
+    }
+    .dying_mentions--black{
+        position: absolute;
+        bottom: 0;
+    }
+    .dying_btn_content_block2{
+        width: 48vw;
+        height: 15vw;
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/cta_rouge.png);
+        background-size: cover;
+        position: absolute;
+        top: 162vw;
+        left: 26vw;
+        transition: all .1s;
+    }
+    .dying_btn_content_block2:hover{
+            width: 48vw;
+            height: 15vw;
+            background-size: cover;
+            position: absolute;
+            top: 162vw;
+            left: 26vw;
+            transition: all .1s
+        }
+    .dying_caract_item--title{
+        font-size: 4.8vw;
+        padding-top: 2vw;
+    }
+    .dying_cacrt_item--desc{
+        font-size: 3vw;
+        line-height: 4vw;
+        margin-top: -1vw;
+        border-radius: 2vw;
+        padding: 2vw 3vw;
+    }
+    .dying_img_jeu-offert-block1{
+        margin-left: 9vw;
+        margin-top: 0;
+    }
+    .dying_video_block2{
+        width: 100%;
+        height: 60vw;
+        margin-top: 5vw;
+    }
+    .dying_loader_title{
+        filter: drop-shadow(1px 0px 10px rgba(0,0,0,0.46));
+        position: absolute;
+        left: 0;
+        top: 30vh;
+        width: 90vw;
+    }
+    .dying_loader_percent_bar, .dying_loader_percent{
+        width: 75vw;
+        height: 3vw;
+    }
+    .dying_caract_item{
+        width: 93vw;
+        height: 20vw;
+        position: relative;
+        top: 0 !important;
+        left: 0 !important;
+        margin-left: -3vw;
+    }
+    .dying_block--6{
+        margin-top: -28vw;
+    }
+    .dying_bandeau-fin{
+        width: 90vw;
+    }
+    .dyinng_caract_item--ssd::after, .dyinng_caract_item--cgu::after, .dyinng_caract_item--ram::after, .dyinng_caract_item--boitier::after, .dyinng_caract_item--processeur::after, .dyinng_caract_item--cm::after{
+        display: none !important;
+    }
+    .dying_parties-container-simple-block6{
+        margin: 0 auto auto;
+    }
+    #details{
+        margin-top: -17vw;
+    }
+    .dying_block--nvidia-1{
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/dl2_nvidia1_mobile.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .dying_partie--bloc-nvidia-1{
+        background: var(--noir);
+        margin-top: 51vw;
+        width: 100%;
+        padding: 6vw;
+        margin-bottom: -2vw;
+    }
+    .dying_sstitre_block-nvidia-1{
+        font-size: 6.3vw;
+    }
+    .dying_sstitre2_block-nvidia-1{
+        font-size: 4.5vw;
+    }
+    .dying_paragraphe-block-nvidia{
+        margin-top: 3vw;
+    }
+    .dying_mention_block-nvidia-1{
+        font-family: "dinpro";
+        font-size: 3vw;
+    }
+    .dying_img_block-nvidia-1{
+        display: none;
+    }
+    .dying_partie--bloc-nvidia-2{
+        margin: auto;
+    }
+    .dying_block--nvidia-2{
+        background: url(https://www.cybertek.fr/images_produits/cybertek/images-landing/dyinglight2/nvidia2_mobile.jpg);
+        background-size: contain;
+        height: 170vw;
+        background-repeat: no-repeat;
+    }
+    .dying_sstitre__partie-block6{
+        padding-left: 7vw;
+        padding-top: 1vw;
+    }
+    .dying_block_container--nvidia-2{
+        margin-top: 64vw;
+        background: var(--noir);
+        padding: 10vw 0 30vw;
+    }
+    .dying_trade_block6{
+        font-size: 2vw;
+        vertical-align: text-top;
+    }
+    .dying_content_jeu-offert_block2{
+        top: 145vw;
+    }
+    .dying_pc_config{
+        display: none;
+    }
+
+    .dying_sstitre__partie-block5{
+        margin-left: 0;
+    }
+    .dying_block--tuto{
+        height: 115vw;
+        margin-bottom: -13vw;
+    }
+    .dying_tuto_line{
+        display: block;
+        margin-bottom: 1vw;
+    }
+    .dying_tuto_line--1{
+        margin-top: 10vw;
+        display: block;
+    }
+    .dying_tuto_number{
+        position: absolute;
+        left: 8vw;
+        width: 1vw;
+        margin-top: 1.6vw;
+    }
+    .dying_tuto_point{
+        width: 8vw;
+        margin-bottom: -2.5vw;
+    }
+    .dying_sstitre__block-tuto{
+        font-size: 6vw;
+        width: 100%;
+        height: 12vw;
+        background-position: 0 3vw;
+    }
+    .dying_tuto_block-line{
+        display: block;
+    }
+    .dying_tuto_text-line-comp{
+        display: block;
+        width: 90%;
+        margin-left: 9vw;
+        margin-top: -7vw;
+    }
+    .dying_tuto_line{
+        margin-bottom: 5vw;
+    }
+    .dying_sstitre__partie-block5{
+        margin-left: -0vw;
+    }
+    .nvidia_label{
+        font-size: 3vw;
+        z-index: 5;
+        top: 0vw;
+        width: 33vw;
+        height: 9vw;
+        background: var(--noir);
+    }
+    .nvidia_label::after{
+            width: 33vw;
+        }
+    .nvidia_label-1{
+        left: 0vw;
+    }
+    .nvidia_label-2{
+        left: 33vw;
+    }
+    .nvidia_label-3{
+        left: 66vw;
+        width: 34vw;
+    }
+    .nvidia_label-3::after{
+            width: 34vw;
+        }
+    .dying_block--5{
+        padding-top: 20vw;
+    }
+    .nvidia_label{
+        font-size: 3vw;
+        z-index: 5;
+        top: 0vw;
+        width: 33vw;
+        height: 9vw;
+        background: var(--noir);
+    }
+    .nvidia_label::after{
+            width: 33vw;
+        }
+    .nvidia_label-1{
+        left: 0vw;
+    }
+    .nvidia_label-2{
+        left: 33vw;
+    }
+    .nvidia_label-3{
+        left: 66vw;
+        width: 34vw;
+    }
+    .nvidia_label-3::after{
+            width: 34vw;
+        }
+    .dying_block--5{
+        padding-top: 20vw;
+    }
+    .dying_partie--bloc-iiyama{
+        margin-top: 78vw;
+        margin-left: 5vw;
+    }
+    .dying_block--nvidia-1{
+        background-position: 0vw 9vw;
+    };
+}

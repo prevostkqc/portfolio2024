@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Courgette';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Courgette Regular'), local('Courgette-Regular'), url(https://web.archive.org/web/20170203014610im_/https://fonts.gstatic.com/s/courgette/v4/BHG8ZtTfO0yYnp02--QxqqCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+
+/*
+     FILE ARCHIVED ON 01:46:10 Feb 03, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 21:37:40 Apr 16, 2024.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.794
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.059
+  cdx.remote: 0.124
+  esindex: 0.009
+  LoadShardBlock: 72.831 (6)
+  PetaboxLoader3.datanode: 76.713 (7)
+  load_resource: 114.027
+  PetaboxLoader3.resolve: 83.454
+*/

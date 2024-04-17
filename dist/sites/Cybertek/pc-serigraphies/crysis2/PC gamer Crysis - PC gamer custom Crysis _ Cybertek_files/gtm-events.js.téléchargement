@@ -1,0 +1,11 @@
+class GTMEvents{static search(searchTerm){dataLayer=window.dataLayer||[];dataLayer.push({event:'search',search_term:searchTerm});}
+static share(itemId){dataLayer=window.dataLayer||[];dataLayer.push({event:'share',content_type:'product',item_id:itemId,});}
+static addToCart(itemId,itemName,itemBrand,itemCategory,price){dataLayer=window.dataLayer||[];dataLayer.push({ecommerce:null});dataLayer.push({event:'add_to_cart',ecommerce:{currency:'EUR',value:price,items:[{item_id:itemId,item_name:itemName,item_brand:itemBrand,item_category:itemCategory,price:price,quantity:1}]}});}
+static viewCart(totalPrice,items){dataLayer=window.dataLayer||[];dataLayer.push({ecommerce:null});dataLayer.push({event:"view_cart",ecommerce:{currency:"EUR",value:totalPrice,items:items}});}
+static removeFromCart(totalPrice,items){dataLayer=window.dataLayer||[];dataLayer.push({ecommerce:null});dataLayer.push({event:"remove_from_cart",ecommerce:{currency:"EUR",value:totalPrice,items:items}});}
+static addShippingInfo(totalPrice,items){dataLayer=window.dataLayer||[];dataLayer.push({ecommerce:null});dataLayer.push({event:"add_shipping_info",ecommerce:{currency:"EUR",value:totalPrice,items:items}});}
+static beginCheckout(totalPrice,items){dataLayer=window.dataLayer||[];dataLayer.push({ecommerce:null});dataLayer.push({event:"begin_checkout",ecommerce:{currency:"EUR",value:totalPrice,items:items}});}
+static addPaymentInfo(totalPrice,items){dataLayer=window.dataLayer||[];dataLayer.push({ecommerce:null});dataLayer.push({event:"add_payment_info",ecommerce:{currency:"EUR",value:totalPrice,items:items}});}
+static purchase(totalPrice,items,transactionId,shipping){dataLayer=window.dataLayer||[];dataLayer.push({ecommerce:null});dataLayer.push({event:"purchase",ecommerce:{transaction_id:transactionId,value:totalPrice,shipping:shipping,currency:"EUR",items:items}});}
+static viewItem(itemId,itemName,itemBrand,itemCategory,price){dataLayer=window.dataLayer||[];dataLayer.push({ecommerce:null});dataLayer.push({event:"view_item",ecommerce:{currency:"EUR",value:price,items:[{item_id:itemId,item_name:itemName,item_brand:itemBrand,item_category:itemCategory,price:price,quantity:1}]}});}
+static viewItemList(items){dataLayer=window.dataLayer||[];dataLayer.push({ecommerce:null});dataLayer.push({event:"view_item_list",ecommerce:{items:items}});}}
