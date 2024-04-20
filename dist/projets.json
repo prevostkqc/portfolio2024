@@ -1,7 +1,7 @@
 [
     {
         "titre": "Fiche PC GAMER",
-        "techno": ["js", "jquery", "html5", "css3"],
+        "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2021 - 2024",
         "compagnie": "Cybertek",
         "id" : 1,
@@ -11,7 +11,7 @@
     },
     {
         "titre": "Liste PC GAMER",
-        "techno": ["js", "jquery", "html5", "css3"],
+        "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2021 - 2024",
         "compagnie": "Cybertek",
         "id" : 2,
@@ -145,7 +145,7 @@
     
     {
         "titre": "Pokémon Opale",
-        "techno": ["js", "jquery", "html5", "css3", "php5", "mysql"],
+        "techno": ["vuejs", "js", "jquery", "html5", "css3"],
         "annee": "2018 - 2024",
         "compagnie": "Opale",
         "id" : 13,
@@ -157,7 +157,7 @@
 
     {
         "titre": "Halo Infinite",
-        "techno": ["js", "jquery", "html5", "css3"],
+        "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2023",
         "compagnie": "CybertekPcGamer",
         "id" : 14,
@@ -169,7 +169,7 @@
 
     {
         "titre": "Sea of Thieves",
-        "techno": ["js", "jquery", "html5", "css3"],
+        "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 15,
@@ -181,7 +181,7 @@
 
     {
         "titre": "The Witcher",
-        "techno": ["js", "jquery", "html5", "css3"],
+        "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 16,
@@ -193,7 +193,7 @@
 
     {
         "titre": "DeoToons",
-        "techno": ["js", "jquery", "html5", "css3"],
+        "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 17,
@@ -205,7 +205,7 @@
 
     {
         "titre": "Ragnarock",
-        "techno": ["js", "jquery", "html5", "css3"],
+        "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 18,
@@ -217,7 +217,7 @@
 
     {
         "titre": "Halo infinite 2022",
-        "techno": ["js", "jquery", "html5", "css3"],
+        "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 19,
@@ -229,7 +229,7 @@
 
     {
         "titre": "Dying Light 2",
-        "techno": ["js", "jquery", "html5", "css3"],
+        "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 20,

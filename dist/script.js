@@ -267,6 +267,8 @@ function ouvrirProjet(){
   addClass(document.querySelector(".kp_un-projet"), 'kp_window--show');
   removeClass(document.querySelector("#kp_browser"), 'kp_element--action--reduct');
   removeClass(document.querySelector("#kp_browser"), 'kp_element--action--close');
+  removeClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
+  addClass(document.querySelector(".kp_clipy--bulle"), 'kp_clipy--hide');
 }
 
 document.querySelectorAll(".kp_folder--projets, .kp_menu__barre-etat--projet, .kp_barre-une-app--browser").forEach(element => {
@@ -283,6 +285,7 @@ document.querySelectorAll(".kp_folder--projets, .kp_menu__barre-etat--projet, .k
 function fermerDescriptionProjet(){
   addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
   addClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--show');
+  addClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
   removeClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
   removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
 }
@@ -291,11 +294,14 @@ document.querySelector(".kp_un-projet--close").addEventListener("click", fermerD
 function ouvrirDescriptionProjet(){
   addClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
   addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
+  removeClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
   removeClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
   removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--show');
   
 }
 document.querySelector(".kp_information-projet").addEventListener("click", ouvrirDescriptionProjet);
+document.querySelector(".kp_projet-btn").addEventListener("click", ouvrirDescriptionProjet);
+
 
 /* ----------------------------------------------------------------------------------- */
 /* TEXT */

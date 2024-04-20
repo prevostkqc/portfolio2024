@@ -311,28 +311,33 @@
             <div class="kp_browser-content--iframe">
                 <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
             
-                <article class="kp_un-projet" v-if="projetActuel">
-                    
-                    <div class="kp_icon_zone  kp_un-projet--close" ><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
-                    <h2 class="kp_h2">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</h2>
-                    <span class="kp_projet-annee  kp_h4">{{ projetActuel.annee }}</span>
-                    
-                    <p class="kp_p  kp_projet_description">{{ projetActuel.description }}</p>
-                    <ul class="kp_projet-technos">
-                        <li v-for="technologie in projetActuel.techno" :key="technologie"
-                            :class="['kp_projet-techno', `kp_projet-techno--${technologie.toLowerCase()}`]">
-                            {{ technologie }}
-                        </li>
-                    </ul>
-                </article>
-                <div class="kp_information-projet  kp_information-projet--hide">
-                    <p class="kp_information--p">Afficher les informations concernant ce projet</p>
-                </div>
+                
             </div>
             
         </div>
         <div class="resize-handle"></div>
     </section>
+    <div class="kp_clipy--bulle  kp_clipy--bulle-projet  kp_clipy--hide">
+        <article class="kp_un-projet" v-if="projetActuel">
+            <div class="kp_icon_zone  kp_un-projet--close" ><img class="kp_icon_zone--img" src="/images/close_icn.svg" alt="close"></div>
+            <h2 class="kp_h2  kp_projet-desc--h2">{{ projetActuel.titre }} - {{ projetActuel.compagnie }}</h2>
+            <span class="kp_projet-annee  kp_h4">{{ projetActuel.annee }}</span>
+            
+            <p class="kp_p  kp_projet_description">{{ projetActuel.description }}</p>
+            <ul class="kp_projet-technos">
+                <li v-for="technologie in projetActuel.techno" :key="technologie"
+                    :class="['kp_projet-techno', `kp_projet-techno--${technologie.toLowerCase()}`]">
+                    <img :src="`/images/logos-technos/${technologie}.png`" class="kp_img-techno" alt="{{technologie}}">
+                    <p class="kp_projet-techno--text">
+                        {{ technologie }}
+                    </p>
+                </li>
+            </ul>
+        </article>
+    </div>
+    <div class="kp_information-projet  kp_clipy--bulle   kp_information-projet--hide">
+        <p class="kp_information--p">Afficher les informations concernant ce projet</p>
+    </div>
     <!-- Window Internet -->
  
 
