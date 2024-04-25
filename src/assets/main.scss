@@ -19,10 +19,11 @@
   min-height: 200px;
 }
 .kp_browser {
-  height: 50vh;
-    top: 191px;
-    left: 200px;
-    width: 50vw;
+    height: calc(100vh - 260px);
+    top: 140px;
+    left: 90px;
+    width: calc(100vw - 150px);
+    max-width:1900px;
     overflow: hidden;
 }
 .kp_icn-onglet{
@@ -34,10 +35,6 @@
     font-size: $main-h5;
     text-transform: uppercase;
 }
-.kp_projet-techno:not(:last-child)::after {
-  // content: "-";
-  // margin: 0 8px;
-}  
 .kp_browser-content--iframe{
   overflow: hidden;
   width: calc(100% - 3px);
@@ -88,6 +85,9 @@ p, div, span{
     font-size : $main-p;
     font-weight : $main_regular;
     line-height: $main-text;
+}
+.kp_p-black{
+    color: $main-color_terciary;
 }
 .kp_main{
     position: relative;
@@ -1264,3 +1264,38 @@ background-color: white;
   gap: 5px;
   padding-right: 10px;
 }
+
+// .kp_splash{
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   z-index: 2000;
+//   background: #000000;
+//   animation:openfade 0.5s forwards 2s;
+// }
+// .kp_logo-open{
+//   animation: opening 1s forwards;
+//   width: 250px;
+// }
+// @keyframes opening {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+// @keyframes openfade {
+//   0% {
+//     opacity: 1;
+//   }
+//   100% {
+//     opacity: 0;
+//   }
+// }
+

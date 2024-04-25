@@ -281,6 +281,8 @@
         <!-- Terminal -->
 
 
+
+        <Cv />
         
 
 
@@ -310,8 +312,6 @@
 
             <div class="kp_browser-content--iframe">
                 <iframe :src="projetActuel.url" width="600" height="400" frameborder="0" class="kp_iframe--projet"></iframe>
-            
-                
             </div>
             
         </div>
@@ -393,17 +393,19 @@
 
                         </div>
                     </article>
+
                     
-                    <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--projet">
+
+                    <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--linkedin" >
                         <div class="kp_menu__barre-etat--un-ico-container-img">
-                            <img class="kp_menu__barre-etat--img" src="/images/linkedin.png" alt="Mes projets">
+                            <img class="kp_menu__barre-etat--img" src="/images/linkedin.png" alt="Mon parcours">
                         </div>
                         <div>
                             <p class="kp_menu__barre-etat--un-ico-container--text">
                                 Mon parcours
                             </p>
                             <p class="kp_menu__barre-etat--un-ico-container--desc">
-                                Par où je suis passé
+                                Suivez mon cursus
                             </p>
 
                         </div>
@@ -474,6 +476,15 @@
             </div>
         </section>
     </main>
+
+    <!-- <div class="kp_splash">
+        <img src="/images/logo-2024.png" class="kp_logo-open" alt="Logo Kévin Prévost">
+        <audio autoplay>
+            <source src="/audio/start.mp3" type="audio/mp3">
+            Impossible de jouer le son
+        </audio>
+    </div> -->
+    
   </template>
   
   <script>
@@ -482,6 +493,7 @@
     import Autoportrait from './Autoportrait.vue';
     import Personnaliser from './Personnaliser.vue';
     import Clipy from './Clipy.vue';
+    import Cv from './Cv.vue';
 
     export default {
         data() {
@@ -495,7 +507,8 @@
             Browser,
             Autoportrait,
             Personnaliser,
-            Clipy
+            Clipy,
+            Cv
         },
         computed: {
             // Filtre les projets en fonction de la compagnie sélectionnée
