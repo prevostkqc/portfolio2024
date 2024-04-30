@@ -89,6 +89,12 @@ p, div, span{
 .kp_p-black{
     color: $main-color_terciary;
 }
+.kp_bold{
+    font-weight: $main-bold;
+}
+.kp_semibold{
+    font-weight: $main-semi-bold;
+}
 .kp_main{
     position: relative;
     width: 100%;
@@ -580,7 +586,7 @@ p, div, span{
     bottom: 47px;
     right: 0px;
     background: rgba(1, 85, 228, 0.3411764706);
-    padding: 15px 20px;
+    padding: 5px 20px;
     border: solid 1px #004ac9;
   }
   .kp_notification--zone{
@@ -1036,7 +1042,7 @@ background-color: white;
     display: none;
     left: 220px;
     top: 10px;
-    height: 980px;
+    height: 900px;
     z-index: 2;
   }
   .kp_pokemon_zone-texte {
@@ -1120,6 +1126,15 @@ background-color: white;
   filter:drop-shadow(5px 5px 3px #000000AA)
 }
 
+.kp_clipy--bulle-passion{
+  max-width: 600px;
+  z-index: 1000;
+  animation-delay: 0.5s;
+}
+.kp_passion{
+  animation-delay: 0.5s;
+  z-index: 1000;
+}
 /* ----------------- */
 /* folder project */
 

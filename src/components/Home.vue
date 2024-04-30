@@ -20,6 +20,14 @@
                     Mes réalisations
                 </p>
             </article>
+            <article class="kp_folder--un-ico  kp_folder--quisuisje">
+                <div class="kp_folder--un-ico-container-img">
+                    <img class="kp_folder--img" src="/images/cv.png" alt="Mon parcours">
+                </div>
+                <p class="kp_folder--un-ico-container-text">
+                    Mon parcours
+                </p>
+            </article>
             <article class="kp_folder--un-ico  kp_folder--img-txt  kp_folder--text">
                 <div class="kp_folder--un-ico-container-img">
                     <img class="kp_folder--img" src="/images/text.png" alt="Ma tete">
@@ -30,7 +38,7 @@
             </article>   
             <article class="kp_folder--un-ico  kp_folder--pokemon">
                 <div class="kp_folder--un-ico-container-img">
-                    <img class="kp_folder--img" src="/images/pokecard_icn.png" alt="Ma tete">
+                    <img class="kp_folder--img" src="/images/pokecard_icn.png" alt="Ma passion">
                 </div>
                 <p class="kp_folder--un-ico-container-text">
                     Ma passion
@@ -58,9 +66,6 @@
             </div>
             <div class="kp_pokemon_zone-texte  kp_element--enable">
                 <p class="kp_texte-carte">
-                    Ayant grandi dans les années 90, je n'ai pas échappé à la folie Pokémon.<br>
-                    Après avoir développé deux jeux amateurs en Ruby pour honorer la passion de mon enfance, cela m'a laissé un attachement particulier.<br>
-                    J'ai conservé ma collection de cartes d'enfance, qui contient des raretés toujours autant recherchées de nos jours.
                 </p>
                 <article class="kp_card-pokemon">
                     <div class="kp_card-pokemon--container">
@@ -77,6 +82,7 @@
             </div>
             <div class="resize-handle"></div>
         </section>
+        
         <!-- Card Pokémon -->
         
 
@@ -287,7 +293,7 @@
 
 
     <!-- Window Internet -->
-    <section class="kp_browser  kp_z-index  kp_browser--show  kp_changed__id kp_element--action--close kp_item__window" id="kp_browser">
+    <section class="kp_browser  kp_z-index  kp_browser--show  kp_changed__id  kp_element--action--close  kp_item__window" id="kp_browser">
         <div class="kp_element--title">
             <div class="kp_element--icon-title">
                 <p class="kp_element--title-p  kp_element--enable">
@@ -379,9 +385,9 @@
                         </div>
                     </article>
 
-                    <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--projet">
+                    <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--contact">
                         <div class="kp_menu__barre-etat--un-ico-container-img">
-                            <img class="kp_menu__barre-etat--img" src="/images/mail.png" alt="Mes projets">
+                            <img class="kp_menu__barre-etat--img" src="/images/mail.png" alt="Me contacter">
                         </div>
                         <div>
                             <p class="kp_menu__barre-etat--un-ico-container--text">
@@ -396,16 +402,16 @@
 
                     
 
-                    <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--linkedin" >
+                    <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--quisuisje" >
                         <div class="kp_menu__barre-etat--un-ico-container-img">
-                            <img class="kp_menu__barre-etat--img" src="/images/linkedin.png" alt="Mon parcours">
+                            <img class="kp_menu__barre-etat--img" src="/images/cv.png" alt="Mon parcours">
                         </div>
                         <div>
                             <p class="kp_menu__barre-etat--un-ico-container--text">
                                 Mon parcours
                             </p>
                             <p class="kp_menu__barre-etat--un-ico-container--desc">
-                                Suivez mon cursus
+                                Consulter mon parcours
                             </p>
 
                         </div>
@@ -457,6 +463,10 @@
                 <article class="kp_barre-une-app  kp_barre-une-app--pokemon" id="kp_barre-app--pokemon">
                     <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/pokecard_icn.png" alt="Ma passion"></div>
                     <p class="kp_barre-une-app--title">Ma passion</p>
+                </article>
+                <article class="kp_barre-une-app  kp_barre-une-app--quisuisje" id="kp_barre-app--quisuisje">
+                    <div class="kp_barre-une-app--icn"><img class="kp_barre-une-app--img" src="/images/cv.png" alt="Mon parcours"></div>
+                    <p class="kp_barre-une-app--title">Mon parcours</p>
                 </article>
             </div>
             
