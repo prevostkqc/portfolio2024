@@ -270,15 +270,21 @@ function ouvrirProjet(){
   removeClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
   addClass(document.querySelector(".kp_clipy--bulle"), 'kp_clipy--hide');
 }
+function fermerProjet(){
+  addClass(document.querySelector(".kp_information-projet"), 'kp_clipy--hide');
+  addClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
+  removeClass(document.querySelector(".kp_clipy--bulle"), 'kp_clipy--hide');
+}
 
 document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirFolderProjects);
-document.querySelectorAll(".kp_folder--projets, .kp_menu__barre-etat--projet, .kp_barre-une-app--browser").forEach(element => {
+document.querySelectorAll(".kp_folder--projets, .kp_barre-une-app--browser").forEach(element => {
   const closeButton = document.querySelector(".kp_icon--close-browser");
   if (closeButton) {
     closeButton.click();
   }
   element.addEventListener("click", ouvrirProjet);
 });
+
 
 
 /* ------------------------------ */
@@ -420,6 +426,9 @@ function fermerWindowId(idElement){
   var idBarre = ".kp_barre-une-app--" + idElement;
   removeClass(document.querySelector(idDiv), 'kp_window--show');
   removeClass(document.querySelector(idBarre), 'kp_barre-une-app--show');
+  if(idElement == "browser"){
+    fermerProjet();
+  }
 }
 function reduireWindowId(idElement){
   console.log(idElement);

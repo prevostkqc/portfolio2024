@@ -66,6 +66,9 @@
             </div>
             <div class="kp_pokemon_zone-texte  kp_element--enable">
                 <p class="kp_texte-carte">
+                    Ayant grandi dans les années 90, je n'ai pas échappé à la folie Pokémon.<br>
+                    Après avoir développé deux jeux amateurs en Ruby pour honorer la passion de mon enfance, cela m'a laissé un attachement particulier.<br>
+                    J'ai conservé ma collection de cartes d'enfance, qui contient des raretés toujours très recherchées de nos jours.
                 </p>
                 <article class="kp_card-pokemon">
                     <div class="kp_card-pokemon--container">
@@ -386,6 +389,7 @@
                     </article>
 
                     <article class="kp_menu__barre-etat--ico  kp_menu__barre-etat--contact">
+                        <a class="kp_hrefmailto" href="mailto:contact@kevinprevost.fr?subject=Contact depuis kevinprevost.fr&body=Nom : %0D%0APrénom : %0D%0ATéléphone : %0D%0ACompagnie (facultatif) : %0D%0A%0D%0ADescription du projet : %0D%0A%0D%0A%0D%0A%0D%0A"></a>
                         <div class="kp_menu__barre-etat--un-ico-container-img">
                             <img class="kp_menu__barre-etat--img" src="/images/mail.png" alt="Me contacter">
                         </div>

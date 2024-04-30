@@ -709,6 +709,7 @@
         left:90px;
         top: 10vh;
         display: none;
+        max-width: 930px;
     }
     .kp_quisuisje--content{
         background: white;
