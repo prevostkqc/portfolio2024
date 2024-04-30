@@ -815,7 +815,7 @@
         flex-direction: column;
     }
     .kp-cv--show ~ .kp_content--cv{
-        max-height: 1000px !important;
+        max-height: 2000px !important;
         overflow: hidden;
     }
     .kp_btn-cv--masquer{
@@ -850,5 +850,11 @@
     }
     .kp_projet-technos--visuel li:hover{
        background: #ceffd9;
+    }
+    
+    @media screen and (max-width: 900px){
+        .kp_li-techno{
+            padding: 10px 2px;
+        }
     }
 </style>

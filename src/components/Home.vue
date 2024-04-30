@@ -69,6 +69,8 @@
                     Ayant grandi dans les années 90, je n'ai pas échappé à la folie Pokémon.<br>
                     Après avoir développé deux jeux amateurs en Ruby pour honorer la passion de mon enfance, cela m'a laissé un attachement particulier.<br>
                     J'ai conservé ma collection de cartes d'enfance, qui contient des raretés toujours très recherchées de nos jours.
+                    <br><br>
+                    <span class="kp_p-black  kp_bold">Cliquez sur les coins de la carte pour la voir briller.</span>
                 </p>
                 <article class="kp_card-pokemon">
                     <div class="kp_card-pokemon--container">

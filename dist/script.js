@@ -270,15 +270,21 @@ function ouvrirProjet(){
   removeClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
   addClass(document.querySelector(".kp_clipy--bulle"), 'kp_clipy--hide');
 }
+function fermerProjet(){
+  addClass(document.querySelector(".kp_information-projet"), 'kp_clipy--hide');
+  addClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
+  removeClass(document.querySelector(".kp_clipy--bulle"), 'kp_clipy--hide');
+}
 
-document.querySelectorAll(".kp_folder--projets, .kp_menu__barre-etat--projet, .kp_barre-une-app--browser").forEach(element => {
-  console.log("ouvrirProjet");
+document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirFolderProjects);
+document.querySelectorAll(".kp_folder--projets, .kp_barre-une-app--browser").forEach(element => {
   const closeButton = document.querySelector(".kp_icon--close-browser");
   if (closeButton) {
     closeButton.click();
   }
   element.addEventListener("click", ouvrirProjet);
 });
+
 
 
 /* ------------------------------ */
@@ -346,6 +352,7 @@ function ouvrirFolderProjects(){
 }
 document.querySelector(".kp_folder--folder-projects").addEventListener("click", ouvrirFolderProjects);
 document.querySelector(".kp_barre-une-app--folder-projects").addEventListener("click", ouvrirFolderProjects);
+document.querySelector(".kp_menu__barre-etat--projet").addEventListener("click", ouvrirFolderProjects);
 
 /* ----------------------------------------------------------------------------------- */
 function reduireProfil(){
@@ -363,6 +370,23 @@ function ouvrirProfil(){
 }
 document.querySelector(".kp_menu__barre-etat--titre").addEventListener("click", ouvrirProfil);
 document.querySelector(".kp_barre-une-app--profil").addEventListener("click", ouvrirProfil);
+
+/* ----------------------------------------------------------------------------------- */
+/* CV */
+/* ----------------------------------------------------------------------------------- */
+function ouvrirCv(){
+  fermerMenu();
+  let zindex = getHighestZIndex();
+  document.querySelector("#kp_quisuisje").style.zIndex = zindex + 1;
+  document.querySelector(".kp_barre-une-app--quisuisje").classList.add('kp_barre-une-app--show');
+  addClass(document.querySelector("#kp_quisuisje"), 'kp_quisuisje--show');
+  addClass(document.querySelector("#kp_quisuisje"), 'kp_window--show');
+  removeClass(document.querySelector("#kp_quisuisje"), 'kp_element--action--reduct');
+}
+document.querySelector(".kp_folder--quisuisje").addEventListener("click", ouvrirCv);
+document.querySelector(".kp_barre-une-app--quisuisje").addEventListener("click", ouvrirCv);
+document.querySelector(".kp_menu__barre-etat--quisuisje").addEventListener("click", ouvrirCv);
+/* ----------------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------------------- */
 /* TERMINAL */
@@ -402,6 +426,9 @@ function fermerWindowId(idElement){
   var idBarre = ".kp_barre-une-app--" + idElement;
   removeClass(document.querySelector(idDiv), 'kp_window--show');
   removeClass(document.querySelector(idBarre), 'kp_barre-une-app--show');
+  if(idElement == "browser"){
+    fermerProjet();
+  }
 }
 function reduireWindowId(idElement){
   console.log(idElement);
@@ -534,7 +561,7 @@ if ('getBattery' in navigator) {
     image.src = '/images/icn_battery' + batteryLoading + batteryImg + ".png";
 
     const element = document.getElementById('kp_battery__user');
-    element.innerHTML = (battery.level * 100) + "%";
+    element.innerHTML = Math.round((battery.level * 100)) + "%";
 
     // Événement pour détecter les changements de l'état de charge
     battery.addEventListener('chargingchange', function() {
