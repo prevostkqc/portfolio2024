@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'App',
+  name: 'Kévin Prévost - Développeur Front-end',
   mounted() {
     document.title = "Kévin Prévost - Développeur Front-end";
     const meta = document.createElement('meta');

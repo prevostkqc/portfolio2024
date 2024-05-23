@@ -4,18 +4,18 @@ const elementFullScreen = document.querySelector('.kp_animation_full-screen');
 const resizeHandles = document.querySelectorAll('.resize-handle');
 const backHoverClick = document.querySelector('.kp_anti-hover--full');
 let isDragging = false, isFullScreen = false, isResizing = false;
-let offsetX, offsetY, startX, startY, startWidth, startHeight, lastX, lastY;;
+let offsetX, offsetY, startX, startY, startWidth, startHeight, lastX, lastY;
 let initialState = { width: '', height: '', left: '', top: '' };
 let lastElementDragable = document.querySelector('.kp_animation_full-screen');
 
-elementChangeDraggables.forEach(elementChangeDraggable => {
-  elementChangeDraggable.addEventListener('mousedown', e => {
-    const draggableElement = changedDragable(e);
-    if (draggableElement) {
-      handleMouseDownDrag(e, draggableElement, elementChangeDraggable);
-    }
-  });
-});
+
+// ------------------------------
+// Ajouter et supprimer des classes
+const addClass = (element, className) => element?.classList.add(className);
+const removeClass = (element, className) => element?.classList.remove(className);
+
+// ------------------------------
+// Met à jour l'état initial d'un élément
 const updateInitialState = (draggableElement) => {
   if (draggableElement) {
     initialState.width = draggableElement.offsetWidth + 'px';
@@ -24,12 +24,20 @@ const updateInitialState = (draggableElement) => {
     initialState.top = draggableElement.style.top;
   }
 };
-const addClass = (element, className) => {
-  element?.classList.add(className);
-};
-const removeClass = (element, className) => {
-  element?.classList.remove(className);
-};
+
+// ------------------------------
+// Début Drag & Drop
+elementChangeDraggables.forEach(elementChangeDraggable => {
+  elementChangeDraggable.addEventListener('mousedown', e => {
+    const draggableElement = changedDragable(e);
+    if (draggableElement) {
+      handleMouseDownDrag(e, draggableElement, elementChangeDraggable);
+      lastX = e.clientX;
+      lastY = e.clientY;
+    }
+  });
+});
+
 const handleMouseDownDrag = (e, draggableElement, triggerElement) => {
   isDragging = true;
   offsetX = e.clientX - draggableElement.getBoundingClientRect().left;
@@ -37,51 +45,51 @@ const handleMouseDownDrag = (e, draggableElement, triggerElement) => {
   addClass(lastElementDragable, 'kp_element--movement');
   document.body.style.cursor = 'grabbing';
 };
+
+// ------------------------------
+// Mouvement du Drag & Drop
 const handleMouseMoveDrag = (e) => {
   elementDraggable = changedDragable(e);
-  
   console.log(lastElementDragable);
   if (!isDragging) return;
-
   requestAnimationFrame(() => {
     if (!isDragging) return; 
-
     const deltaX = e.clientX - lastX;
     const deltaY = e.clientY - lastY;
-
     if (elementDraggable) {
       const newLeft = parseInt(lastElementDragable.style.left || 0, 10) + deltaX;
       const newTop = parseInt(lastElementDragable.style.top || 0, 10) + deltaY;
-      
       lastElementDragable.style.left = `${newLeft}px`;
       lastElementDragable.style.top = `${newTop}px`;
     }
   });
-
   lastX = e.clientX;
   lastY = e.clientY;
 };
+
+
+// ------------------------------
+// Fin du Drag & Drop
 const handleMouseUpDrag = (e) => {
   isDragging = false;
-  
   removeClass(backHoverClick, 'kp_anti--show');
   removeClass(document.querySelector('.kp_element--enable'), 'kp_element--disable');
-  
   document.body.style.cursor = 'default';
   elementChangeDraggables.forEach(lastElementDragable => {
       removeClass(lastElementDragable, 'kp_element--movement');
   });
 };
 
+
+// ------------------------------
+// Redimensionnement
 resizeHandles.forEach(handle => {
   handle.addEventListener('mousedown', function(e) {
     e.preventDefault();
-
     let initialWidth = handle.parentElement.offsetWidth;
     let initialHeight = handle.parentElement.offsetHeight;
     let startX = e.clientX;
     let startY = e.clientY;
-
     function mouseMoveHandler(e) {
       const deltaX = e.clientX - startX;
       const deltaY = e.clientY - startY;
@@ -89,30 +97,55 @@ resizeHandles.forEach(handle => {
       handle.parentElement.style.height = `${initialHeight + deltaY}px`;
       handle.parentElement.style.maxWidth = `${9999}px`;
     }
-
     function mouseUpHandler() {
       document.removeEventListener('mousemove', mouseMoveHandler);
       document.removeEventListener('mouseup', mouseUpHandler);
     }
-
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
   });
 });
 
+// ------------------------------
+// double & simple clic
 document.addEventListener('mouseup', handleMouseUpDrag);
 let throttleTimeout = null;
 
 document.addEventListener('mousemove', (e) => {
   if (!isDragging) return;
-
   if (throttleTimeout) return;
-
   throttleTimeout = setTimeout(() => {
     throttleTimeout = null;
     handleMouseMoveDrag(e);
   }, 100);
 });
+
+let clicCount = 0;
+let clicTimer;
+function onDoubleClick(e) {
+    const classeRecherchee = 'kp_element--action--resize';
+    if (lastElementDragable.classList.contains(classeRecherchee)) {
+      removeClass(lastElementDragable, 'kp_element--action--resize');
+    } else {
+      addClass(lastElementDragable, 'kp_element--action--resize');
+    }
+    clicCount = 0;
+}
+function handleClic(e) {
+    lastElementDragable = changedDragable(e);
+    clicCount++;
+    if (clicCount === 1) {
+      clicTimer = setTimeout(function() {
+          clicCount = 0;
+          onSingleClick();
+      }, 300);
+    } else if (clicCount === 2) {
+        clearTimeout(clicTimer);
+        clicCount = 0; 
+        onDoubleClick();
+    }
+}
+document.querySelector(".kp_element--title").addEventListener("click", handleClic);
 
 updateInitialState();
 
@@ -145,47 +178,15 @@ document.addEventListener('mouseup', () => {
   }
 });
 
-let clicCount = 0;
-let clicTimer;
-function onDoubleClick(e) {
-    const classeRecherchee = 'kp_element--action--resize';
-    if (lastElementDragable.classList.contains(classeRecherchee)) {
-      removeClass(lastElementDragable, 'kp_element--action--resize');
-    } else {
-      addClass(lastElementDragable, 'kp_element--action--resize');
-    }
-    clicCount = 0;
-}
-function onSingleClick() {
-}
-function handleClic(e) {
-  elementDraggable = changedDragable(e);
-    clicCount++;
-    if (clicCount === 1) {
-        clicTimer = setTimeout(function() {
-            clicCount = 0;
-            onSingleClick();
-        }, 300);
-    } else if (clicCount === 2) {
-        clearTimeout(clicTimer);
-        clicCount = 0; 
-        onDoubleClick();
-    }
-}
-document.querySelector(".kp_element--title").addEventListener("click", handleClic);
-
 function changedDragable(e) {
   let dragrableTemp = e.target.closest('.kp_changed__id'); 
-
   if (dragrableTemp && dragrableTemp.id) {
     if (dragrableTemp.id === "kp_terminal" || dragrableTemp.id === "kp_browser" || dragrableTemp.id === "kp_text") {
       lastElementDragable = dragrableTemp;
     }
   }
-
   return dragrableTemp;
 }
-
 function clickResizeWindow(){
   const classeRecherchee = 'kp_element--action--resize';
   if (elementDraggable.classList.contains(classeRecherchee)) {
@@ -194,31 +195,13 @@ function clickResizeWindow(){
     addClass(elementDraggable, 'kp_element--action--resize');
   }
 }
-// document.querySelector(".kp_icon--resize-browser").addEventListener("click", clickResizeWindow);
-
-
-// document.querySelector('.kp_full_screen').addEventListener('click', function() {
-//   if (!document.fullscreenElement) {
-//     document.documentElement.requestFullscreen().then(function() {
-//       isFullScreen = true;
-//     }).catch(function(err) {
-//       console.error('Erreur lors de la bascule en mode plein écran:', err);
-//     });
-//   } else {
-//     document.exitFullscreen().then(function() {
-//       isFullScreen = false;
-//     }).catch(function(err) {
-//       console.error('Erreur lors de la sortie du mode plein écran:', err);
-//     });
-//   }
-// });
 
 /* ----------------------------------------------------------------------------------- */
 /* Gestion des actions sur les éléments */
 function actionSurElement(event) {
   const id = event.currentTarget.id;
   console.log(id);
-;  const parts = id.split('--').slice(1);
+  const parts = id.split('--').slice(1);
   if (parts.length === 2) {
     const action = parts[0];
     const target = parts[1];
@@ -254,28 +237,70 @@ document.querySelectorAll('.kp_icon_zone').forEach((element) => {
   element.addEventListener('mousedown', actionSurElement);
 });
 
-/* ----------------------------------------------------------------------------------- */
-/* PROJETS */
-/* ----------------------------------------------------------------------------------- */
-function ouvrirProjet(){
-  fermerMenu();
-  document.querySelector('#kp_internet--onglets > :first-child').click();
-  let zindex = getHighestZIndex();
-  document.querySelector("#kp_browser").style.zIndex = zindex + 1;
-  addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
-  addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
-  addClass(document.querySelector(".kp_un-projet"), 'kp_window--show');
-  removeClass(document.querySelector("#kp_browser"), 'kp_element--action--reduct');
-  removeClass(document.querySelector("#kp_browser"), 'kp_element--action--close');
-  removeClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
-  addClass(document.querySelector(".kp_clipy--bulle"), 'kp_clipy--hide');
+// Fermer le menu
+function fermerMenu() {
+  removeClass(document.querySelector(".kp_menu__barre-etat"), 'kp_menu__barre-etat--show');
 }
-function fermerProjet(){
+
+// Ouvrir le menu
+function ouvrirMenu() {
+  let zindex = getHighestZIndex();
+  document.querySelector(".kp_menu__barre-etat").style.zIndex = zindex + 1;
+  addClass(document.querySelector(".kp_menu__barre-etat"), 'kp_menu__barre-etat--show');
+}
+
+// Fonction générique pour ouvrir une fenêtre
+function ouvrirFenetre(selector, barreSelector) {
+  fermerMenu();
+  let zindex = getHighestZIndex();
+  const element = document.querySelector(selector);
+  const barre = document.querySelector(barreSelector);
+  
+  if (element && barre) {
+    element.style.zIndex = zindex + 1;
+    addClass(barre, 'kp_barre-une-app--show');
+    addClass(element, 'kp_window--show');
+    removeClass(element, 'kp_element--action--reduct');
+    removeClass(element, 'kp_element--action--close');
+  }
+}
+
+// Fonction pour fermer un projet
+function fermerProjet() {
   addClass(document.querySelector(".kp_information-projet"), 'kp_clipy--hide');
   addClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
   removeClass(document.querySelector(".kp_clipy--bulle"), 'kp_clipy--hide');
 }
 
+// Fonction pour ouvrir un projet
+function ouvrirProjet() {
+  fermerMenu();
+  document.querySelector('#kp_internet--onglets > :first-child').click();
+  ouvrirFenetre("#kp_browser", ".kp_barre-une-app--browser");
+  addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
+  removeClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
+  addClass(document.querySelector(".kp_clipy--bulle"), 'kp_clipy--hide');
+}
+
+// Fonction pour ouvrir la description d'un projet
+function ouvrirDescriptionProjet() {
+  addClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
+  addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
+  removeClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
+  removeClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
+  removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--show');
+}
+
+// Fonction pour fermer la description d'un projet
+function fermerDescriptionProjet() {
+  addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
+  addClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--show');
+  addClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
+  removeClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
+  removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
+}
+
+// Assignation des événements de clic
 document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirFolderProjects);
 document.querySelectorAll(".kp_folder--projets, .kp_barre-une-app--browser").forEach(element => {
   const closeButton = document.querySelector(".kp_icon--close-browser");
@@ -284,137 +309,66 @@ document.querySelectorAll(".kp_folder--projets, .kp_barre-une-app--browser").for
   }
   element.addEventListener("click", ouvrirProjet);
 });
-
-
-
-/* ------------------------------ */
-function fermerDescriptionProjet(){
-  addClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
-  addClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--show');
-  addClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
-  removeClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--show');
-  removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
-}
 document.querySelector(".kp_un-projet--close").addEventListener("click", fermerDescriptionProjet);
-
-function ouvrirDescriptionProjet(){
-  addClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
-  addClass(document.querySelector(".kp_barre-une-app--browser"), 'kp_barre-une-app--show');
-  removeClass(document.querySelector(".kp_clipy--bulle-projet"), 'kp_clipy--hide');
-  removeClass(document.querySelector(".kp_un-projet"), 'kp_un-projet--hide');
-  removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--show');
-  
-}
 document.querySelector(".kp_information-projet").addEventListener("click", ouvrirDescriptionProjet);
 document.querySelector(".kp_projet-btn").addEventListener("click", ouvrirDescriptionProjet);
 
-
-/* ----------------------------------------------------------------------------------- */
-/* TEXT */
-/* ----------------------------------------------------------------------------------- */
-function ouvrirText(){
-  fermerMenu();
-  let zindex = getHighestZIndex();
-  document.querySelector("#kp_text").style.zIndex = zindex + 1;
-  document.querySelector(".kp_barre-une-app--text").classList.add('kp_barre-une-app--show');
-  addClass(document.querySelector("#kp_text"), 'kp_text--show');
-  addClass(document.querySelector("#kp_text"), 'kp_window--show');
-  removeClass(document.querySelector("#kp_text"), 'kp_element--action--reduct');
+// Ouvrir Text
+function ouvrirText() {
+  ouvrirFenetre("#kp_text", ".kp_barre-une-app--text");
 }
 document.querySelector(".kp_folder--text").addEventListener("click", ouvrirText);
 document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvrirText);
-/* ----------------------------------------------------------------------------------- */
-/* CARTE */
-/* ----------------------------------------------------------------------------------- */
-function ouvrirPokemon(){
-  fermerMenu();
-  let zindex = getHighestZIndex();
-  document.querySelector("#kp_pokemon").style.zIndex = zindex + 1;
-  document.querySelector(".kp_barre-une-app--pokemon").classList.add('kp_barre-une-app--show');
-  addClass(document.querySelector("#kp_pokemon"), 'kp_pokemon--show');
-  addClass(document.querySelector("#kp_pokemon"), 'kp_window--show');
-  removeClass(document.querySelector("#kp_pokemon"), 'kp_element--action--reduct');
+
+// Ouvrir Pokemon
+function ouvrirPokemon() {
+  ouvrirFenetre("#kp_pokemon", ".kp_barre-une-app--pokemon");
 }
 document.querySelector(".kp_folder--pokemon").addEventListener("click", ouvrirPokemon);
 document.querySelector(".kp_barre-une-app--pokemon").addEventListener("click", ouvrirPokemon);
-/* ----------------------------------------------------------------------------------- */
-/* ----------------------------------------------------------------------------------- */
-/* FOLDER PROJECTS */
-/* ----------------------------------------------------------------------------------- */
-function ouvrirFolderProjects(){
-  fermerMenu();
-  let zindex = getHighestZIndex();
-  document.querySelector("#kp_folder-projects").style.zIndex = zindex + 1;
-  document.querySelector(".kp_barre-une-app--folder-projects").classList.add('kp_barre-une-app--show');
-  addClass(document.querySelector("#kp_folder-projects"), 'kp_pokemon--show');
-  addClass(document.querySelector("#kp_folder-projects"), 'kp_window--show');
-  removeClass(document.querySelector("#kp_folder-projects"), 'kp_element--action--reduct');
+
+// Ouvrir Folder Projects
+function ouvrirFolderProjects() {
+  ouvrirFenetre("#kp_folder-projects", ".kp_barre-une-app--folder-projects");
 }
 document.querySelector(".kp_folder--folder-projects").addEventListener("click", ouvrirFolderProjects);
 document.querySelector(".kp_barre-une-app--folder-projects").addEventListener("click", ouvrirFolderProjects);
 document.querySelector(".kp_menu__barre-etat--projet").addEventListener("click", ouvrirFolderProjects);
 
-/* ----------------------------------------------------------------------------------- */
-function reduireProfil(){
+// Réduire Profil
+function reduireProfil() {
   removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');
 }
 document.querySelector(".kp_icon--reduct-profil").addEventListener("click", reduireProfil);
 
-function ouvrirProfil(){
-  fermerMenu();
-  let zindex = getHighestZIndex();
-  document.querySelector("#kp_profil").style.zIndex = zindex + 1;
-  document.querySelector(".kp_barre-une-app--profil").classList.add('kp_barre-une-app--show');
-  addClass(document.querySelector("#kp_profil"), 'kp_profil--show');
-  removeClass(document.querySelector("#kp_profil"), 'kp_element--action--reduct');
+// Ouvrir Profil
+function ouvrirProfil() {
+  ouvrirFenetre("#kp_profil", ".kp_barre-une-app--profil");
 }
 document.querySelector(".kp_menu__barre-etat--titre").addEventListener("click", ouvrirProfil);
 document.querySelector(".kp_barre-une-app--profil").addEventListener("click", ouvrirProfil);
 
-/* ----------------------------------------------------------------------------------- */
-/* CV */
-/* ----------------------------------------------------------------------------------- */
-function ouvrirCv(){
-  fermerMenu();
-  let zindex = getHighestZIndex();
-  document.querySelector("#kp_quisuisje").style.zIndex = zindex + 1;
-  document.querySelector(".kp_barre-une-app--quisuisje").classList.add('kp_barre-une-app--show');
-  addClass(document.querySelector("#kp_quisuisje"), 'kp_quisuisje--show');
-  addClass(document.querySelector("#kp_quisuisje"), 'kp_window--show');
-  removeClass(document.querySelector("#kp_quisuisje"), 'kp_element--action--reduct');
+// Ouvrir CV
+function ouvrirCv() {
+  ouvrirFenetre("#kp_quisuisje", ".kp_barre-une-app--quisuisje");
 }
 document.querySelector(".kp_folder--quisuisje").addEventListener("click", ouvrirCv);
 document.querySelector(".kp_barre-une-app--quisuisje").addEventListener("click", ouvrirCv);
 document.querySelector(".kp_menu__barre-etat--quisuisje").addEventListener("click", ouvrirCv);
-/* ----------------------------------------------------------------------------------- */
 
-/* ----------------------------------------------------------------------------------- */
-/* TERMINAL */
-/* ----------------------------------------------------------------------------------- */
+// Ouvrir Terminal
 let terminalCharge = true;
 
-function ouvrirTerminal(){
-  fermerMenu();
-  let zindex = getHighestZIndex();
-  document.querySelector("#kp_terminal").style.zIndex = zindex + 1;
-  addClass(document.querySelector(".kp_barre-une-app--terminal"), 'kp_barre-une-app--show');
-  addClass(document.querySelector("#kp_terminal"), 'kp_window--show');
-  terminalCharge ? terminalCharge = true : ecrireTexte ; 
+function ouvrirTerminal() {
+  ouvrirFenetre("#kp_terminal", ".kp_barre-une-app--terminal");
+  if (!terminalCharge) {
+    terminalCharge = true;
+    ecrireTexte();
+  }
 }
 document.querySelector(".kp_folder--terminal").addEventListener("click", ouvrirTerminal);
-
 document.querySelector(".kp_barre-une-app--terminal").addEventListener("click", ouvrirTerminal);
 
-/* ----------------------------------------------------------------------------------- */
-function fermerMenu(){
-  removeClass(document.querySelector(".kp_menu__barre-etat"), 'kp_menu__barre-etat--show');
-}
-function ouvrirMenu(){
-  let zindex = getHighestZIndex();
-  document.querySelector(".kp_menu__barre-etat").style.zIndex = zindex + 1;
-  addClass(document.querySelector(".kp_menu__barre-etat"), 'kp_menu__barre-etat--show');
-}
-/* ----------------------------------------------------------------------------------- */
 
 
 /* ----------------------------------------------------------------------------------- */
@@ -505,6 +459,9 @@ window.animerTexteTerminal = ecrireTexte;
 
 
 /* ---------------------------------------------------------- */
+
+
+// Obtenir le z-index le plus élevé
 function getHighestZIndex() {
   const elements = document.querySelectorAll('.kp_z-index');
   let highest = 0;
@@ -516,6 +473,7 @@ function getHighestZIndex() {
   });
   return highest;
 }
+
 function handleMouseDown(event) {
   const highestZIndex = getHighestZIndex();
   event.currentTarget.style.zIndex = highestZIndex + 1;
@@ -618,3 +576,37 @@ card.addEventListener('mouseleave', () => {
   
     cardGlow.style.backgroundPosition = `0px 0px`;
 });
+
+const btnFullScreen = document.getElementById('fullscreen-btn');
+
+btnFullScreen.addEventListener('click', toggleFullScreen);
+
+function toggleFullScreen() {
+  if (!document.fullscreenElement &&
+      !document.mozFullScreenElement &&
+      !document.webkitFullscreenElement &&
+      !document.msFullscreenElement) {
+    // Demande le plein écran et change le texte du bouton
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) {
+      document.documentElement.msRequestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+    btnFullScreen.innerHTML = "Quitter le mode plein écran";
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+    btnFullScreen.innerHTML = "S'immerge en mode plein écran";
+  }
+}

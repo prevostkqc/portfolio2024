@@ -111,6 +111,7 @@
                     <div class="kp_line-projet">
                         <div class="kp_line-year">
                             Plusieurs pages réalisées pour des PC Gamer
+                            <br>2021-2024
                         </div>
                         <!-- Cybertek PC -->
                         <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('CybertekPcGamer');">
@@ -126,6 +127,7 @@
                     <div class="kp_line-projet">
                         <div class="kp_line-year">
                             Sites dont j'étais responsable pour le Groupe Cybertek
+                            <br>2021-2024
                         </div>
                         <!-- Cybertek -->
                         <article class="kp_folder--un-ico  kp_folder--projets"  @click="setCompagnieProjet('Cybertek');">
@@ -189,6 +191,7 @@
                     <div class="kp_line-projet">
                         <div class="kp_line-year">
                             Projets réalisés plus tôt dans ma carrière
+                            <br>2013-2021
                         </div>
                         
                         
@@ -492,14 +495,10 @@
             </div>
         </section>
     </main>
+    <button id="fullscreen-btn">S'immerger en mode plein écran</button>
 
-    <!-- <div class="kp_splash">
-        <img src="/images/logo-2024.png" class="kp_logo-open" alt="Logo Kévin Prévost">
-        <audio autoplay>
-            <source src="/audio/start.mp3" type="audio/mp3">
-            Impossible de jouer le son
-        </audio>
-    </div> -->
+    <starting />
+
     
   </template>
   
@@ -510,6 +509,7 @@
     import Personnaliser from './Personnaliser.vue';
     import Clipy from './Clipy.vue';
     import Cv from './Cv.vue';
+    import Starting from './Starting.vue';
 
     export default {
         data() {
@@ -524,7 +524,8 @@
             Autoportrait,
             Personnaliser,
             Clipy,
-            Cv
+            Cv,
+            Starting
         },
         computed: {
             // Filtre les projets en fonction de la compagnie sélectionnée
@@ -573,5 +574,88 @@
   
   
   <style>
+  .kp_crt{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    pointer-events: none;
+  }
+
+    main {
+        background: #000;
+        /* border-radius: 50px; */
+        box-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.6), 
+            inset 0 0 50px rgba(0, 0, 0, 0.8); 
+        position: relative;
+        overflow: hidden;
+    }
+
+    main::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, 
+            rgba(255, 255, 255, 0.05) 10%, 
+            rgba(0, 0, 0, 0.05) 10%, 
+            rgba(0, 0, 0, 0.05) 20%, 
+            rgba(255, 255, 255, 0.05) 30%);
+        background-size: 100% 6px; 
+        pointer-events: none;
+        mix-blend-mode: overlay; 
+        z-index: 10000;
+        opacity:0.5;
+    }
+
+    
+  #fullscreen-btn{
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px 30px;
+    background: #4fa250;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-100%);
+    animation: fairedescendrebtn 1s 5s forwards;
+    border-radius: 6px;
+    outline: solid 1px #466325;
+    font-size: 16px;
+  }
+  #fullscreen-btn:hover{
+    background: #466325;
+    color: #ffffff;
+  }
+  @keyframes fairedescendrebtn{
+    0%{
+      transform: translateY(-100%);
+    }
+    100%{
+      transform: translateY(0);
+    }
+  }
+
+    @media screen and (max-width: 1024px) {
+        main {
+            border-radius: 0;
+            box-shadow: 
+            0 0 20px rgba(0, 255, 0, 0.2),
+            inset 0 0 20px rgba(0, 0, 0, 0.3); 
+        }
+        main::before {
+            opacity:0;
+        }
+        #fullscreen-btn{
+            display:none;   
+        }
+    }
+    @media screen and (max-width px){}
   </style>
   
