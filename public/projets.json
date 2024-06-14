@@ -4,9 +4,9 @@
         "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2021 - 2024",
         "compagnie": "Cybertek",
-        "id" : 1,
-        "url" : "/sites/Cybertek/fiche-pc-gamer-1/",
-        "icn" : "cybertek",
+        "id": 1,
+        "url": "https://www.cybertek.fr/univers-gamer/pc-assembles/pc-gamer-cybertek-1083-143962.aspx",
+        "icn": "cybertek",
         "description" : "J'ai eu l'opportunité d'être responsable de la refonte de la page de fiche PC GAMER dans le but d'améliorer l'expérience utilisateur. Ce projet m'a permis de mettre en pratique mes compétences en développement web pour créer une interface plus conviviale et intuitive.  J'ai effectué des ajustements significatifs dans le code afin d'optimiser la navigation et de garantir une présentation claire et attractive des produits. En travaillant sur chaque détail, des images aux descriptions, j'ai veillé à ce que les visiteurs puissent accéder rapidement aux informations dont ils ont besoin.  Cette refonte a eu un impact positif sur l'expérience d'achat en ligne, en réduisant la confusion et en facilitant la recherche de produits. Je suis fier du résultat final et convaincu que cette initiative a contribué à renforcer la satisfaction des clients.  Cette expérience m'a également permis de développer mes compétences en résolution de problèmes, en collaboration avec d'autres membres de l'équipe pour atteindre nos objectifs communs."
     },
     {
@@ -14,8 +14,8 @@
         "techno": ["js", "jquery", "html5", "css3", "aspnet"],
         "annee": "2021 - 2024",
         "compagnie": "Cybertek",
-        "id" : 2,
-        "url" : "/sites/Cybertek/liste-pc-gamer/",
+        "id": 2,
+        "url": "https://www.cybertek.fr/univers-gamer/pc-assembles",
         "icn" : "cybertek",
         "description" : "J'ai été responsable de la refonte de la liste des PC gamers sur le site e-commerce Cybertek.fr. Cette initiative visait à améliorer l'expérience utilisateur en rendant la navigation plus fluide et intuitive. Les ajustements effectués ont permis une présentation claire et attractive des produits, facilitant ainsi la recherche des clients. Cette refonte a considérablement optimisé le processus d'achat en ligne, réduisant la confusion et renforçant la satisfaction des clients. Ce projet a été une opportunité précieuse pour perfectionner mes compétences en développement web et répondre aux besoins des utilisateurs de manière efficace."
     },
@@ -39,7 +39,7 @@
         "annee": "2021 - 2024",
         "compagnie": "Grosbill",
         "id" : 4,
-        "url" : "/sites/grosbill/home/",
+        "url" : "https://www.grosbill.com/",
         "icn" : "grosbill",
         "description" : "En qualité de Responsable du Développement Front chez le Groupe Cybertek, j'ai dirigé les efforts de conception et de développement du site e-commerce spécialisé dans la vente de matériel informatique. Mon rôle consistait à superviser la création et l'amélioration des fonctionnalités du site, ainsi qu'à garantir une expérience utilisateur optimale. En travaillant étroitement avec une équipe talentueuse, j'ai contribué à renforcer la visibilité et la performance de Grosbill.com sur le marché. Cette expérience m'a permis de démontrer mes compétences en gestion de projet et en développement web, tout en répondant aux besoins de notre clientèle spécialisée."
     },
@@ -161,21 +161,21 @@
         "annee": "2023",
         "compagnie": "CybertekPcGamer",
         "id" : 14,
-        "url" : "/sites/Cybertek/pc-serigraphies/halo-infinite/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-gamer-serigraphie-halo-infinite.aspx",
         "icn" : "cybertek",
-        "description" : "J'ai eu l'opportunité passionnante de coder la landing page d'un PC sur le thème de Halo Infinite, enrichie de plusieurs animations. Cette tâche m'a permis de mettre en œuvre mes compétences en développement web pour créer une expérience immersive et captivante pour les visiteurs. En intégrant des animations dynamiques et interactives, j'ai cherché à susciter l'engagement des utilisateurs et à mettre en valeur les fonctionnalités du produit. Cette initiative visait à renforcer la visibilité et l'attrait du produit, tout en démontrant mon expertise en matière de conception web innovante et axée sur l'utilisateur."
+        "description" : "J'ai codé la landing page du PC sérigraphié 'Halo Infinite' et dirigé l'équipe de graphistes pour le rendu visuel. En intégrant des animations dynamiques, nous avons créé une expérience utilisateur attrayante et interactive. Ce projet a mis en avant les caractéristiques du produit et renforcé sa présence en ligne, tout en montrant mes compétences en développement web et en design créatif."
     },
 
 
     {
-        "titre": "Sea of Thieves",
+        "titre": "The Thaumaturge",
         "techno": ["js", "jquery", "html5", "css3", "aspnet"],
-        "annee": "2022",
+        "annee": "2024",
         "compagnie": "CybertekPcGamer",
         "id" : 15,
-        "url" : "/sites/Cybertek/pc-serigraphies/sea-of-thieves/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-gamer-serigraphie-the-thaumaturge.aspx",
         "icn" : "cybertek",
-        "description" : ""
+        "description" : "J'ai supervisé la création de la landing page du PC sérigraphié \"The Thaumaturge\" en tant que responsable des webdesigners et des intégrateurs. Mon rôle était de diriger l'équipe et de m'assurer que les animations interactives et le design immersif étaient bien intégrés pour offrir une expérience utilisateur captivante. Grâce à cette collaboration, nous avons mis en valeur les caractéristiques du produit et amélioré sa visibilité en ligne, tout en démontrant une expertise solide en conception web innovante"
     },
 
 
@@ -185,9 +185,9 @@
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 16,
-        "url" : "/sites/Cybertek/pc-serigraphies/the-witcher/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-gamer-serigraphie_the_witcher_3_wild_hunt.aspx",
         "icn" : "cybertek",
-        "description" : ""
+        "description" : "J'ai dirigé la sélection visuelle et codé la landing page du PC sérigraphié 'The Witcher 3: Wild Hunt'. Mon rôle comprenait la supervision de l'équipe graphique pour garantir un design attrayant et la programmation des fonctionnalités interactives pour une expérience utilisateur fluide. Ce projet a mis en avant les capacités du produit tout en démontrant mon expertise en développement web et design visuel, renforçant ainsi la présence en ligne et l'attrait du produit."
     },
 
 
@@ -197,9 +197,9 @@
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 17,
-        "url" : "/sites/Cybertek/pc-serigraphies/deotoon/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-modded-by-cybertek-deo-toons-nvidia.aspx?utm_source=fiche-produit&utm_medium=banner&utm_campaign=pccustom-cyb-nvidia-deotoons",
         "icn" : "cybertek",
-        "description" : ""
+        "description" : "J'ai dirigé la création visuelle et réalisé le code de la landing page du PC 'Deo Toons x Nvidia'. En supervisant l'équipe graphique, j'ai veillé à ce que le design soit unique et accrocheur. J'ai également intégré des éléments interactifs pour offrir une expérience utilisateur engageante. Ce projet a mis en avant la créativité de Deo Toons et les performances du produit, tout en renforçant l'engagement en ligne et démontrant mes compétences en développement web et design visuel."
     },
 
 
@@ -209,7 +209,7 @@
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 18,
-        "url" : "/sites/Cybertek/pc-serigraphies/ragnarock/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-gamer-assassins-creed-valhalla-dawn-of-ragnarok.aspx?utm_source=homepage&utm_medium=banner&utm_campaign=pc-ragnarok",
         "icn" : "cybertek",
         "description" : ""
     },

@@ -1,6 +1,7 @@
 <template>
     <!-- Satrting -->
-    <div class=""></div>
+    <div v-if="showAnimation">
+        <div class=""></div>
         <section class="kp_starting">
             <div class="kp_ecran-container">
                 <img class="kp_ecran  kp_ecran--step1" src="images/ecran_eteint.png" alt="écran">
@@ -11,21 +12,37 @@
                 <img class="kp_ecran  kp_ecran--step0  kp_ecran--step6" src="images/ecran6.png" alt="écran click">
             </div>
         </section>
+    </div>
     <!-- Satrting -->
 </template>
 
 <script>
-    export default {
-        name: 'Starting',
-        data() {
-            return {
-            };
-        },
-        methods: {
-        },
-        mounted() {
-        },
-    };
+export default {
+    name: 'Starting',
+    data() {
+        return {
+            showAnimation: false
+        };
+    },
+    methods: {
+        checkAndShowAnimation() {
+            const ANIMATION_INTERVAL = 15 * 60 * 1000;
+            const lastAnimationTime = localStorage.getItem('lastAnimationTime');
+            const now = Date.now();
+
+            if (!lastAnimationTime || (now - lastAnimationTime) > ANIMATION_INTERVAL) {
+                this.showAnimation = true;
+                localStorage.setItem('lastAnimationTime', now);
+                setTimeout(() => {
+                    this.showAnimation = false;
+                }, 5000);
+            }
+        }
+    },
+    mounted() {
+        this.checkAndShowAnimation();
+    },
+};
 </script>
 
 <style scoped>    
