@@ -397,6 +397,7 @@ p, div, span{
     position:absolute;
     right: 10px;
     top: 10px;
+    pointer-events: initial;
   }
   .resize-handle {
     position: absolute;
@@ -1162,21 +1163,6 @@ background-color: white;
 
 /* ----------------- */
 /* folder project */
-
-.kp_folder-projects{
-  width: 630px;
-  height: fit-content;
-  background: white;
-  position: absolute;
-  border: solid 4px #ffffff;
-  outline: solid 1px #9b9b9b;
-  max-width: 1000px;
-  display: none;
-  left: 220px;
-  top: 10px;
-  height: 870px;
-  z-index: 2;
-}
 .kp_folder-projects_zone-texte {
   background: rgb(235, 235, 235);
   height: calc(100% - 51px);
@@ -1199,7 +1185,7 @@ background-color: white;
   display: none;
   left: 180px;
   top: 30px;
-  height: 595px;
+  height: 653px;
   z-index: 2;
 }
 .kp_folder-projects-zone-texte{

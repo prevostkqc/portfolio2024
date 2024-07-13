@@ -161,21 +161,21 @@
         "annee": "2023",
         "compagnie": "CybertekPcGamer",
         "id" : 14,
-        "url" : "/sites/Cybertek/pc-serigraphies/halo-infinite/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-gamer-serigraphie-halo-infinite.aspx",
         "icn" : "cybertek",
-        "description" : "J'ai eu l'opportunité passionnante de coder la landing page d'un PC sur le thème de Halo Infinite, enrichie de plusieurs animations. Cette tâche m'a permis de mettre en œuvre mes compétences en développement web pour créer une expérience immersive et captivante pour les visiteurs. En intégrant des animations dynamiques et interactives, j'ai cherché à susciter l'engagement des utilisateurs et à mettre en valeur les fonctionnalités du produit. Cette initiative visait à renforcer la visibilité et l'attrait du produit, tout en démontrant mon expertise en matière de conception web innovante et axée sur l'utilisateur."
+        "description" : "J'ai codé la landing page du PC sérigraphié 'Halo Infinite' et dirigé l'équipe de graphistes pour le rendu visuel. En intégrant des animations dynamiques, nous avons créé une expérience utilisateur attrayante et interactive. Ce projet a mis en avant les caractéristiques du produit et renforcé sa présence en ligne, tout en montrant mes compétences en développement web et en design créatif."
     },
 
 
     {
-        "titre": "Sea of Thieves",
+        "titre": "The Thaumaturge",
         "techno": ["js", "jquery", "html5", "css3", "aspnet"],
-        "annee": "2022",
+        "annee": "2024",
         "compagnie": "CybertekPcGamer",
         "id" : 15,
-        "url" : "/sites/Cybertek/pc-serigraphies/sea-of-thieves/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-gamer-serigraphie-the-thaumaturge.aspx",
         "icn" : "cybertek",
-        "description" : ""
+        "description" : "J'ai supervisé la création de la landing page du PC sérigraphié \"The Thaumaturge\" en tant que responsable des webdesigners et des intégrateurs. Mon rôle était de diriger l'équipe et de m'assurer que les animations interactives et le design immersif étaient bien intégrés pour offrir une expérience utilisateur captivante. Grâce à cette collaboration, nous avons mis en valeur les caractéristiques du produit et amélioré sa visibilité en ligne, tout en démontrant une expertise solide en conception web innovante"
     },
 
 
@@ -185,9 +185,9 @@
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 16,
-        "url" : "/sites/Cybertek/pc-serigraphies/the-witcher/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-gamer-serigraphie_the_witcher_3_wild_hunt.aspx",
         "icn" : "cybertek",
-        "description" : ""
+        "description" : "J'ai dirigé la sélection visuelle et codé la landing page du PC sérigraphié 'The Witcher 3: Wild Hunt'. Mon rôle comprenait la supervision de l'équipe graphique pour garantir un design attrayant et la programmation des fonctionnalités interactives pour une expérience utilisateur fluide. Ce projet a mis en avant les capacités du produit tout en démontrant mon expertise en développement web et design visuel, renforçant ainsi la présence en ligne et l'attrait du produit."
     },
 
 
@@ -197,9 +197,9 @@
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 17,
-        "url" : "/sites/Cybertek/pc-serigraphies/deotoon/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-modded-by-cybertek-deo-toons-nvidia.aspx?utm_source=fiche-produit&utm_medium=banner&utm_campaign=pccustom-cyb-nvidia-deotoons",
         "icn" : "cybertek",
-        "description" : ""
+        "description" : "J'ai dirigé la création visuelle et réalisé le code de la landing page du PC 'Deo Toons x Nvidia'. En supervisant l'équipe graphique, j'ai veillé à ce que le design soit unique et accrocheur. J'ai également intégré des éléments interactifs pour offrir une expérience utilisateur engageante. Ce projet a mis en avant la créativité de Deo Toons et les performances du produit, tout en renforçant l'engagement en ligne et démontrant mes compétences en développement web et design visuel."
     },
 
 
@@ -209,7 +209,7 @@
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 18,
-        "url" : "/sites/Cybertek/pc-serigraphies/ragnarock/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-gamer-assassins-creed-valhalla-dawn-of-ragnarok.aspx?utm_source=homepage&utm_medium=banner&utm_campaign=pc-ragnarok",
         "icn" : "cybertek",
         "description" : ""
     },

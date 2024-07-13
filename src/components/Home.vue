@@ -44,9 +44,24 @@
                     Ma passion
                 </p>
             </article>
+            <a class="kp_hrefmailto-icon" href="mailto:contact@kevinprevost.fr?subject=Contact depuis kevinprevost.fr&body=Nom : %0D%0APrénom : %0D%0ATéléphone : %0D%0ACompagnie (facultatif) : %0D%0A%0D%0ADescription du projet : %0D%0A%0D%0A%0D%0A%0D%0A">
+                <article class="kp_folder--un-ico  kp_folder--mail">
+                    <div class="kp_folder--un-ico-container-img">
+                        <img class="kp_folder--img" src="/images/mail.png" alt="Me contacter">
+                    </div>
+                    <p class="kp_folder--un-ico-container-text">
+                        Me contacter
+                    </p>
+                </article>
+            </a>
+
+
+
 
             <Clipy />
         </section>
+        
+        <div class="scanlines-v"></div>
 
         
 
@@ -574,7 +589,7 @@
   
   
   <style>
-  .kp_crt{
+  .kp_crt{ 
     position: absolute;
     top: 0;
     left: 0;
@@ -642,6 +657,37 @@
     }
   }
 
+  .scanlines-v {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.05) 10%,
+      rgba(0, 0, 0, 0.0) 20%
+    );
+    animation: scan 5s steps(25) infinite;
+    z-index: 99;
+    pointer-events: none;
+    top:-20%;
+  }
+
+  @keyframes scan {
+    0% {
+      transform: translateY(-20%);
+      opacity:1;
+    }
+    50% {
+      transform: translateY(120%);
+      opacity:1;
+    }
+    100% {
+      transform: translateY(120%);
+      opacity:0;
+    }
+  }
+
     @media screen and (max-width: 1024px) {
         main {
             border-radius: 0;
@@ -656,6 +702,5 @@
             display:none;   
         }
     }
-    @media screen and (max-width px){}
   </style>
   
