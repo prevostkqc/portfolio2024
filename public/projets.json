@@ -155,6 +155,19 @@
     },
 
 
+    
+    {
+        "titre": "Piment72",
+        "techno": ["wordress", "js", "jquery", "html5", "css3", "ajax"],
+        "annee": "2024",
+        "compagnie": "Piment72",
+        "id" : 13,
+        "url" : "https://www.piment72.fr/",
+        "icn" : "piment72",
+        "description" : ""
+    },
+
+
     {
         "titre": "Halo Infinite",
         "techno": ["js", "jquery", "html5", "css3", "aspnet"],
