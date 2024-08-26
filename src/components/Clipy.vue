@@ -37,6 +37,7 @@
         filter: drop-shadow(2px 4px 4px black);
     }
     
+    
     @media screen and (max-width: 900px){
         .kp_clipy {
             width: 50px;

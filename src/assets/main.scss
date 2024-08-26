@@ -1,5 +1,8 @@
 @import 'reset'; 
 @import 'root'; 
+body{
+  background: #000000;
+}
 #kp_desktop{
   width: 100%;
   height: 100vh;
@@ -171,6 +174,27 @@ p, div, span{
     display: flex;
     position: relative;
     z-index: 2;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .kp_internet--onglets::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .kp_internet--onglets::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    height:1px
+  }
+  
+  .kp_internet--onglets::-webkit-scrollbar-thumb {
+    background: #888;
+    height:1px
+  }
+  
+  .kp_internet--onglets::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    height:1px
   }
   .kp_internet--onglets:after{
     content: "";
@@ -373,6 +397,7 @@ p, div, span{
     position:absolute;
     right: 10px;
     top: 10px;
+    pointer-events: initial;
   }
   .resize-handle {
     position: absolute;
@@ -389,7 +414,7 @@ p, div, span{
     width: 100vw;
     height: 100vh;
   }
-  .kp_element--movement:hover{
+  .kp_anti-hover--full:hover{
     cursor: grabbing !important;
   }
   .kp_folder--img{
@@ -456,7 +481,7 @@ p, div, span{
   .kp_projet_description{
     max-width: 1000px;
     text-align: justify;
-    font-size: 17px;
+    font-size: 14px;
     line-height: 1.6;
     margin: 10px 0 5px;
     border-top: solid 1px #000000;
@@ -815,8 +840,8 @@ p, div, span{
     left:0 !important;
     width: calc(100% - 9px) !important;
     height: calc(100vh - 80px) !important;
-    max-height:100% !important;;
-    max-width: 100% !important;;
+    max-height:100% !important;
+    max-width: 100% !important;
     right: auto !important;
     bottom: auto !important;
   }
@@ -1052,7 +1077,7 @@ background-color: white;
     display: none;
     left: 220px;
     top: 10px;
-    height: 1030px;
+    height: 1080px;
     z-index: 2;
   }
   .kp_pokemon_zone-texte {
@@ -1138,21 +1163,6 @@ background-color: white;
 
 /* ----------------- */
 /* folder project */
-
-.kp_folder-projects{
-  width: 630px;
-  height: fit-content;
-  background: white;
-  position: absolute;
-  border: solid 4px #ffffff;
-  outline: solid 1px #9b9b9b;
-  max-width: 1000px;
-  display: none;
-  left: 220px;
-  top: 10px;
-  height: 870px;
-  z-index: 2;
-}
 .kp_folder-projects_zone-texte {
   background: rgb(235, 235, 235);
   height: calc(100% - 51px);
@@ -1165,7 +1175,7 @@ background-color: white;
 }
 
 .kp_folder-projects{
-  width: 650px;
+  width: 670px;
   height: fit-content;
   background: white;
   position: absolute;
@@ -1175,12 +1185,13 @@ background-color: white;
   display: none;
   left: 180px;
   top: 30px;
-  height: 495px;
+  height: 653px;
   z-index: 2;
 }
 .kp_folder-projects-zone-texte{
     background: #ffffff;
     border: solid 1px #b5b5b5;
+    overflow-y: scroll;
 }
 .kp_folder--un-ico-container-text--black{
   color: black;
@@ -1195,8 +1206,11 @@ background-color: white;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding: 10px 0 30px;
+  padding: 40px 0 30px;
   border-bottom: solid 1px #bababa;
+}
+.kp_line-projet:nth-child(1){
+  background: #e0e0e0;
 }
 .kp_line-year{
   width: 100%;
@@ -1260,10 +1274,10 @@ background-color: white;
   color: #000000;
 }
 .kp_projet-desc--h2{
-  font-size:26px;
+  font-size:22px;
 }
 .kp_projet-annee{
-  font-size: 20px;
+  font-size: 18px;
 }
 @keyframes fadeIn {
     0% {
@@ -1334,6 +1348,7 @@ background-color: white;
 //     opacity: 0;
 //   }
 // }
+
 
 @media screen and (max-width: 900px){
   .kp_item__window{
@@ -1442,5 +1457,18 @@ background-color: white;
     position: relative;
     top: 5px;
     left: 5px;
+  }
+    
+  .kp_image_ascii--content{
+    overflow: scroll;
+    width: 100%;
+    height: calc(100% - 11px);
+    transition: 0.3s;
+    position: relative;
+    height: calc(100% - 36px) !important;
+    // max-height: calc(100vh - 223px);
+    font-size: 9px;
+    display: flex;
+    align-items: flex-end;
   }
 }
