@@ -66,7 +66,7 @@
         "id" : 6,
         "url" : "https://www.picata.fr/",
         "icn" : "picata",
-        "description" : ""
+        "description" : "J'ai participé à la refonte du site e-commerce Picata.fr, spécialisé dans la distribution de matériel électronique et informatique. Mon rôle consistait à superviser le développement de l'interface utilisateur et à optimiser la navigation pour faciliter l'expérience d'achat. Grâce à ce projet, j'ai pu perfectionner mes compétences en intégration front-end et collaborer avec une équipe pour améliorer la performance globale du site. Cette expérience a permis d'accroître la satisfaction des utilisateurs et d'améliorer les taux de conversion grâce à une interface plus fluide et intuitive."
     },
 
     
@@ -78,7 +78,7 @@
         "id" : 7,
         "url" : "/sites/kusmitea/",
         "icn" : "kusmitea",
-        "description" : ""
+        "description" : "En tant que développeur web, j'ai contribué à la conception et au développement du site e-commerce pour Kusmi Tea, une marque prestigieuse de thé. Mon travail s'est concentré sur l'amélioration des fonctionnalités front-end du site, avec une attention particulière sur la performance et l'expérience utilisateur. En optimisant le parcours client et en intégrant des technologies modernes, j'ai aidé à améliorer la visibilité en ligne de la marque et à augmenter les ventes, tout en renforçant mes compétences en développement PHP et MySQL."
     },
 
     
@@ -90,7 +90,7 @@
         "id" : 8,
         "url" : "/sites/wedemain/",
         "icn" : "wedemain",
-        "description" : ""
+        "description" : "J'ai été en charge du développement du site web pour Wedemain, une plateforme dédiée à l'innovation durable. Mon rôle consistait à mettre en place une architecture web optimisée pour la présentation d'articles et de projets. J'ai contribué à améliorer l'accessibilité du contenu et la fluidité de la navigation pour les utilisateurs, tout en assurant une compatibilité multi-navigateurs. Ce projet m'a permis d'affiner mes compétences en PHP et MySQL tout en participant à une initiative ayant un impact positif sur la société."
     },
 
     
@@ -102,7 +102,7 @@
         "id" : 9,
         "url" : "/sites/lemagauchan/",
         "icn" : "auchan",
-        "description" : ""
+        "description" : "J'ai participé au développement du site Le Mag Auchan, un magazine en ligne qui propose des articles, des conseils et des promotions pour les clients Auchan. Mon rôle était de travailler sur l'amélioration des fonctionnalités front-end et de veiller à ce que l'expérience utilisateur soit fluide et intuitive. J'ai également travaillé à l'intégration de nouvelles fonctionnalités interactives pour mieux engager les utilisateurs et optimiser la présentation des contenus. Ce projet a renforcé mes compétences en PHP et m'a permis de collaborer avec des équipes marketing pour améliorer l'interface utilisateur."
     },
 
     
@@ -114,7 +114,7 @@
         "id" : 10,
         "url" : "/sites/lescanardises/",
         "icn" : "lescanardises",
-        "description" : ""
+        "description" : "En tant que développeur web, j'ai eu la responsabilité de créer et de maintenir le site web de Les Canardises, une entreprise spécialisée dans les produits gastronomiques à base de canard. J'ai assuré le développement de l'interface utilisateur et l'optimisation des fonctionnalités e-commerce du site pour offrir une meilleure expérience d'achat. Grâce à ce projet, j'ai amélioré mes compétences en développement web, notamment en utilisant PHP et MySQL, tout en apportant des solutions techniques adaptées aux besoins du client."
     },
 
     
@@ -124,9 +124,9 @@
         "annee": "2016 - 2017",
         "compagnie": "Sophiles",
         "id" : 11,
-        "url" : "/sites/shopiles/home/",
+        "url" : "https://www.shopiles.fr/",
         "icn" : "shopiles",
-        "description" : ""
+        "description" : "J'ai contribué au développement du site Shopîles, une plateforme dédiée à l'achat et à la livraison de produits vers les DOM-TOM. Mon travail s'est concentré sur l'optimisation du parcours utilisateur, en veillant à ce que la navigation soit simple et efficace pour les utilisateurs basés en outre-mer. J'ai également participé à l'intégration de fonctionnalités personnalisées pour faciliter la gestion des commandes et des livraisons. Ce projet m'a permis de renforcer mes compétences en développement PHP et d'améliorer la performance du site e-commerce."
     },
 
     
@@ -136,9 +136,9 @@
         "annee": "2016 - 2017",
         "compagnie": "Sophiles",
         "id" : 12,
-        "url" : "/sites/shopiles/vip/",
+        "url" : "https://www.shopiles.fr/fre/65/carte-vip",
         "icn" : "shopiles",
-        "description" : ""
+        "description" : "En parallèle du site principal Shopîles, j'ai travaillé sur la création de la section VIP, offrant des services premium aux clients réguliers. J'ai intégré des fonctionnalités avancées permettant aux utilisateurs de bénéficier de remises spéciales et d'une interface améliorée. Ce projet m'a permis d'affiner mes compétences en développement front-end et back-end, tout en créant une expérience utilisateur distincte et exclusive pour les clients VIP."
     },
 
 
@@ -151,7 +151,20 @@
         "id" : 13,
         "url" : "https://www.pokemonopale.fr/",
         "icn" : "opale",
-        "description" : ""
+        "description" : "En tant que développeur principal pour Pokémon Opale, j'ai codé l'intégralité du jeu en intégrant des visuels personnalisés pour offrir une expérience unique aux joueurs. Mon travail ne s'est pas limité au développement du jeu, j'ai également conçu et codé le site web dédié, garantissant une interface utilisateur fluide et immersive qui reflète l'univers du jeu. Ce projet a été une opportunité exceptionnelle de combiner mes compétences en développement et en design graphique pour créer une expérience à la fois visuelle et interactive, contribuant ainsi au succès de ce jeu passionnant."
+    },
+
+
+    
+    {
+        "titre": "Piment72",
+        "techno": ["wordress", "js", "jquery", "html5", "css3", "ajax"],
+        "annee": "2024",
+        "compagnie": "Piment72",
+        "id" : 13,
+        "url" : "https://www.piment72.fr/",
+        "icn" : "piment72",
+        "description" : "En tant que développeur et designer, j'ai eu la responsabilité de créer le site web de Piment72.fr. J'ai conçu le design du site ainsi que le logo, en veillant à ce qu'ils reflètent parfaitement l'identité visuelle et la mission de l'entreprise. En plus de la création graphique, j'ai codé l'ensemble du site, en intégrant des fonctionnalités interactives et une interface utilisateur intuitive. Ce projet m'a permis d'allier mes compétences en design et en développement web, tout en offrant à Piment72 une présence en ligne professionnelle et cohérente."
     },
 
 
@@ -211,7 +224,7 @@
         "id" : 18,
         "url" : "https://www.cybertek.fr/landing-pages/pc-gamer-assassins-creed-valhalla-dawn-of-ragnarok.aspx?utm_source=homepage&utm_medium=banner&utm_campaign=pc-ragnarok",
         "icn" : "cybertek",
-        "description" : ""
+        "description" : "J'ai dirigé le développement de la landing page dédiée au PC sérigraphié 'Assassin's Creed Valhalla: Dawn of Ragnarok'. Ce projet m'a permis de mettre en avant mes compétences en développement web, en intégrant des animations immersives et des éléments interactifs pour captiver les utilisateurs. L'objectif principal était de créer une expérience utilisateur engageante tout en mettant en valeur les fonctionnalités et les performances du produit. Ce travail a contribué à renforcer la visibilité du PC sur le marché et à accroître l'intérêt des utilisateurs pour cette édition spéciale."
     },
 
 
@@ -221,7 +234,7 @@
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 19,
-        "url" : "/sites/Cybertek/pc-serigraphies/halo-infinite-1/",
+        "url" : "https://www.cybertek.fr/landing-pages/pchalo-microsoft-xbox-modded.aspx",
         "icn" : "cybertek",
         "description" : "J'ai eu l'opportunité passionnante de coder la landing page d'un PC sur le thème de Halo Infinite, enrichie de plusieurs animations. Cette tâche m'a permis de mettre en œuvre mes compétences en développement web pour créer une expérience immersive et captivante pour les visiteurs. En intégrant des animations dynamiques et interactives, j'ai cherché à susciter l'engagement des utilisateurs et à mettre en valeur les fonctionnalités du produit. Cette initiative visait à renforcer la visibilité et l'attrait du produit, tout en démontrant mon expertise en matière de conception web innovante et axée sur l'utilisateur."
     },
@@ -233,7 +246,7 @@
         "annee": "2022",
         "compagnie": "CybertekPcGamer",
         "id" : 20,
-        "url" : "/sites/Cybertek/pc-serigraphies/dying-light/",
+        "url" : "https://www.cybertek.fr/landing-pages/pc-dying-light-2-modded.aspx?utm_source=fiche-produit&utm_medium=banner&utm_campaign=pc-dying-light-2",
         "icn" : "cybertek",
         "description" : "Au sein de mon rôle de développeur web, j'ai eu l'occasion stimulante de concevoir la page dédiée à un PC gamer inspiré de Dying Light 2, un jeu vidéo captivant. Cette expérience m'a permis de mettre en pratique mes compétences en développement pour créer une interface immersive et dynamique, en parfaite harmonie avec l'univers sombre et intense de Dying Light 2. En intégrant des éléments interactifs et des animations évocatrices, mon objectif était de capturer l'attention des visiteurs et de mettre en lumière les performances exceptionnelles de ce PC gamer. Cette initiative a renforcé la visibilité du produit tout en illustrant mon expertise en conception web."
     }

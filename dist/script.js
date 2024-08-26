@@ -23,8 +23,8 @@ const updateInitialState = (draggableElement) => {
 };
 
 // Début Drag & Drop
-elementChangeDraggables.forEach(elementChangeDraggable => {
-  elementChangeDraggable.addEventListener('mousedown', e => {
+elementChangeDraggables.forEach((elementChangeDraggable) => {
+  elementChangeDraggable.addEventListener('mousedown', (e) => {
     const draggableElement = changedDragable(e);
     if (draggableElement) {
       handleMouseDownDrag(e, draggableElement);
@@ -48,8 +48,8 @@ const handleMouseMoveDrag = (e) => {
   const deltaX = e.clientX - lastX;
   const deltaY = e.clientY - lastY;
   if (lastElementDragable) {
-    const newLeft = parseInt(lastElementDragable.style.left || 0, 10) + deltaX;
-    const newTop = parseInt(lastElementDragable.style.top || 0, 10) + deltaY;
+    const newLeft = parseInt(lastElementDragable.style.left || '0', 10) + deltaX;
+    const newTop = parseInt(lastElementDragable.style.top || '0', 10) + deltaY;
     lastElementDragable.style.left = `${newLeft}px`;
     lastElementDragable.style.top = `${newTop}px`;
   }
@@ -67,24 +67,30 @@ const handleMouseUpDrag = () => {
 };
 
 // Redimensionnement
-resizeHandles.forEach(handle => {
-  handle.addEventListener('mousedown', function(e) {
+resizeHandles.forEach((handle) => {
+  handle.addEventListener('mousedown', (e) => {
     e.preventDefault();
-    let initialWidth = handle.parentElement.offsetWidth;
-    let initialHeight = handle.parentElement.offsetHeight;
+    let initialWidth = handle.parentElement?.offsetWidth || 0;
+    let initialHeight = handle.parentElement?.offsetHeight || 0;
     let startX = e.clientX;
     let startY = e.clientY;
-    function mouseMoveHandler(e) {
+
+    const mouseMoveHandler = (e) => {
       const deltaX = e.clientX - startX;
       const deltaY = e.clientY - startY;
-      handle.parentElement.style.width = `${initialWidth + deltaX}px`;
-      handle.parentElement.style.height = `${initialHeight + deltaY}px`;
-      handle.parentElement.style.maxWidth = `${9999}px`;
-    }
-    function mouseUpHandler() {
+      const parentElement = handle.parentElement;
+      if (parentElement) {
+        parentElement.style.width = `${initialWidth + deltaX}px`;
+        parentElement.style.height = `${initialHeight + deltaY}px`;
+        parentElement.style.maxWidth = `${9999}px`;
+      }
+    };
+
+    const mouseUpHandler = () => {
       document.removeEventListener('mousemove', mouseMoveHandler);
       document.removeEventListener('mouseup', mouseUpHandler);
-    }
+    };
+
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
   });
@@ -107,7 +113,7 @@ let clicTimer;
 
 function onDoubleClick() {
   const classeRecherchee = 'kp_element--action--resize';
-  lastElementDragable.classList.toggle(classeRecherchee);
+  lastElementDragable?.classList.toggle(classeRecherchee);
   clicCount = 0;
 }
 
@@ -117,7 +123,7 @@ function handleClic(e) {
   if (clicCount === 1) {
     clicTimer = setTimeout(() => {
       clicCount = 0;
-      // Ajoutez ici la fonction qui doit être appelée sur un simple clic
+      // Fonction au simple clic
     }, 300);
   } else if (clicCount === 2) {
     clearTimeout(clicTimer);
@@ -126,11 +132,11 @@ function handleClic(e) {
   }
 }
 
-document.querySelector(".kp_element--title").addEventListener("click", handleClic);
+document.querySelector(".kp_element--title")?.addEventListener("click", handleClic);
 
 updateInitialState();
 
-document.addEventListener('mousemove', e => {
+document.addEventListener('mousemove', (e) => {
   if (!isDragging) return;
   const draggableElement = changedDragable(e);
   if (!draggableElement) return;
@@ -139,7 +145,7 @@ document.addEventListener('mousemove', e => {
   const newTop = Math.max(0, e.clientY - offsetY);
   draggableElement.style.left = `${newLeft}px`;
   draggableElement.style.top = `${newTop}px`;
-  // La logique pour ajouter ou retirer des classes basée sur la position
+  
   if (newTop <= 0) {
     addClass(draggableElement, 'kp_element--action--resize');
     addClass(elementFullScreen, 'kp_window_isfullscreen');
@@ -158,7 +164,8 @@ document.addEventListener('mouseup', () => {
 });
 
 function changedDragable(e) {
-  let dragrableTemp = e.target.closest('.kp_changed__id'); 
+  const target = e.target;
+  const dragrableTemp = target.closest('.kp_changed__id'); 
   if (dragrableTemp && dragrableTemp.id) {
     if (["kp_terminal", "kp_browser", "kp_text"].includes(dragrableTemp.id)) {
       lastElementDragable = dragrableTemp;
@@ -169,7 +176,7 @@ function changedDragable(e) {
 
 function clickResizeWindow() {
   const classeRecherchee = 'kp_element--action--resize';
-  lastElementDragable.classList.toggle(classeRecherchee);
+  lastElementDragable?.classList.toggle(classeRecherchee);
 }
 
 // Gestion des actions sur les éléments
@@ -262,59 +269,59 @@ function fermerDescriptionProjet() {
   removeClass(document.querySelector(".kp_information-projet"), 'kp_information-projet--hide');
 }
 
-document.querySelector(".kp_barre-une-app--browser").addEventListener("click", ouvrirFolderProjects);
+document.querySelector(".kp_barre-une-app--browser")?.addEventListener("click", ouvrirFolderProjects);
 document.querySelectorAll(".kp_folder--projets, .kp_barre-une-app--browser").forEach(element => {
   const closeButton = document.querySelector(".kp_icon--close-browser");
   if (closeButton) closeButton.click();
   element.addEventListener("click", ouvrirProjet);
 });
 
-document.querySelector(".kp_un-projet--close").addEventListener("click", fermerDescriptionProjet);
-document.querySelector(".kp_information-projet").addEventListener("click", ouvrirDescriptionProjet);
-document.querySelector(".kp_projet-btn").addEventListener("click", ouvrirDescriptionProjet);
+document.querySelector(".kp_un-projet--close")?.addEventListener("click", fermerDescriptionProjet);
+document.querySelector(".kp_information-projet")?.addEventListener("click", ouvrirDescriptionProjet);
+document.querySelector(".kp_projet-btn")?.addEventListener("click", ouvrirDescriptionProjet);
 
 function ouvrirText() {
   ouvrirFenetre("#kp_text", ".kp_barre-une-app--text");
 }
 
-document.querySelector(".kp_folder--text").addEventListener("click", ouvrirText);
-document.querySelector(".kp_barre-une-app--text").addEventListener("click", ouvrirText);
+document.querySelector(".kp_folder--text")?.addEventListener("click", ouvrirText);
+document.querySelector(".kp_barre-une-app--text")?.addEventListener("click", ouvrirText);
 
 function ouvrirPokemon() {
   ouvrirFenetre("#kp_pokemon", ".kp_barre-une-app--pokemon");
 }
 
-document.querySelector(".kp_folder--pokemon").addEventListener("click", ouvrirPokemon);
-document.querySelector(".kp_barre-une-app--pokemon").addEventListener("click", ouvrirPokemon);
+document.querySelector(".kp_folder--pokemon")?.addEventListener("click", ouvrirPokemon);
+document.querySelector(".kp_barre-une-app--pokemon")?.addEventListener("click", ouvrirPokemon);
 
 function ouvrirFolderProjects() {
   ouvrirFenetre("#kp_folder-projects", ".kp_barre-une-app--folder-projects");
 }
 
-document.querySelector(".kp_folder--folder-projects").addEventListener("click", ouvrirFolderProjects);
-document.querySelector(".kp_barre-une-app--folder-projects").addEventListener("click", ouvrirFolderProjects);
-document.querySelector(".kp_menu__barre-etat--projet").addEventListener("click", ouvrirFolderProjects);
+document.querySelector(".kp_folder--folder-projects")?.addEventListener("click", ouvrirFolderProjects);
+document.querySelector(".kp_barre-une-app--folder-projects")?.addEventListener("click", ouvrirFolderProjects);
+document.querySelector(".kp_menu__barre-etat--projet")?.addEventListener("click", ouvrirFolderProjects);
 
 function reduireProfil() {
   removeClass(document.querySelector("#kp_profil"), 'kp_profil--show');
 }
 
-document.querySelector(".kp_icon--reduct-profil").addEventListener("click", reduireProfil);
+document.querySelector(".kp_icon--reduct-profil")?.addEventListener("click", reduireProfil);
 
 function ouvrirProfil() {
   ouvrirFenetre("#kp_profil", ".kp_barre-une-app--profil");
 }
 
-document.querySelector(".kp_menu__barre-etat--titre").addEventListener("click", ouvrirProfil);
-document.querySelector(".kp_barre-une-app--profil").addEventListener("click", ouvrirProfil);
+document.querySelector(".kp_menu__barre-etat--titre")?.addEventListener("click", ouvrirProfil);
+document.querySelector(".kp_barre-une-app--profil")?.addEventListener("click", ouvrirProfil);
 
 function ouvrirCv() {
   ouvrirFenetre("#kp_quisuisje", ".kp_barre-une-app--quisuisje");
 }
 
-document.querySelector(".kp_folder--quisuisje").addEventListener("click", ouvrirCv);
-document.querySelector(".kp_barre-une-app--quisuisje").addEventListener("click", ouvrirCv);
-document.querySelector(".kp_menu__barre-etat--quisuisje").addEventListener("click", ouvrirCv);
+document.querySelector(".kp_folder--quisuisje")?.addEventListener("click", ouvrirCv);
+document.querySelector(".kp_barre-une-app--quisuisje")?.addEventListener("click", ouvrirCv);
+document.querySelector(".kp_menu__barre-etat--quisuisje")?.addEventListener("click", ouvrirCv);
 
 let terminalCharge = true;
 
@@ -326,8 +333,8 @@ function ouvrirTerminal() {
   }
 }
 
-document.querySelector(".kp_folder--terminal").addEventListener("click", ouvrirTerminal);
-document.querySelector(".kp_barre-une-app--terminal").addEventListener("click", ouvrirTerminal);
+document.querySelector(".kp_folder--terminal")?.addEventListener("click", ouvrirTerminal);
+document.querySelector(".kp_barre-une-app--terminal")?.addEventListener("click", ouvrirTerminal);
 
 function fermerWindowId(idElement) {
   var idDiv = "#kp_" + idElement;
@@ -529,6 +536,13 @@ function toggleFullScreen() {
     } else if (document.webkitExitFullscreen) {
       document.webkitExitFullscreen();
     }
-    btnFullScreen.innerHTML = "S'immerge en mode plein écran";
+    btnFullScreen.innerHTML = "S'immerger en mode plein écran";
   }
 }
+
+document.addEventListener('fullscreenchange', () => {
+  isFullScreen = !isFullScreen;
+  if (!isFullScreen) {
+    btnFullScreen.innerHTML = "S'immerger en mode plein écran";
+  }
+});
